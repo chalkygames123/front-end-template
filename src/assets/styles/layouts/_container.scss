@@ -1,0 +1,10 @@
+.l-container {
+	padding: 0 15px;
+
+	@include media-breakpoint-up(md) {
+		margin: 0 auto;
+		padding: 0 20px;
+		min-width: 1080px;
+		max-width: 1920px;
+	}
+}
