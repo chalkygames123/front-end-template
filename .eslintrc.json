@@ -47,7 +47,7 @@
 		"comma-dangle": ["error", "always-multiline"],
 		"indent": ["error", "tab"],
 		"no-tabs": 0,
-		"quotes": ["error", "single"]
+		"quotes": ["error", "single"],
+		"require-jsdoc": 0
 	}
 }
-
