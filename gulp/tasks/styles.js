@@ -36,7 +36,6 @@ const styles = () => {
 	]))
 	.pipe($.if(config.production, $.cleanCss()))
 	.pipe($.rename((path) => {
-		path.dirname = path.dirname.replace('scss', 'css');
 		path.extname = '.css'
 	}))
 	.pipe($.if(!config.production, $.sourcemaps.write('maps')))
