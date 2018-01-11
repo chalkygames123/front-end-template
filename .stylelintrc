@@ -43,17 +43,6 @@
 		"color-hex-case": "lower",
 		"color-hex-length": "short",
 		"color-named": "never",
-		"comment-empty-line-before": [
-			"always",
-			{
-				"except": [
-					"first-nested"
-				],
-				"ignore": [
-					"after-comment"
-				]
-			}
-		],
 		"comment-whitespace-inside": "always",
 		"custom-property-empty-line-before": "never",
 		"declaration-bang-space-after": "never",
@@ -63,7 +52,7 @@
 		"declaration-block-semicolon-newline-before": "never-multi-line",
 		"declaration-block-semicolon-space-before": "never",
 		"declaration-block-trailing-semicolon": "always",
-		"declaration-colon-space-after": "always",
+		"declaration-colon-space-after": "always-single-line",
 		"declaration-colon-space-before": "never",
 		"declaration-empty-line-before": [
 			"always",
@@ -76,7 +65,7 @@
 			}
 		],
 		"declaration-no-important": true,
-		"font-family-name-quotes": "always-where-recommended",
+		"font-family-name-quotes": "always-unless-keyword",
 		"font-family-no-missing-generic-family-keyword": null,
 		"font-weight-notation": "numeric",
 		"function-calc-no-unspaced-operator": true,
@@ -165,17 +154,6 @@
 		"scss/at-mixin-parentheses-space-before": "never",
 		"scss/dollar-variable-colon-space-after": "always-single-line",
 		"scss/dollar-variable-colon-space-before": "never",
-		"scss/double-slash-comment-empty-line-before": [
-			"always",
-			{
-				"except": [
-					"first-nested"
-				],
-				"ignore": [
-					"between-comments"
-				]
-			}
-		],
 		"scss/double-slash-comment-whitespace-inside": "always",
 		"scss/declaration-nested-properties": "never",
 		"scss/operator-no-newline-after": true,

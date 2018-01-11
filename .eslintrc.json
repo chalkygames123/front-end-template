@@ -46,8 +46,10 @@
 	"rules": {
 		"comma-dangle": ["error", "always-multiline"],
 		"indent": ["error", "tab"],
+		"lines-around-comment": 0,
 		"no-tabs": 0,
 		"quotes": ["error", "single"],
+		"semi": ["error", "never"],
 		"require-jsdoc": 0
 	}
 }
