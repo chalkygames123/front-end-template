@@ -1,8 +1,4 @@
 {
-	"name": "front-end-template",
-	"repository": "git@github.com:chalkygames123/front-end-template.git",
-	"author": "Takuya Fukuju <chalkygames123@icloud.com>",
-	"license": "MIT",
 	"private": true,
 	"scripts": {
 		"start": "cross-env NODE_ENV=watch gulp default",
