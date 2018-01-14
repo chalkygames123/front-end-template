@@ -1,35 +1,33 @@
-'use strict';
+const webpack = require('webpack')
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 
-var webpack = require('webpack');
-var WebpackBuildNotifierPlugin = require('webpack-build-notifier');
-
-const PRODUCTION = process.env.NODE_ENV === 'production';
+const PRODUCTION = process.env.NODE_ENV === 'production'
 
 const commonPlugins = [
 	new webpack.optimize.CommonsChunkPlugin({
 		name: 'assets/scripts/vendor',
-		minChunks: (module) => /node_modules/.test(module.context)
-	})
-];
+		minChunks: module => /node_modules/.test(module.context),
+	}),
+]
 
 const developmentPlugins = [
 	new webpack.SourceMapDevToolPlugin({
 		filename: 'maps/[name].js.map',
-		exclude: ['assets/scripts/vendor']
+		exclude: ['assets/scripts/vendor'],
 	}),
 	new WebpackBuildNotifierPlugin({
 		suppressSuccess: 'always',
 		messageFormatter: (error, filepath) => {
-			return require('path').relative(__dirname, filepath);
-		}
-	})
-];
+			return require('path').relative(__dirname, filepath)
+		},
+	}),
+]
 
 const productionPlugins = [
 	new webpack.optimize.ModuleConcatenationPlugin(),
 	new webpack.optimize.UglifyJsPlugin(),
-	new webpack.optimize.AggressiveMergingPlugin()
-];
+	new webpack.optimize.AggressiveMergingPlugin(),
+]
 
 module.exports = {
 	module: {
@@ -38,24 +36,24 @@ module.exports = {
 				test: /\.js$/,
 				use: [
 					{
-						loader: 'babel-loader'
+						loader: 'babel-loader',
 					},
 					{
 						loader: 'eslint-loader',
 						options: {
-							emitWarning: true
-						}
-					}
+							emitWarning: true,
+						},
+					},
 				],
-				exclude: `${__dirname}/node_modules`
-			}
-		]
+				exclude: `${__dirname}/node_modules`,
+			},
+		],
 	},
 	resolve: {
 		modules: [
 			'src/assets/scripts',
-			'node_modules'
-		]
+			'node_modules',
+		],
 	},
-	plugins: commonPlugins.concat(PRODUCTION ? productionPlugins : developmentPlugins)
-};
+	plugins: commonPlugins.concat(PRODUCTION ? productionPlugins : developmentPlugins),
+}

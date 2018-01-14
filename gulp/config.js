@@ -1,36 +1,34 @@
-'use strict';
-
 const paths = {
 	src: './src',
-	dest: './public'
-};
+	dest: './public',
+}
 
 const clean = {
 	del: {
 		patterns: [
-			paths.dest + '/**/*'
+			paths.dest + '/**/*',
 		],
 		options: {
-			dot: true
-		}
-	}
-};
+			dot: true,
+		},
+	},
+}
 
 const html = {
 	src: {
 		globs: [
-			paths.src + '/**/*.ejs'
+			paths.src + '/**/*.ejs',
 		],
 		options: {
-			base: 'src'
-		}
+			base: 'src',
+		},
 	},
 	ejs: {
 		data: null,
 		options: null,
 		settings: {
-			ext: '.html'
-		}
+			ext: '.html',
+		},
 	},
 	htmlmin: {
 		collapseBooleanAttributes: true,
@@ -45,88 +43,88 @@ const html = {
 		removeScriptTypeAttributes: true,
 		removeStyleLinkTypeAttributes: true,
 		sortAttributes: true,
-		sortClassName: true
+		sortClassName: true,
 	},
 	filter: {
-		pattern: '**/!(_)*.ejs'
-	}
-};
+		pattern: '**/!(_)*.ejs',
+	},
+}
 
 const images = {
 	src: {
 		globs: [
-			paths.src + '/assets/images/**/*.+(gif|jpg|png|svg)'
+			paths.src + '/assets/images/**/*.+(gif|jpg|png|svg)',
 		],
 		options: {
-			base: 'src'
-		}
+			base: 'src',
+		},
 	},
 	webpSrc: {
 		globs: [
-			paths.src + '/assets/images/**/*.+(jpg|png)'
+			paths.src + '/assets/images/**/*.+(jpg|png)',
 		],
 		options: {
-			base: 'src'
-		}
+			base: 'src',
+		},
 	},
 	imagemin: {
 		gifsicle: {
-			optimizationLevel: 3
+			optimizationLevel: 3,
 		},
 		jpegtran: {
-			progressive: true
+			progressive: true,
 		},
-		svgo: {}
+		svgo: {},
 	},
 	imageminPngquant: {
 		quality: '80-90',
-		speed: 1
+		speed: 1,
 	},
 	imageminWebp: {
 		quality: '90',
-		method: 6
-	}
-};
+		method: 6,
+	},
+}
 
 const scripts = {
 	src: {
 		globs: [
-			paths.src + '/assets/scripts/**/index.js'
+			paths.src + '/assets/scripts/**/index.js',
 		],
 		options: {
-			base: 'src'
-		}
-	}
-};
+			base: 'src',
+		},
+	},
+}
 
 const serve = {
 	browserSync: {
 		ui: false,
-		server: paths.dest
-	}
-};
+		server: paths.dest,
+	},
+}
 
 const styles = {
 	src: {
 		globs: [
-			paths.src + '/assets/styles/**/*.scss'
+			paths.src + '/assets/styles/**/*.scss',
 		],
 		options: {
-			base: 'src'
-		}
+			base: 'src',
+		},
 	},
 	sass: {
 		includePaths: [
-			'./node_modules/ress'
+			'./node_modules/ress',
 		],
-		outputStyle: `expanded`
+		outputStyle: 'expanded',
 	},
 	postcss: {
 		postcssAssets: {
-			basePath: paths.dest
-		}
-	}
-};
+			basePath: paths.dest,
+		},
+	},
+}
 
 const copy = {
 	src: {
@@ -135,24 +133,24 @@ const copy = {
 			'!' + html.src.globs,
 			'!' + images.src.globs,
 			'!' + styles.src.globs,
-			'!' + scripts.src.globs
+			'!' + scripts.src.globs,
 		],
 		options: {
 			base: 'src',
-			nodir: true
-		}
-	}
-};
+			nodir: true,
+		},
+	},
+}
 
 module.exports = {
-	paths: paths,
-	clean: clean,
-	copy: copy,
-	html: html,
-	images: images,
-	scripts: scripts,
-	serve: serve,
-	styles: styles,
+	paths,
+	clean,
+	copy,
+	html,
+	images,
+	scripts,
+	serve,
+	styles,
 	production: process.env.NODE_ENV === 'production',
-	watch: process.env.NODE_ENV === 'watch'
-};
+	watch: process.env.NODE_ENV === 'watch',
+}
