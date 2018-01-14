@@ -13,7 +13,7 @@
 @function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
 	$next: breakpoint-next($name, $breakpoints);
 
-	@return if($next, breakpoint-min($next, $breakpoints) - .02px, null);
+	@return if($next, breakpoint-min($next, $breakpoints), null);
 }
 
 @function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
