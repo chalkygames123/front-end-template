@@ -1,14 +1,12 @@
-'use strict';
+const gulp = require('gulp')
+const runSequence = require('run-sequence')
 
-const gulp = require('gulp');
-const runSequence = require('run-sequence');
-
-const build = (done) => {
+const build = done => {
 	runSequence(
 		'clean',
 		['copy', 'html', 'images', 'styles', 'scripts'],
 		done
-	);
-};
+	)
+}
 
-gulp.task('build', build);
+gulp.task('build', build)

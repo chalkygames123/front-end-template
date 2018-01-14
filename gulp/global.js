@@ -1,7 +1,5 @@
-'use strict';
-
-const gulpLoadPlugins = require('gulp-load-plugins');
-const browserSync = require('browser-sync');
+const gulpLoadPlugins = require('gulp-load-plugins')
+const browserSync = require('browser-sync')
 
 const plugins = gulpLoadPlugins({
 	overridePattern: false,
@@ -16,13 +14,13 @@ const plugins = gulpLoadPlugins({
 		'postcss-assets',
 		'vinyl-named',
 		'webpack',
-		'webpack-stream'
-	]
-});
+		'webpack-stream',
+	],
+})
 
-const myServer = browserSync.create();
+const myServer = browserSync.create()
 
 module.exports = {
-	plugins: plugins,
-	myServer: myServer
-};
+	plugins,
+	myServer,
+}
