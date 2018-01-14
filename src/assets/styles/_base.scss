@@ -3,6 +3,7 @@ html {
 }
 
 body {
+	min-width: map-get($grid-breakpoints, sm);
 	letter-spacing: 1px;
 	font-size: 1.3rem;
 	font-family: $font-family;
