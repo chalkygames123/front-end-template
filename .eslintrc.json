@@ -46,7 +46,7 @@
 	"rules": {
 		"arrow-body-style": 0,
 		"comma-dangle": ["error", "always-multiline"],
-		"func-style": ["error", "expression"],
+		"func-style": 0,
 		"indent": ["error", "tab"],
 		"lines-around-comment": 0,
 		"no-tabs": 0,
