@@ -44,12 +44,15 @@
 		"BezierPlugin" : false
 	},
 	"rules": {
+		"arrow-body-style": 0,
 		"comma-dangle": ["error", "always-multiline"],
+		"func-style": ["error", "expression"],
 		"indent": ["error", "tab"],
 		"lines-around-comment": 0,
 		"no-tabs": 0,
+		"prefer-template": 0,
 		"quotes": ["error", "single"],
-		"semi": ["error", "never"],
-		"require-jsdoc": 0
+		"require-jsdoc": 0,
+		"semi": ["error", "never"]
 	}
 }
