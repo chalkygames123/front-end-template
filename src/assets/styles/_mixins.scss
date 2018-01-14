@@ -59,3 +59,29 @@
 		}
 	}
 }
+
+@mixin sr-only {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	border: 0;
+	white-space: nowrap;
+	clip-path: inset(50%);
+}
+
+@mixin clearfix {
+	display: block;
+	clear: both;
+	content: '';
+}
+
+@mixin gutter {
+	padding: 0 15px;
+
+	@include media-breakpoint-up(md) {
+		padding: 0 30px;
+	}
+}
