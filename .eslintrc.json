@@ -53,6 +53,9 @@
 		"prefer-template": 0,
 		"quotes": ["error", "single"],
 		"require-jsdoc": 0,
-		"semi": ["error", "never"]
+		"semi": ["error", "never"],
+		"valid-jsdoc": ["error", {
+			"requireReturn": false
+		}]
 	}
 }
