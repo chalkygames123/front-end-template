@@ -1,17 +1,18 @@
 {
 	"private": true,
 	"scripts": {
-		"start": "cross-env NODE_ENV=watch gulp default",
-		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "gulp build",
 		"build:production": "cross-env NODE_ENV=production gulp build",
 		"clean": "gulp clean",
 		"copy": "gulp copy",
+		"development": "cross-env NODE_ENV=watch gulp build && gulp default",
 		"html": "gulp html",
 		"images": "gulp images",
 		"scripts": "gulp scripts",
 		"serve": "gulp serve",
+		"start": "cross-env NODE_ENV=watch gulp default",
 		"styles": "gulp styles",
+		"test": "echo \"Error: no test specified\" && exit 1",
 		"watch": "cross-env NODE_ENV=watch gulp watch"
 	},
 	"dependencies": {
