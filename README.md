@@ -14,6 +14,10 @@ Start Browsersync server and file watching
 
 `$ yarn start`
 
+Run `yarn build` and `yarn start` simultaneously
+
+`$ yarn development`
+
 ## Production
 
 Install dependencies
