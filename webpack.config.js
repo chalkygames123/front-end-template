@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 
 const PRODUCTION = process.env.NODE_ENV === 'production'
+const WATCH = process.env.NODE_ENV === 'watch'
 
 const commonPlugins = [
 	new webpack.optimize.CommonsChunkPlugin({
@@ -56,4 +57,5 @@ module.exports = {
 		],
 	},
 	plugins: commonPlugins.concat(PRODUCTION ? productionPlugins : developmentPlugins),
+	watch: WATCH,
 }

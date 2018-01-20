@@ -15,9 +15,7 @@ const watch = () => {
 		gulp.start('images')
 	})
 
-	$.watch(config.scripts.src.globs, () => {
-		gulp.start('scripts')
-	})
+	gulp.start('scripts')
 
 	$.watch(config.styles.src.globs, () => {
 		gulp.start('styles')

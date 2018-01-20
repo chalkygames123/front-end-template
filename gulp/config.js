@@ -18,6 +18,7 @@ const html = {
 	src: {
 		globs: [
 			paths.src + '/**/*.ejs',
+			paths.src + '/data/**',
 		],
 		options: {
 			base: 'src',
@@ -46,7 +47,10 @@ const html = {
 		sortClassName: true,
 	},
 	filter: {
-		pattern: '**/!(_)*.ejs',
+		pattern: [
+			'**/!(_)*.ejs',
+			'data/**',
+		],
 	},
 }
 
@@ -89,7 +93,7 @@ const images = {
 const scripts = {
 	src: {
 		globs: [
-			paths.src + '/assets/scripts/**/index.js',
+			paths.src + '/assets/scripts/**/!(_)*.js',
 		],
 		options: {
 			base: 'src',
