@@ -5,7 +5,7 @@
 		"build:production": "cross-env NODE_ENV=production gulp build",
 		"clean": "gulp clean",
 		"copy": "gulp copy",
-		"development": "cross-env NODE_ENV=watch gulp build && gulp default",
+		"development": "cross-env NODE_ENV=watch gulp build && cross-env NODE_ENV=watch gulp default",
 		"html": "gulp html",
 		"images": "gulp images",
 		"scripts": "gulp scripts",
