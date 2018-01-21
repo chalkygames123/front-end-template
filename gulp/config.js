@@ -136,6 +136,7 @@ const copy = {
 			'!' + images.src.globs,
 			'!' + styles.src.globs,
 			'!' + scripts.src.globs,
+			'!**/.gitkeep',
 		],
 		options: {
 			base: 'src',
