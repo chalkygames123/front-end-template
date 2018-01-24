@@ -4,10 +4,7 @@ const $ = require('../global').plugins
 const myServer = require('../global').myServer
 
 const copy = () => {
-	gulp.src(config.copy.src.globs, config.copy.src.options)
-		.pipe($.if(config.watch, $.plumber({
-			errorHandler: $.notify.onError('<%= error.message %>'),
-		})))
+	return gulp.src(config.copy.src.globs, config.copy.src.options)
 		.pipe($.changed(config.paths.dest))
 		.pipe(gulp.dest(config.paths.dest))
 		.pipe($.if(config.watch, myServer.stream()))
