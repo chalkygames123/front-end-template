@@ -1,4 +1,4 @@
-# Front-end Template
+# Front-End Template
 
 ## Development
 
