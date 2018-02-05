@@ -128,14 +128,22 @@ const styles = {
 	},
 }
 
+const negatePattern = globs => {
+	if (Array.isArray(globs)) {
+		return globs.map(el => `!${el}`)
+	}
+
+	return [`!${globs}`]
+}
+
 const copy = {
 	src: {
 		globs: [
 			paths.src + '/**/!(_)*',
-			'!' + html.src.globs,
-			'!' + images.src.globs,
-			'!' + styles.src.globs,
-			'!' + scripts.src.globs,
+			...negatePattern(html.src.globs),
+			...negatePattern(images.src.globs),
+			...negatePattern(styles.src.globs),
+			...negatePattern(scripts.src.globs),
 			'!**/.gitkeep',
 		],
 		options: {
