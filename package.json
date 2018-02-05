@@ -16,8 +16,13 @@
 		"watch": "cross-env NODE_ENV=watch gulp watch"
 	},
 	"dependencies": {
+		"custom-event-polyfill": "^0.3.0",
 		"gsap": "^1.20.3",
+		"intersection-observer": "^0.5.0",
+		"lodash": "^4.17.5",
+		"object-fit-polyfill": "^0.1.0",
 		"ress": "^1.2.2",
+		"smoothscroll-for-websites": "^1.4.6",
 		"swiper": "^4.0.7"
 	},
 	"devDependencies": {
