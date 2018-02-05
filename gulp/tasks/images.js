@@ -7,7 +7,7 @@ const images = () => {
 	return $.eventStream.merge(
 		gulp.src(config.images.src.globs, config.images.src.options)
 			.pipe($.changed(config.paths.dest))
-			.pipe($.imagemin([
+			.pipe($.if(config.production, $.imagemin([
 				$.imagemin.gifsicle(
 					config.images.imagemin.gifsicle
 				),
@@ -20,7 +20,7 @@ const images = () => {
 				$.imageminPngquant(
 					config.images.imageminPngquant
 				),
-			])),
+			]))),
 		gulp.src(config.images.webpSrc.globs, config.images.webpSrc.options)
 			.pipe($.changed(config.paths.dest))
 			.pipe($.imagemin([
