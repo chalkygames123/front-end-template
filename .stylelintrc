@@ -177,7 +177,7 @@
 		"selector-descendant-combinator-no-non-space": true,
 		"selector-id-pattern": null,
 		"selector-list-comma-newline-after": "always",
-		"selector-list-comma-newline-before": "always",
+		"selector-list-comma-newline-before": null,
 		"selector-list-comma-space-after": null,
 		"selector-list-comma-space-before": "never",
 		"selector-max-attribute": null,
