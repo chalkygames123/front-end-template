@@ -1,6 +1,6 @@
 const paths = {
-	src: './src',
-	dest: './public',
+	src: 'src',
+	dest: 'public',
 }
 
 const clean = {
@@ -20,7 +20,7 @@ const html = {
 			paths.src + '/**/*.ejs',
 		],
 		options: {
-			base: 'src',
+			base: paths.src,
 		},
 	},
 	ejs: {
@@ -58,7 +58,7 @@ const images = {
 			paths.src + '/assets/images/**/*.+(gif|jpg|png|svg)',
 		],
 		options: {
-			base: 'src',
+			base: paths.src,
 		},
 	},
 	webpSrc: {
@@ -66,7 +66,7 @@ const images = {
 			paths.src + '/assets/images/**/*.+(jpg|png)',
 		],
 		options: {
-			base: 'src',
+			base: paths.src,
 		},
 	},
 	imagemin: {
@@ -94,7 +94,7 @@ const scripts = {
 			paths.src + '/assets/scripts/**/!(_)*.js',
 		],
 		options: {
-			base: 'src',
+			base: paths.src,
 		},
 	},
 }
@@ -112,12 +112,12 @@ const styles = {
 			paths.src + '/assets/styles/**/*.scss',
 		],
 		options: {
-			base: 'src',
+			base: paths.src,
 		},
 	},
 	sass: {
 		includePaths: [
-			'./node_modules/ress',
+			'node_modules/ress',
 		],
 		outputStyle: 'expanded',
 	},
@@ -147,7 +147,7 @@ const copy = {
 			'!**/.gitkeep',
 		],
 		options: {
-			base: 'src',
+			base: paths.src,
 			dot: true,
 			nodir: true,
 		},
