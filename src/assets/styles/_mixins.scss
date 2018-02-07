@@ -79,9 +79,9 @@
 }
 
 @mixin gutter {
-	padding: 0 15px;
+	padding: 0 $gutter;
 
 	@include media-breakpoint-up(md) {
-		padding: 0 30px;
+		padding: 0 $gutter-md-up;
 	}
 }

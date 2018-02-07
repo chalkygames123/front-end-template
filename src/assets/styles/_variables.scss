@@ -1,3 +1,5 @@
+$font-family: 'Source Han Sans', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'YuGothic', 'Yu Gothic', sans-serif;
+
 $grid-breakpoints: (
 	xxs: 0,
 	xs: 320px,
@@ -8,7 +10,8 @@ $grid-breakpoints: (
 	xxl: 1440px
 );
 
-$font-family: 'Source Han Sans', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'YuGothic', 'Yu Gothic', sans-serif;
+$gutter: 15px;
+$gutter-md-up: 30px;
 
 $ease-in-sine: cubic-bezier(.47, 0, .745, .715);
 $ease-out-sine: cubic-bezier(.39, .575, .565, 1);
