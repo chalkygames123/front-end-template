@@ -36,9 +36,6 @@
 		"cross-env": "^5.1.3",
 		"css-mqpacker": "^6.0.1",
 		"del": "^3.0.0",
-		"eslint": "^4.12.1",
-		"eslint-config-eslint": "^4.0.0",
-		"eslint-loader": "^1.9.0",
 		"event-stream": "^3.3.4",
 		"gulp": "^3.9.1",
 		"gulp-changed": "^3.1.0",
@@ -64,6 +61,8 @@
 		"postcss-assets": "^5.0.0",
 		"require-dir": "^1.0.0",
 		"run-sequence": "^2.2.0",
+		"standard": "^10.0.3",
+		"standard-loader": "^6.0.1",
 		"stylelint": "^8.4.0",
 		"stylelint-order": "^0.8.0",
 		"stylelint-scss": "^2.2.0",
@@ -78,5 +77,41 @@
 	"private": true,
 	"browserslist": [
 		"defaults"
-	]
+	],
+	"standard": {
+		"globals": [
+			"TimelineLite",
+			"TimelineMax",
+			"TweenLite",
+			"TweenMax",
+			"Back",
+			"Bounce",
+			"Circ",
+			"Cubic",
+			"Ease",
+			"EaseLookup",
+			"Elastic",
+			"Expo",
+			"Linear",
+			"Power0",
+			"Power1",
+			"Power2",
+			"Power3",
+			"Power4",
+			"Quad",
+			"Quart",
+			"Quint",
+			"RoughEase",
+			"Sine",
+			"SlowMo",
+			"SteppedEase",
+			"Strong",
+			"Draggable",
+			"SplitText",
+			"VelocityTracker",
+			"CSSPlugin",
+			"ThrowPropsPlugin",
+			"BezierPlugin"
+		]
+	}
 }
