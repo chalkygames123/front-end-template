@@ -5584,10 +5584,6 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-object-fit-polyfill@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/object-fit-polyfill/-/object-fit-polyfill-0.1.0.tgz#af96f36d72f6fdadad528e0b9c9686cb469f75a9"
-
 object-get-own-property-descriptor-x@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/object-get-own-property-descriptor-x/-/object-get-own-property-descriptor-x-3.2.0.tgz#464585ad03e66108ed166c99325b8d2c5ba93712"
@@ -5665,6 +5661,10 @@ object.values@^1.0.4:
     es-abstract "^1.6.1"
     function-bind "^1.1.0"
     has "^1.0.1"
+
+objectFitPolyfill@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/objectFitPolyfill/-/objectFitPolyfill-2.1.0.tgz#07d86d6941092de69b158b949ac236cf4e9de39f"
 
 on-finished@~2.3.0:
   version "2.3.0"
