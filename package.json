@@ -1,5 +1,4 @@
 {
-	"private": true,
 	"scripts": {
 		"build": "gulp build",
 		"build:production": "cross-env NODE_ENV=production gulp build",
@@ -71,6 +70,10 @@
 		"webpack-build-notifier": "^0.1.18",
 		"webpack-stream": "^4.0.0"
 	},
+	"engines": {
+		"node": ">=8.9.4"
+	},
+	"private": true,
 	"browserslist": [
 		"> 1%",
 		"last 2 versions",
