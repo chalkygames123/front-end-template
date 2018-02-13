@@ -40,10 +40,7 @@ module.exports = {
 						loader: 'babel-loader',
 					},
 					{
-						loader: 'eslint-loader',
-						options: {
-							emitWarning: true,
-						},
+						loader: 'standard-loader',
 					},
 				],
 				exclude: `${__dirname}/node_modules`,
