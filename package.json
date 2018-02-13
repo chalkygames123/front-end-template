@@ -20,8 +20,10 @@
 		"intersection-observer": "^0.5.0",
 		"lodash": "^4.17.5",
 		"objectFitPolyfill": "^2.1.0",
+		"picturefill": "^3.0.2",
 		"ress": "^1.2.2",
 		"smoothscroll-for-websites": "^1.4.6",
+		"smoothscroll-polyfill": "^0.4.0",
 		"swiper": "^4.0.7"
 	},
 	"devDependencies": {

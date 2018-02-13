@@ -6004,6 +6004,10 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
+picturefill@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/picturefill/-/picturefill-3.0.2.tgz#fa3d35fffbef5ab5300fe2ad9dca8f2e36cba27b"
+
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
@@ -7011,6 +7015,10 @@ slice-ansi@1.0.0:
 smoothscroll-for-websites@^1.4.6:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/smoothscroll-for-websites/-/smoothscroll-for-websites-1.4.6.tgz#753fac88be6f20a1ec85902593653cbaa3059f82"
+
+smoothscroll-polyfill@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.0.tgz#dcda9fe6e9f5d660b886b79be043d40c68fe57d2"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
