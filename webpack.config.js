@@ -43,8 +43,7 @@ module.exports = {
           {
             loader: 'standard-loader'
           }
-        ],
-        exclude: `${__dirname}/node_modules`
+        ]
       }
     ]
   },
