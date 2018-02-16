@@ -49,8 +49,8 @@ module.exports = {
   },
   resolve: {
     modules: [
-      'src/assets/scripts',
-      'node_modules'
+      'node_modules',
+      'src/assets/scripts'
     ]
   },
   plugins: commonPlugins.concat(PRODUCTION ? productionPlugins : developmentPlugins),
