@@ -46,7 +46,8 @@ module.exports = {
           {
             loader: 'standard-loader'
           }
-        ]
+        ],
+        exclude: /node_modules\/(?!(dom7|swiper)\/).*/
       }
     ]
   },
