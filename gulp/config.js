@@ -1,6 +1,7 @@
 const paths = {
   src: 'src',
-  dest: 'public'
+  dest: 'public',
+  root: ''
 }
 
 const clean = {
@@ -55,7 +56,7 @@ const html = {
 const images = {
   src: {
     globs: [
-      paths.src + '/assets/images/**/*.+(gif|jpg|png|svg)'
+      paths.src + paths.root + '/assets/images/**/*.+(gif|jpg|png|svg)'
     ],
     options: {
       base: paths.src
@@ -63,7 +64,7 @@ const images = {
   },
   webpSrc: {
     globs: [
-      paths.src + '/assets/images/**/*.+(jpg|png)'
+      paths.src + paths.root + '/assets/images/**/*.+(jpg|png)'
     ],
     options: {
       base: paths.src
@@ -91,7 +92,7 @@ const images = {
 const scripts = {
   src: {
     globs: [
-      paths.src + '/assets/scripts/**/!(_)*.js'
+      paths.src + paths.root + '/assets/scripts/**/!(_)*.js'
     ],
     options: {
       base: paths.src
@@ -102,14 +103,15 @@ const scripts = {
 const serve = {
   browserSync: {
     ui: false,
-    server: paths.dest
+    server: paths.dest,
+    startPath: paths.root
   }
 }
 
 const styles = {
   src: {
     globs: [
-      paths.src + '/assets/styles/**/*.scss'
+      paths.src + paths.root + '/assets/styles/**/*.scss'
     ],
     options: {
       base: paths.src
