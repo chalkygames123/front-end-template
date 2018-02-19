@@ -5,6 +5,9 @@ const PRODUCTION = process.env.NODE_ENV === 'production'
 const WATCH = process.env.NODE_ENV === 'watch'
 
 const commonPlugins = [
+  new webpack.EnvironmentPlugin({
+    NODE_ENV: 'development'
+  }),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'assets/scripts/vendor',
     minChunks: module => /node_modules/.test(module.context)
