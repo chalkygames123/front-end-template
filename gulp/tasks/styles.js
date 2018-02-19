@@ -5,7 +5,7 @@ const myServer = require('../global').myServer
 
 const styles = () => {
   return gulp.src(config.styles.src.globs, config.styles.src.options)
-    .pipe($.if(config.watch, $.plumber({
+    .pipe($.if(config.development, $.plumber({
       errorHandler: $.notify.onError(error => {
         const options = {
           title: 'gulp styles - Error',
@@ -39,7 +39,7 @@ const styles = () => {
     }))
     .pipe($.if(!config.production, $.sourcemaps.write('maps')))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(config.watch, myServer.stream()))
+    .pipe($.if(config.development, myServer.stream()))
 }
 
 gulp.task('styles', ['images'], styles)

@@ -163,6 +163,6 @@ module.exports = {
   scripts,
   serve,
   styles,
-  production: process.env.NODE_ENV === 'production',
-  watch: process.env.NODE_ENV === 'watch'
+  development: process.env.NODE_ENV === 'development',
+  production: process.env.NODE_ENV === 'production'
 }

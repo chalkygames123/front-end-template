@@ -6,7 +6,7 @@ const myServer = require('../global').myServer
 const html = () => {
   return gulp.src(config.html.src.globs, config.html.src.options)
     .pipe($.filter(config.html.filter.pattern))
-    .pipe($.if(config.watch, $.plumber({
+    .pipe($.if(config.development, $.plumber({
       errorHandler: $.notify.onError(error => {
         const options = {
           title: 'gulp html - Error',
@@ -29,7 +29,7 @@ const html = () => {
     }))
     .pipe($.if(config.production, $.htmlmin(config.html.htmlmin)))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(config.watch, myServer.stream()))
+    .pipe($.if(config.development, myServer.stream()))
 }
 
 gulp.task('html', html)

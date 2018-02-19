@@ -4,15 +4,15 @@
 		"build:production": "cross-env NODE_ENV=production gulp build",
 		"clean": "gulp clean",
 		"copy": "gulp copy",
-		"development": "cross-env NODE_ENV=watch gulp development",
+		"development": "cross-env NODE_ENV=development gulp development",
 		"html": "gulp html",
 		"images": "gulp images",
 		"scripts": "gulp scripts",
 		"serve": "gulp serve",
-		"start": "cross-env NODE_ENV=watch gulp default",
+		"start": "cross-env NODE_ENV=development gulp default",
 		"styles": "gulp styles",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"watch": "cross-env NODE_ENV=watch gulp watch"
+		"watch": "cross-env NODE_ENV=development gulp watch"
 	},
 	"dependencies": {
 		"custom-event-polyfill": "^0.3.0",

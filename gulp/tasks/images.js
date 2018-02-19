@@ -33,7 +33,7 @@ const images = () => {
       }))
   )
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(config.watch, myServer.stream()))
+    .pipe($.if(config.development, myServer.stream()))
 }
 
 gulp.task('images', images)
