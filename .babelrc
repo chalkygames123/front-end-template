@@ -1,8 +1,8 @@
 {
-	"plugins": ["lodash"],
-	"presets": [
-		["@babel/preset-env", {
-			"modules": false
-		}]
-	]
+  "plugins": ["lodash"],
+  "presets": [
+    ["@babel/preset-env", {
+      "modules": false
+    }]
+  ]
 }

@@ -1,21 +1,21 @@
 @function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
-	$n: index($breakpoint-names, $name);
+  $n: index($breakpoint-names, $name);
 
-	@return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
 }
 
 @function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
-	$min: map-get($breakpoints, $name);
+  $min: map-get($breakpoints, $name);
 
-	@return if($min != 0, $min, null);
+  @return if($min != 0, $min, null);
 }
 
 @function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
-	$next: breakpoint-next($name, $breakpoints);
+  $next: breakpoint-next($name, $breakpoints);
 
-	@return if($next, breakpoint-min($next, $breakpoints), null);
+  @return if($next, breakpoint-min($next, $breakpoints), null);
 }
 
 @function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
-	@return if(breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
+  @return if(breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
 }
