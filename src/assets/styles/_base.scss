@@ -1,31 +1,31 @@
 html {
-	font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-	min-width: map-get($grid-breakpoints, xs);
-	letter-spacing: 1px;
-	font-size: 1.3rem;
-	font-family: $font-family;
-	text-rendering: optimizeLegibility;
-	font-feature-settings: 'palt' 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  min-width: map-get($grid-breakpoints, xs);
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  font-family: $font-family;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'palt' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-	@include media-breakpoint-up(md) {
-		font-size: 1.6rem;
-	}
+  @include media-breakpoint-up(md) {
+    font-size: 1.6rem;
+  }
 }
 
 img {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 a {
-	color: currentColor;
-	text-decoration: none;
+  color: currentColor;
+  text-decoration: none;
 }
