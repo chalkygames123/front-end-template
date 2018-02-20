@@ -83,6 +83,10 @@
 		"defaults"
 	],
 	"standard": {
+		"env": {
+			"browser": true,
+			"es6": true
+		},
 		"globals": [
 			"TimelineLite",
 			"TimelineMax",
