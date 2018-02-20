@@ -124,6 +124,9 @@ const styles = {
     outputStyle: 'expanded'
   },
   postcss: {
+    cssMqpacker: {
+      sort: true
+    },
     postcssAssets: {
       basePath: paths.dest
     }

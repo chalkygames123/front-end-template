@@ -30,7 +30,7 @@ const styles = () => {
     .pipe($.sass(config.styles.sass))
     .pipe($.postcss([
       $.autoprefixer(),
-      $.cssMqpacker(),
+      $.cssMqpacker(config.styles.postcss.cssMqpacker),
       $.postcssAssets(config.styles.postcss.postcssAssets)
     ]))
     .pipe($.if(config.production, $.cleanCss()))
