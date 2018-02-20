@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 
+const config = require('./gulp/config')
+
 const DEVELOPMENT = process.env.NODE_ENV === 'development'
 const PRODUCTION = process.env.NODE_ENV === 'production'
 
@@ -9,7 +11,7 @@ const commonPlugins = [
     NODE_ENV: 'development'
   }),
   new webpack.optimize.CommonsChunkPlugin({
-    name: 'assets/scripts/vendor',
+    name: config.paths.root + '/assets/scripts/vendor',
     minChunks: module => /node_modules/.test(module.context)
   })
 ]
@@ -17,7 +19,7 @@ const commonPlugins = [
 const developmentPlugins = [
   new webpack.SourceMapDevToolPlugin({
     filename: 'maps/[name].js.map',
-    exclude: ['assets/scripts/vendor']
+    exclude: [config.paths.root + '/assets/scripts/vendor']
   }),
   new WebpackBuildNotifierPlugin({
     suppressSuccess: 'always',
@@ -54,7 +56,7 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      'src/assets/scripts'
+      config.paths.src + config.paths.root + '/assets/scripts'
     ]
   },
   plugins: commonPlugins.concat(PRODUCTION ? productionPlugins : developmentPlugins),
