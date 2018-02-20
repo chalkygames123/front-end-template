@@ -11,6 +11,8 @@ const scripts = () => {
     }))
     .pipe($.webpackStream(webpackConfig, $.webpack))
     .pipe(gulp.dest(config.paths.dest))
+    .pipe($.if(config.production, $.gzip()))
+    .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.development, myServer.stream()))
 }
 

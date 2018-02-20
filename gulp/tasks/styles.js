@@ -39,6 +39,8 @@ const styles = () => {
     }))
     .pipe($.if(!config.production, $.sourcemaps.write('maps')))
     .pipe(gulp.dest(config.paths.dest))
+    .pipe($.if(config.production, $.gzip()))
+    .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.development, myServer.stream()))
 }
 
