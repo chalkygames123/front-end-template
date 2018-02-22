@@ -33,7 +33,7 @@ const styles = () => {
       $.cssMqpacker(config.styles.postcss.cssMqpacker),
       $.postcssAssets(config.styles.postcss.postcssAssets)
     ]))
-    .pipe($.if(config.production, $.cleanCss()))
+    .pipe($.if(config.production, $.cleanCss(config.styles.cleanCss)))
     .pipe($.rename(path => {
       path.extname = '.css'
     }))
