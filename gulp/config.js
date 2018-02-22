@@ -127,6 +127,9 @@ const styles = {
     postcssAssets: {
       basePath: paths.dest
     }
+  },
+  cleanCss: {
+    rebase: false
   }
 }
 
