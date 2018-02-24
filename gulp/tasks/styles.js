@@ -34,6 +34,7 @@ const styles = () => {
       $.postcssAssets(config.styles.postcss.postcssAssets)
     ]))
     .pipe($.if(config.production, $.cleanCss(config.styles.cleanCss)))
+    .pipe($.if(config.production, $.csso()))
     .pipe($.rename(path => {
       path.extname = '.css'
     }))

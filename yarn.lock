@@ -1884,7 +1884,7 @@ csslint@0.10.0:
   dependencies:
     parserlib "~0.2.2"
 
-csso@^3.5.0:
+csso@^3.0.0, csso@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/csso/-/csso-3.5.0.tgz#acdbba5719e2c87bc801eadc032764b2e4b9d4e7"
   dependencies:
@@ -3522,6 +3522,14 @@ gulp-clean-css@^3.9.0:
     plugin-error "0.1.2"
     through2 "2.0.3"
     vinyl-sourcemaps-apply "0.2.1"
+
+gulp-csso@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-csso/-/gulp-csso-3.0.1.tgz#3c160364491e32f2ecefd5d531cf7724f1afb7f0"
+  dependencies:
+    csso "^3.0.0"
+    plugin-error "^0.1.2"
+    vinyl-sourcemaps-apply "^0.2.1"
 
 gulp-decompress@^1.2.0:
   version "1.2.0"
