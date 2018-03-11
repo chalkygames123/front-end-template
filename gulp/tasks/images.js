@@ -1,13 +1,12 @@
 const gulp = require('gulp')
 const config = require('../config')
-const $ = require('../global').plugins
-const myServer = require('../global').myServer
+const $ = config.plugins
 
 const images = () => {
   return $.eventStream.merge(
     gulp.src(config.images.src.globs, config.images.src.options)
       .pipe($.changed(config.paths.dest))
-      .pipe($.if(config.production, $.imagemin([
+      .pipe($.if(!config.env.development, $.imagemin([
         $.imagemin.gifsicle(
           config.images.imagemin.gifsicle
         ),
@@ -33,7 +32,7 @@ const images = () => {
       }))
   )
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(config.development, myServer.stream()))
+    .pipe($.if(config.program.watch, config.myServer.stream()))
 }
 
 gulp.task('images', images)

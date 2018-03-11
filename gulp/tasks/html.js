@@ -1,12 +1,11 @@
 const gulp = require('gulp')
 const config = require('../config')
-const $ = require('../global').plugins
-const myServer = require('../global').myServer
+const $ = config.plugins
 
 const html = () => {
   return gulp.src(config.html.src.globs, config.html.src.options)
     .pipe($.filter(config.html.filter.pattern))
-    .pipe($.if(config.development, $.plumber({
+    .pipe($.if(config.program.watch, $.plumber({
       errorHandler: $.notify.onError(error => {
         const options = {
           title: 'gulp html - Error',
@@ -27,11 +26,11 @@ const html = () => {
     .pipe($.htmlhint.failOnError({
       suppress: true
     }))
-    .pipe($.if(config.production, $.htmlmin(config.html.htmlmin)))
+    .pipe($.if(!config.env.development, $.htmlmin(config.html.htmlmin)))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(config.production, $.gzip()))
+    .pipe($.if(!config.env.development, $.gzip()))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(config.development, myServer.stream()))
+    .pipe($.if(config.program.watch, config.myServer.stream()))
 }
 
 gulp.task('html', html)

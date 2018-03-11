@@ -1,6 +1,6 @@
 const gulp = require('gulp')
 const config = require('../config')
-const $ = require('../global').plugins
+const $ = config.plugins
 
 const watch = () => {
   $.watch(config.copy.src.globs, () => {

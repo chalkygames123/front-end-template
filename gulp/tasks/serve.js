@@ -1,9 +1,8 @@
 const gulp = require('gulp')
 const config = require('../config')
-const myServer = require('../global').myServer
 
 const serve = () => {
-  return myServer.init(
+  return config.myServer.init(
     config.serve.browserSync
   )
 }

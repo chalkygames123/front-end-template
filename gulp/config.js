@@ -1,3 +1,28 @@
+const program = require('commander')
+
+program
+  .option('-p, --watch')
+  .parse(process.argv)
+
+const plugins = require('gulp-load-plugins')({
+  overridePattern: false,
+  pattern: [
+    'ansi-regex',
+    'autoprefixer',
+    'browser-sync',
+    'css-mqpacker',
+    'event-stream',
+    'imagemin-pngquant',
+    'imagemin-webp',
+    'postcss-assets',
+    'vinyl-named',
+    'webpack',
+    'webpack-stream'
+  ]
+})
+
+const myServer = require('browser-sync').create()
+
 const paths = {
   src: 'src',
   dest: 'public',
@@ -136,7 +161,7 @@ const styles = {
   }
 }
 
-const negatePattern = globs => {
+function negatePattern (globs) {
   if (Array.isArray(globs)) {
     return globs.map(el => `!${el}`)
   }
@@ -163,6 +188,13 @@ const copy = {
 }
 
 module.exports = {
+  env: {
+    DEVELOPMENT: process.env.NODE_ENV === 'development',
+    PRODUCTION: process.env.NODE_ENV === 'production'
+  },
+  program,
+  plugins,
+  myServer,
   paths,
   clean,
   copy,
@@ -170,7 +202,5 @@ module.exports = {
   images,
   scripts,
   serve,
-  styles,
-  development: process.env.NODE_ENV === 'development',
-  production: process.env.NODE_ENV === 'production'
+  styles
 }
