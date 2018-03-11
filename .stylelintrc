@@ -243,7 +243,6 @@
           "type": "at-rule",
           "name": "include"
         },
-        "at-rules",
         "declarations",
         {
           "type": "at-rule",
@@ -255,10 +254,7 @@
           "name": "media"
         },
         "rules"
-      ],
-      {
-        "unspecified": "bottom"
-      }
+      ]
     ],
     "order/properties-order": [
       [
@@ -464,7 +460,7 @@
         "orientation"
       ],
       {
-        "unspecified": "bottom"
+        "unspecified": "bottomAlphabetical"
       }
     ]
   }
