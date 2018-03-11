@@ -1,7 +1,6 @@
 const gulp = require('gulp')
 const config = require('../config')
-const $ = require('../global').plugins
-const myServer = require('../global').myServer
+const $ = config.plugins
 const webpackConfig = require('../../webpack.config')
 
 const scripts = () => {
@@ -11,9 +10,9 @@ const scripts = () => {
     }))
     .pipe($.webpackStream(webpackConfig, $.webpack))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(config.production, $.gzip()))
+    .pipe($.if(!config.env.development, $.gzip()))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(config.development, myServer.stream()))
+    .pipe($.if(config.program.watch, config.myServer.stream()))
 }
 
 gulp.task('scripts', scripts)
