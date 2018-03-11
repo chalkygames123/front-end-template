@@ -60,7 +60,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sass-glob": "^1.0.8",
     "gulp-sourcemaps": "^2.2.0",
-    "gulp-stylelint": "^6.0.0",
+    "gulp-stylelint": "^7.0.0",
     "gulp-watch": "^5.0.0",
     "imagemin-pngquant": "^5.0.0",
     "imagemin-webp": "^4.0.0",
@@ -74,7 +74,7 @@
     "stylelint-order": "^0.8.0",
     "stylelint-scss": "^2.2.0",
     "vinyl-named": "^1.1.0",
-    "webpack": "^3.9.1",
+    "webpack": "^4.1.1",
     "webpack-build-notifier": "^0.1.18",
     "webpack-stream": "^4.0.0"
   },
