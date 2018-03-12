@@ -24,7 +24,7 @@ const styles = () => {
         }
       ]
     }))
-    .pipe($.if(config.env.development, $.sourcemaps.init()))
+    .pipe($.if(config.env.DEVELOPMENT, $.sourcemaps.init()))
     .pipe($.sassGlob())
     .pipe($.sass(config.styles.sass))
     .pipe($.postcss([
@@ -32,14 +32,14 @@ const styles = () => {
       $.cssMqpacker(config.styles.postcss.cssMqpacker),
       $.postcssAssets(config.styles.postcss.postcssAssets)
     ]))
-    .pipe($.if(!config.env.development, $.cleanCss(config.styles.cleanCss)))
-    .pipe($.if(!config.env.development, $.csso()))
+    .pipe($.if(!config.env.DEVELOPMENT, $.cleanCss(config.styles.cleanCss)))
+    .pipe($.if(!config.env.DEVELOPMENT, $.csso()))
     .pipe($.rename(path => {
       path.extname = '.css'
     }))
-    .pipe($.if(config.env.development, $.sourcemaps.write('maps')))
+    .pipe($.if(config.env.DEVELOPMENT, $.sourcemaps.write('maps')))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(!config.env.development, $.gzip()))
+    .pipe($.if(!config.env.DEVELOPMENT, $.gzip()))
     .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.program.watch, config.myServer.stream()))
 }

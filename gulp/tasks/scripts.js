@@ -10,7 +10,7 @@ const scripts = () => {
     }))
     .pipe($.webpackStream(webpackConfig, $.webpack))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(!config.env.development, $.gzip()))
+    .pipe($.if(!config.env.DEVELOPMENT, $.gzip()))
     .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.program.watch, config.myServer.stream()))
 }
