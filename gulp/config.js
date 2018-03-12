@@ -14,6 +14,7 @@ const plugins = require('gulp-load-plugins')({
     'event-stream',
     'imagemin-pngquant',
     'imagemin-webp',
+    'normalize-path',
     'postcss-assets',
     'vinyl-named',
     'webpack',
