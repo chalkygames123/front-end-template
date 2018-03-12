@@ -73,9 +73,11 @@
 }
 
 @mixin clearfix {
-  display: block;
-  clear: both;
-  content: '';
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
 }
 
 @mixin gutter {
