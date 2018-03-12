@@ -3,6 +3,24 @@ const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 
 const config = require('./gulp/config')
 
+const commonPlugins = []
+
+const developmentPlugins = [
+  new webpack.SourceMapDevToolPlugin({
+    filename: 'maps/[name].js.map',
+    exclude: [config.paths.root ? '/' : '' + 'assets/scripts/vendor']
+  }),
+  new WebpackBuildNotifierPlugin({
+    suppressSuccess: 'always',
+    messageFormatter: (error, filepath) => {
+      if (error) {}
+      return require('path').relative(__dirname, filepath)
+    }
+  })
+]
+
+const productionPlugins = []
+
 module.exports = {
   mode: process.env.NODE_ENV,
   optimization: {
@@ -37,18 +55,6 @@ module.exports = {
       config.paths.src + config.paths.root + '/assets/scripts'
     ]
   },
-  plugins: [
-    new webpack.SourceMapDevToolPlugin({
-      filename: 'maps/[name].js.map',
-      exclude: [config.paths.root ? '/' : '' + 'assets/scripts/vendor']
-    }),
-    new WebpackBuildNotifierPlugin({
-      suppressSuccess: 'always',
-      messageFormatter: (error, filepath) => {
-        if (error) {}
-        return require('path').relative(__dirname, filepath)
-      }
-    })
-  ],
+  plugins: commonPlugins.concat(!config.env.DEVELOPMENT ? productionPlugins : developmentPlugins),
   watch: config.program.watch
 }
