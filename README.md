@@ -2,28 +2,52 @@
 
 ## Development
 
-Install dependencies
+Install dependencies:
 
-`$ yarn`
+```
+$ yarn
+```
 
-Build
+Build:
 
-`$ yarn build`
+```
+$ yarn build
+```
 
-Start Browsersync server and file watching
+Start Browsersync server and file watching:
 
-`$ yarn start`
+```
+$ yarn start
+```
 
-Run `yarn build` and `yarn start` simultaneously
+Run `yarn build` and `yarn start` simultaneously:
 
-`$ yarn development`
+```
+$ yarn development
+```
+
+or
+
+```
+$ yarn dev
+```
 
 ## Production
 
-Install dependencies
+Install dependencies:
 
-`$ yarn`
+```
+$ yarn
+```
 
-Build
+Build:
 
-`$ yarn build:production`
+```
+$ yarn build:production
+```
+
+or
+
+```
+$ yarn prod
+```
