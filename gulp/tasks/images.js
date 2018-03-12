@@ -5,6 +5,17 @@ const $ = config.plugins
 const images = () => {
   return $.eventStream.merge(
     gulp.src(config.images.src.globs, config.images.src.options)
+      .pipe($.if(config.program.watch, $.plumber({
+        errorHandler: $.notify.onError(error => {
+          const options = {
+            title: 'gulp images - Error',
+            message: error.message.replace($.ansiRegex(), ''),
+            wait: true
+          }
+
+          return options
+        })
+      })))
       .pipe($.changed(config.paths.dest))
       .pipe($.if(!config.env.DEVELOPMENT, $.imagemin([
         $.imagemin.gifsicle(
