@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "custom-event-polyfill": "^0.3.0",
     "gsap": "^1.20.3",
     "intersection-observer": "^0.5.0",
