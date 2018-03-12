@@ -6,7 +6,7 @@ const images = () => {
   return $.eventStream.merge(
     gulp.src(config.images.src.globs, config.images.src.options)
       .pipe($.changed(config.paths.dest))
-      .pipe($.if(!config.env.development, $.imagemin([
+      .pipe($.if(!config.env.DEVELOPMENT, $.imagemin([
         $.imagemin.gifsicle(
           config.images.imagemin.gifsicle
         ),

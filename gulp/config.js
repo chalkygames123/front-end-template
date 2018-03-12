@@ -1,7 +1,7 @@
 const program = require('commander')
 
 program
-  .option('-p, --watch')
+  .option('-w, --watch')
   .parse(process.argv)
 
 const plugins = require('gulp-load-plugins')({

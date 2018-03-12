@@ -26,9 +26,9 @@ const html = () => {
     .pipe($.htmlhint.failOnError({
       suppress: true
     }))
-    .pipe($.if(!config.env.development, $.htmlmin(config.html.htmlmin)))
+    .pipe($.if(!config.env.DEVELOPMENT, $.htmlmin(config.html.htmlmin)))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(!config.env.development, $.gzip()))
+    .pipe($.if(!config.env.DEVELOPMENT, $.gzip()))
     .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.program.watch, config.myServer.stream()))
 }
