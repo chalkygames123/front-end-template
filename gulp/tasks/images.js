@@ -17,7 +17,7 @@ const images = () => {
         })
       })))
       .pipe($.changed(config.paths.dest))
-      .pipe($.if(!config.env.DEVELOPMENT, $.imagemin([
+      .pipe($.if(config.env.PRODUCTION, $.imagemin([
         $.imagemin.gifsicle(
           config.images.imagemin.gifsicle
         ),
