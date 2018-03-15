@@ -55,6 +55,6 @@ module.exports = {
       config.paths.src + config.paths.root + '/assets/scripts'
     ]
   },
-  plugins: commonPlugins.concat(!config.env.DEVELOPMENT ? productionPlugins : developmentPlugins),
+  plugins: commonPlugins.concat(config.env.PRODUCTION ? productionPlugins : developmentPlugins),
   watch: config.program.watch
 }
