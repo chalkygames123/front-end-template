@@ -32,6 +32,17 @@ const images = () => {
         )
       ]))),
     gulp.src(config.images.webpSrc.globs, config.images.webpSrc.options)
+      .pipe($.if(config.program.watch, $.plumber({
+        errorHandler: $.notify.onError(error => {
+          const options = {
+            title: 'gulp images - Error',
+            message: error.message.replace($.ansiRegex(), ''),
+            wait: true
+          }
+
+          return options
+        })
+      })))
       .pipe($.changed(config.paths.dest))
       .pipe($.imagemin([
         $.imageminWebp(
