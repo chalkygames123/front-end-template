@@ -17,6 +17,14 @@ body {
   }
 }
 
+// アクセス解析スクリプトによって挿入される img 要素に起因する余分な空白の除去
+// Elimination of extra whitespace caused by img element inserted by access analysis script
+body > img {
+  display: block;
+  height: 0 !important; // stylelint-disable-line
+  font-size: 0;
+}
+
 img {
   vertical-align: middle;
 }
