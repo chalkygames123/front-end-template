@@ -32,15 +32,15 @@ const styles = () => {
       $.cssMqpacker(config.styles.postcss.cssMqpacker),
       $.postcssAssets(config.styles.postcss.postcssAssets)
     ]))
-    .pipe($.if(config.env.PRODUCTION, $.cleanCss(config.styles.cleanCss)))
-    .pipe($.if(config.env.PRODUCTION, $.csso()))
     .pipe($.rename(path => {
       path.extname = '.css'
     }))
     .pipe($.if(config.env.DEVELOPMENT, $.sourcemaps.write('maps')))
+    .pipe($.if(config.env.PRODUCTION, $.cleanCss(config.styles.cleanCss)))
+    .pipe($.if(config.env.PRODUCTION, $.csso()))
     .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.env.PRODUCTION, $.gzip()))
-    .pipe(gulp.dest(config.paths.dest))
+    .pipe($.if(config.env.PRODUCTION, gulp.dest(config.paths.dest)))
     .pipe($.if(config.program.watch, config.myServer.stream()))
 }
 
