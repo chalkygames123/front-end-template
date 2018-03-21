@@ -6644,6 +6644,10 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
+moveto@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/moveto/-/moveto-1.7.1.tgz#b97847c2c6a12b88a179afd4fee0718b6851797e"
+
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
@@ -8715,10 +8719,6 @@ slide@^1.1.5:
 smoothscroll-for-websites@^1.4.6:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/smoothscroll-for-websites/-/smoothscroll-for-websites-1.4.6.tgz#753fac88be6f20a1ec85902593653cbaa3059f82"
-
-smoothscroll-polyfill@^0.4.0:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.3.tgz#94e5f2d604efcceb53f23ff0380d7ea7280d4bff"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
