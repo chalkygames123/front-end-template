@@ -1,14 +1,14 @@
 const webpack = require('webpack')
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 
-const config = require('./gulp/config')
+const gulpConfig = require('./gulp/config')
 
 const commonPlugins = []
 
 const developmentPlugins = [
   new webpack.SourceMapDevToolPlugin({
-    filename: 'maps/[name].js.map',
-    exclude: [config.paths.root ? '/' : '' + 'assets/scripts/vendor']
+    filename: 'maps/[file].map',
+    exclude: [gulpConfig.paths.root ? '/' : '' + 'assets/scripts/vendor']
   }),
   new WebpackBuildNotifierPlugin({
     suppressSuccess: 'always',
@@ -21,14 +21,14 @@ const developmentPlugins = [
 
 const productionPlugins = []
 
-module.exports = {
+const config = {
   mode: process.env.NODE_ENV,
   optimization: {
     splitChunks: {
-      chunks: 'all',
       cacheGroups: {
         vendors: {
-          name: config.paths.root ? '/' : '' + 'assets/scripts/vendor'
+          name: gulpConfig.paths.root ? '/' : '' + 'assets/scripts/vendor',
+          chunks: 'all'
         }
       }
     }
@@ -52,9 +52,11 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      config.paths.src + config.paths.root + '/assets/scripts'
+      gulpConfig.paths.src + gulpConfig.paths.root + '/assets/scripts'
     ]
   },
-  plugins: commonPlugins.concat(config.env.PRODUCTION ? productionPlugins : developmentPlugins),
-  watch: config.program.watch
+  plugins: commonPlugins.concat(gulpConfig.env.PRODUCTION ? productionPlugins : developmentPlugins),
+  watch: gulpConfig.program.watch
 }
+
+module.exports = config
