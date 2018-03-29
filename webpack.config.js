@@ -27,6 +27,7 @@ const config = {
     splitChunks: {
       cacheGroups: {
         vendors: {
+          test: /[\\/]node_modules[\\/]/,
           name: gulpConfig.paths.root ? '/' : '' + 'assets/scripts/vendor',
           chunks: 'all'
         }
