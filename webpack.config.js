@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const MinifyPlugin = require('babel-minify-webpack-plugin')
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 
 const gulpConfig = require('./gulp/config')
@@ -19,7 +20,9 @@ const developmentPlugins = [
   })
 ]
 
-const productionPlugins = []
+const productionPlugins = [
+  new MinifyPlugin()
+]
 
 const config = {
   mode: process.env.NODE_ENV,
