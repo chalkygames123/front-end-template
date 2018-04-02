@@ -11,7 +11,6 @@ const plugins = require('gulp-load-plugins')({
     'autoprefixer',
     'browser-sync',
     'css-mqpacker',
-    'event-stream',
     'imagemin-pngquant',
     'imagemin-webp',
     'normalize-path',
@@ -88,14 +87,6 @@ const images = {
       base: paths.src
     }
   },
-  webpSrc: {
-    globs: [
-      paths.src + paths.root + '/assets/images/**/*.+(jpg|png)'
-    ],
-    options: {
-      base: paths.src
-    }
-  },
   imagemin: {
     gifsicle: {
       optimizationLevel: 3
@@ -112,6 +103,11 @@ const images = {
   imageminWebp: {
     quality: '90',
     method: 6
+  },
+  webpFilter: {
+    pattern: [
+      '**/*.+(jpg|png)'
+    ]
   }
 }
 
