@@ -22,7 +22,7 @@ body {
 
 body > img {
   display: block;
-  height: 0 !important; // stylelint-disable-line
+  height: 0 !important; // stylelint-disable-line declaration-no-important
   font-size: 0;
 }
 
