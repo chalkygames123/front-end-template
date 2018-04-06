@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const MinifyPlugin = require('babel-minify-webpack-plugin')
-const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
+const WebpackNotifierPlugin = require('webpack-notifier')
 
 const gulpConfig = require('./gulp/config')
 
@@ -11,13 +11,7 @@ const developmentPlugins = [
     filename: 'maps/[file].map',
     exclude: [gulpConfig.paths.root ? '/' : '' + 'assets/scripts/vendor']
   }),
-  new WebpackBuildNotifierPlugin({
-    suppressSuccess: 'always',
-    messageFormatter: (error, filepath) => {
-      if (error) {}
-      return require('path').relative(__dirname, filepath)
-    }
-  })
+  new WebpackNotifierPlugin()
 ]
 
 const productionPlugins = [
