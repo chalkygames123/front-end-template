@@ -43,8 +43,7 @@ const config = {
             loader: 'standard-loader'
           }
         ],
-        include: /node_modules\/?(moveto)\/.*/,
-        exclude: /node_modules\/(?!(dom7|swiper)\/).*/
+        exclude: /node_modules/
       }
     ]
   },
