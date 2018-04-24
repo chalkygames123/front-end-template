@@ -1,4 +1,5 @@
 html {
+  overflow: visible;
   font-size: 62.5%;
 }
 
@@ -13,6 +14,7 @@ body {
   text-rendering: optimizeLegibility;
 
   @include media-breakpoint-up(md) {
+    min-width: map-get($grid-breakpoints, xl);
     font-size: 1.6rem;
   }
 }

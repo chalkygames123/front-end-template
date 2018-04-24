@@ -79,11 +79,3 @@
     content: '';
   }
 }
-
-@mixin gutter {
-  padding: 0 $gutter;
-
-  @include media-breakpoint-up(md) {
-    padding: 0 $gutter-md-up;
-  }
-}
