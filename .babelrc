@@ -1,11 +1,11 @@
 {
   "plugins": [
-    "@babel/plugin-transform-runtime",
     "lodash"
   ],
   "presets": [
     ["@babel/preset-env", {
-      "modules": false
+      "modules": false,
+      "useBuiltIns": "entry"
     }]
   ]
 }
