@@ -1,10 +1,15 @@
 html {
+  position: relative;
   overflow: visible;
+  min-width: map-get($grid-breakpoints, xs);
   font-size: 62.5%;
+
+  @include media-breakpoint-up(md) {
+    min-width: map-get($grid-breakpoints, xl);
+  }
 }
 
 body {
-  min-width: map-get($grid-breakpoints, xs);
   letter-spacing: 1px;
   font-size: 1.3rem;
   font-family: $font-family;
@@ -14,7 +19,6 @@ body {
   text-rendering: optimizeLegibility;
 
   @include media-breakpoint-up(md) {
-    min-width: map-get($grid-breakpoints, xl);
     font-size: 1.6rem;
   }
 }
