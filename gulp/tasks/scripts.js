@@ -12,7 +12,7 @@ const scripts = () => {
     .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.env.PRODUCTION, $.gzip()))
     .pipe($.if(config.env.PRODUCTION, gulp.dest(config.paths.dest)))
-    .pipe($.if(config.program.watch, config.myServer.stream()))
+    .pipe($.if(config.watch, config.server.stream()))
 }
 
 gulp.task('scripts', scripts)

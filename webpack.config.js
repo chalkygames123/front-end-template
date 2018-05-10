@@ -54,8 +54,8 @@ const config = {
       gulpConfig.paths.src + gulpConfig.paths.root + '/assets/scripts'
     ]
   },
-  plugins: commonPlugins.concat(gulpConfig.env.PRODUCTION ? productionPlugins : developmentPlugins),
-  watch: gulpConfig.program.watch
+  plugins: commonPlugins.concat(gulpConfig.env.PRODUCTION ? productionPlugins : [], gulpConfig.env.DEVELOPMENT ? developmentPlugins : []),
+  watch: gulpConfig.watch
 }
 
 module.exports = config
