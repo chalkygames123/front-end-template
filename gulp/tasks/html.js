@@ -5,7 +5,7 @@ const $ = config.plugins
 const html = () => {
   return gulp.src(config.html.src.globs, config.html.src.options)
     .pipe($.filter(config.html.filter.pattern))
-    .pipe($.if(config.program.watch, $.plumber({
+    .pipe($.if(config.watch, $.plumber({
       errorHandler: $.notify.onError(error => {
         const options = {
           title: 'gulp html - Error',
@@ -30,7 +30,7 @@ const html = () => {
     .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.env.PRODUCTION, $.gzip()))
     .pipe($.if(config.env.PRODUCTION, gulp.dest(config.paths.dest)))
-    .pipe($.if(config.program.watch, config.myServer.stream()))
+    .pipe($.if(config.watch, config.server.stream()))
 }
 
 gulp.task('html', html)

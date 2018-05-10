@@ -4,7 +4,8 @@ const $ = config.plugins
 
 const styles = () => {
   return gulp.src(config.styles.src.globs, config.styles.src.options)
-    .pipe($.if(config.program.watch, $.plumber({
+    .pipe($.filter(config.styles.filter.pattern))
+    .pipe($.if(config.watch, $.plumber({
       errorHandler: $.notify.onError(error => {
         const options = {
           title: 'gulp styles - Error',
@@ -41,7 +42,7 @@ const styles = () => {
     .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.env.PRODUCTION, $.gzip()))
     .pipe($.if(config.env.PRODUCTION, gulp.dest(config.paths.dest)))
-    .pipe($.if(config.program.watch, config.myServer.stream()))
+    .pipe($.if(config.watch, config.server.stream()))
 }
 
 gulp.task('styles', ['images'], styles)

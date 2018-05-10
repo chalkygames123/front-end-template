@@ -1,28 +1,3 @@
-const program = require('commander')
-
-program
-  .option('-w, --watch')
-  .parse(process.argv)
-
-const plugins = require('gulp-load-plugins')({
-  overridePattern: false,
-  pattern: [
-    'ansi-regex',
-    'autoprefixer',
-    'browser-sync',
-    'css-mqpacker',
-    'imagemin-pngquant',
-    'imagemin-webp',
-    'normalize-path',
-    'postcss-assets',
-    'vinyl-named',
-    'webpack',
-    'webpack-stream'
-  ]
-})
-
-const myServer = require('browser-sync').create()
-
 const paths = {
   src: 'src',
   dest: 'public',
@@ -141,7 +116,8 @@ const styles = {
   },
   sass: {
     includePaths: [
-      'node_modules/ress'
+      paths.src + paths.root + '/assets/styles',
+      'node_modules'
     ],
     outputStyle: 'expanded'
   },
@@ -155,6 +131,11 @@ const styles = {
   },
   cleanCss: {
     rebase: false
+  },
+  filter: {
+    pattern: [
+      '**/!(_)*.scss'
+    ]
   }
 }
 
@@ -184,14 +165,34 @@ const copy = {
   }
 }
 
+const mode = process.env.NODE_ENV || 'production'
+
+const program = require('commander')
+
+program
+  .option('-w, --watch')
+  .parse(process.argv)
+
+const plugins = require('gulp-load-plugins')({
+  overridePattern: false,
+  pattern: [
+    'ansi-regex',
+    'autoprefixer',
+    'browser-sync',
+    'css-mqpacker',
+    'imagemin-pngquant',
+    'imagemin-webp',
+    'normalize-path',
+    'postcss-assets',
+    'vinyl-named',
+    'webpack',
+    'webpack-stream'
+  ]
+})
+
+const server = require('browser-sync').create()
+
 module.exports = {
-  env: {
-    DEVELOPMENT: process.env.NODE_ENV === 'development',
-    PRODUCTION: process.env.NODE_ENV === 'production'
-  },
-  program,
-  plugins,
-  myServer,
   paths,
   clean,
   copy,
@@ -199,5 +200,12 @@ module.exports = {
   images,
   scripts,
   serve,
-  styles
+  styles,
+  env: {
+    DEVELOPMENT: mode === 'development',
+    PRODUCTION: mode === 'production'
+  },
+  watch: program.watch,
+  plugins,
+  server
 }

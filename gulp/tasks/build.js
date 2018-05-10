@@ -5,7 +5,7 @@ const runSequence = require('run-sequence')
 const build = done => {
   runSequence(
     'clean',
-    ...config.program.watch
+    ...config.watch
       ? [['copy', 'html', 'images', 'styles'], 'default']
       : [['copy', 'html', 'images', 'styles', 'scripts']],
     done
