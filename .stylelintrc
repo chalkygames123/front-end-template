@@ -94,7 +94,7 @@
     "declaration-property-value-whitelist": null,
     "font-family-name-quotes": "always-unless-keyword",
     "font-family-no-duplicate-names": true,
-    "font-family-no-missing-generic-family-keyword": null,
+    "font-family-no-missing-generic-family-keyword": true,
     "font-weight-notation": "numeric",
     "function-blacklist": null,
     "function-calc-no-unspaced-operator": true,
@@ -155,6 +155,9 @@
       {
         "except": [
           "first-nested"
+        ],
+        "ignore": [
+          "after-comment",
         ]
       }
     ],
@@ -165,8 +168,10 @@
     "selector-attribute-operator-whitelist": null,
     "selector-attribute-quotes": "always",
     "selector-class-pattern": null,
+    "selector-combinator-blacklist": null,
     "selector-combinator-space-after": "always",
     "selector-combinator-space-before": "always",
+    "selector-combinator-whitelist": null,
     "selector-descendant-combinator-no-non-space": true,
     "selector-id-pattern": null,
     "selector-list-comma-newline-after": "always",
@@ -179,6 +184,7 @@
     "selector-max-compound-selectors": null,
     "selector-max-empty-lines": 0,
     "selector-max-id": null,
+    "selector-max-pseudo-class": null,
     "selector-max-specificity": null,
     "selector-max-type": null,
     "selector-max-universal": null,
@@ -190,9 +196,11 @@
     "selector-pseudo-class-no-unknown": true,
     "selector-pseudo-class-parentheses-space-inside": "never",
     "selector-pseudo-class-whitelist": null,
+    "selector-pseudo-element-blacklist": null,
     "selector-pseudo-element-case": "lower",
     "selector-pseudo-element-colon-notation": "double",
     "selector-pseudo-element-no-unknown": true,
+    "selector-pseudo-element-whitelist": null,
     "selector-type-case": "lower",
     "selector-type-no-unknown": true,
     "shorthand-property-no-redundant-values": true,
