@@ -7,7 +7,7 @@ const paths = {
 const clean = {
   del: {
     patterns: [
-      paths.dest + '/**/*'
+      paths.dest + '/*'
     ],
     options: {
       dot: true
