@@ -247,5 +247,10 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/node,macos,windows,eclipse,intellij,visualstudiocode
 
-# Project-specific settings
+### Project-specific settings ###
+
+# Improve gitignore.io's settings
+.idea
+
+# Public directory
 public/*
