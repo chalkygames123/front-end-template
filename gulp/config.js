@@ -131,11 +131,6 @@ const styles = {
   },
   cleanCss: {
     rebase: false
-  },
-  filter: {
-    pattern: [
-      '**/!(_)*.scss'
-    ]
   }
 }
 
