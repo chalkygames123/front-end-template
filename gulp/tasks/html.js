@@ -4,7 +4,6 @@ const $ = config.plugins
 
 const html = () => {
   return gulp.src(config.html.src.globs, config.html.src.options)
-    .pipe($.filter(config.html.filter.pattern))
     .pipe($.if(config.watch, $.plumber({
       errorHandler: $.notify.onError(error => {
         const options = {
@@ -16,6 +15,7 @@ const html = () => {
         return options
       })
     })))
+    .pipe($.filter(config.html.filter.pattern))
     .pipe($.ejs(
       config.html.ejs.data,
       config.html.ejs.options,

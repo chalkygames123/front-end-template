@@ -4,7 +4,6 @@ const $ = config.plugins
 
 const styles = () => {
   return gulp.src(config.styles.src.globs, config.styles.src.options)
-    .pipe($.filter(config.styles.filter.pattern))
     .pipe($.if(config.watch, $.plumber({
       errorHandler: $.notify.onError(error => {
         const options = {
@@ -16,6 +15,7 @@ const styles = () => {
         return options
       })
     })))
+    .pipe($.filter(config.styles.filter.pattern))
     .pipe($.stylelint({
       reporters: [
         {
