@@ -15,7 +15,6 @@ const styles = () => {
         return options
       })
     })))
-    .pipe($.filter(config.styles.filter.pattern))
     .pipe($.stylelint({
       reporters: [
         {
