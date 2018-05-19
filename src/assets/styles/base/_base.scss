@@ -1,6 +1,6 @@
 html {
   min-width: map-get($grid-breakpoints, xs);
-  font-size: 62.5%;
+  font-size: 10px;
 
   @include media-breakpoint-up(md) {
     min-width: map-get($grid-breakpoints, xl);
