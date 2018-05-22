@@ -9,7 +9,7 @@ const commonPlugins = []
 const developmentPlugins = [
   new webpack.SourceMapDevToolPlugin({
     filename: 'maps/[file].map',
-    exclude: [gulpConfig.paths.root ? '/' : '' + 'assets/scripts/vendor']
+    exclude: [`${gulpConfig.paths.root === '/' ? '' : gulpConfig.paths.root}assets/scripts/vendor`]
   }),
   new WebpackNotifierPlugin({
     skipFirstNotification: true
@@ -28,7 +28,7 @@ const config = {
         vendors: {
           minSize: 0,
           test: /[\\/]node_modules[\\/]/,
-          name: gulpConfig.paths.root ? '/' : '' + 'assets/scripts/vendor',
+          name: `${gulpConfig.paths.root === '/' ? '' : gulpConfig.paths.root}assets/scripts/vendor`,
           chunks: 'all'
         }
       }
@@ -53,7 +53,7 @@ const config = {
   resolve: {
     modules: [
       'node_modules',
-      gulpConfig.paths.src + gulpConfig.paths.root + '/assets/scripts'
+      `${gulpConfig.paths.src}${gulpConfig.paths.root}/assets/scripts`
     ]
   },
   plugins: commonPlugins.concat(gulpConfig.env.DEVELOPMENT ? developmentPlugins : [], gulpConfig.env.PRODUCTION ? productionPlugins : []),

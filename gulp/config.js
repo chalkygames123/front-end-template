@@ -1,13 +1,13 @@
 const paths = {
   src: 'src',
   dest: 'public',
-  root: ''
+  root: '/'
 }
 
 const clean = {
   del: {
     patterns: [
-      paths.dest + '/*'
+      `${paths.dest}/*`
     ],
     options: {
       dot: true
@@ -18,7 +18,7 @@ const clean = {
 const html = {
   src: {
     globs: [
-      paths.src + '/**/*.ejs'
+      `${paths.src}/**/*.ejs`
     ],
     options: {
       base: paths.src
@@ -56,7 +56,7 @@ const html = {
 const images = {
   src: {
     globs: [
-      paths.src + paths.root + '/assets/images/**/*.+(gif|jpg|png|svg)'
+      `${paths.src}${paths.root}/assets/images/**/*.+(gif|jpg|png|svg)`
     ],
     options: {
       base: paths.src
@@ -89,7 +89,7 @@ const images = {
 const scripts = {
   src: {
     globs: [
-      paths.src + paths.root + '/assets/scripts/**/!(_)*.js'
+      `${paths.src}${paths.root}/assets/scripts/**/!(_)*.js`
     ],
     options: {
       base: paths.src
@@ -108,7 +108,7 @@ const serve = {
 const styles = {
   src: {
     globs: [
-      paths.src + paths.root + '/assets/styles/**/*.scss'
+      `${paths.src}${paths.root}/assets/styles/**/*.scss`
     ],
     options: {
       base: paths.src
@@ -116,8 +116,8 @@ const styles = {
   },
   sass: {
     includePaths: [
-      paths.src + paths.root + '/assets/styles',
-      'node_modules'
+      'node_modules',
+      `${paths.src}${paths.root}/assets/styles`
     ],
     outputStyle: 'expanded'
   },
@@ -137,7 +137,7 @@ function negatePattern (globs) {
 const copy = {
   src: {
     globs: [
-      paths.src + '/**/!(_)*',
+      `${paths.src}/**/!(_)*`,
       ...negatePattern(html.src.globs),
       ...negatePattern(images.src.globs),
       ...negatePattern(styles.src.globs),
