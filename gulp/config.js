@@ -121,14 +121,6 @@ const styles = {
     ],
     outputStyle: 'expanded'
   },
-  postcss: {
-    cssMqpacker: {
-      sort: true
-    },
-    postcssAssets: {
-      basePath: paths.dest
-    }
-  },
   cleanCss: {
     rebase: false
   }
@@ -172,13 +164,10 @@ const plugins = require('gulp-load-plugins')({
   overridePattern: false,
   pattern: [
     'ansi-regex',
-    'autoprefixer',
     'browser-sync',
-    'css-mqpacker',
     'imagemin-pngquant',
     'imagemin-webp',
     'normalize-path',
-    'postcss-assets',
     'vinyl-named',
     'webpack',
     'webpack-stream'

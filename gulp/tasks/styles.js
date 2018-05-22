@@ -27,11 +27,7 @@ const styles = () => {
     .pipe($.if(config.env.DEVELOPMENT, $.sourcemaps.init()))
     .pipe($.sassGlob())
     .pipe($.sass(config.styles.sass))
-    .pipe($.postcss([
-      $.autoprefixer(),
-      $.cssMqpacker(config.styles.postcss.cssMqpacker),
-      $.postcssAssets(config.styles.postcss.postcssAssets)
-    ]))
+    .pipe($.postcss())
     .pipe($.rename(path => {
       path.extname = '.css'
     }))
