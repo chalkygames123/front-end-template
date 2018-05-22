@@ -20,7 +20,7 @@ const productionPlugins = [
   new MinifyPlugin()
 ]
 
-const config = {
+module.exports = {
   mode: process.env.NODE_ENV,
   optimization: {
     splitChunks: {
@@ -59,5 +59,3 @@ const config = {
   plugins: commonPlugins.concat(gulpConfig.env.DEVELOPMENT ? developmentPlugins : [], gulpConfig.env.PRODUCTION ? productionPlugins : []),
   watch: gulpConfig.watch
 }
-
-module.exports = config
