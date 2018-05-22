@@ -7,7 +7,7 @@ const gulpConfig = require('./gulp/config')
 const commonPlugins = []
 
 const developmentPlugins = [
-  new webpack.SourceMapDevToolPlugin({
+  new webpack.EvalSourceMapDevToolPlugin({
     filename: 'maps/[file].map',
     exclude: [`${gulpConfig.paths.root === '/' ? '' : gulpConfig.paths.root}assets/scripts/vendor`]
   }),
