@@ -11,7 +11,9 @@ const developmentPlugins = [
     filename: 'maps/[file].map',
     exclude: [gulpConfig.paths.root ? '/' : '' + 'assets/scripts/vendor']
   }),
-  new WebpackNotifierPlugin()
+  new WebpackNotifierPlugin({
+    skipFirstNotification: true
+  })
 ]
 
 const productionPlugins = [
