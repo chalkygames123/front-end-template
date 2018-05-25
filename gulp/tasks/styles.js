@@ -31,7 +31,7 @@ const styles = () => {
     .pipe($.rename(path => {
       path.extname = '.css'
     }))
-    .pipe($.if(config.env.DEVELOPMENT, $.sourcemaps.write('maps')))
+    .pipe($.if(config.env.DEVELOPMENT, $.sourcemaps.write()))
     .pipe($.if(config.env.PRODUCTION, $.cleanCss(config.styles.cleanCss)))
     .pipe($.if(config.env.PRODUCTION, $.csso()))
     .pipe(gulp.dest(config.paths.dest))
