@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const MinifyPlugin = require('babel-minify-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
@@ -7,10 +6,6 @@ const gulpConfig = require('./gulp/config')
 const commonPlugins = []
 
 const developmentPlugins = [
-  new webpack.EvalSourceMapDevToolPlugin({
-    filename: 'maps/[file].map',
-    exclude: [`${gulpConfig.paths.root === '/' ? '' : gulpConfig.paths.root}assets/scripts/vendor`]
-  }),
   new WebpackNotifierPlugin({
     skipFirstNotification: true
   })
@@ -22,6 +17,9 @@ const productionPlugins = [
 
 module.exports = {
   mode: process.env.NODE_ENV,
+  output: {
+    devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource]?[loaders]'
+  },
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -56,6 +54,7 @@ module.exports = {
       `${gulpConfig.paths.src}${gulpConfig.paths.root}/assets/scripts`
     ]
   },
+  devtool: 'eval-source-map',
   plugins: commonPlugins.concat(gulpConfig.env.DEVELOPMENT ? developmentPlugins : [], gulpConfig.env.PRODUCTION ? productionPlugins : []),
   watch: gulpConfig.watch
 }
