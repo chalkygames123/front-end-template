@@ -55,6 +55,9 @@ module.exports = {
     ]
   },
   devtool: gulpConfig.env.DEVELOPMENT ? 'eval-source-map' : false,
-  plugins: commonPlugins.concat(gulpConfig.env.DEVELOPMENT ? developmentPlugins : [], gulpConfig.env.PRODUCTION ? productionPlugins : []),
+  plugins: commonPlugins.concat(
+    gulpConfig.env.DEVELOPMENT ? developmentPlugins : [],
+    gulpConfig.env.PRODUCTION ? productionPlugins : []
+  ),
   watch: gulpConfig.watch
 }
