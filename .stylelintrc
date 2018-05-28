@@ -81,9 +81,11 @@
       "always",
       {
         "except": [
-          "after-comment",
           "after-declaration",
           "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
         ]
       }
     ],
