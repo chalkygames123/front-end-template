@@ -54,7 +54,7 @@ module.exports = {
       `${gulpConfig.paths.src}${gulpConfig.paths.root}/assets/scripts`
     ]
   },
-  devtool: 'eval-source-map',
+  devtool: gulpConfig.env.DEVELOPMENT ? 'eval-source-map' : false,
   plugins: commonPlugins.concat(gulpConfig.env.DEVELOPMENT ? developmentPlugins : [], gulpConfig.env.PRODUCTION ? productionPlugins : []),
   watch: gulpConfig.watch
 }
