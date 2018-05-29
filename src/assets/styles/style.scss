@@ -4,10 +4,10 @@
 @import 'ress/ress';
 
 // prerequisites
-@import 'abstracts/**';
+@import 'abstracts/*';
 
 // categorized rules
-@import 'base/**';
-@import 'layouts/**';
-@import 'components/**';
-@import 'utilities/**';
+@import 'base/*';
+@import 'layouts/*';
+@import 'components/*';
+@import 'utilities/*';

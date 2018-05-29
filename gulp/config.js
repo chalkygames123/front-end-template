@@ -115,10 +115,7 @@ const styles = {
     }
   },
   sass: {
-    includePaths: [
-      'node_modules',
-      `${paths.src}${paths.root}/assets/styles`
-    ],
+    includePaths: 'node_modules',
     outputStyle: 'expanded'
   },
   cleanCss: {
