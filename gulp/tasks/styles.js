@@ -25,7 +25,6 @@ const styles = () => {
       ]
     }))
     .pipe($.if(config.env.DEVELOPMENT, $.sourcemaps.init()))
-    .pipe($.sassGlob())
     .pipe($.sass(config.styles.sass))
     .pipe($.postcss())
     .pipe($.rename(path => {

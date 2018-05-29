@@ -115,7 +115,7 @@ const styles = {
     }
   },
   sass: {
-    includePaths: 'node_modules',
+    importer: require('node-sass-magic-importer')(),
     outputStyle: 'expanded'
   },
   cleanCss: {
