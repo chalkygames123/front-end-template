@@ -1,6 +1,6 @@
 const gulp = require('gulp')
 const config = require('../config')
-const $ = config.plugins
+const $ = require('gulp-load-plugins')()
 
 const styles = () => {
   return gulp.src(config.styles.src.globs, config.styles.src.options)
