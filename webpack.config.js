@@ -26,7 +26,7 @@ module.exports = {
         vendors: {
           minSize: 0,
           test: /[\\/]node_modules[\\/]/,
-          name: `${gulpConfig.paths.root === '/' ? '' : gulpConfig.paths.root}assets/scripts/vendor`,
+          name: `${gulpConfig.paths.root ? `${gulpConfig.paths.root.substring(1)}/` : ''}assets/scripts/vendor`,
           chunks: 'all'
         }
       }

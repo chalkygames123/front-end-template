@@ -8,7 +8,7 @@ const styles = () => {
       errorHandler: $.notify.onError(error => {
         const options = {
           title: 'gulp styles - Error',
-          message: error.message.replace($.ansiRegex(), ''),
+          message: error.message.replace(require('ansi-regex')(), ''),
           wait: true
         }
 
