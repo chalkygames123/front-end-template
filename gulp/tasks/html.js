@@ -8,7 +8,7 @@ const html = () => {
       errorHandler: $.notify.onError(error => {
         const options = {
           title: 'gulp html - Error',
-          message: error.message.replace($.ansiRegex(), ''),
+          message: error.message.replace(require('ansi-regex')(), ''),
           wait: true
         }
 

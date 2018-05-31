@@ -5,10 +5,10 @@ const webpackConfig = require('../../webpack.config')
 
 const scripts = () => {
   return gulp.src(config.scripts.src.globs, config.scripts.src.options)
-    .pipe($.vinylNamed(file => {
-      return $.normalizePath(file.relative.replace(/\.[^.]+$/, ''))
+    .pipe(require('vinyl-named')(file => {
+      return require('normalize-path')(file.relative.replace(/\.[^.]+$/, ''))
     }))
-    .pipe($.webpackStream(webpackConfig, $.webpack))
+    .pipe(require('webpack-stream')(webpackConfig, require('webpack')))
     .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.env.PRODUCTION, $.gzip()))
     .pipe($.if(config.env.PRODUCTION, gulp.dest(config.paths.dest)))

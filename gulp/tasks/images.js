@@ -15,14 +15,14 @@ const images = () => {
       $.imagemin.svgo(
         config.images.imagemin.svgo
       ),
-      $.imageminPngquant(
+      require('imagemin-pngquant')(
         config.images.imageminPngquant
       )
     ])))
     .pipe(gulp.dest(config.paths.dest))
     .pipe($.filter(config.images.webpFilter.pattern))
     .pipe($.if(config.env.PRODUCTION, $.imagemin([
-      $.imageminWebp(
+      require('imagemin-webp')(
         config.images.imageminWebp
       )
     ])))

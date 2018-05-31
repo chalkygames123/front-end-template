@@ -1,14 +1,12 @@
 const paths = {
   src: 'src',
   dest: 'public',
-  root: '/'
+  root: ''
 }
 
 const clean = {
   del: {
-    patterns: [
-      `${paths.dest}/*`
-    ],
+    patterns: `${paths.dest}/*`,
     options: {
       dot: true
     }
@@ -17,16 +15,16 @@ const clean = {
 
 const html = {
   src: {
-    globs: [
-      `${paths.src}/**/*.ejs`
-    ],
+    globs: `${paths.src}/**/*.ejs`,
     options: {
       base: paths.src
     }
   },
   ejs: {
-    data: null,
-    options: null,
+    data: {
+      // example: require(require('path').resolve(`${paths.src}${paths.root}/data/example.json`))
+    },
+    options: {},
     settings: {
       ext: '.html'
     }
@@ -47,17 +45,13 @@ const html = {
     sortClassName: true
   },
   filter: {
-    pattern: [
-      '**/!(_)*.ejs'
-    ]
+    pattern: '**/!(_)*.ejs'
   }
 }
 
 const images = {
   src: {
-    globs: [
-      `${paths.src}${paths.root}/assets/images/**/*.+(gif|jpg|png|svg)`
-    ],
+    globs: `${paths.src}${paths.root}/assets/images/**/*.+(gif|jpg|png|svg)`,
     options: {
       base: paths.src
     }
@@ -80,17 +74,13 @@ const images = {
     method: 6
   },
   webpFilter: {
-    pattern: [
-      '**/*.+(jpg|png)'
-    ]
+    pattern: '**/*.+(jpg|png)'
   }
 }
 
 const scripts = {
   src: {
-    globs: [
-      `${paths.src}${paths.root}/assets/scripts/**/!(_)*.js`
-    ],
+    globs: `${paths.src}${paths.root}/assets/scripts/**/!(_)*.js`,
     options: {
       base: paths.src
     }
@@ -107,9 +97,7 @@ const serve = {
 
 const styles = {
   src: {
-    globs: [
-      `${paths.src}${paths.root}/assets/styles/**/*.scss`
-    ],
+    globs: `${paths.src}${paths.root}/assets/styles/**/*.scss`,
     options: {
       base: paths.src
     }
@@ -158,19 +146,7 @@ program
   .option('-w, --watch')
   .parse(process.argv)
 
-const plugins = require('gulp-load-plugins')({
-  overridePattern: false,
-  pattern: [
-    'ansi-regex',
-    'browser-sync',
-    'imagemin-pngquant',
-    'imagemin-webp',
-    'normalize-path',
-    'vinyl-named',
-    'webpack',
-    'webpack-stream'
-  ]
-})
+const plugins = require('gulp-load-plugins')()
 
 const server = require('browser-sync').create()
 
