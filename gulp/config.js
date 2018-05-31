@@ -24,7 +24,9 @@ const html = {
     data: {
       // example: require(require('path').resolve(`${paths.src}${paths.root}/data/example.json`))
     },
-    options: {},
+    options: {
+      root: `${paths.src}${paths.root}`
+    },
     settings: {
       ext: '.html'
     }
