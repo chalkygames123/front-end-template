@@ -1,6 +1,6 @@
 const gulp = require('gulp')
 const config = require('../config')
-const $ = config.plugins
+const $ = require('gulp-load-plugins')()
 const webpackConfig = require('../../webpack.config')
 
 const scripts = () => {

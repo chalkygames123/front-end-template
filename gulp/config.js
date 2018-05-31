@@ -153,8 +153,6 @@ program
   .option('-w, --watch')
   .parse(process.argv)
 
-const plugins = require('gulp-load-plugins')()
-
 const server = require('browser-sync').create()
 
 module.exports = {
@@ -171,6 +169,5 @@ module.exports = {
     PRODUCTION: mode === 'production'
   },
   watch: program.watch,
-  plugins,
   server
 }
