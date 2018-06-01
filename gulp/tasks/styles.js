@@ -24,7 +24,7 @@ const styles = () => {
         }
       ]
     }))
-    .pipe($.if(config.env.DEVELOPMENT, $.sourcemaps.init(config.styles.sourcemaps.init)))
+    .pipe($.if(config.env.DEVELOPMENT, $.sourcemaps.init()))
     .pipe($.sass(config.styles.sass))
     .pipe($.postcss())
     .pipe($.rename(path => {
