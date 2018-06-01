@@ -104,11 +104,6 @@ const styles = {
       base: paths.src
     }
   },
-  sourcemaps: {
-    init: {
-      loadMaps: true
-    }
-  },
   sass: {
     importer: require('node-sass-magic-importer')(),
     includePaths: `${paths.src}${paths.root}/assets/styles`,
