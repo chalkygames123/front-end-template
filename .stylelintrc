@@ -9,11 +9,11 @@
       "always",
       {
         "except": [
-          "blockless-after-blockless",
           "first-nested"
         ],
         "ignore": [
-          "after-comment"
+          "after-comment",
+          "blockless-after-blockless"
         ],
         "ignoreAtRules": [
           "else"
