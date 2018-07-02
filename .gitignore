@@ -276,6 +276,7 @@ $RECYCLE.BIN/
 
 # Improve gitignore.io's settings
 .idea
+.vscode
 
 # Public directory
 public/*
