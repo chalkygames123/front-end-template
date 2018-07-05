@@ -1,6 +1,7 @@
 html {
   min-width: map-get($grid-breakpoints, xs);
-  font-size: 10px;
+  height: 100%;
+  font-size: 62.5%;
 
   @include media-breakpoint-up(md) {
     min-width: map-get($grid-breakpoints, xl);
@@ -8,9 +9,10 @@ html {
 }
 
 body {
+  height: 100%;
   letter-spacing: 1px;
   font-size: 1.3rem;
-  font-family: 'Source Han Sans', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'YuGothic', 'Yu Gothic', sans-serif;
+  font-family: 'Source Han Sans', sans-serif;
   font-feature-settings: 'palt' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
