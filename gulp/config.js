@@ -93,7 +93,7 @@ const serve = {
   browserSync: {
     ui: false,
     server: paths.dest,
-    startPath: paths.root
+    startPath: `${paths.root}/`
   }
 }
 
