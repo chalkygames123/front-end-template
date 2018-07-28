@@ -1,7 +1,5 @@
 html {
   min-width: map-get($grid-breakpoints, xs);
-  height: 100%;
-  font-size: 62.5%;
 
   @include media-breakpoint-up(md) {
     min-width: map-get($grid-breakpoints, xl);
@@ -9,9 +7,8 @@ html {
 }
 
 body {
-  height: 100%;
   letter-spacing: 1px;
-  font-size: 1.3rem;
+  font-size: 13px;
   font-family: 'Source Han Sans', sans-serif;
   font-feature-settings: 'palt' 1;
   -webkit-font-smoothing: antialiased;
@@ -19,7 +16,7 @@ body {
   text-rendering: optimizeLegibility;
 
   @include media-breakpoint-up(md) {
-    font-size: 1.6rem;
+    font-size: 16px;
   }
 }
 
