@@ -17,7 +17,7 @@
     "watch": "cross-env NODE_ENV=development gulp watch --watch"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0-beta.54",
+    "@babel/polyfill": "^7.0.0-beta.55",
     "axios": "^0.18.0",
     "custom-event-polyfill": "^1.0.6",
     "gsap": "^2.0.1",
@@ -31,8 +31,8 @@
     "swiper": "^4.3.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.54",
-    "@babel/preset-env": "^7.0.0-beta.54",
+    "@babel/core": "^7.0.0-beta.55",
+    "@babel/preset-env": "^7.0.0-beta.55",
     "ansi-regex": "^3.0.0",
     "autoprefixer": "^9.0.1",
     "babel-loader": "^8.0.0-beta",
