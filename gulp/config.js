@@ -32,6 +32,7 @@ const html = {
     }
   },
   htmlmin: {
+    caseSensitive : true,
     collapseBooleanAttributes: true,
     collapseWhitespace: true,
     minifyCSS: true,
