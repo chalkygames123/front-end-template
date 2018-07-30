@@ -28,6 +28,7 @@
     "picturefill": "^3.0.2",
     "ress": "^1.2.2",
     "smoothscroll-for-websites": "^1.4.6",
+    "stickyfilljs": "^2.0.5",
     "swiper": "^4.3.3"
   },
   "devDependencies": {
