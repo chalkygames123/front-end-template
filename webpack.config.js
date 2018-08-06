@@ -26,7 +26,7 @@ module.exports = {
         vendors: {
           minSize: 0,
           test: /[\\/]node_modules[\\/]/,
-          name: `${gulpConfig.paths.root ? `${gulpConfig.paths.root.substring(1)}/` : ''}assets/scripts/vendor`,
+          name: `${gulpConfig.paths.root.substring(1)}assets/scripts/vendor`,
           chunks: 'all'
         }
       }
@@ -51,7 +51,7 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      `${gulpConfig.paths.src}${gulpConfig.paths.root}/assets/scripts`
+      `${gulpConfig.paths.src}${gulpConfig.paths.root}assets/scripts`
     ]
   },
   devtool: gulpConfig.env.DEVELOPMENT ? 'eval-source-map' : false,
