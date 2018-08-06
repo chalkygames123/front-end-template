@@ -1,7 +1,7 @@
 const MinifyPlugin = require('babel-minify-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
-const gulpConfig = require('./gulp/config')
+const config = require('./gulp/config')
 
 const commonPlugins = []
 
@@ -26,7 +26,7 @@ module.exports = {
         vendors: {
           minSize: 0,
           test: /[\\/]node_modules[\\/]/,
-          name: `${gulpConfig.paths.root.substring(1)}assets/scripts/vendor`,
+          name: `${config.paths.root.substring(1)}assets/scripts/vendor`,
           chunks: 'all'
         }
       }
@@ -51,12 +51,12 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      `${gulpConfig.paths.src}${gulpConfig.paths.root}assets/scripts`
+      `${config.paths.src}${config.paths.root}assets/scripts`
     ]
   },
-  devtool: gulpConfig.env.DEVELOPMENT ? 'eval-source-map' : false,
+  devtool: config.env.DEVELOPMENT ? 'eval-source-map' : false,
   plugins: commonPlugins.concat(
-    gulpConfig.env.DEVELOPMENT ? developmentPlugins : [],
-    gulpConfig.env.PRODUCTION ? productionPlugins : []
+    config.env.DEVELOPMENT ? developmentPlugins : [],
+    config.env.PRODUCTION ? productionPlugins : []
   )
 }
