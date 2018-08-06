@@ -1,7 +1,7 @@
 const paths = {
   src: 'src',
   dest: 'public',
-  root: ''
+  root: '/' // trailing slash is required
 }
 
 const clean = {
@@ -22,7 +22,7 @@ const html = {
   },
   ejs: {
     data: {
-      // example: require(require('path').resolve(`${paths.src}${paths.root}/data/example.json`))
+      // example: require(require('path').resolve(`${paths.src}${paths.root}data/example.json`))
     },
     options: {
       root: `${paths.src}${paths.root}`
@@ -54,7 +54,7 @@ const html = {
 
 const images = {
   src: {
-    globs: `${paths.src}${paths.root}/assets/images/**/*.+(gif|jpg|png|svg)`,
+    globs: `${paths.src}${paths.root}assets/images/**/*.+(gif|jpg|png|svg)`,
     options: {
       base: paths.src
     }
@@ -83,7 +83,7 @@ const images = {
 
 const scripts = {
   src: {
-    globs: `${paths.src}${paths.root}/assets/scripts/**/!(_)*.js`,
+    globs: `${paths.src}${paths.root}assets/scripts/**/!(_)*.js`,
     options: {
       base: paths.src
     }
@@ -94,20 +94,20 @@ const serve = {
   browserSync: {
     ui: false,
     server: paths.dest,
-    startPath: `${paths.root}/`
+    startPath: `${paths.root}`
   }
 }
 
 const styles = {
   src: {
-    globs: `${paths.src}${paths.root}/assets/styles/**/*.scss`,
+    globs: `${paths.src}${paths.root}assets/styles/**/*.scss`,
     options: {
       base: paths.src
     }
   },
   sass: {
     importer: require('node-sass-magic-importer')(),
-    includePaths: `${paths.src}${paths.root}/assets/styles`,
+    includePaths: `${paths.src}${paths.root}assets/styles`,
     outputStyle: 'compressed'
   },
   cleanCss: {
