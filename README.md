@@ -1,53 +1,30 @@
 # Front-End Template
 
-## Development
+A template based on gulp and webpack for building static websites.
 
-Install dependencies:
+## Requirements
 
-```
-$ yarn
-```
+Make sure that Node.js v8.6.0+ is installed (8.11.3+ recommended).
 
-Build:
+## Setup
 
-```
-$ yarn build
-```
-
-Start Browsersync server and file watching:
-
-```
-$ yarn start
+```bash
+# install dependencies
+$ npm install # Or yarn
 ```
 
-Run `yarn build` and `yarn start` simultaneously:
+## Usage
 
-```
-$ yarn development
-```
+### Development
 
-or
-
-```
-$ yarn dev
+```bash
+# serve with hot reloading at localhost:3000
+$ npm run dev # Or yarn dev
 ```
 
-## Production
+### Production
 
-Install dependencies:
-
-```
-$ yarn
-```
-
-Build:
-
-```
-$ yarn build:production
-```
-
-or
-
-```
-$ yarn prod
+```bash
+# build for production
+$ npm run prod # Or yarn prod
 ```
