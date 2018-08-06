@@ -143,8 +143,6 @@ const copy = {
 
 const mode = process.env.NODE_ENV || 'production'
 
-const program = require('commander')
-
 const server = require('browser-sync').create()
 
 module.exports = {
