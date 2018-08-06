@@ -30,7 +30,7 @@ const images = () => {
       extname: '.webp'
     }))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(config.watch, config.server.stream()))
+    .pipe(config.server.stream())
 }
 
 gulp.task('images', images)

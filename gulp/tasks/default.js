@@ -3,7 +3,8 @@ const runSequence = require('run-sequence')
 
 gulp.task('default', done => {
   runSequence(
-    ['serve', 'watch'],
+    'serve',
+    'watch',
     done
   )
 })

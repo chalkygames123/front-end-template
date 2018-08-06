@@ -1,20 +1,20 @@
 {
   "scripts": {
     "build": "cross-env NODE_ENV=development gulp build",
-    "build:production": "cross-env NODE_ENV=production gulp build",
+    "build:production": "gulp build",
     "prod": "npm-run-all build:production",
     "clean": "gulp clean",
     "copy": "gulp copy",
-    "development": "cross-env NODE_ENV=development gulp build --watch",
+    "development": "cross-env NODE_ENV=development gulp development",
     "dev": "npm-run-all development",
     "html": "gulp html",
     "images": "gulp images",
     "scripts": "gulp scripts",
     "serve": "gulp serve",
-    "start": "cross-env NODE_ENV=development gulp default --watch",
+    "start": "gulp default",
     "styles": "gulp styles",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "cross-env NODE_ENV=development gulp watch --watch"
+    "watch": "gulp watch"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.56",
@@ -40,7 +40,6 @@
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-lodash": "^3.3.4",
     "browser-sync": "^2.24.6",
-    "commander": "^2.17.0",
     "cross-env": "^5.2.0",
     "css-mqpacker": "^7.0.0",
     "del": "^3.0.0",

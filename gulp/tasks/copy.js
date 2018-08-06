@@ -6,7 +6,7 @@ const copy = () => {
   return gulp.src(config.copy.src.globs, config.copy.src.options)
     .pipe($.changed(config.paths.dest))
     .pipe(gulp.dest(config.paths.dest))
-    .pipe($.if(config.watch, config.server.stream()))
+    .pipe(config.server.stream())
 }
 
 gulp.task('copy', copy)
