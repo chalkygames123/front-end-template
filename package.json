@@ -17,7 +17,7 @@
     "watch": "cross-env NODE_ENV=development gulp watch --watch"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0-beta.55",
+    "@babel/polyfill": "^7.0.0-beta.56",
     "axios": "^0.18.0",
     "custom-event-polyfill": "^1.0.6",
     "gsap": "^2.0.1",
@@ -29,18 +29,18 @@
     "ress": "^1.2.2",
     "smoothscroll-for-websites": "^1.4.6",
     "stickyfilljs": "^2.0.5",
-    "swiper": "^4.3.3"
+    "swiper": "^4.3.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.55",
-    "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/core": "^7.0.0-beta.56",
+    "@babel/preset-env": "^7.0.0-beta.56",
     "ansi-regex": "^3.0.0",
-    "autoprefixer": "^9.0.1",
+    "autoprefixer": "^9.1.0",
     "babel-loader": "^8.0.0-beta",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-lodash": "^3.3.4",
     "browser-sync": "^2.24.6",
-    "commander": "^2.16.0",
+    "commander": "^2.17.0",
     "cross-env": "^5.2.0",
     "css-mqpacker": "^7.0.0",
     "del": "^3.0.0",
@@ -58,7 +58,7 @@
     "gulp-load-plugins": "^1.5.0",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.0",
-    "gulp-postcss": "^7.0.1",
+    "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
@@ -78,10 +78,10 @@
     "stylelint-order": "^0.8.1",
     "stylelint-scss": "^3.2.0",
     "vinyl-named": "^1.1.0",
-    "webpack": "^4.16.3",
+    "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-notifier": "^1.6.0",
-    "webpack-stream": "^5.0.0"
+    "webpack-stream": "^5.1.0"
   },
   "engines": {
     "node": "^8.11.3"
