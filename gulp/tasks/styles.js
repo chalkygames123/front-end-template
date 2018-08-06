@@ -4,7 +4,7 @@ const $ = require('gulp-load-plugins')()
 
 const styles = () => {
   return gulp.src(config.styles.src.globs, config.styles.src.options)
-    .pipe($.if(config.watch, $.plumber({
+    .pipe($.plumber({
       errorHandler: $.notify.onError(error => {
         const options = {
           title: 'gulp styles - Error',
@@ -14,7 +14,7 @@ const styles = () => {
 
         return options
       })
-    })))
+    }))
     .pipe($.stylelint({
       reporters: [
         {
@@ -36,7 +36,7 @@ const styles = () => {
     .pipe(gulp.dest(config.paths.dest))
     .pipe($.if(config.env.PRODUCTION, $.gzip()))
     .pipe($.if(config.env.PRODUCTION, gulp.dest(config.paths.dest)))
-    .pipe($.if(config.watch, config.server.stream()))
+    .pipe(config.server.stream())
 }
 
 gulp.task('styles', ['images'], styles)

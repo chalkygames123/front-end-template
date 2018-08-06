@@ -145,10 +145,6 @@ const mode = process.env.NODE_ENV || 'production'
 
 const program = require('commander')
 
-program
-  .option('-w, --watch')
-  .parse(process.argv)
-
 const server = require('browser-sync').create()
 
 module.exports = {
@@ -164,6 +160,5 @@ module.exports = {
     DEVELOPMENT: mode === 'development',
     PRODUCTION: mode === 'production'
   },
-  watch: program.watch,
   server
 }

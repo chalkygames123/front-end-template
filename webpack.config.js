@@ -58,6 +58,5 @@ module.exports = {
   plugins: commonPlugins.concat(
     gulpConfig.env.DEVELOPMENT ? developmentPlugins : [],
     gulpConfig.env.PRODUCTION ? productionPlugins : []
-  ),
-  watch: gulpConfig.watch
+  )
 }
