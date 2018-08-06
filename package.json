@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "cross-env NODE_ENV=development gulp build",
-    "build:production": "gulp build",
+    "build:production": "cross-env NODE_ENV=production gulp build",
     "prod": "npm-run-all build:production",
     "clean": "gulp clean",
     "copy": "gulp copy",
