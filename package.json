@@ -83,7 +83,7 @@
     "webpack-stream": "^5.1.0"
   },
   "engines": {
-    "node": "^8.11.3"
+    "node": "^8.6.0"
   },
   "private": true,
   "browserslist": [
