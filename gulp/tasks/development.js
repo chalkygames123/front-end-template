@@ -1,6 +1,6 @@
 const gulp = require('gulp')
 
-const development = done => {
+const development = () => {
   gulp.start('default')
 }
 
