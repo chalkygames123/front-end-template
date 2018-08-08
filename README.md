@@ -26,5 +26,5 @@ $ npm run dev # Or yarn dev
 
 ```bash
 # build for production
-$ npm run prod # Or yarn prod
+$ npm run build # Or yarn build
 ```

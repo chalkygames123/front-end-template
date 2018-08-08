@@ -1,12 +1,9 @@
 {
   "scripts": {
-    "build": "cross-env NODE_ENV=development gulp build",
-    "build:production": "cross-env NODE_ENV=production gulp build",
-    "prod": "npm-run-all build:production",
+    "build": "gulp build",
     "clean": "gulp clean",
     "copy": "gulp copy",
-    "development": "cross-env NODE_ENV=development gulp development",
-    "dev": "npm-run-all development",
+    "dev": "cross-env NODE_ENV=development gulp development",
     "html": "gulp html",
     "images": "gulp images",
     "scripts": "gulp scripts",
