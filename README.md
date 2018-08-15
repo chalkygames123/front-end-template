@@ -1,6 +1,6 @@
 # Front-End Template
 
-A template based on gulp and webpack for building static websites.
+A template for building static websites powered by gulp and webpack.
 
 ## Requirements
 
