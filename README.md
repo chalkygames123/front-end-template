@@ -4,7 +4,7 @@ A template for building static websites powered by gulp and webpack.
 
 ## Requirements
 
-Make sure that Node.js v8.6.0+ is installed (8.11.3+ recommended).
+Make sure that Node.js v8.6.0+ is installed (8.11.4+ recommended).
 
 ## Setup
 
