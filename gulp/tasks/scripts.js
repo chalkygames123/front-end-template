@@ -5,6 +5,10 @@ const webpackConfig = require('../../webpack.config')
 
 const scripts = () => {
   return gulp.src(config.scripts.src.globs, config.scripts.src.options)
+    .pipe($.plumber({
+      errorHandler: () => false
+    }))
+    .pipe($.filter(config.scripts.filter.pattern))
     .pipe(require('vinyl-named')(file => {
       return require('normalize-path')(file.relative.replace(/\.[^.]+$/, ''))
     }))

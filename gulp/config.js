@@ -87,6 +87,9 @@ const scripts = {
     options: {
       base: paths.src
     }
+  },
+  filter: {
+    pattern: '**/!(_)*.js'
   }
 }
 
