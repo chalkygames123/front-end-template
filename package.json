@@ -14,7 +14,7 @@
     "watch": "gulp watch"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0-beta.56",
+    "@babel/polyfill": "^7.0.0-rc.2",
     "axios": "^0.18.0",
     "custom-event-polyfill": "^1.0.6",
     "gsap": "^2.0.1",
@@ -25,15 +25,15 @@
     "picturefill": "^3.0.2",
     "ress": "^1.2.2",
     "smoothscroll-for-websites": "^1.4.6",
-    "stickyfilljs": "^2.0.5",
+    "stickyfilljs": "^2.1.0",
     "swiper": "^4.3.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.56",
-    "@babel/preset-env": "^7.0.0-beta.56",
+    "@babel/core": "^7.0.0-rc.2",
+    "@babel/preset-env": "^7.0.0-rc.2",
     "ansi-regex": "^3.0.0",
-    "autoprefixer": "^9.1.0",
-    "babel-loader": "^8.0.0-beta",
+    "autoprefixer": "^9.1.2",
+    "babel-loader": "^8.0.0-beta.6",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-lodash": "^3.3.4",
     "browser-sync": "^2.24.6",
@@ -42,7 +42,7 @@
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-changed": "^3.2.0",
-    "gulp-clean-css": "^3.9.4",
+    "gulp-clean-css": "^3.10.0",
     "gulp-csso": "^3.0.1",
     "gulp-ejs": "^3.1.3",
     "gulp-filter": "^5.1.0",
@@ -70,14 +70,14 @@
     "run-sequence": "^2.2.1",
     "standard": "^11.0.1",
     "standard-loader": "^6.0.1",
-    "stylelint": "^9.4.0",
-    "stylelint-order": "^0.8.1",
-    "stylelint-scss": "^3.2.0",
+    "stylelint": "^9.5.0",
+    "stylelint-order": "^1.0.0",
+    "stylelint-scss": "^3.3.0",
     "vinyl-named": "^1.1.0",
-    "webpack": "^4.16.5",
+    "webpack": "^4.17.0",
     "webpack-cli": "^3.1.0",
     "webpack-notifier": "^1.6.0",
-    "webpack-stream": "^5.1.0"
+    "webpack-stream": "^5.1.1"
   },
   "engines": {
     "node": "^8.6.0"
