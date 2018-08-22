@@ -3,7 +3,7 @@
     "build": "gulp build",
     "clean": "gulp clean",
     "copy": "gulp copy",
-    "dev": "cross-env NODE_ENV=development gulp development",
+    "dev": "cross-env NODE_ENV=development gulp dev",
     "html": "gulp html",
     "images": "gulp images",
     "scripts": "gulp scripts",
