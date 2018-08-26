@@ -144,8 +144,6 @@ const copy = {
   }
 }
 
-const mode = process.env.NODE_ENV || 'production'
-
 const server = require('browser-sync').create()
 
 module.exports = {
@@ -158,8 +156,8 @@ module.exports = {
   serve,
   styles,
   env: {
-    DEVELOPMENT: mode === 'development',
-    PRODUCTION: mode === 'production'
+    DEVELOPMENT: process.env.NODE_ENV === 'development',
+    PRODUCTION: process.env.NODE_ENV === 'production'
   },
   server
 }
