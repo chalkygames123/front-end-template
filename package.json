@@ -89,6 +89,10 @@
     "Firefox ESR",
     "not dead"
   ],
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
   "standard": {
     "env": {
       "browser": true,
