@@ -144,22 +144,22 @@ const copy = {
   }
 }
 
-const mode = process.env.NODE_ENV || 'production'
-
 const server = require('browser-sync').create()
+
+const env = process.env.NODE_ENV || 'production'
 
 module.exports = {
   paths,
   clean,
-  copy,
   html,
   images,
   scripts,
   serve,
   styles,
+  copy,
+  server,
   env: {
-    DEVELOPMENT: mode === 'development',
-    PRODUCTION: mode === 'production'
-  },
-  server
+    DEVELOPMENT: env === 'development',
+    PRODUCTION: env === 'production'
+  }
 }
