@@ -10,6 +10,17 @@
 }
 
 @font-face {
+  font-weight: 500;
+  font-style: normal;
+  font-family: 'Source Han Sans';
+  src: local('Source Han Sans Medium'),
+    url('/assets/fonts/SourceHanSans-Medium.woff2') format('woff2'),
+    url('/assets/fonts/SourceHanSans-Medium.woff') format('woff'),
+    url('/assets/fonts/SourceHanSans-Medium.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
   font-weight: 700;
   font-style: normal;
   font-family: 'Source Han Sans';
