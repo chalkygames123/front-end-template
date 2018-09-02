@@ -1,4 +1,6 @@
 module.exports = api => {
+  const env = process.env.NODE_ENV || 'production'
+
   const config = {
     'presets': [
       ['@babel/preset-env', {
@@ -7,8 +9,8 @@ module.exports = api => {
       }]
     ],
     'plugins': [
-      'lodash'
-    ]
+      env === 'production' && 'lodash'
+    ].filter(Boolean)
   }
 
   api.cache(true)
