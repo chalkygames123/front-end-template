@@ -13,7 +13,7 @@ module.exports = api => {
     ].filter(Boolean)
   }
 
-  api.cache(true)
+  api.cache.forever()
 
   return config
 }

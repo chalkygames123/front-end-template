@@ -42,7 +42,10 @@ module.exports = {
         test: /\.js$/,
         use: [
           {
-            loader: 'babel-loader?cacheDirectory'
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true
+            }
           },
           {
             loader: 'standard-loader'
