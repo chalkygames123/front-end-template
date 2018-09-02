@@ -1,4 +1,5 @@
 const MinifyPlugin = require('babel-minify-webpack-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
 const config = require('./gulp/config')
@@ -12,7 +13,10 @@ const developmentPlugins = [
 ]
 
 const productionPlugins = [
-  new MinifyPlugin()
+  new MinifyPlugin(),
+  new LodashModuleReplacementPlugin({
+    'collections': true
+  })
 ]
 
 module.exports = {
