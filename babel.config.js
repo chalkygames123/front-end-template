@@ -2,13 +2,13 @@ module.exports = api => {
   const env = process.env.NODE_ENV || 'production'
 
   const config = {
-    'presets': [
+    presets: [
       ['@babel/preset-env', {
-        'modules': false,
-        'useBuiltIns': 'usage'
+        modules: false,
+        useBuiltIns: 'usage'
       }]
     ],
-    'plugins': [
+    plugins: [
       env === 'production' && 'lodash'
     ].filter(Boolean)
   }
