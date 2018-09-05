@@ -43,9 +43,7 @@ const html = {
     removeOptionalTags: true,
     removeRedundantAttributes: true,
     removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    sortAttributes: true,
-    sortClassName: true
+    removeStyleLinkTypeAttributes: true
   },
   filter: {
     pattern: '**/!(_)*.ejs'
