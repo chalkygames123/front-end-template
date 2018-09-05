@@ -1,7 +1,9 @@
-module.exports = api => {
-  const env = process.env.NODE_ENV || 'production'
+const config = require('./gulp/config')
 
-  const config = {
+module.exports = api => {
+  api.cache.forever()
+
+  return {
     presets: [
       ['@babel/preset-env', {
         modules: false,
@@ -9,11 +11,7 @@ module.exports = api => {
       }]
     ],
     plugins: [
-      env === 'production' && 'lodash'
+      config.env.PRODUCTION && 'lodash'
     ].filter(Boolean)
   }
-
-  api.cache.forever()
-
-  return config
 }
