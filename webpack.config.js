@@ -1,23 +1,8 @@
+const WebpackNotifierPlugin = require('webpack-notifier')
 const MinifyPlugin = require('babel-minify-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
-const WebpackNotifierPlugin = require('webpack-notifier')
 
 const config = require('./gulp/config')
-
-const commonPlugins = []
-
-const developmentPlugins = [
-  new WebpackNotifierPlugin({
-    skipFirstNotification: true
-  })
-]
-
-const productionPlugins = [
-  new MinifyPlugin(),
-  new LodashModuleReplacementPlugin({
-    'collections': true
-  })
-]
 
 module.exports = {
   mode: process.env.NODE_ENV || 'production',
@@ -62,8 +47,13 @@ module.exports = {
     ]
   },
   devtool: config.env.DEVELOPMENT ? 'eval-source-map' : false,
-  plugins: commonPlugins.concat(
-    config.env.DEVELOPMENT ? developmentPlugins : [],
-    config.env.PRODUCTION ? productionPlugins : []
-  )
+  plugins: [
+    config.env.DEVELOPMENT && new WebpackNotifierPlugin({
+      skipFirstNotification: true
+    }),
+    config.env.PRODUCTION && new MinifyPlugin(),
+    config.env.PRODUCTION && new LodashModuleReplacementPlugin({
+      'collections': true
+    })
+  ].filter(Boolean)
 }
