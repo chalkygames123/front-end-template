@@ -1,8 +1,8 @@
+const config = require('./gulp/config')
+
 const WebpackNotifierPlugin = require('webpack-notifier')
 const MinifyPlugin = require('babel-minify-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
-
-const config = require('./gulp/config')
 
 module.exports = {
   mode: process.env.NODE_ENV || 'production',
