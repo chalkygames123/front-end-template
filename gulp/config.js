@@ -81,7 +81,7 @@ const images = {
 
 const scripts = {
   src: {
-    globs: `${paths.src}${paths.root}assets/scripts/**/!(_)*.js`,
+    globs: `${paths.src}${paths.root}assets/scripts/**/*.js`,
     options: {
       base: paths.src
     }
