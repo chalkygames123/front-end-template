@@ -52,7 +52,7 @@ const html = {
 
 const images = {
   src: {
-    globs: `${paths.src}${paths.root}assets/images/**/*.+(gif|jpg|png|svg)`,
+    globs: `${paths.src}${paths.root}assets/images/**/*.+(png|jp?(e)g|gif|svg)`,
     options: {
       base: paths.src
     }
@@ -75,7 +75,7 @@ const images = {
     method: 6
   },
   webpFilter: {
-    pattern: '**/*.+(jpg|png)'
+    pattern: '**/*.+(png|jp?(e)g)'
   }
 }
 
