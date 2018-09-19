@@ -4,7 +4,7 @@ const $ = require('gulp-load-plugins')()
 
 const images = () => {
   return gulp.src(config.images.src.globs, config.images.src.options)
-    .pipe($.changed(config.paths.dest))
+    .pipe($.changed(`${config.paths.outputDir}${config.paths.baseUrl}`))
     .pipe($.if(config.env.PRODUCTION, $.imagemin([
       $.imagemin.gifsicle(
         config.images.imagemin.gifsicle
@@ -19,7 +19,7 @@ const images = () => {
         config.images.imageminPngquant
       )
     ])))
-    .pipe(gulp.dest(config.paths.dest))
+    .pipe(gulp.dest(`${config.paths.outputDir}${config.paths.baseUrl}`))
     .pipe($.filter(config.images.webpFilter.pattern))
     .pipe($.if(config.env.PRODUCTION, $.imagemin([
       require('imagemin-webp')(
@@ -29,7 +29,7 @@ const images = () => {
     .pipe($.rename({
       extname: '.webp'
     }))
-    .pipe(gulp.dest(config.paths.dest))
+    .pipe(gulp.dest(`${config.paths.outputDir}${config.paths.baseUrl}`))
     .pipe(config.server.stream())
 }
 

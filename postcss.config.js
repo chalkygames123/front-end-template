@@ -11,7 +11,7 @@ module.exports = {
       sort: true
     }),
     postcssAssets({
-      basePath: config.paths.dest
+      basePath: config.paths.outputDir
     })
   ]
 }

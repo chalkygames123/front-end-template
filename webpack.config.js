@@ -15,7 +15,7 @@ module.exports = {
         vendors: {
           minSize: 0,
           test: /[\\/]node_modules[\\/]/,
-          name: `${config.paths.root.substring(1)}assets/scripts/vendor`,
+          name: `${config.paths.assetsDir}/scripts/vendor`,
           chunks: 'all'
         }
       }
@@ -43,7 +43,7 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      `${config.paths.src}${config.paths.root}assets/scripts`
+      `${config.paths.srcDir}/${config.paths.assetsDir}/scripts`
     ]
   },
   devtool: config.env.DEVELOPMENT ? 'eval-source-map' : false,

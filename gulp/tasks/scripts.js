@@ -13,9 +13,9 @@ const scripts = () => {
       return require('normalize-path')(file.relative.replace(/\.[^.]+$/, ''))
     }))
     .pipe(require('webpack-stream')(webpackConfig, require('webpack')))
-    .pipe(gulp.dest(config.paths.dest))
+    .pipe(gulp.dest(`${config.paths.outputDir}${config.paths.baseUrl}`))
     .pipe($.if(config.env.PRODUCTION, $.gzip()))
-    .pipe($.if(config.env.PRODUCTION, gulp.dest(config.paths.dest)))
+    .pipe($.if(config.env.PRODUCTION, gulp.dest(`${config.paths.outputDir}${config.paths.baseUrl}`)))
     .pipe(config.server.stream())
 }
 

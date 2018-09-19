@@ -4,7 +4,7 @@ const runSequence = require('run-sequence')
 const build = done => {
   runSequence(
     'clean',
-    ['copy', 'html', 'images', 'styles', 'scripts'],
+    ['copy', 'html', 'images', 'scripts', 'styles'],
     done
   )
 }
