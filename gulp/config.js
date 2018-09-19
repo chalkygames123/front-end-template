@@ -1,31 +1,43 @@
 const paths = {
-  src: 'src',
-  dest: 'public',
-  root: '/' // trailing slash is required
+  srcDir: 'src',
+  baseUrl: '/',
+  outputDir: 'public',
+  assetsDir: 'assets'
 }
 
 const clean = {
   del: {
-    patterns: `${paths.dest}/*`,
+    patterns: paths.outputDir,
     options: {
       dot: true
     }
   }
 }
 
+const copy = {
+  src: {
+    globs: [
+      `${paths.srcDir}/static/**`,
+      '!**/.gitkeep'
+    ],
+    options: {
+      base: `${paths.srcDir}/static`,
+      dot: true,
+      nodir: true
+    }
+  }
+}
+
 const html = {
   src: {
-    globs: `${paths.src}/**/*.ejs`,
+    globs: `${paths.srcDir}/pages/**/*.ejs`,
     options: {
-      base: paths.src
+      base: `${paths.srcDir}/pages`
     }
   },
   ejs: {
-    data: {
-      // example: require(require('path').resolve(`${paths.src}${paths.root}data/example.json`))
-    },
     options: {
-      root: `${paths.src}${paths.root}`
+      root: `${paths.srcDir}/pages`
     },
     settings: {
       ext: '.html'
@@ -52,9 +64,9 @@ const html = {
 
 const images = {
   src: {
-    globs: `${paths.src}${paths.root}assets/images/**/*.+(png|jp?(e)g|gif|svg)`,
+    globs: `${paths.srcDir}/${paths.assetsDir}/**/*.+(png|jp?(e)g|gif|svg)`,
     options: {
-      base: paths.src
+      base: paths.srcDir
     }
   },
   imagemin: {
@@ -81,9 +93,9 @@ const images = {
 
 const scripts = {
   src: {
-    globs: `${paths.src}${paths.root}assets/scripts/**/*.js`,
+    globs: `${paths.srcDir}/${paths.assetsDir}/scripts/**/*.js`,
     options: {
-      base: paths.src
+      base: paths.srcDir
     }
   },
   filter: {
@@ -94,21 +106,23 @@ const scripts = {
 const serve = {
   browserSync: {
     ui: false,
-    server: paths.dest,
-    startPath: `${paths.root}`
+    server: paths.outputDir,
+    startPath: paths.baseUrl
   }
 }
 
+const server = require('browser-sync').create()
+
 const styles = {
   src: {
-    globs: `${paths.src}${paths.root}assets/styles/**/*.scss`,
+    globs: `${paths.srcDir}/${paths.assetsDir}/styles/**/*.scss`,
     options: {
-      base: paths.src
+      base: paths.srcDir
     }
   },
   sass: {
     importer: require('node-sass-magic-importer')(),
-    includePaths: `${paths.src}${paths.root}assets/styles`,
+    includePaths: `${paths.srcDir}/${paths.assetsDir}/styles`,
     outputStyle: 'compressed'
   },
   cleanCss: {
@@ -116,46 +130,18 @@ const styles = {
   }
 }
 
-function negatePattern (globs) {
-  if (Array.isArray(globs)) {
-    return globs.map(el => `!${el}`)
-  }
-
-  return [`!${globs}`]
-}
-
-const copy = {
-  src: {
-    globs: [
-      `${paths.src}/**/!(_)*`,
-      ...negatePattern(html.src.globs),
-      ...negatePattern(images.src.globs),
-      ...negatePattern(styles.src.globs),
-      ...negatePattern(scripts.src.globs),
-      '!**/.gitkeep'
-    ],
-    options: {
-      base: paths.src,
-      dot: true,
-      nodir: true
-    }
-  }
-}
-
-const server = require('browser-sync').create()
-
 const env = process.env.NODE_ENV || 'production'
 
 module.exports = {
   paths,
   clean,
+  copy,
   html,
   images,
   scripts,
   serve,
-  styles,
-  copy,
   server,
+  styles,
   env: {
     DEVELOPMENT: env === 'development',
     PRODUCTION: env === 'production'

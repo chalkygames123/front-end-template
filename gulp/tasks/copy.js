@@ -4,8 +4,8 @@ const $ = require('gulp-load-plugins')()
 
 const copy = () => {
   return gulp.src(config.copy.src.globs, config.copy.src.options)
-    .pipe($.changed(config.paths.dest))
-    .pipe(gulp.dest(config.paths.dest))
+    .pipe($.changed(`${config.paths.outputDir}${config.paths.baseUrl}`))
+    .pipe(gulp.dest(`${config.paths.outputDir}${config.paths.baseUrl}`))
     .pipe(config.server.stream())
 }
 

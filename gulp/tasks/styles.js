@@ -33,9 +33,9 @@ const styles = () => {
     .pipe($.if(config.env.DEVELOPMENT, $.sourcemaps.write()))
     .pipe($.if(config.env.PRODUCTION, $.cleanCss(config.styles.cleanCss)))
     .pipe($.if(config.env.PRODUCTION, $.csso()))
-    .pipe(gulp.dest(config.paths.dest))
+    .pipe(gulp.dest(`${config.paths.outputDir}${config.paths.baseUrl}`))
     .pipe($.if(config.env.PRODUCTION, $.gzip()))
-    .pipe($.if(config.env.PRODUCTION, gulp.dest(config.paths.dest)))
+    .pipe($.if(config.env.PRODUCTION, gulp.dest(`${config.paths.outputDir}${config.paths.baseUrl}`)))
     .pipe(config.server.stream())
 }
 
