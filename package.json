@@ -19,19 +19,19 @@
     "custom-event-polyfill": "^1.0.6",
     "gsap": "^2.0.2",
     "intersection-observer": "^0.5.0",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.11",
     "moveto": "^1.7.3",
     "objectFitPolyfill": "^2.1.1",
     "picturefill": "^3.0.2",
     "ress": "^1.2.2",
     "smoothscroll-for-websites": "^1.4.6",
     "stickyfilljs": "^2.1.0",
-    "swiper": "^4.3.5"
+    "swiper": "^4.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "ansi-regex": "^3.0.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "ansi-regex": "^4.0.0",
     "autoprefixer": "^9.1.5",
     "babel-loader": "^8.0.2",
     "babel-minify-webpack-plugin": "^0.3.1",
@@ -74,7 +74,7 @@
     "stylelint-order": "^1.0.0",
     "stylelint-scss": "^3.3.0",
     "vinyl-named": "^1.1.0",
-    "webpack": "^4.17.2",
+    "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0",
     "webpack-notifier": "^1.6.0",
     "webpack-stream": "^5.1.1"
