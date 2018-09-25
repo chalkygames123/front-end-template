@@ -1,4 +1,4 @@
-const config = require('./gulp/config')
+const config = require(require('path').resolve('config'))
 
 const autoprefixer = require('autoprefixer')
 const cssMqpacker = require('css-mqpacker')
@@ -11,7 +11,7 @@ module.exports = {
       sort: true
     }),
     postcssAssets({
-      basePath: config.paths.outputDir
+      basePath: config.outputDir
     })
   ]
 }

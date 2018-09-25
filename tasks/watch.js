@@ -1,25 +1,24 @@
 const gulp = require('gulp')
-const config = require('../config')
 const $ = require('gulp-load-plugins')()
 
 const watch = () => {
-  $.watch(config.copy.src.globs, () => {
+  $.watch(require('./copy').src, () => {
     gulp.start('copy')
   })
 
-  $.watch(config.html.src.globs, () => {
+  $.watch(require('./html').src, () => {
     gulp.start('html')
   })
 
-  $.watch(config.images.src.globs, () => {
+  $.watch(require('./images').src, () => {
     gulp.start('images')
   })
 
-  $.watch(config.scripts.src.globs, () => {
+  $.watch(require('./scripts').src, () => {
     gulp.start('scripts')
   })
 
-  $.watch(config.styles.src.globs, () => {
+  $.watch(require('./styles').src, () => {
     gulp.start('styles')
   })
 }
