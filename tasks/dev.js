@@ -1,7 +1,12 @@
 const gulp = require('gulp')
+const runSequence = require('run-sequence')
 
-const dev = () => {
-  gulp.start('default')
+const dev = done => {
+  runSequence(
+    'serve',
+    'watch',
+    done
+  )
 }
 
 gulp.task('dev', ['build'], dev)
