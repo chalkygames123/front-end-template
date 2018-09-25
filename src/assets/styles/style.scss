@@ -1,10 +1,10 @@
 @charset 'utf-8';
 
-// vendors
-@import '~ress';
-
 // prerequisites
 @import 'abstracts/*';
+
+// vendors
+@import 'vendors/*';
 
 // categorized rules
 @import 'base/*';
