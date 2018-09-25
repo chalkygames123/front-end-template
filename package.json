@@ -8,7 +8,7 @@
     "images": "gulp images",
     "scripts": "gulp scripts",
     "serve": "gulp serve",
-    "start": "cross-env NODE_ENV=development gulp default",
+    "start": "gulp default",
     "styles": "gulp styles",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "gulp watch"
