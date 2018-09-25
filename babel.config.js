@@ -1,4 +1,4 @@
-const config = require('./gulp/config')
+const config = require(require('path').resolve('config'))
 
 module.exports = api => {
   api.cache.forever()
@@ -11,7 +11,7 @@ module.exports = api => {
       }]
     ],
     plugins: [
-      config.env.PRODUCTION && 'lodash'
+      !config.isDev && 'lodash'
     ].filter(Boolean)
   }
 }

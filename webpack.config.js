@@ -1,11 +1,11 @@
-const config = require('./gulp/config')
+const config = require(require('path').resolve('config'))
 
-const WebpackNotifierPlugin = require('webpack-notifier')
-const MinifyPlugin = require('babel-minify-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const MinifyPlugin = require('babel-minify-webpack-plugin')
+const WebpackNotifierPlugin = require('webpack-notifier')
 
 module.exports = {
-  mode: process.env.NODE_ENV || 'production',
+  mode: config.env,
   output: {
     devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource]?[loaders]'
   },
@@ -15,7 +15,7 @@ module.exports = {
         vendors: {
           minSize: 0,
           test: /[\\/]node_modules[\\/]/,
-          name: `${config.paths.assetsDir}/scripts/vendor`,
+          name: `${config.assetsDir}/scripts/vendor`,
           chunks: 'all'
         }
       }
@@ -43,17 +43,17 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      `${config.paths.srcDir}/${config.paths.assetsDir}/scripts`
+      `${config.srcDir}/${config.assetsDir}/scripts`
     ]
   },
-  devtool: config.env.DEVELOPMENT ? 'eval-source-map' : false,
+  devtool: config.isDev ? 'eval-source-map' : false,
   plugins: [
-    config.env.DEVELOPMENT && new WebpackNotifierPlugin({
+    config.isDev && new WebpackNotifierPlugin({
       skipFirstNotification: true
     }),
-    config.env.PRODUCTION && new MinifyPlugin(),
-    config.env.PRODUCTION && new LodashModuleReplacementPlugin({
-      'collections': true
-    })
+    !config.isDev && new LodashModuleReplacementPlugin({
+      collections: true
+    }),
+    !config.isDev && new MinifyPlugin()
   ].filter(Boolean)
 }
