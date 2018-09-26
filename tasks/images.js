@@ -3,6 +3,7 @@ const config = require(require('path').resolve('config'))
 const $ = require('gulp-load-plugins')()
 const imageminPngquant = require('imagemin-pngquant')
 const imageminWebp = require('imagemin-webp')
+const server = require('./serve').server
 
 const src = `${config.srcDir}/${config.assetsDir}/**/*.+(png|jp?(e)g|gif|svg)`
 
@@ -39,7 +40,7 @@ const images = () => {
       extname: '.webp'
     }))
     .pipe(gulp.dest(`${config.outputDir}${config.baseUrl}`))
-    .pipe(config.server.stream())
+    .pipe(server.stream())
 }
 
 gulp.task('images', images)

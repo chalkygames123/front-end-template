@@ -3,6 +3,7 @@ const config = require(require('path').resolve('config'))
 const $ = require('gulp-load-plugins')()
 const ansiRegex = require('ansi-regex')
 const nodeSassMagicImporter = require('node-sass-magic-importer')
+const server = require('./serve').server
 
 const src = `${config.srcDir}/${config.assetsDir}/styles/**/*.scss`
 
@@ -51,7 +52,7 @@ const styles = () => {
     .pipe(gulp.dest(`${config.outputDir}${config.baseUrl}`))
     .pipe($.if(!config.isDev, $.gzip()))
     .pipe($.if(!config.isDev, gulp.dest(`${config.outputDir}${config.baseUrl}`)))
-    .pipe(config.server.stream())
+    .pipe(server.stream())
 }
 
 gulp.task('styles', ['images'], styles)

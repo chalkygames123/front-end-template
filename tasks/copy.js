@@ -1,6 +1,7 @@
 const gulp = require('gulp')
 const config = require(require('path').resolve('config'))
 const $ = require('gulp-load-plugins')()
+const server = require('./serve').server
 
 const src = [
   `${config.srcDir}/static/**`,
@@ -18,7 +19,7 @@ const copy = () => {
     })
     .pipe($.changed(`${config.outputDir}${config.baseUrl}`))
     .pipe(gulp.dest(`${config.outputDir}${config.baseUrl}`))
-    .pipe(config.server.stream())
+    .pipe(server.stream())
 }
 
 gulp.task('copy', copy)
