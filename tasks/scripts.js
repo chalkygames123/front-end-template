@@ -6,6 +6,7 @@ const normalizePath = require('normalize-path')
 const webpackStream = require('webpack-stream')
 const webpackConfig = require(require('path').resolve('webpack.config'))
 const webpack = require('webpack')
+const server = require('./serve').server
 
 const src = `${config.srcDir}/${config.assetsDir}/scripts/**/*.js`
 
@@ -27,7 +28,7 @@ const scripts = () => {
     .pipe(gulp.dest(`${config.outputDir}${config.baseUrl}`))
     .pipe($.if(!config.isDev, $.gzip()))
     .pipe($.if(!config.isDev, gulp.dest(`${config.outputDir}${config.baseUrl}`)))
-    .pipe(config.server.stream())
+    .pipe(server.stream())
 }
 
 gulp.task('scripts', scripts)

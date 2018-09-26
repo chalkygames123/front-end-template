@@ -2,6 +2,7 @@ const gulp = require('gulp')
 const config = require(require('path').resolve('config'))
 const $ = require('gulp-load-plugins')()
 const ansiRegex = require('ansi-regex')
+const server = require('./serve').server
 
 const src = `${config.srcDir}/pages/**/*.ejs`
 
@@ -51,7 +52,7 @@ const html = () => {
     .pipe(gulp.dest(`${config.outputDir}${config.baseUrl}`))
     .pipe($.if(!config.isDev, $.gzip()))
     .pipe($.if(!config.isDev, gulp.dest(`${config.outputDir}${config.baseUrl}`)))
-    .pipe(config.server.stream())
+    .pipe(server.stream())
 }
 
 gulp.task('html', html)
