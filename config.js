@@ -5,6 +5,7 @@ module.exports = {
   baseUrl: '/',
   outputDir: 'public',
   assetsDir: 'assets',
+  webp: false,
   env,
   isDev: env === 'development'
 }

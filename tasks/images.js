@@ -29,17 +29,17 @@ const images = () => {
       })
     ])))
     .pipe(gulp.dest(`${config.outputDir}${config.baseUrl}`))
-    .pipe($.filter('**/*.+(png|jp?(e)g)'))
-    .pipe($.if(!config.isDev, $.imagemin([
+    .pipe($.if(config.webp, $.filter('**/*.+(png|jp?(e)g)')))
+    .pipe($.if(config.webp && !config.isDev, $.imagemin([
       imageminWebp({
         quality: '90',
         method: 6
       })
     ])))
-    .pipe($.rename({
+    .pipe($.if(config.webp, $.rename({
       extname: '.webp'
-    }))
-    .pipe(gulp.dest(`${config.outputDir}${config.baseUrl}`))
+    })))
+    .pipe($.if(config.webp, gulp.dest(`${config.outputDir}${config.baseUrl}`)))
     .pipe(server.stream())
 }
 
