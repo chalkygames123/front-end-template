@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = require(require('path').resolve('config'))
 
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
@@ -15,7 +17,7 @@ module.exports = {
         vendors: {
           minSize: 0,
           test: /[\\/]node_modules[\\/]/,
-          name: `${config.assetsDir}/scripts/vendor`,
+          name: path.join(config.assetsDir, 'scripts/vendor'),
           chunks: 'all'
         }
       }
@@ -43,7 +45,7 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      `${config.srcDir}/${config.assetsDir}/scripts`
+      path.join(config.srcDir, config.assetsDir, 'scripts')
     ]
   },
   devtool: config.isDev ? 'eval-source-map' : false,

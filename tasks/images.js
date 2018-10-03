@@ -1,3 +1,5 @@
+const path = require('path')
+
 const gulp = require('gulp')
 const config = require(require('path').resolve('config'))
 const $ = require('gulp-load-plugins')()
@@ -5,7 +7,7 @@ const imageminPngquant = require('imagemin-pngquant')
 const imageminWebp = require('imagemin-webp')
 const server = require('./serve').server
 
-const src = `${config.srcDir}/${config.assetsDir}/**/*.+(png|jp?(e)g|gif|svg)`
+const src = path.join(config.srcDir, config.assetsDir, '**/*.+(png|jp?(e)g|gif|svg)')
 
 module.exports = { src }
 
@@ -14,7 +16,7 @@ const images = () => {
     .src(src, {
       base: config.srcDir
     })
-    .pipe($.changed(`${config.outputDir}${config.baseUrl}`))
+    .pipe($.changed(path.join(config.outputDir, config.baseUrl)))
     .pipe($.if(!config.isDev, $.imagemin([
       $.imagemin.gifsicle({
         optimizationLevel: 3
@@ -28,7 +30,7 @@ const images = () => {
         speed: 1
       })
     ])))
-    .pipe(gulp.dest(`${config.outputDir}${config.baseUrl}`))
+    .pipe(gulp.dest(path.join(config.outputDir, config.baseUrl)))
     .pipe($.if(config.webp, $.filter('**/*.+(png|jp?(e)g)')))
     .pipe($.if(config.webp && !config.isDev, $.imagemin([
       imageminWebp({
@@ -39,7 +41,7 @@ const images = () => {
     .pipe($.if(config.webp, $.rename({
       extname: '.webp'
     })))
-    .pipe($.if(config.webp, gulp.dest(`${config.outputDir}${config.baseUrl}`)))
+    .pipe($.if(config.webp, gulp.dest(path.join(config.outputDir, config.baseUrl))))
     .pipe(server.stream())
 }
 
