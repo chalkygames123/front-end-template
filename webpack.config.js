@@ -15,7 +15,6 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         vendor: {
-          minSize: 0,
           test: /node_modules/,
           name: path.join(config.assetsDir, 'scripts/vendor'),
           chunks: 'all'
