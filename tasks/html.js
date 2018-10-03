@@ -1,17 +1,19 @@
+const path = require('path')
+
 const gulp = require('gulp')
 const config = require(require('path').resolve('config'))
 const $ = require('gulp-load-plugins')()
 const ansiRegex = require('ansi-regex')
 const server = require('./serve').server
 
-const src = `${config.srcDir}/pages/**/*.ejs`
+const src = path.join(config.srcDir, 'pages/**/*.ejs')
 
 module.exports = { src }
 
 const html = () => {
   return gulp
     .src(src, {
-      base: `${config.srcDir}/pages`
+      base: path.join(config.srcDir, 'pages')
     })
     .pipe($.plumber({
       errorHandler: $.notify.onError(error => {
@@ -26,7 +28,7 @@ const html = () => {
     }))
     .pipe($.filter('**/!(_)*.ejs'))
     .pipe($.ejs(null, {
-      root: `${config.srcDir}/pages`
+      root: path.join(config.srcDir, 'pages')
     }, {
       ext: '.html'
     }))
@@ -49,9 +51,9 @@ const html = () => {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
     })))
-    .pipe(gulp.dest(`${config.outputDir}${config.baseUrl}`))
+    .pipe(gulp.dest(path.join(config.outputDir, config.baseUrl)))
     .pipe($.if(!config.isDev, $.gzip()))
-    .pipe($.if(!config.isDev, gulp.dest(`${config.outputDir}${config.baseUrl}`)))
+    .pipe($.if(!config.isDev, gulp.dest(path.join(config.outputDir, config.baseUrl))))
     .pipe(server.stream())
 }
 
