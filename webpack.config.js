@@ -1,10 +1,12 @@
 const path = require('path')
 
-const config = require(require('path').resolve('config'))
-
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const MinifyPlugin = require('babel-minify-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
+
+const config = require(path.resolve('config'))
+
+const isDev = config.env === 'development'
 
 module.exports = {
   mode: config.env,
@@ -16,7 +18,7 @@ module.exports = {
       cacheGroups: {
         vendor: {
           test: /node_modules/,
-          name: path.join(config.assetsDir, 'scripts/vendor'),
+          name: path.join(config.dir.assets, 'scripts/vendor'),
           chunks: 'all'
         }
       }
@@ -44,17 +46,17 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      path.join(config.srcDir, config.assetsDir, 'scripts')
+      path.join(config.srcDir, config.dir.assets, 'scripts')
     ]
   },
-  devtool: config.isDev ? 'eval-source-map' : false,
+  devtool: isDev ? 'eval-source-map' : false,
   plugins: [
-    config.isDev && new WebpackNotifierPlugin({
+    isDev && new WebpackNotifierPlugin({
       skipFirstNotification: true
     }),
-    !config.isDev && new LodashModuleReplacementPlugin({
+    !isDev && new LodashModuleReplacementPlugin({
       collections: true
     }),
-    !config.isDev && new MinifyPlugin()
+    !isDev && new MinifyPlugin()
   ].filter(Boolean)
 }

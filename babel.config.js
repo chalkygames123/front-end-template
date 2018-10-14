@@ -1,4 +1,8 @@
-const config = require(require('path').resolve('config'))
+const path = require('path')
+
+const config = require(path.resolve('config'))
+
+const isDev = config.env === 'development'
 
 module.exports = api => {
   api.cache.forever()
@@ -11,7 +15,7 @@ module.exports = api => {
       }]
     ],
     plugins: [
-      !config.isDev && 'lodash'
+      !isDev && 'lodash'
     ].filter(Boolean)
   }
 }

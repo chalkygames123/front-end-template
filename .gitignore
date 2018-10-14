@@ -294,5 +294,5 @@ $RECYCLE.BIN/
 .idea
 .vscode
 
-# Public directory
-public/*
+# Build output
+dist
