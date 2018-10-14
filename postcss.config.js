@@ -1,8 +1,10 @@
-const config = require(require('path').resolve('config'))
+const path = require('path')
 
 const autoprefixer = require('autoprefixer')
 const cssMqpacker = require('css-mqpacker')
 const postcssAssets = require('postcss-assets')
+
+const config = require(path.resolve('config'))
 
 module.exports = {
   plugins: [
@@ -11,7 +13,7 @@ module.exports = {
       sort: true
     }),
     postcssAssets({
-      basePath: config.outputDir
+      basePath: config.distDir
     })
   ]
 }
