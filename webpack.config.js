@@ -18,7 +18,7 @@ module.exports = {
       cacheGroups: {
         vendor: {
           test: /node_modules/,
-          name: path.join(config.dir.assets, 'scripts/vendor'),
+          name: `${config.dir.assets}/${config.dir.scripts}/vendor`,
           chunks: 'all'
         }
       }
@@ -46,7 +46,7 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      path.join(config.srcDir, config.dir.assets, 'scripts')
+      `${config.srcDir}/${config.dir.assets}/${config.dir.scripts}`
     ]
   },
   devtool: isDev ? 'eval-source-map' : false,
