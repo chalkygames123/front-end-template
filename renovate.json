@@ -4,5 +4,8 @@
     "group:allNonMajor"
   ],
   "bumpVersion": "major",
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "rangeStrategy": "bump"
 }
