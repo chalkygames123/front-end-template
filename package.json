@@ -26,7 +26,8 @@
     "ress": "^1.2.2",
     "smoothscroll-for-websites": "^1.4.6",
     "stickyfilljs": "^2.1.0",
-    "swiper": "^4.4.1"
+    "swiper": "^4.4.1",
+    "what-input": "^5.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
