@@ -1,5 +1,3 @@
-const path = require('path')
-
 const browserSync = require('browser-sync')
 
 const config = {
@@ -28,13 +26,13 @@ const config = {
 
 config.srcPaths = {
   copy: [
-    path.join(config.srcDir, config.dir.static, '**'),
+    `${config.srcDir}/${config.dir.static}/**`,
     '!**/.gitkeep'
   ],
-  html: path.join(config.srcDir, config.dir.pages, `**/*.${config.ext.html}`),
-  images: path.join(config.srcDir, config.dir.assets, config.dir.images, `**/*.${config.ext.images}`),
-  scripts: path.join(config.srcDir, config.dir.assets, config.dir.scripts, `**/*.${config.ext.scripts}`),
-  styles: path.join(config.srcDir, config.dir.assets, config.dir.styles, `**/*.${config.ext.styles}`)
+  html: `${config.srcDir}/${config.dir.pages}/**/*.${config.ext.html}`,
+  images: `${config.srcDir}/${config.dir.assets}/${config.dir.images}/**/*.${config.ext.images}`,
+  scripts: `${config.srcDir}/${config.dir.assets}/${config.dir.scripts}/**/*.${config.ext.scripts}`,
+  styles: `${config.srcDir}/${config.dir.assets}/${config.dir.styles}/**/*.${config.ext.styles}`
 }
 
 module.exports = config
