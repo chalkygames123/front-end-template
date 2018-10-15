@@ -8,7 +8,9 @@ const config = require(path.resolve('config'))
 
 module.exports = {
   plugins: [
-    autoprefixer,
+    autoprefixer({
+      grid: true
+    }),
     cssMqpacker({
       sort: true
     }),
