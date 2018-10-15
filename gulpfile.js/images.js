@@ -12,9 +12,9 @@ const isDev = config.env === 'development'
 function images () {
   return gulp
     .src(config.srcPaths.images, {
-      base: config.srcDir
+      base: config.srcDir,
+      since: gulp.lastRun(images)
     })
-    .pipe($.changed(`${config.distDir}/${config.baseDir}`))
     .pipe($.if(!isDev, $.imagemin([
       $.imagemin.gifsicle({
         optimizationLevel: 3
