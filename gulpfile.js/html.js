@@ -17,7 +17,7 @@ function html () {
     }))
     .pipe($.filter(`**/!(_)*.${config.ext.html}`))
     .pipe($.ejs(null, {
-      root: path.join(config.srcDir, 'pages')
+      root: path.join(config.srcDir, config.dir.pages)
     }, {
       ext: '.html'
     }))

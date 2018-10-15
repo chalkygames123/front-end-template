@@ -29,7 +29,7 @@ function styles () {
     .pipe($.if(isDev, $.sourcemaps.init()))
     .pipe($.sass({
       importer: nodeSassMagicImporter(),
-      includePaths: path.join(config.srcDir, config.dir.assets, 'styles'),
+      includePaths: path.join(config.srcDir, config.dir.assets, config.dir.styles),
       outputStyle: 'compressed'
     }))
     .pipe($.postcss())
