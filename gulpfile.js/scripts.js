@@ -22,7 +22,7 @@ function scripts () {
     }))
     .pipe($.filter(`**/!(_)*.${config.ext.scripts}`))
     .pipe(vinylNamed(file => {
-      return upath.trimExt(file.relative)
+      return upath.normalize(upath.trimExt(file.relative))
     }))
     .pipe(webpackStream(webpackConfig, webpack))
     .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
