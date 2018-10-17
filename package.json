@@ -17,6 +17,7 @@
     "@babel/polyfill": "^7.0.0",
     "axios": "^0.18.0",
     "custom-event-polyfill": "^1.0.6",
+    "element-closest": "^2.0.2",
     "gsap": "^2.0.2",
     "intersection-observer": "^0.5.0",
     "lodash": "^4.17.11",
