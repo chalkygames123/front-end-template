@@ -17,9 +17,9 @@ function styles () {
     .src(config.srcPaths.styles, {
       base: config.srcDir
     })
-    .pipe($.plumber({
+    .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
-    }))
+    })))
     .pipe($.stylelint({
       reporters: [
         {
