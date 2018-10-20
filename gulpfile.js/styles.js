@@ -33,7 +33,7 @@ function styles () {
     .pipe($.sass({
       importer: nodeSassMagicImporter(),
       includePaths: upath.join(config.srcDir, config.dir.assets, config.dir.styles),
-      outputStyle: 'compressed'
+      outputStyle: 'expanded'
     }))
     .pipe($.postcss())
     .pipe($.rename(path => {
