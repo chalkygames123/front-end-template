@@ -2,6 +2,7 @@ const path = require('path')
 
 const $ = require('gulp-load-plugins')()
 const gulp = require('gulp')
+const upath = require('upath')
 
 const config = require(path.resolve('config'))
 
@@ -10,14 +11,14 @@ const isDev = config.env === 'development'
 function html () {
   return gulp
     .src(config.srcPaths.html, {
-      base: `${config.srcDir}/${config.dir.pages}`
+      base: upath.join(config.srcDir, config.dir.pages)
     })
     .pipe($.plumber({
       errorHandler: $.notify.onError()
     }))
-    .pipe($.filter(`**/!(_)*.${config.ext.html}`))
+    .pipe($.filter(upath.join('**', `!(_)*.${config.ext.html}`)))
     .pipe($.ejs(null, {
-      root: `${config.srcDir}/${config.dir.pages}`
+      root: upath.join(config.srcDir, config.dir.pages)
     }, {
       ext: '.html'
     }))
@@ -40,9 +41,9 @@ function html () {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
     })))
-    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
+    .pipe(gulp.dest(upath.join(config.distDir, config.baseDir)))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
-    .pipe($.if(config.gzip && !isDev, gulp.dest(`${config.distDir}/${config.baseDir}`)))
+    .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.baseDir))))
     .pipe(config.server.stream())
 }
 

@@ -4,6 +4,7 @@ const $ = require('gulp-load-plugins')()
 const gulp = require('gulp')
 const imageminPngquant = require('imagemin-pngquant')
 const imageminWebp = require('imagemin-webp')
+const upath = require('upath')
 
 const config = require(path.resolve('config'))
 
@@ -28,7 +29,7 @@ function images () {
         speed: 1
       })
     ])))
-    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
+    .pipe(gulp.dest(upath.join(config.distDir, config.baseDir)))
     .pipe($.if(config.webp, $.filter('**/*.+(png|jp?(e)g)')))
     .pipe($.if(config.webp && !isDev, $.imagemin([
       imageminWebp({
@@ -39,7 +40,7 @@ function images () {
     .pipe($.if(config.webp, $.rename({
       extname: '.webp'
     })))
-    .pipe($.if(config.webp, gulp.dest(`${config.distDir}/${config.baseDir}`)))
+    .pipe($.if(config.webp, gulp.dest(upath.join(config.distDir, config.baseDir))))
     .pipe(config.server.stream())
 }
 

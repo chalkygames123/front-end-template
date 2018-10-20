@@ -3,6 +3,7 @@ const path = require('path')
 const $ = require('gulp-load-plugins')()
 const gulp = require('gulp')
 const nodeSassMagicImporter = require('node-sass-magic-importer')
+const upath = require('upath')
 
 const config = require(path.resolve('config'))
 const images = require('./images')
@@ -31,7 +32,7 @@ function styles () {
     .pipe($.if(isDev, $.sourcemaps.init()))
     .pipe($.sass({
       importer: nodeSassMagicImporter(),
-      includePaths: `${config.srcDir}/${config.dir.assets}/${config.dir.styles}`,
+      includePaths: upath.join(config.srcDir, config.dir.assets, config.dir.styles),
       outputStyle: 'compressed'
     }))
     .pipe($.postcss())
@@ -45,9 +46,9 @@ function styles () {
       rebase: false
     })))
     .pipe($.if(!isDev, $.csso()))
-    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
+    .pipe(gulp.dest(upath.join(config.distDir, config.baseDir)))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
-    .pipe($.if(config.gzip && !isDev, gulp.dest(`${config.distDir}/${config.baseDir}`)))
+    .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.baseDir))))
     .pipe(config.server.stream())
 }
 

@@ -1,4 +1,5 @@
 const browserSync = require('browser-sync')
+const upath = require('upath')
 
 const config = {
   srcDir: 'src',
@@ -26,13 +27,13 @@ const config = {
 
 config.srcPaths = {
   copy: [
-    `${config.srcDir}/${config.dir.static}/**`,
+    upath.join(config.srcDir, config.dir.static, '**'),
     '!**/.gitkeep'
   ],
-  html: `${config.srcDir}/${config.dir.pages}/**/*.${config.ext.html}`,
-  images: `${config.srcDir}/${config.dir.assets}/${config.dir.images}/**/*.${config.ext.images}`,
-  scripts: `${config.srcDir}/${config.dir.assets}/${config.dir.scripts}/**/*.${config.ext.scripts}`,
-  styles: `${config.srcDir}/${config.dir.assets}/${config.dir.styles}/**/*.${config.ext.styles}`
+  html: upath.join(config.srcDir, config.dir.pages, '**', `*.${config.ext.html}`),
+  images: upath.join(config.srcDir, config.dir.assets, config.dir.images, '**', `*.${config.ext.images}`),
+  scripts: upath.join(config.srcDir, config.dir.assets, config.dir.scripts, '**', `*.${config.ext.scripts}`),
+  styles: upath.join(config.srcDir, config.dir.assets, config.dir.styles, '**', `*.${config.ext.styles}`)
 }
 
 module.exports = config
