@@ -22,6 +22,7 @@ function scripts () {
     }))
     .pipe($.filter(upath.join('**', `!(_)*.${config.ext.scripts}`)))
     .pipe(vinylNamed(file => {
+      file.base = config.srcDir
       return upath.normalize(upath.trimExt(file.relative))
     }))
     .pipe(webpackStream(webpackConfig, webpack))
