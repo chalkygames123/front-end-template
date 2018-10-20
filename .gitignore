@@ -290,7 +290,7 @@ $RECYCLE.BIN/
 
 ### Project-specific settings ###
 
-# Improve gitignore.io's settings
+# Override gitignore.io's settings
 .idea
 .vscode
 
