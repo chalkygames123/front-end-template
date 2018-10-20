@@ -66,6 +66,7 @@
     "postcss-assets": "^5.0.0",
     "require-dir": "^1.1.0",
     "run-sequence": "^2.2.1",
+    "sass": "^1.14.3",
     "standard": "^12.0.1",
     "standard-loader": "^6.0.1",
     "stylelint": "^9.6.0",

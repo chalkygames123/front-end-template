@@ -9,6 +9,8 @@ const images = require('./images')
 
 const isDev = config.env === 'development'
 
+$.sass.compiler = require('sass')
+
 function styles () {
   return gulp
     .src(config.srcPaths.styles, {
