@@ -3,6 +3,7 @@ const path = require('path')
 const $ = require('gulp-load-plugins')()
 const gulp = require('gulp')
 const nodeSassMagicImporter = require('node-sass-magic-importer')
+const sassGraphGlob = require('sass-graph-glob')
 const upath = require('upath')
 
 const config = require(path.resolve('config'))
@@ -13,12 +14,27 @@ const isDev = config.env === 'development'
 $.sass.compiler = require('sass')
 
 function styles () {
+  const graph = sassGraphGlob.parseDir(upath.join(config.srcDir, config.dir.assets, config.dir.styles))
+  const dependentPaths = []
+
   return gulp
     .src(config.srcPaths.styles, {
       base: config.srcDir
     })
     .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
+    })))
+    .pipe($.if(isDev, $.cached('sass')))
+    .pipe($.if(isDev, $.flatmap((stream, file) => {
+      dependentPaths.push(file.path)
+      graph.visitAncestors(file.path, path => {
+        if (dependentPaths.indexOf(path) < 0) {
+          dependentPaths.push(path)
+        }
+      })
+      return gulp.src(dependentPaths, {
+        base: config.srcDir
+      })
     })))
     .pipe($.stylelint({
       reporters: [
