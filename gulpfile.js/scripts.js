@@ -20,14 +20,14 @@ function scripts () {
     .pipe($.plumber({
       errorHandler: () => false
     }))
-    .pipe($.filter(`**/!(_)*.${config.ext.scripts}`))
+    .pipe($.filter(upath.join('**', `!(_)*.${config.ext.scripts}`)))
     .pipe(vinylNamed(file => {
       return upath.normalize(upath.trimExt(file.relative))
     }))
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
+    .pipe(gulp.dest(upath.join(config.distDir, config.baseDir)))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
-    .pipe($.if(config.gzip && !isDev, gulp.dest(`${config.distDir}/${config.baseDir}`)))
+    .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.baseDir))))
     .pipe(config.server.stream())
 }
 
