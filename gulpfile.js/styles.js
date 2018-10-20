@@ -39,7 +39,7 @@ function styles () {
       path.extname = '.css'
     }))
     .pipe($.if(isDev, $.sourcemaps.write({
-      sourceRoot: '/src'
+      sourceRoot: `/${config.srcDir}`
     })))
     .pipe($.if(!isDev, $.cleanCss({
       rebase: false
