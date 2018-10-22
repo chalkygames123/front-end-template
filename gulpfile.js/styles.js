@@ -15,7 +15,7 @@ $.sass.compiler = require('sass')
 
 function styles () {
   const graph = sassGraphGlob.parseDir(upath.join(config.srcDir, config.dir.assets, config.dir.styles))
-  const dependentPaths = []
+  const srcPaths = []
 
   return gulp
     .src(config.srcPaths.styles, {
@@ -26,13 +26,15 @@ function styles () {
     })))
     .pipe($.if(isDev, $.cached('sass')))
     .pipe($.if(isDev, $.flatmap((stream, file) => {
-      dependentPaths.push(file.path)
+      srcPaths.push(file.path)
+
       graph.visitAncestors(file.path, path => {
-        if (dependentPaths.indexOf(path) < 0) {
-          dependentPaths.push(path)
+        if (srcPaths.indexOf(path) < 0) {
+          srcPaths.push(path)
         }
       })
-      return gulp.src(dependentPaths, {
+
+      return gulp.src(srcPaths, {
         base: config.srcDir
       })
     })))

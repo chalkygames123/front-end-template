@@ -24,8 +24,11 @@ function copy () {
           console.warn(chalk.yellow(
             `Warning: ${
               chalk.underline(upath.join(file.base, file.relative))
-            } conflicts with ${chalk.underline(destPath)}`)
-          )
+            } conflicts with ${
+              chalk.underline(destPath)
+            }`
+          ))
+
           return cb()
         }
 
