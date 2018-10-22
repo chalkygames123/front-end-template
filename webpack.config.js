@@ -1,5 +1,7 @@
 const path = require('path')
 
+const upath = require('upath')
+
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const MinifyPlugin = require('babel-minify-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
@@ -18,7 +20,7 @@ module.exports = {
       cacheGroups: {
         vendor: {
           test: /node_modules/,
-          name: `${config.dir.assets}/${config.dir.scripts}/vendor`,
+          name: upath.join(config.dir.assets, config.dir.scripts, 'vendor'),
           chunks: 'all'
         }
       }
@@ -46,7 +48,7 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      `${config.srcDir}/${config.dir.assets}/${config.dir.scripts}`
+      upath.join(config.srcDir, config.dir.assets, config.dir.scripts)
     ]
   },
   devtool: isDev ? 'eval-source-map' : false,
