@@ -6474,7 +6474,7 @@ jpegtran-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-js-base64@^2.1.8, js-base64@^2.1.9:
+js-base64@^2.1.8, js-base64@^2.1.9, js-base64@^2.4.3:
   version "2.4.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.9.tgz#748911fb04f48a60c4771b375cac45a80df11c03"
   integrity sha512-xcinL3AuDJk7VSzsHgb9DvvIXayBbadtMZ4HFPx8rUszbW1MuNMlwYVC4zzCZ6e1sqZpnNS5ZFYOhXqA39T7LQ==
@@ -9600,15 +9600,15 @@ safe-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sass-graph-glob@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/sass-graph-glob/-/sass-graph-glob-2.2.4.tgz#41ca53405166ba61c40c6b3f34d09018d068a1e3"
-  integrity sha512-zeKDAec7Eacd9j7gA5rDrfbkWR3aI1t5VfO1l6RwrjpDdBLnHhZNOylsKRTP68RCYXQre5DCPP1tAM444ceklg==
+sass-graph-glob@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/sass-graph-glob/-/sass-graph-glob-3.0.4.tgz#2086fdef4d0aa258f33f0e0ed387343daf4e299d"
+  integrity sha512-Yj4ozMMiGnKSexmeIhO3+M99g0TQyzcHfYREyBsUwbHMkLiWRYzcMOQhe87N9Qr7TiIADqSlODQdZXCMdJVU2A==
   dependencies:
     glob "^7.0.0"
-    lodash "^4.0.0"
-    scss-tokenizer "^0.2.3"
-    yargs "^7.0.0"
+    lodash "^4.17.11"
+    scss-tokenizer "^0.3.0"
+    yargs "^12.0.2"
 
 sass-graph@^2.2.4:
   version "2.2.4"
@@ -9647,6 +9647,14 @@ scss-tokenizer@^0.2.3:
   dependencies:
     js-base64 "^2.1.8"
     source-map "^0.4.2"
+
+scss-tokenizer@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/scss-tokenizer/-/scss-tokenizer-0.3.0.tgz#ef7edc3bc438b25cd6ffacf1aa5b9ad5813bf260"
+  integrity sha512-14Zl9GcbBvOT9057ZKjpz5yPOyUWG2ojd9D5io28wHRYsOrs7U95Q+KNL87+32p8rc+LvDpbu/i9ZYjM9Q+FsQ==
+  dependencies:
+    js-base64 "^2.4.3"
+    source-map "^0.7.1"
 
 secure-keys@^1.0.0:
   version "1.0.0"
@@ -10229,6 +10237,11 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+
+source-map@^0.7.1:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
+  integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
 
 sparkles@^1.0.0:
   version "1.0.1"
