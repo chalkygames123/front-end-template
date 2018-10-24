@@ -21,11 +21,10 @@
     "gsap": "^2.0.2",
     "intersection-observer": "^0.5.1",
     "lodash": "^4.17.11",
-    "moveto": "^1.7.4",
     "objectFitPolyfill": "^2.1.1",
     "picturefill": "^3.0.3",
     "ress": "^1.2.2",
-    "smoothscroll-for-websites": "^1.4.6",
+    "smooth-scroll": "^14.2.1",
     "stickyfilljs": "^2.1.0",
     "swiper": "^4.4.1",
     "what-input": "^5.1.2"

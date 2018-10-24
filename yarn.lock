@@ -7505,11 +7505,6 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-moveto@^1.7.4:
-  version "1.7.4"
-  resolved "https://registry.yarnpkg.com/moveto/-/moveto-1.7.4.tgz#42c93f6cf4aea7cee39c08db46e4a340790b4318"
-  integrity sha512-ZmMH84ChVlaYVn6uL5FM9WEE6Se1R2+cARNQteuwcyFKMiNfD/fkIgVPy9lW/HmnVpSW71s4+bYX+gTAHKlsAQ==
-
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -9881,10 +9876,10 @@ smart-buffer@^1.0.13:
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-1.1.15.tgz#7f114b5b65fab3e2a35aa775bb12f0d1c649bf16"
   integrity sha1-fxFLW2X6s+KjWqd1uxLw0cZJvxY=
 
-smoothscroll-for-websites@^1.4.6:
-  version "1.4.6"
-  resolved "https://registry.yarnpkg.com/smoothscroll-for-websites/-/smoothscroll-for-websites-1.4.6.tgz#753fac88be6f20a1ec85902593653cbaa3059f82"
-  integrity sha1-dT+siL5vIKHshZAlk2U8uqMFn4I=
+smooth-scroll@^14.2.1:
+  version "14.2.1"
+  resolved "https://registry.yarnpkg.com/smooth-scroll/-/smooth-scroll-14.2.1.tgz#2883128569d0eb32fc63ef34d91a4290f43c7515"
+  integrity sha512-6ZVYgMglZImuFglzeRM+j8zY+0vahfxBr3zznTddqExqGewrUHsCc+XF0VcbiwWXwTqtn0IL+KFT89/dxhKVfw==
 
 snake-case@^2.1.0:
   version "2.1.0"
