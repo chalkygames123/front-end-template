@@ -60,7 +60,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-stylelint": "^7.0.0",
+    "gulp-stylelint": "^8.0.0",
     "imagemin-pngquant": "^6.0.0",
     "imagemin-webp": "^4.1.0",
     "lodash-webpack-plugin": "^0.11.5",
