@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
-    "autoprefixer": "^9.2.1",
+    "autoprefixer": "^9.3.1",
     "babel-loader": "^8.0.4",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-lodash": "^3.3.4",
@@ -75,11 +75,11 @@
     "strip-ansi": "^5.0.0",
     "stylelint": "^9.6.0",
     "stylelint-order": "^1.0.0",
-    "stylelint-scss": "^3.3.1",
+    "stylelint-scss": "^3.3.2",
     "through2": "^2.0.3",
     "upath": "^1.1.0",
     "vinyl-named": "^1.1.0",
-    "webpack": "^4.22.0",
+    "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
     "webpack-notifier": "^1.7.0",
     "webpack-stream": "^5.1.1"
