@@ -54,8 +54,8 @@ function styles () {
       outputStyle: 'expanded'
     }))
     .pipe($.postcss())
-    .pipe($.rename(path => {
-      path.extname = '.css'
+    .pipe($.rename({
+      extname: '.css'
     }))
     .pipe($.if(isDev, $.sourcemaps.write({
       sourceRoot: `/${config.srcDir}`
