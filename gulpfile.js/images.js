@@ -7,6 +7,7 @@ const imageminWebp = require('imagemin-webp')
 const upath = require('upath')
 
 const config = require(path.resolve('config'))
+const utils = require('./utils')
 
 const isDev = config.env === 'development'
 
@@ -16,6 +17,9 @@ function images () {
       base: config.srcDir,
       since: gulp.lastRun(images)
     })
+    .pipe($.if(isDev, $.plumber({
+      errorHandler: $.notify.onError()
+    })))
     .pipe($.if(!isDev, $.imagemin([
       $.imagemin.gifsicle({
         optimizationLevel: 3
@@ -29,6 +33,7 @@ function images () {
         speed: 1
       })
     ])))
+    .pipe(utils.detectConflict())
     .pipe(gulp.dest(upath.join(config.distDir, config.baseDir)))
     .pipe($.if(config.webp, $.filter('**/*.+(png|jp?(e)g)')))
     .pipe($.if(config.webp && !isDev, $.imagemin([
@@ -40,6 +45,7 @@ function images () {
     .pipe($.if(config.webp, $.rename({
       extname: '.webp'
     })))
+    .pipe($.if(config.webp, utils.detectConflict()))
     .pipe($.if(config.webp, gulp.dest(upath.join(config.distDir, config.baseDir))))
     .pipe(config.server.stream())
 }

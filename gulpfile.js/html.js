@@ -5,6 +5,7 @@ const gulp = require('gulp')
 const upath = require('upath')
 
 const config = require(path.resolve('config'))
+const utils = require('./utils')
 
 const isDev = config.env === 'development'
 
@@ -41,8 +42,10 @@ function html () {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
     })))
+    .pipe(utils.detectConflict())
     .pipe(gulp.dest(upath.join(config.distDir, config.baseDir)))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
+    .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
     .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.baseDir))))
     .pipe(config.server.stream())
 }

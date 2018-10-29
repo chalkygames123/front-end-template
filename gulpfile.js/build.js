@@ -9,6 +9,5 @@ const styles = require('./styles')
 
 module.exports = gulp.series(
   clean,
-  gulp.parallel(html, images, scripts, styles),
-  copy
+  gulp.parallel(copy, html, images, scripts, styles)
 )

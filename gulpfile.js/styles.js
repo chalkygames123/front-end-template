@@ -8,6 +8,7 @@ const upath = require('upath')
 
 const config = require(path.resolve('config'))
 const images = require('./images')
+const utils = require('./utils')
 
 const isDev = config.env === 'development'
 
@@ -64,8 +65,10 @@ function styles () {
       rebase: false
     })))
     .pipe($.if(!isDev, $.csso()))
+    .pipe(utils.detectConflict())
     .pipe(gulp.dest(upath.join(config.distDir, config.baseDir)))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
+    .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
     .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.baseDir))))
     .pipe(config.server.stream())
 }
