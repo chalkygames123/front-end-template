@@ -3,7 +3,6 @@
     "config:base",
     "group:allNonMajor"
   ],
-  "bumpVersion": "major",
   "lockFileMaintenance": {
     "enabled": true
   },
