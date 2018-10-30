@@ -18,9 +18,8 @@ module.exports = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        vendor: {
-          test: /node_modules/,
-          name: upath.join(config.dir.assets, config.dir.scripts, 'vendor'),
+        vendors: {
+          name: upath.join(config.dir.assets, config.dir.scripts, 'vendors'),
           chunks: 'all'
         }
       }
@@ -47,8 +46,8 @@ module.exports = {
   },
   resolve: {
     modules: [
-      'node_modules',
-      upath.join(config.srcDir, config.dir.assets, config.dir.scripts)
+      upath.join(config.srcDir, config.dir.assets, config.dir.scripts),
+      'node_modules'
     ]
   },
   devtool: isDev ? 'eval-source-map' : false,
