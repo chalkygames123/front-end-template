@@ -27,7 +27,13 @@ function images () {
       $.imagemin.jpegtran({
         progressive: true
       }),
-      $.imagemin.svgo(),
+      $.imagemin.svgo({
+        plugins: [
+          {
+            removeViewBox: false
+          }
+        ]
+      }),
       imageminPngquant({
         quality: '80-90',
         speed: 1
