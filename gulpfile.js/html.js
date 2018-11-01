@@ -17,7 +17,7 @@ function html () {
     .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
     })))
-    .pipe($.filter(upath.join('**', `!(_)*.${config.ext.html}`)))
+    .pipe($.filter(upath.join('**', `!(_)*${config.ext.html}`)))
     .pipe($.ejs(null, {
       root: upath.join(config.srcDir, config.dir.pages)
     }, {
