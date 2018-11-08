@@ -88,12 +88,7 @@
     "node": ">=8.10.0"
   },
   "private": true,
-  "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "Firefox ESR",
-    "not dead"
-  ],
+  "browserslist": "defaults",
   "prettier": {
     "semi": false,
     "singleQuote": true
