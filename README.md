@@ -18,7 +18,7 @@ $ npm install # Or yarn
 ### Development
 
 ```bash
-# serve with hot reloading at localhost:3000
+# serve with live/hot reloading at localhost:3000
 $ npm run dev # Or yarn dev
 ```
 
