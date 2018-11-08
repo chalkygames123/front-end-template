@@ -277,7 +277,7 @@
       "media-query-list-comma-space-before": "never",
       "no-descending-specificity": null,
       "no-duplicate-at-import-rules": true,
-      "no-duplicate-selectors": true,
+      "no-duplicate-selectors": null,
       "no-empty-source": null,
       "no-eol-whitespace": true,
       "no-extra-semicolons": true,
