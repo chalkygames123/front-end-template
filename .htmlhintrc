@@ -1,5 +1,5 @@
 {
-  "tagname-lowercase": true,
+  "tagname-lowercase": false,
   "attr-lowercase": false,
   "attr-value-double-quotes": true,
   "attr-value-not-empty": false,
