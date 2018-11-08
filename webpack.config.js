@@ -20,8 +20,9 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         vendors: {
-          name: upath.join(config.dir.assets, config.dir.scripts, 'vendors'),
-          chunks: 'all'
+          chunks: 'all',
+          minSize: 0,
+          name: upath.join(config.dir.assets, config.dir.scripts, 'vendors')
         }
       }
     }
