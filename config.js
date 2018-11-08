@@ -4,7 +4,7 @@ const upath = require('upath')
 const config = {
   srcDir: 'src',
   distDir: 'dist',
-  baseDir: '/',
+  basePath: '/',
   gzip: true,
   webp: false,
   dir: {

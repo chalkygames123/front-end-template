@@ -19,7 +19,7 @@ function copy () {
     .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
     })))
-    .pipe(gulp.dest(upath.join(config.distDir, config.baseDir)))
+    .pipe(gulp.dest(upath.join(config.distDir, config.basePath)))
     .pipe(config.server.stream())
 }
 

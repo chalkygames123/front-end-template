@@ -6,7 +6,7 @@ function serve (cb) {
   config.server.init({
     ui: false,
     server: config.distDir,
-    startPath: config.baseDir
+    startPath: config.basePath
   })
 
   cb()

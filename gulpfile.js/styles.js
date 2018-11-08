@@ -66,10 +66,10 @@ function styles () {
     })))
     .pipe($.if(!isDev, $.csso()))
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(upath.join(config.distDir, config.baseDir)))
+    .pipe(gulp.dest(upath.join(config.distDir, config.basePath)))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
     .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
-    .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.baseDir))))
+    .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.basePath))))
     .pipe(config.server.stream())
 }
 

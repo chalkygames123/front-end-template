@@ -40,7 +40,7 @@ function images () {
       })
     ])))
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(upath.join(config.distDir, config.baseDir)))
+    .pipe(gulp.dest(upath.join(config.distDir, config.basePath)))
     .pipe($.if(config.webp, $.filter('**/*.+(png|jp?(e)g)')))
     .pipe($.if(config.webp && !isDev, $.imagemin([
       imageminWebp({
@@ -52,7 +52,7 @@ function images () {
       extname: '.webp'
     })))
     .pipe($.if(config.webp, utils.detectConflict()))
-    .pipe($.if(config.webp, gulp.dest(upath.join(config.distDir, config.baseDir))))
+    .pipe($.if(config.webp, gulp.dest(upath.join(config.distDir, config.basePath))))
     .pipe(config.server.stream())
 }
 
