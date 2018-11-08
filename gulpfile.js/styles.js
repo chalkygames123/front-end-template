@@ -6,11 +6,12 @@ const nodeSassMagicImporter = require('node-sass-magic-importer')
 const sassGraphGlob = require('sass-graph-glob')
 const upath = require('upath')
 
+const common = require(path.resolve('gulpfile.js/common'))
 const config = require(path.resolve('config'))
 const images = require('./images')
 const utils = require('./utils')
 
-const isDev = config.env === 'development'
+const isDev = common.env === 'development'
 
 $.sass.compiler = require('sass')
 
@@ -19,7 +20,7 @@ function styles () {
   const srcPaths = []
 
   return gulp
-    .src(config.srcPaths.styles, {
+    .src(common.srcPaths.styles, {
       base: config.srcDir
     })
     .pipe($.if(isDev, $.plumber({
@@ -70,7 +71,7 @@ function styles () {
     .pipe($.if(config.gzip && !isDev, $.gzip()))
     .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
     .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.basePath))))
-    .pipe(config.server.stream())
+    .pipe(common.server.stream())
 }
 
 module.exports = gulp.series(images, styles)

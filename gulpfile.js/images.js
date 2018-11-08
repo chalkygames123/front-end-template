@@ -6,14 +6,15 @@ const imageminPngquant = require('imagemin-pngquant')
 const imageminWebp = require('imagemin-webp')
 const upath = require('upath')
 
+const common = require(path.resolve('gulpfile.js/common'))
 const config = require(path.resolve('config'))
 const utils = require('./utils')
 
-const isDev = config.env === 'development'
+const isDev = common.env === 'development'
 
 function images () {
   return gulp
-    .src(config.srcPaths.images, {
+    .src(common.srcPaths.images, {
       base: config.srcDir,
       since: gulp.lastRun(images)
     })
@@ -53,7 +54,7 @@ function images () {
     })))
     .pipe($.if(config.webp, utils.detectConflict()))
     .pipe($.if(config.webp, gulp.dest(upath.join(config.distDir, config.basePath))))
-    .pipe(config.server.stream())
+    .pipe(common.server.stream())
 }
 
 module.exports = images

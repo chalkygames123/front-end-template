@@ -1,8 +1,8 @@
 const path = require('path')
 
-const config = require(path.resolve('config'))
+const common = require(path.resolve('gulpfile.js/common'))
 
-const isDev = config.env === 'development'
+const isDev = common.env === 'development'
 
 module.exports = api => {
   api.cache.forever()

@@ -4,13 +4,14 @@ const $ = require('gulp-load-plugins')()
 const gulp = require('gulp')
 const upath = require('upath')
 
+const common = require(path.resolve('gulpfile.js/common'))
 const config = require(path.resolve('config'))
 
-const isDev = config.env === 'development'
+const isDev = common.env === 'development'
 
 function copy () {
   return gulp
-    .src(config.srcPaths.copy, {
+    .src(common.srcPaths.copy, {
       base: upath.join(config.srcDir, config.dir.static),
       since: gulp.lastRun(copy),
       dot: true,
@@ -20,7 +21,7 @@ function copy () {
       errorHandler: $.notify.onError()
     })))
     .pipe(gulp.dest(upath.join(config.distDir, config.basePath)))
-    .pipe(config.server.stream())
+    .pipe(common.server.stream())
 }
 
 module.exports = copy

@@ -4,20 +4,21 @@ const $ = require('gulp-load-plugins')()
 const gulp = require('gulp')
 const upath = require('upath')
 
+const common = require(path.resolve('gulpfile.js/common'))
 const config = require(path.resolve('config'))
 const utils = require('./utils')
 
-const isDev = config.env === 'development'
+const isDev = common.env === 'development'
 
 function html () {
   return gulp
-    .src(config.srcPaths.html, {
+    .src(common.srcPaths.html, {
       base: upath.join(config.srcDir, config.dir.pages)
     })
     .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
     })))
-    .pipe($.filter(upath.join('**', `!(_)*${config.ext.html}`)))
+    .pipe($.filter(upath.join('**', `!(_)*${common.ext.html}`)))
     .pipe($.ejs(null, {
       root: upath.join(config.srcDir, config.dir.pages)
     }, {
@@ -47,7 +48,7 @@ function html () {
     .pipe($.if(config.gzip && !isDev, $.gzip()))
     .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
     .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.basePath))))
-    .pipe(config.server.stream())
+    .pipe(common.server.stream())
 }
 
 module.exports = html

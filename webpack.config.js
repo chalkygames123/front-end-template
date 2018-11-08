@@ -6,12 +6,13 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const MinifyPlugin = require('babel-minify-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
+const common = require(path.resolve('gulpfile.js/common'))
 const config = require(path.resolve('config'))
 
-const isDev = config.env === 'development'
+const isDev = common.env === 'development'
 
 module.exports = {
-  mode: config.env,
+  mode: common.env,
   output: {
     devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource]?[loaders]'
   },
