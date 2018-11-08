@@ -75,7 +75,7 @@
     "strip-ansi": "^5.0.0",
     "stylelint": "^9.7.1",
     "stylelint-order": "^1.0.0",
-    "stylelint-scss": "^3.3.2",
+    "stylelint-scss": "^3.4.0",
     "through2": "^3.0.0",
     "upath": "^1.1.0",
     "vinyl-named": "^1.1.0",
