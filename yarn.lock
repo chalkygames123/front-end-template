@@ -10203,10 +10203,10 @@ smart-buffer@^1.0.13:
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-1.1.15.tgz#7f114b5b65fab3e2a35aa775bb12f0d1c649bf16"
   integrity sha1-fxFLW2X6s+KjWqd1uxLw0cZJvxY=
 
-smooth-scroll@^14.2.1:
-  version "14.2.1"
-  resolved "https://registry.yarnpkg.com/smooth-scroll/-/smooth-scroll-14.2.1.tgz#2883128569d0eb32fc63ef34d91a4290f43c7515"
-  integrity sha512-6ZVYgMglZImuFglzeRM+j8zY+0vahfxBr3zznTddqExqGewrUHsCc+XF0VcbiwWXwTqtn0IL+KFT89/dxhKVfw==
+smooth-scroll@^15.0.0:
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/smooth-scroll/-/smooth-scroll-15.0.0.tgz#be4f9cb2cc4952d80db6736e5656ed5849305272"
+  integrity sha512-hG0AUxgIea+wduxNArBKH0FpHCqK61+QhcnymF9iHafdBFupD/D1tc2QdLjddXBov4fZe6+iZqteoyyvmpZ0TA==
 
 snake-case@^2.1.0:
   version "2.1.0"
