@@ -21,6 +21,7 @@
     "gsap": "^2.0.2",
     "intersection-observer": "^0.5.1",
     "lodash": "^4.17.11",
+    "no-scroll": "^2.1.1",
     "objectFitPolyfill": "^2.1.1",
     "picturefill": "^3.0.3",
     "ress": "^1.2.2",
