@@ -13,10 +13,10 @@ function copy () {
   return gulp
     .src(common.srcPaths.copy, {
       base: upath.join(config.srcDir, config.dir.static),
-      since: gulp.lastRun(copy),
       dot: true,
       nodir: true
     })
+    .pipe($.changed(upath.join(config.distDir, config.basePath)))
     .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
     })))
