@@ -29,11 +29,13 @@ function images () {
         progressive: true
       }),
       $.imagemin.svgo({
-        plugins: [
-          {
-            removeViewBox: false
-          }
-        ]
+        plugins: [{
+          removeUselessDefs: false
+        }, {
+          removeViewBox: false
+        }, {
+          cleanupIDs: false
+        }]
       }),
       imageminPngquant({
         quality: '80-90',
