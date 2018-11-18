@@ -28,7 +28,9 @@ function styles () {
     })))
     .pipe($.if(isDev, $.cached('sass')))
     .pipe($.if(isDev, $.flatmap((stream, file) => {
-      srcPaths.push(file.path)
+      if (srcPaths.indexOf(file.path) < 0) {
+        srcPaths.push(file.path)
+      }
 
       graph.visitAncestors(file.path, path => {
         if (srcPaths.indexOf(path) < 0) {
