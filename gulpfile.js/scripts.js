@@ -1,5 +1,3 @@
-const path = require('path')
-
 const $ = require('gulp-load-plugins')()
 const gulp = require('gulp')
 const upath = require('upath')
@@ -7,10 +5,10 @@ const vinylNamed = require('vinyl-named')
 const webpack = require('webpack')
 const webpackStream = require('webpack-stream')
 
-const common = require(path.resolve('gulpfile.js/common'))
-const config = require(path.resolve('config'))
+const common = require('./common')
+const config = require('../config')
 const utils = require('./utils')
-const webpackConfig = require(path.resolve('webpack.config'))
+const webpackConfig = require('../webpack.config')
 
 const isDev = common.env === 'development'
 
@@ -20,7 +18,7 @@ function scripts () {
       base: config.srcDir
     })
     .pipe($.if(isDev, $.plumber({
-      errorHandler: $.notify.onError()
+      errorHandler: () => false
     })))
     .pipe($.filter(upath.join('**', `!(_)*${common.ext.scripts}`)))
     .pipe(vinylNamed(file => {

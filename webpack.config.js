@@ -1,13 +1,11 @@
-const path = require('path')
-
 const upath = require('upath')
 
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const MinifyPlugin = require('babel-minify-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
-const common = require(path.resolve('gulpfile.js/common'))
-const config = require(path.resolve('config'))
+const common = require('./gulpfile.js/common')
+const config = require('./config')
 
 const isDev = common.env === 'development'
 

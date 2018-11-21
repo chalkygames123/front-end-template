@@ -1,8 +1,6 @@
-const path = require('path')
-
 const gulp = require('gulp')
 
-const common = require(path.resolve('gulpfile.js/common'))
+const common = require('./common')
 const copy = require('./copy')
 const html = require('./html')
 const images = require('./images')

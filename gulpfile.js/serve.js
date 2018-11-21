@@ -1,7 +1,5 @@
-const path = require('path')
-
-const common = require(path.resolve('gulpfile.js/common'))
-const config = require(path.resolve('config'))
+const common = require('./common')
+const config = require('../config')
 
 function serve (cb) {
   common.server.init({

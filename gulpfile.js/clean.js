@@ -1,8 +1,6 @@
-const path = require('path')
-
 const del = require('del')
 
-const config = require(path.resolve('config'))
+const config = require('../config')
 
 function clean () {
   return del(config.distDir, {

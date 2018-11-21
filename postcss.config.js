@@ -1,10 +1,8 @@
-const path = require('path')
-
 const autoprefixer = require('autoprefixer')
 const cssMqpacker = require('css-mqpacker')
 const postcssAssets = require('postcss-assets')
 
-const config = require(path.resolve('config'))
+const config = require('./config')
 
 module.exports = {
   plugins: [

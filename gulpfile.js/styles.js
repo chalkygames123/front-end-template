@@ -1,5 +1,3 @@
-const path = require('path')
-
 const $ = require('gulp-load-plugins')()
 const gulp = require('gulp')
 const nodeSassMagicImporter = require('node-sass-magic-importer')
@@ -7,8 +5,8 @@ const sassGraphGlob = require('sass-graph-glob')
 const through2 = require('through2')
 const upath = require('upath')
 
-const common = require(path.resolve('gulpfile.js/common'))
-const config = require(path.resolve('config'))
+const common = require('./common')
+const config = require('../config')
 const images = require('./images')
 const utils = require('./utils')
 

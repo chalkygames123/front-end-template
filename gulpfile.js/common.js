@@ -1,9 +1,7 @@
-const path = require('path')
-
 const browserSync = require('browser-sync')
 const upath = require('upath')
 
-const config = require(path.resolve('config'))
+const config = require('../config')
 
 const common = {
   ext: {

@@ -1,6 +1,4 @@
-const path = require('path')
-
-const common = require(path.resolve('gulpfile.js/common'))
+const common = require('./gulpfile.js/common')
 
 const isDev = common.env === 'development'
 
