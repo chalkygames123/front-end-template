@@ -8,7 +8,7 @@ const upath = require('upath')
 
 const config = require(path.resolve('config'))
 
-module.exports.detectConflict = () => through2.obj(function (file, encoding, cb) {
+module.exports.detectConflict = () => through2.obj((file, encoding, cb) => {
   const conflictablePath = upath.join(config.srcDir, config.dir.static, file.relative)
 
   fs.access(conflictablePath, fs.constants.F_OK, error => {
@@ -19,11 +19,9 @@ module.exports.detectConflict = () => through2.obj(function (file, encoding, cb)
         chalk.magenta(conflictablePath)
       }`)
 
-      this.emit('error', new Error('A conflict detected.'))
-      return cb()
+      return cb(new Error('A conflict detected.'))
     }
 
-    this.push(file)
-    cb()
+    cb(null, file)
   })
 })
