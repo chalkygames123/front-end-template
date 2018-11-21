@@ -25,7 +25,7 @@ function styles () {
       errorHandler: $.notify.onError()
     })))
     .pipe($.if(isDev, $.cached('sass')))
-    .pipe($.if(isDev && gulp.lastRun(styles), through2.obj(function (file, encoding, cb) {
+    .pipe($.if(gulp.lastRun(styles), through2.obj(function (file, encoding, cb) {
       const graph = sassGraphGlob.parseDir(upath.join(config.srcDir, config.dir.assets, config.dir.styles))
       const srcPaths = []
 
