@@ -8,9 +8,13 @@ import scripts from './scripts'
 import styles from './styles'
 
 export default function watch () {
-  gulp.watch(common.srcPaths.copy, copy)
+  gulp.watch(common.srcPaths.copy, copy).on('add', function (path) {
+    this.add(path)
+  })
   gulp.watch(common.srcPaths.html, html)
-  gulp.watch(common.srcPaths.images, images)
+  gulp.watch(common.srcPaths.images, images).on('add', function (path) {
+    this.add(path)
+  })
   gulp.watch(common.srcPaths.scripts, scripts)
   gulp.watch(common.srcPaths.styles, styles)
 }
