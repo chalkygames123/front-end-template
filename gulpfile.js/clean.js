@@ -1,11 +1,9 @@
-const del = require('del')
+import del from 'del'
 
-const config = require('../config')
+import config from '../config'
 
-function clean () {
+export default function clean () {
   return del(config.distDir, {
     dot: true
   })
 }
-
-module.exports = clean

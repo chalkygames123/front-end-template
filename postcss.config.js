@@ -1,10 +1,10 @@
-const autoprefixer = require('autoprefixer')
-const cssMqpacker = require('css-mqpacker')
-const postcssAssets = require('postcss-assets')
+import autoprefixer from 'autoprefixer'
+import cssMqpacker from 'css-mqpacker'
+import postcssAssets from 'postcss-assets'
 
-const config = require('./config')
+import config from './config'
 
-module.exports = {
+export default {
   plugins: [
     autoprefixer({
       grid: true

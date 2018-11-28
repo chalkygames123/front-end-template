@@ -1,16 +1,17 @@
-const $ = require('gulp-load-plugins')()
-const gulp = require('gulp')
-const imageminPngquant = require('imagemin-pngquant')
-const imageminWebp = require('imagemin-webp')
-const upath = require('upath')
+import gulp from 'gulp'
+import gulpLoadPlugins from 'gulp-load-plugins'
+import imageminPngquant from 'imagemin-pngquant'
+import imageminWebp from 'imagemin-webp'
+import upath from 'upath'
 
-const common = require('./common')
-const config = require('../config')
-const utils = require('./utils')
+import * as utils from './utils'
+import common from './common'
+import config from '../config'
 
+const $ = gulpLoadPlugins()
 const isDev = common.env === 'development'
 
-function images () {
+export default function images () {
   return gulp
     .src(common.srcPaths.images, {
       base: config.srcDir
@@ -56,5 +57,3 @@ function images () {
     .pipe($.if(config.webp, gulp.dest(upath.join(config.distDir, config.basePath))))
     .pipe(common.server.stream())
 }
-
-module.exports = images

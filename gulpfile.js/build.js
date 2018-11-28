@@ -1,12 +1,12 @@
-const gulp = require('gulp')
+import gulp from 'gulp'
 
-const clean = require('./clean')
-const copy = require('./copy')
-const html = require('./html')
-const scripts = require('./scripts')
-const styles = require('./styles')
+import clean from './clean'
+import copy from './copy'
+import html from './html'
+import scripts from './scripts'
+import styles from './styles'
 
-module.exports = gulp.series(
+export default gulp.series(
   clean,
   gulp.parallel(copy, html, scripts, styles)
 )

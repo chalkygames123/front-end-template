@@ -1,17 +1,17 @@
 {
   "scripts": {
-    "build": "gulp build",
-    "clean": "gulp clean",
-    "copy": "gulp copy",
-    "dev": "cross-env NODE_ENV=development gulp dev",
-    "html": "gulp html",
-    "images": "gulp images",
-    "scripts": "gulp scripts",
-    "serve": "gulp serve",
-    "start": "gulp default",
-    "styles": "gulp styles",
+    "build": "gulp build --require esm",
+    "clean": "gulp clean --require esm",
+    "copy": "gulp copy --require esm",
+    "dev": "cross-env NODE_ENV=development gulp dev --require esm",
+    "html": "gulp html --require esm",
+    "images": "gulp images --require esm",
+    "scripts": "gulp scripts --require esm",
+    "serve": "gulp serve --require esm",
+    "start": "gulp default --require esm",
+    "styles": "gulp styles --require esm",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "gulp watch"
+    "watch": "gulp watch --require esm"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
@@ -42,6 +42,7 @@
     "cross-env": "^5.2.0",
     "css-mqpacker": "^7.0.0",
     "del": "^3.0.0",
+    "esm": "^3.0.84",
     "fancy-log": "^1.3.2",
     "gulp": "^4.0.0",
     "gulp-cached": "^1.1.1",

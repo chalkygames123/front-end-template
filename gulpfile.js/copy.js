@@ -1,13 +1,14 @@
-const $ = require('gulp-load-plugins')()
-const gulp = require('gulp')
-const upath = require('upath')
+import gulp from 'gulp'
+import gulpLoadPlugins from 'gulp-load-plugins'
+import upath from 'upath'
 
-const common = require('./common')
-const config = require('../config')
+import common from './common'
+import config from '../config'
 
+const $ = gulpLoadPlugins()
 const isDev = common.env === 'development'
 
-function copy () {
+export default function copy () {
   return gulp
     .src(common.srcPaths.copy, {
       base: upath.join(config.srcDir, config.dir.static),
@@ -21,5 +22,3 @@ function copy () {
     .pipe(gulp.dest(upath.join(config.distDir, config.basePath)))
     .pipe(common.server.stream())
 }
-
-module.exports = copy

@@ -1,7 +1,7 @@
-const common = require('./common')
-const config = require('../config')
+import common from './common'
+import config from '../config'
 
-function serve (cb) {
+export default function serve (cb) {
   common.server.init({
     ui: false,
     server: config.distDir,
@@ -10,5 +10,3 @@ function serve (cb) {
 
   cb()
 }
-
-module.exports = serve

@@ -1,26 +1,28 @@
-const fs = require('fs')
+import fs from 'fs'
 
-const chalk = require('chalk')
-const fancyLog = require('fancy-log')
-const through2 = require('through2')
-const upath = require('upath')
+import chalk from 'chalk'
+import fancyLog from 'fancy-log'
+import through2 from 'through2'
+import upath from 'upath'
 
-const config = require('../config')
+import config from '../config'
 
-module.exports.detectConflict = () => through2.obj((file, encoding, cb) => {
-  const conflictablePath = upath.join(config.srcDir, config.dir.static, file.relative)
+export function detectConflict () {
+  return through2.obj((file, encoding, cb) => {
+    const conflictablePath = upath.join(config.srcDir, config.dir.static, file.relative)
 
-  fs.access(conflictablePath, fs.constants.F_OK, error => {
-    if (!error) {
-      fancyLog.error(`${
-        chalk.magenta(upath.relative('', file.history[0]))
-      } conflicts with ${
-        chalk.magenta(conflictablePath)
-      }`)
+    fs.access(conflictablePath, fs.constants.F_OK, error => {
+      if (!error) {
+        fancyLog.error(`${
+          chalk.magenta(upath.relative('', file.history[0]))
+        } conflicts with ${
+          chalk.magenta(conflictablePath)
+        }`)
 
-      return cb(new Error('A conflict detected.'))
-    }
+        return cb(new Error('A conflict detected.'))
+      }
 
-    cb(null, file)
+      cb(null, file)
+    })
   })
-})
+}

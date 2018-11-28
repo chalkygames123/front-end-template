@@ -1,15 +1,15 @@
-const upath = require('upath')
+import upath from 'upath'
 
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
-const MinifyPlugin = require('babel-minify-webpack-plugin')
-const WebpackNotifierPlugin = require('webpack-notifier')
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
+import MinifyPlugin from 'babel-minify-webpack-plugin'
+import WebpackNotifierPlugin from 'webpack-notifier'
 
-const common = require('./gulpfile.js/common')
-const config = require('./config')
+import common from './gulpfile.js/common'
+import config from './config'
 
 const isDev = common.env === 'development'
 
-module.exports = {
+export default {
   mode: common.env,
   output: {
     devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource]?[loaders]'

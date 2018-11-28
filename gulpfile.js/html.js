@@ -1,14 +1,15 @@
-const $ = require('gulp-load-plugins')()
-const gulp = require('gulp')
-const upath = require('upath')
+import gulp from 'gulp'
+import gulpLoadPlugins from 'gulp-load-plugins'
+import upath from 'upath'
 
-const common = require('./common')
-const config = require('../config')
-const utils = require('./utils')
+import * as utils from './utils'
+import common from './common'
+import config from '../config'
 
+const $ = gulpLoadPlugins()
 const isDev = common.env === 'development'
 
-function html () {
+export default function html () {
   return gulp
     .src(common.srcPaths.html, {
       base: upath.join(config.srcDir, config.dir.pages)
@@ -48,5 +49,3 @@ function html () {
     .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.basePath))))
     .pipe(common.server.stream())
 }
-
-module.exports = html

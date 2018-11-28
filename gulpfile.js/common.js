@@ -1,7 +1,7 @@
-const browserSync = require('browser-sync')
-const upath = require('upath')
+import browserSync from 'browser-sync'
+import upath from 'upath'
 
-const config = require('../config')
+import config from '../config'
 
 const common = {
   ext: {
@@ -25,4 +25,4 @@ common.srcPaths = {
   styles: upath.join(config.srcDir, config.dir.assets, config.dir.styles, '**', `*${common.ext.styles}`)
 }
 
-module.exports = common
+export default common

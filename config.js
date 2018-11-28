@@ -1,4 +1,4 @@
-const config = {
+export default {
   srcDir: 'src',
   distDir: 'dist',
   basePath: '/',
@@ -13,5 +13,3 @@ const config = {
     styles: 'styles'
   }
 }
-
-module.exports = config

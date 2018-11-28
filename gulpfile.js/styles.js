@@ -1,18 +1,21 @@
-const $ = require('gulp-load-plugins')()
-const gulp = require('gulp')
-const nodeSassMagicImporter = require('node-sass-magic-importer')
-const sassGraphGlob = require('sass-graph-glob')
-const through2 = require('through2')
-const upath = require('upath')
+import gulp from 'gulp'
+import gulpLoadPlugins from 'gulp-load-plugins'
+import nodeSassMagicImporter from 'node-sass-magic-importer'
+import sass from 'sass'
+import sassGraphGlob from 'sass-graph-glob'
+import through2 from 'through2'
+import upath from 'upath'
 
-const common = require('./common')
-const config = require('../config')
-const images = require('./images')
-const utils = require('./utils')
+import * as utils from './utils'
+import common from './common'
+import config from '../config'
+import images from './images'
+import postcssConfig from '../postcss.config'
 
+const $ = gulpLoadPlugins()
 const isDev = common.env === 'development'
 
-$.sass.compiler = require('sass')
+$.sass.compiler = sass
 
 function styles () {
   return gulp
@@ -61,7 +64,7 @@ function styles () {
       includePaths: upath.join(config.srcDir, config.dir.assets, config.dir.styles),
       outputStyle: 'expanded'
     }))
-    .pipe($.postcss())
+    .pipe($.postcss(postcssConfig.plugins, postcssConfig.options)) // TODO: postcss-load-config が依存する cosmiconfig が v5 に更新されたら引数を空にする
     .pipe($.rename({
       extname: '.css'
     }))
@@ -80,4 +83,4 @@ function styles () {
     .pipe(common.server.stream())
 }
 
-module.exports = gulp.series(images, styles)
+export default gulp.series(images, styles)

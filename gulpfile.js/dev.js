@@ -1,10 +1,10 @@
-const gulp = require('gulp')
+import gulp from 'gulp'
 
-const build = require('./build')
-const serve = require('./serve')
-const watch = require('./watch')
+import build from './build'
+import serve from './serve'
+import watch from './watch'
 
-module.exports = gulp.series(
+export default gulp.series(
   build,
   gulp.parallel(serve, watch)
 )

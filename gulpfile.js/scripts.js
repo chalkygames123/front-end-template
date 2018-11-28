@@ -1,18 +1,19 @@
-const $ = require('gulp-load-plugins')()
-const gulp = require('gulp')
-const upath = require('upath')
-const vinylNamed = require('vinyl-named')
-const webpack = require('webpack')
-const webpackStream = require('webpack-stream')
+import gulp from 'gulp'
+import gulpLoadPlugins from 'gulp-load-plugins'
+import upath from 'upath'
+import vinylNamed from 'vinyl-named'
+import webpack from 'webpack'
+import webpackStream from 'webpack-stream'
 
-const common = require('./common')
-const config = require('../config')
-const utils = require('./utils')
-const webpackConfig = require('../webpack.config')
+import * as utils from './utils'
+import common from './common'
+import config from '../config'
+import webpackConfig from '../webpack.config'
 
+const $ = gulpLoadPlugins()
 const isDev = common.env === 'development'
 
-function scripts () {
+export default function scripts () {
   return gulp
     .src(common.srcPaths.scripts, {
       base: config.srcDir
@@ -33,5 +34,3 @@ function scripts () {
     .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.basePath))))
     .pipe(common.server.stream())
 }
-
-module.exports = scripts

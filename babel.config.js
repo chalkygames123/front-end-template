@@ -1,8 +1,8 @@
-const common = require('./gulpfile.js/common')
+import common from './gulpfile.js/common'
 
 const isDev = common.env === 'development'
 
-module.exports = api => {
+export default api => {
   api.cache.forever()
 
   return {

@@ -1,18 +1,16 @@
-const gulp = require('gulp')
+import gulp from 'gulp'
 
-const common = require('./common')
-const copy = require('./copy')
-const html = require('./html')
-const images = require('./images')
-const scripts = require('./scripts')
-const styles = require('./styles')
+import common from './common'
+import copy from './copy'
+import html from './html'
+import images from './images'
+import scripts from './scripts'
+import styles from './styles'
 
-function watch () {
+export default function watch () {
   gulp.watch(common.srcPaths.copy, copy)
   gulp.watch(common.srcPaths.html, html)
   gulp.watch(common.srcPaths.images, images)
   gulp.watch(common.srcPaths.scripts, scripts)
   gulp.watch(common.srcPaths.styles, styles)
 }
-
-module.exports = watch
