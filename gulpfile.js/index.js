@@ -1,13 +1,13 @@
-import build from './build'
-import clean from './clean'
-import copy from './copy'
-import dev from './dev'
-import html from './html'
-import images from './images'
-import scripts from './scripts'
-import serve from './serve'
-import styles from './styles'
-import watch from './watch'
+import build from './tasks/build'
+import clean from './tasks/clean'
+import copy from './tasks/copy'
+import dev from './tasks/dev'
+import html from './tasks/html'
+import images from './tasks/images'
+import scripts from './tasks/scripts'
+import serve from './tasks/serve'
+import styles from './tasks/styles'
+import watch from './tasks/watch'
 
 export default serve
 export {

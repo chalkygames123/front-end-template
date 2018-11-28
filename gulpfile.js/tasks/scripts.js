@@ -5,10 +5,10 @@ import vinylNamed from 'vinyl-named'
 import webpack from 'webpack'
 import webpackStream from 'webpack-stream'
 
-import * as utils from './utils'
-import common from './common'
-import config from '../config'
-import webpackConfig from '../webpack.config'
+import * as utils from '../utils'
+import common from '../common'
+import config from '../../config'
+import webpackConfig from '../../webpack.config'
 
 const $ = gulpLoadPlugins()
 const isDev = common.env === 'development'

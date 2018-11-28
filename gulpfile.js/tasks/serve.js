@@ -1,5 +1,5 @@
-import common from './common'
-import config from '../config'
+import common from '../common'
+import config from '../../config'
 
 export default function serve (cb) {
   common.server.init({

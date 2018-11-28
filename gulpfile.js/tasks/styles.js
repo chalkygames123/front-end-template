@@ -6,11 +6,11 @@ import sassGraphGlob from 'sass-graph-glob'
 import through2 from 'through2'
 import upath from 'upath'
 
-import * as utils from './utils'
-import common from './common'
-import config from '../config'
+import * as utils from '../utils'
+import common from '../common'
+import config from '../../config'
 import images from './images'
-import postcssConfig from '../postcss.config'
+import postcssConfig from '../../postcss.config'
 
 const $ = gulpLoadPlugins()
 const isDev = common.env === 'development'

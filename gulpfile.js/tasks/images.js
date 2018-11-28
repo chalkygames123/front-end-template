@@ -4,9 +4,9 @@ import imageminPngquant from 'imagemin-pngquant'
 import imageminWebp from 'imagemin-webp'
 import upath from 'upath'
 
-import * as utils from './utils'
-import common from './common'
-import config from '../config'
+import * as utils from '../utils'
+import common from '../common'
+import config from '../../config'
 
 const $ = gulpLoadPlugins()
 const isDev = common.env === 'development'
