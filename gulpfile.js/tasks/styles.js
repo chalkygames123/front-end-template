@@ -1,3 +1,4 @@
+import Fiber from 'fibers'
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import nodeSassMagicImporter from 'node-sass-magic-importer'
@@ -62,7 +63,8 @@ function styles () {
     .pipe($.sass({
       importer: nodeSassMagicImporter(),
       includePaths: upath.join(config.srcDir, config.dir.assets, config.dir.styles),
-      outputStyle: 'expanded'
+      outputStyle: 'expanded',
+      fiber: Fiber
     }))
     .pipe($.postcss(postcssConfig.plugins, postcssConfig.options)) // TODO: postcss-load-config が依存する cosmiconfig が v5 に更新されたら引数を空にする
     .pipe($.rename({
