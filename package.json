@@ -65,7 +65,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-stylelint": "^8.0.0",
     "imagemin-pngquant": "^6.0.0",
-    "imagemin-webp": "^4.1.0",
+    "imagemin-webp": "^5.0.0",
     "lodash-webpack-plugin": "^0.11.5",
     "node-sass-magic-importer": "^5.2.0",
     "postcss-assets": "^5.0.0",
