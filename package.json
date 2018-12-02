@@ -281,6 +281,7 @@
       "no-duplicate-at-import-rules": true,
       "no-duplicate-selectors": null,
       "no-empty-source": null,
+      "no-empty-first-line": true,
       "no-eol-whitespace": true,
       "no-extra-semicolons": true,
       "no-invalid-double-slash-comments": true,
