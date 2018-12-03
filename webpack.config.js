@@ -37,7 +37,7 @@ export default {
             }
           },
           {
-            loader: 'standard-loader'
+            loader: 'eslint-loader'
           }
         ],
         exclude: /node_modules/
