@@ -14,9 +14,9 @@ const isDev = common.env === 'development'
 export default function images () {
   return gulp
     .src(common.srcPaths.images, {
-      since: gulp.lastRun(images),
       base: config.srcDir
     })
+    .pipe($.changed(upath.join(config.distDir, config.basePath)))
     .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
     })))

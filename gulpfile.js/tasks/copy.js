@@ -11,11 +11,11 @@ const isDev = common.env === 'development'
 export default function copy () {
   return gulp
     .src(common.srcPaths.copy, {
-      since: gulp.lastRun(copy),
       base: upath.join(config.srcDir, config.dir.static),
       dot: true,
       nodir: true
     })
+    .pipe($.changed(upath.join(config.distDir, config.basePath)))
     .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
     })))
