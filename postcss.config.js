@@ -7,7 +7,7 @@ import config from './config'
 export default {
   plugins: [
     autoprefixer({
-      grid: true
+      grid: 'autoplace'
     }),
     cssMqpacker({
       sort: true
