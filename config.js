@@ -1,5 +1,5 @@
 export default {
-  srcDir: 'src',
+  srcDir: '.',
   distDir: 'dist',
   basePath: '/',
   gzip: true,
