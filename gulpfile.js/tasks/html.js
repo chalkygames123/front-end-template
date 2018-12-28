@@ -12,14 +12,14 @@ const isDev = common.env === 'development'
 export default function html () {
   return gulp
     .src(common.srcPaths.html, {
-      base: upath.join(config.srcDir, config.dir.pages)
+      base: upath.join(config.srcDir, common.dir.pages)
     })
     .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
     })))
     .pipe($.filter(upath.join('**', `!(_)*${common.ext.html}`)))
     .pipe($.ejs(null, {
-      root: upath.join(config.srcDir, config.dir.pages)
+      root: upath.join(config.srcDir, common.dir.pages)
     }, {
       ext: '.html'
     }))

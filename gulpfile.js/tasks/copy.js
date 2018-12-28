@@ -11,7 +11,7 @@ const isDev = common.env === 'development'
 export default function copy () {
   return gulp
     .src(common.srcPaths.copy, {
-      base: upath.join(config.srcDir, config.dir.static),
+      base: upath.join(config.srcDir, common.dir.static),
       dot: true,
       nodir: true
     })

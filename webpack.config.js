@@ -20,7 +20,7 @@ export default {
         vendors: {
           chunks: 'all',
           minSize: 0,
-          name: upath.join(config.dir.assets, config.dir.scripts, 'vendors')
+          name: upath.join(common.dir.assets, common.dir.scripts, 'vendors')
         }
       }
     }
@@ -46,7 +46,7 @@ export default {
   },
   resolve: {
     modules: [
-      upath.join(config.srcDir, config.dir.assets, config.dir.scripts),
+      upath.join(config.srcDir, common.dir.assets, common.dir.scripts),
       'node_modules'
     ]
   },

@@ -28,7 +28,7 @@ function styles () {
     })))
     .pipe($.if(isDev, $.cached('sass')))
     .pipe($.if(gulp.lastRun(styles), through2.obj(function (file, encoding, cb) {
-      const graph = sassGraphGlob.parseDir(upath.join(config.srcDir, config.dir.assets, config.dir.styles))
+      const graph = sassGraphGlob.parseDir(upath.join(config.srcDir, common.dir.assets, common.dir.styles))
       const srcPaths = []
 
       srcPaths.push(file.path)
@@ -62,7 +62,7 @@ function styles () {
     .pipe($.if(isDev, $.sourcemaps.init()))
     .pipe($.sass({
       importer: nodeSassMagicImporter(),
-      includePaths: upath.join(config.srcDir, config.dir.assets, config.dir.styles),
+      includePaths: upath.join(config.srcDir, common.dir.assets, common.dir.styles),
       outputStyle: 'expanded',
       fiber: Fiber
     }))
