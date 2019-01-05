@@ -77,6 +77,7 @@
     "lodash-webpack-plugin": "^0.11.5",
     "node-sass-magic-importer": "^5.3.0",
     "postcss-assets": "^5.0.0",
+    "prettier": "^1.15.3",
     "require-dir": "^1.2.0",
     "run-sequence": "^2.2.1",
     "sass": "^1.15.3",
