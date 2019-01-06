@@ -21,16 +21,16 @@ export default function scripts () {
     .pipe($.if(isDev, $.plumber({
       errorHandler: () => false
     })))
-    .pipe($.filter(upath.join('**', `!(_)*${common.ext.scripts}`)))
+    .pipe($.filter(`**/!(_)*${common.ext.scripts}`))
     .pipe(vinylNamed(file => {
       file.base = config.srcDir
-      return upath.normalize(upath.trimExt(file.relative))
+      return upath.trimExt(file.relative)
     }))
     .pipe(webpackStream(webpackConfig, webpack))
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(upath.join(config.distDir, config.basePath)))
+    .pipe(gulp.dest(`${config.distDir}/${config.basePath}`))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
     .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
-    .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.basePath))))
+    .pipe($.if(config.gzip && !isDev, gulp.dest(`${config.distDir}/${config.basePath}`)))
     .pipe(common.server.stream())
 }

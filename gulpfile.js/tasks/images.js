@@ -2,7 +2,6 @@ import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import imageminPngquant from 'imagemin-pngquant'
 import imageminWebp from 'imagemin-webp'
-import upath from 'upath'
 
 import * as utils from '../utils'
 import common from '../common'
@@ -16,7 +15,7 @@ export default function images () {
     .src(common.srcPaths.images, {
       base: config.srcDir
     })
-    .pipe($.changed(upath.join(config.distDir, config.basePath)))
+    .pipe($.changed(`${config.distDir}/${config.basePath}`))
     .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
     })))
@@ -42,7 +41,7 @@ export default function images () {
       })
     ])))
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(upath.join(config.distDir, config.basePath)))
+    .pipe(gulp.dest(`${config.distDir}/${config.basePath}`))
     .pipe($.if(config.webp, $.filter('**/*.+(png|jp?(e)g)')))
     .pipe($.if(config.webp && !isDev, $.imagemin([
       imageminWebp({
@@ -54,6 +53,6 @@ export default function images () {
       extname: '.webp'
     })))
     .pipe($.if(config.webp, utils.detectConflict()))
-    .pipe($.if(config.webp, gulp.dest(upath.join(config.distDir, config.basePath))))
+    .pipe($.if(config.webp, gulp.dest(`${config.distDir}/${config.basePath}`)))
     .pipe(common.server.stream())
 }

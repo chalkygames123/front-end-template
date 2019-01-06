@@ -5,7 +5,6 @@ import nodeSassMagicImporter from 'node-sass-magic-importer'
 import sass from 'sass'
 import sassGraphGlob from 'sass-graph-glob'
 import through2 from 'through2'
-import upath from 'upath'
 
 import * as utils from '../utils'
 import common from '../common'
@@ -28,7 +27,7 @@ function styles () {
     })))
     .pipe($.if(isDev, $.cached('sass')))
     .pipe($.if(gulp.lastRun(styles), through2.obj(function (file, encoding, cb) {
-      const graph = sassGraphGlob.parseDir(upath.join(config.srcDir, common.dir.assets, common.dir.styles))
+      const graph = sassGraphGlob.parseDir(`${config.srcDir}/${common.dir.assets}/${common.dir.styles}`)
       const srcPaths = []
 
       srcPaths.push(file.path)
@@ -62,7 +61,7 @@ function styles () {
     .pipe($.if(isDev, $.sourcemaps.init()))
     .pipe($.sass({
       importer: nodeSassMagicImporter(),
-      includePaths: upath.join(config.srcDir, common.dir.assets, common.dir.styles),
+      includePaths: `${config.srcDir}/${common.dir.assets}/${common.dir.styles}`,
       outputStyle: 'expanded',
       fiber: Fiber
     }))
@@ -78,10 +77,10 @@ function styles () {
     })))
     .pipe($.if(!isDev, $.csso()))
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(upath.join(config.distDir, config.basePath)))
+    .pipe(gulp.dest(`${config.distDir}/${config.basePath}`))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
     .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
-    .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.basePath))))
+    .pipe($.if(config.gzip && !isDev, gulp.dest(`${config.distDir}/${config.basePath}`)))
     .pipe(common.server.stream())
 }
 

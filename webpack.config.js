@@ -1,7 +1,5 @@
 import path from 'path'
 
-import upath from 'upath'
-
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
 import MinifyPlugin from 'babel-minify-webpack-plugin'
 import WebpackNotifierPlugin from 'webpack-notifier'
@@ -22,7 +20,7 @@ export default {
         vendors: {
           chunks: 'all',
           minSize: 0,
-          name: upath.join(common.dir.assets, common.dir.scripts, 'vendors')
+          name: `${common.dir.assets}/${common.dir.scripts}/vendors`
         }
       }
     }

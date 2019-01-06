@@ -1,6 +1,5 @@
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
-import upath from 'upath'
 
 import * as utils from '../utils'
 import common from '../common'
@@ -12,14 +11,14 @@ const isDev = common.env === 'development'
 export default function html () {
   return gulp
     .src(common.srcPaths.html, {
-      base: upath.join(config.srcDir, common.dir.pages)
+      base: `${config.srcDir}/${common.dir.pages}`
     })
     .pipe($.if(isDev, $.plumber({
       errorHandler: $.notify.onError()
     })))
-    .pipe($.filter(upath.join('**', `!(_)*${common.ext.html}`)))
+    .pipe($.filter(`**/!(_)*${common.ext.html}`))
     .pipe($.ejs(null, {
-      root: upath.join(config.srcDir, common.dir.pages)
+      root: `${config.srcDir}/${common.dir.pages}`
     }, {
       ext: '.html'
     }))
@@ -43,9 +42,9 @@ export default function html () {
       removeStyleLinkTypeAttributes: true
     })))
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(upath.join(config.distDir, config.basePath)))
+    .pipe(gulp.dest(`${config.distDir}/${config.basePath}`))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
     .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
-    .pipe($.if(config.gzip && !isDev, gulp.dest(upath.join(config.distDir, config.basePath))))
+    .pipe($.if(config.gzip && !isDev, gulp.dest(`${config.distDir}/${config.basePath}`)))
     .pipe(common.server.stream())
 }
