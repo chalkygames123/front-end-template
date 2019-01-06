@@ -18,7 +18,6 @@
     "axios": "^0.18.0",
     "custom-event-polyfill": "^1.0.6",
     "element-closest": "^3.0.0",
-    "gsap": "^2.0.2",
     "intersection-observer": "^0.5.1",
     "lodash": "^4.17.11",
     "no-scroll": "^2.1.1",
