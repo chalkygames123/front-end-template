@@ -1,3 +1,5 @@
+import path from 'path'
+
 import upath from 'upath'
 
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
@@ -46,8 +48,8 @@ export default {
   },
   resolve: {
     modules: [
-      upath.join(config.srcDir, common.dir.assets, common.dir.scripts),
-      'node_modules'
+      path.resolve(__dirname, config.srcDir, common.dir.assets, common.dir.scripts),
+      path.resolve(__dirname, 'node_modules')
     ]
   },
   devtool: isDev ? 'eval-source-map' : false,
