@@ -13,24 +13,36 @@ import webpackConfig from '../../webpack.config'
 const $ = gulpLoadPlugins()
 const isDev = common.env === 'development'
 
-export default function scripts () {
+export default function scripts() {
   return gulp
     .src(common.srcPaths.scripts, {
       base: config.srcDir
     })
-    .pipe($.if(isDev, $.plumber({
-      errorHandler: () => false
-    })))
+    .pipe(
+      $.if(
+        isDev,
+        $.plumber({
+          errorHandler: () => false
+        })
+      )
+    )
     .pipe($.filter(`**/!(_)*${common.ext.scripts}`))
-    .pipe(vinylNamed(file => {
-      file.base = config.srcDir
-      return upath.trimExt(file.relative)
-    }))
+    .pipe(
+      vinylNamed(file => {
+        file.base = config.srcDir
+        return upath.trimExt(file.relative)
+      })
+    )
     .pipe(webpackStream(webpackConfig, webpack))
     .pipe(utils.detectConflict())
     .pipe(gulp.dest(`${config.distDir}/${config.basePath}`))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
     .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
-    .pipe($.if(config.gzip && !isDev, gulp.dest(`${config.distDir}/${config.basePath}`)))
+    .pipe(
+      $.if(
+        config.gzip && !isDev,
+        gulp.dest(`${config.distDir}/${config.basePath}`)
+      )
+    )
     .pipe(common.server.stream())
 }

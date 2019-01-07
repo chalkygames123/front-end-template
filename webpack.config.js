@@ -46,18 +46,25 @@ export default {
   },
   resolve: {
     modules: [
-      path.resolve(__dirname, config.srcDir, common.dir.assets, common.dir.scripts),
+      path.resolve(
+        __dirname,
+        config.srcDir,
+        common.dir.assets,
+        common.dir.scripts
+      ),
       path.resolve(__dirname, 'node_modules')
     ]
   },
   devtool: isDev ? 'eval-source-map' : false,
   plugins: [
-    isDev && new WebpackNotifierPlugin({
-      skipFirstNotification: true
-    }),
-    !isDev && new LodashModuleReplacementPlugin({
-      collections: true
-    }),
+    isDev &&
+      new WebpackNotifierPlugin({
+        skipFirstNotification: true
+      }),
+    !isDev &&
+      new LodashModuleReplacementPlugin({
+        collections: true
+      }),
     !isDev && new MinifyPlugin()
   ].filter(Boolean)
 }

@@ -8,17 +8,19 @@ import through2 from 'through2'
 import common from './common'
 import config from '../config'
 
-export function detectConflict () {
+export function detectConflict() {
   return through2.obj((file, encoding, cb) => {
-    const conflictablePath = path.normalize(`${config.srcDir}/${common.dir.static}/${file.relative}`)
+    const conflictablePath = path.normalize(
+      `${config.srcDir}/${common.dir.static}/${file.relative}`
+    )
 
     fs.access(conflictablePath, fs.constants.F_OK, error => {
       if (!error) {
-        fancyLog.error(`${
-          chalk.magenta(path.relative('', file.history[0]))
-        } conflicts with ${
-          chalk.magenta(conflictablePath)
-        }`)
+        fancyLog.error(
+          `${chalk.magenta(
+            path.relative('', file.history[0])
+          )} conflicts with ${chalk.magenta(conflictablePath)}`
+        )
 
         return cb(new Error('A conflict detected.'))
       }

@@ -7,13 +7,14 @@ export default api => {
 
   return {
     presets: [
-      ['@babel/preset-env', {
-        modules: false,
-        useBuiltIns: 'usage'
-      }]
+      [
+        '@babel/preset-env',
+        {
+          modules: false,
+          useBuiltIns: 'usage'
+        }
+      ]
     ],
-    plugins: [
-      !isDev && 'lodash'
-    ].filter(Boolean)
+    plugins: [!isDev && 'lodash'].filter(Boolean)
   }
 }

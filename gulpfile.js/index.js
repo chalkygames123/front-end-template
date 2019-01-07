@@ -10,14 +10,4 @@ import styles from './tasks/styles'
 import watch from './tasks/watch'
 
 export default serve
-export {
-  build,
-  clean,
-  copy,
-  dev,
-  html,
-  images,
-  scripts,
-  styles,
-  watch
-}
+export { build, clean, copy, dev, html, images, scripts, styles, watch }

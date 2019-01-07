@@ -22,14 +22,17 @@ const common = {
 }
 
 common.srcPaths = {
-  copy: [
-    `${config.srcDir}/${common.dir.static}/**`,
-    '!**/.gitkeep'
-  ],
+  copy: [`${config.srcDir}/${common.dir.static}/**`, '!**/.gitkeep'],
   html: `${config.srcDir}/${common.dir.pages}/**/*${common.ext.html}`,
-  images: `${config.srcDir}/${common.dir.assets}/${common.dir.images}/**/*${common.ext.images}`,
-  scripts: `${config.srcDir}/${common.dir.assets}/${common.dir.scripts}/**/*${common.ext.scripts}`,
-  styles: `${config.srcDir}/${common.dir.assets}/${common.dir.styles}/**/*${common.ext.styles}`
+  images: `${config.srcDir}/${common.dir.assets}/${common.dir.images}/**/*${
+    common.ext.images
+  }`,
+  scripts: `${config.srcDir}/${common.dir.assets}/${common.dir.scripts}/**/*${
+    common.ext.scripts
+  }`,
+  styles: `${config.srcDir}/${common.dir.assets}/${common.dir.styles}/**/*${
+    common.ext.styles
+  }`
 }
 
 export default common
