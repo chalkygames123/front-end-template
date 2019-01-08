@@ -20,11 +20,9 @@ body {
   }
 }
 
-// Eliminate extra whitespace caused by img element that inserted by access analysis script
-body > img {
-  display: block;
-  height: 0 !important; // stylelint-disable-line declaration-no-important
-  font-size: 0;
+a {
+  color: currentColor;
+  text-decoration: none;
 }
 
 img,
@@ -32,12 +30,14 @@ svg {
   vertical-align: middle;
 }
 
-ul,
-ol {
+ol,
+ul {
   list-style: none;
 }
 
-a {
-  color: currentColor;
-  text-decoration: none;
+// Eliminate extra whitespace caused by img element that inserted by access analysis script
+body > img {
+  display: block;
+  height: 0 !important; // stylelint-disable-line declaration-no-important
+  font-size: 0;
 }
