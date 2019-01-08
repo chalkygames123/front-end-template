@@ -4,24 +4,14 @@
     "stylelint-config-recess-order",
     "stylelint-prettier/recommended"
   ],
-  "plugins": [
-    "stylelint-order",
-    "stylelint-scss"
-  ],
+  "plugins": ["stylelint-order", "stylelint-scss"],
   "rules": {
     "at-rule-empty-line-before": [
       "always",
       {
-        "except": [
-          "first-nested"
-        ],
-        "ignore": [
-          "after-comment",
-          "blockless-after-same-name-blockless"
-        ],
-        "ignoreAtRules": [
-          "else"
-        ]
+        "except": ["first-nested"],
+        "ignore": ["after-comment", "blockless-after-same-name-blockless"],
+        "ignoreAtRules": ["else"]
       }
     ],
     "at-rule-no-unknown": null,
@@ -34,12 +24,8 @@
     "rule-empty-line-before": [
       "always",
       {
-        "except": [
-          "first-nested"
-        ],
-        "ignore": [
-          "after-comment"
-        ]
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
       }
     ],
     "order/order": [
