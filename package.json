@@ -7,11 +7,13 @@
     "format": "run-p format:* -c",
     "format:scripts": "run-p \"lint:scripts --fix\"",
     "format:styles": "run-p \"lint:styles --fix\"",
+    "format:misc": "prettier --write --ignore-path .gitignore **/*.{json,md}",
     "html": "gulp html --require esm",
     "images": "gulp images --require esm",
     "lint": "run-p lint:* -c",
     "lint:scripts": "eslint --ignore-path .gitignore .",
     "lint:styles": "stylelint **/*.scss",
+    "lint:misc": "prettier -l --ignore-path .gitignore **/*.{json,md}",
     "scripts": "gulp scripts --require esm",
     "serve": "gulp serve --require esm",
     "start": "gulp default --require esm",
@@ -124,6 +126,9 @@
     ],
     "*.scss": [
       "stylelint"
+    ],
+    "*.{json,md}": [
+      "prettier -l"
     ]
   }
 }
