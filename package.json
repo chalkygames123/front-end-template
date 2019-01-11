@@ -95,7 +95,6 @@
     "postcss-assets": "^5.0.0",
     "prettier": "^1.15.3",
     "require-dir": "^1.2.0",
-    "run-sequence": "^2.2.1",
     "sass": "^1.15.3",
     "sass-graph-glob": "^3.0.4",
     "stylelint": "^9.9.0",
