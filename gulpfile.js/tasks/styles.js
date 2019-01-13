@@ -79,7 +79,6 @@ function styles() {
         includePaths: `${config.srcDir}/${common.dir.assets}/${
           common.dir.styles
         }`,
-        outputStyle: 'expanded',
         fiber: Fiber
       })
     )
