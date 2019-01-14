@@ -39,7 +39,10 @@ export default {
             }
           },
           {
-            loader: 'eslint-loader'
+            loader: 'eslint-loader',
+            options: {
+              cache: true
+            }
           }
         ],
         exclude: /[\\/]node_modules[\\/]/
