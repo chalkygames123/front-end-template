@@ -1,6 +1,4 @@
-import common from './gulpfile.js/common'
-
-const isDev = common.env === 'development'
+const isDev = process.env.NODE_ENV === 'development'
 
 export default api => {
   api.cache.forever()

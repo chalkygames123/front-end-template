@@ -13,7 +13,7 @@ import images from './images'
 import postcssConfig from '../../postcss.config'
 
 const $ = gulpLoadPlugins()
-const isDev = common.env === 'development'
+const isDev = process.env.NODE_ENV === 'development'
 
 $.sass.compiler = sass
 

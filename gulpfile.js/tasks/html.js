@@ -6,7 +6,7 @@ import common from '../common'
 import config from '../../config'
 
 const $ = gulpLoadPlugins()
-const isDev = common.env === 'development'
+const isDev = process.env.NODE_ENV === 'development'
 
 export default function html() {
   return gulp

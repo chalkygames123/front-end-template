@@ -17,7 +17,6 @@ const common = {
     scripts: '.js',
     styles: '.scss'
   },
-  env: process.env.NODE_ENV || 'production',
   server: browserSync.create()
 }
 

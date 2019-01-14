@@ -7,10 +7,12 @@ import WebpackNotifierPlugin from 'webpack-notifier'
 import common from './gulpfile.js/common'
 import config from './config'
 
-const isDev = common.env === 'development'
+process.env.NODE_ENV = process.env.NODE_ENV || 'production'
+
+const isDev = process.env.NODE_ENV === 'development'
 
 export default {
-  mode: common.env,
+  mode: process.env.NODE_ENV,
   output: {
     devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource]?[loaders]'
   },
