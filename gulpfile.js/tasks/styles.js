@@ -101,6 +101,7 @@ function styles() {
       $.if(
         !isDev,
         $.cleanCss({
+          level: 2,
           rebase: false
         })
       )
