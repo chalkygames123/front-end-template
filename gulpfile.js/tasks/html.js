@@ -44,18 +44,19 @@ export default function html() {
       $.if(
         !isDev,
         $.htmlmin({
-          caseSensitive: true,
           collapseBooleanAttributes: true,
           collapseWhitespace: true,
+          decodeEntities: true,
           minifyCSS: true,
-          minifyJs: true,
-          removeAttributeQuotes: true,
+          minifyJS: true,
+          processConditionalComments: true,
           removeComments: true,
           removeEmptyAttributes: true,
-          removeOptionalTags: true,
           removeRedundantAttributes: true,
           removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true
+          removeStyleLinkTypeAttributes: true,
+          trimCustomFragments: true,
+          useShortDoctype: true
         })
       )
     )
