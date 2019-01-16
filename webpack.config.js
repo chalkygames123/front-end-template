@@ -68,7 +68,8 @@ export default {
       }),
     !isDev &&
       new LodashModuleReplacementPlugin({
-        collections: true
+        collections: true,
+        shorthands: true
       }),
     !isDev && new MinifyPlugin()
   ].filter(Boolean)
