@@ -96,6 +96,7 @@ function styles() {
         })
       )
     )
+    .pipe($.if(!isDev, $.csso()))
     .pipe(
       $.if(
         !isDev,
@@ -104,7 +105,6 @@ function styles() {
         })
       )
     )
-    .pipe($.if(!isDev, $.csso()))
     .pipe(utils.detectConflict())
     .pipe(gulp.dest(`${config.distDir}/${config.basePath}`))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
