@@ -8,9 +8,9 @@ import config from '../../config'
 const $ = gulpLoadPlugins()
 const isDev = process.env.NODE_ENV === 'development'
 
-export default function html() {
+export default function pages() {
   return gulp
-    .src(common.srcPaths.html, {
+    .src(common.srcPaths.pages, {
       base: `${config.srcDir}/${common.dir.pages}`
     })
     .pipe(
@@ -21,7 +21,7 @@ export default function html() {
         })
       )
     )
-    .pipe($.filter(`**/!(_)*${common.ext.html}`))
+    .pipe($.filter(`**/!(_)*${common.ext.pages}`))
     .pipe(
       $.ejs(
         null,

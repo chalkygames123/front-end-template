@@ -12,8 +12,8 @@ const common = {
     styles: 'styles'
   },
   ext: {
-    html: '.ejs',
     images: '.+(png|jp?(e)g|gif|svg)',
+    pages: '.ejs',
     scripts: '.js',
     styles: '.scss'
   },
@@ -22,10 +22,10 @@ const common = {
 
 common.srcPaths = {
   copy: [`${config.srcDir}/${common.dir.static}/**`, '!**/.gitkeep'],
-  html: `${config.srcDir}/${common.dir.pages}/**/*${common.ext.html}`,
   images: `${config.srcDir}/${common.dir.assets}/${common.dir.images}/**/*${
     common.ext.images
   }`,
+  pages: `${config.srcDir}/${common.dir.pages}/**/*${common.ext.pages}`,
   scripts: `${config.srcDir}/${common.dir.assets}/${common.dir.scripts}/**/*${
     common.ext.scripts
   }`,
