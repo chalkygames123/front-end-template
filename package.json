@@ -9,7 +9,7 @@
     "format:styles": "run-s \"lint:styles --fix\"",
     "format": "run-s format:*",
     "images": "gulp images --require esm",
-    "lint:misc": "prettier -l --ignore-path .gitignore **/*.{json,md}",
+    "lint:misc": "prettier -c --ignore-path .gitignore **/*.{json,md}",
     "lint:scripts": "eslint --ignore-path .gitignore --ignore-pattern !.* .",
     "lint:styles": "stylelint **/*.scss",
     "lint": "run-s lint:*",
@@ -129,7 +129,7 @@
       "stylelint"
     ],
     "*.{json,md}": [
-      "prettier -l"
+      "prettier -c"
     ]
   }
 }
