@@ -6,6 +6,7 @@ const common = {
   dir: {
     assets: 'assets',
     images: 'images',
+    includes: 'includes',
     pages: 'pages',
     scripts: 'scripts',
     static: 'static',

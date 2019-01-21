@@ -26,7 +26,7 @@ export default function pages() {
       $.ejs(
         null,
         {
-          root: `${config.srcDir}/${common.dir.pages}`
+          root: `${config.srcDir}/${common.dir.includes}`
         },
         {
           ext: '.html'
