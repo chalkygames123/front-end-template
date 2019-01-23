@@ -2,7 +2,6 @@ import Fiber from 'fibers'
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import nodeSassMagicImporter from 'node-sass-magic-importer'
-import sass from 'sass'
 import sassGraphGlob from 'sass-graph-glob'
 import through2 from 'through2'
 
@@ -13,8 +12,6 @@ import postcssConfig from '../../postcss.config'
 
 const $ = gulpLoadPlugins()
 const isDev = process.env.NODE_ENV === 'development'
-
-$.sass.compiler = sass
 
 export default function styles() {
   return gulp
@@ -73,7 +70,7 @@ export default function styles() {
     )
     .pipe($.if(isDev, $.sourcemaps.init()))
     .pipe(
-      $.sass({
+      $.dartSass({
         importer: nodeSassMagicImporter(),
         includePaths: `${config.srcDir}/${common.dir.assets}/${
           common.dir.styles
