@@ -9,7 +9,6 @@ import through2 from 'through2'
 import * as utils from '../utils'
 import common from '../common'
 import config from '../../config'
-import images from './images'
 import postcssConfig from '../../postcss.config'
 
 const $ = gulpLoadPlugins()
@@ -17,7 +16,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 $.sass.compiler = sass
 
-function styles() {
+export default function styles() {
   return gulp
     .src(common.srcPaths.styles, {
       base: config.srcDir
@@ -118,5 +117,3 @@ function styles() {
     )
     .pipe(common.server.stream())
 }
-
-export default gulp.series(images, styles)
