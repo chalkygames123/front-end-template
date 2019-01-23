@@ -6,6 +6,12 @@ A template for building static websites powered by gulp and webpack.
 
 Make sure that the latest Active LTS version of Node.js installed.
 
+If you have [nvm](https://github.com/creationix/nvm) just run:
+
+```bash
+$ nvm install # Or nvm i
+```
+
 ## Setup
 
 ```bash
