@@ -14,7 +14,7 @@
     "serve": "gulp serve --require esm",
     "start": "gulp default --require esm",
     "styles": "gulp styles --require esm",
-    "test": "run-s lint",
+    "test": "run-s lint format",
     "watch": "gulp watch --require esm"
   },
   "dependencies": {
