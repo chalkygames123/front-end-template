@@ -8,13 +8,13 @@
     "images": "gulp images --require esm",
     "lint:scripts": "eslint --ignore-path .gitignore --ignore-pattern !.* .",
     "lint:styles": "stylelint **/*.scss",
-    "lint": "run-s lint:*",
+    "lint": "yarn lint:scripts && yarn lint:styles",
     "pages": "gulp pages --require esm",
     "scripts": "gulp scripts --require esm",
     "serve": "gulp serve --require esm",
     "start": "gulp default --require esm",
     "styles": "gulp styles --require esm",
-    "test": "run-s lint format",
+    "test": "yarn lint && yarn format",
     "watch": "gulp watch --require esm"
   },
   "dependencies": {
@@ -87,7 +87,6 @@
     "lint-staged": "^8.1.0",
     "lodash-webpack-plugin": "^0.11.5",
     "node-sass-magic-importer": "^5.3.0",
-    "npm-run-all": "^4.1.5",
     "prettier": "^1.16.1",
     "sass-graph-glob": "^3.0.4",
     "stylelint": "^9.10.1",
