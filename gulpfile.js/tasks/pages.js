@@ -60,13 +60,13 @@ export default function pages() {
       )
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.distDir}/${config.basePath}`))
+    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
     .pipe($.if(config.gzip && !isDev, $.gzip()))
     .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
     .pipe(
       $.if(
         config.gzip && !isDev,
-        gulp.dest(`${config.distDir}/${config.basePath}`)
+        gulp.dest(`${config.distDir}/${config.baseDir}`)
       )
     )
     .pipe(common.server.stream())

@@ -15,7 +15,7 @@ export default function images() {
     .src(common.srcPaths.images, {
       base: config.srcDir
     })
-    .pipe($.changed(`${config.distDir}/${config.basePath}`))
+    .pipe($.changed(`${config.distDir}/${config.baseDir}`))
     .pipe(
       $.if(
         isDev,
@@ -55,7 +55,7 @@ export default function images() {
       )
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.distDir}/${config.basePath}`))
+    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
     .pipe($.if(config.webp, $.filter('**/*.+(png|jp?(e)g)')))
     .pipe(
       $.if(
@@ -77,6 +77,6 @@ export default function images() {
       )
     )
     .pipe($.if(config.webp, utils.detectConflict()))
-    .pipe($.if(config.webp, gulp.dest(`${config.distDir}/${config.basePath}`)))
+    .pipe($.if(config.webp, gulp.dest(`${config.distDir}/${config.baseDir}`)))
     .pipe(common.server.stream())
 }
