@@ -26,6 +26,7 @@ common.srcPaths = {
   images: `${config.srcDir}/${common.dir.assets}/${common.dir.images}/**/*${
     common.ext.images
   }`,
+  includes: `${config.srcDir}/${common.dir.includes}/**/*${common.ext.pages}`,
   pages: `${config.srcDir}/${common.dir.pages}/**/*${common.ext.pages}`,
   scripts: `${config.srcDir}/${common.dir.assets}/${common.dir.scripts}/**/*${
     common.ext.scripts
