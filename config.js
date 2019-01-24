@@ -1,7 +1,7 @@
 export default {
   srcDir: '.',
   distDir: 'dist',
-  basePath: '/',
+  basePath: '',
   gzip: true,
   webp: false
 }
