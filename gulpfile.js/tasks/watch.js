@@ -10,8 +10,8 @@ import styles from './styles'
 export default function watch() {
   gulp.watch(common.srcPaths.copy, copy)
   gulp.watch(common.srcPaths.images, images)
-  gulp.watch(common.srcPaths.pages, pages)
   gulp.watch(common.srcPaths.includes, pages)
+  gulp.watch(common.srcPaths.pages, pages)
   gulp.watch(common.srcPaths.scripts, scripts)
   gulp.watch(common.srcPaths.styles, styles)
 }
