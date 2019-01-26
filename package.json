@@ -4,7 +4,7 @@
     "clean": "gulp clean --require esm",
     "copy": "gulp copy --require esm",
     "dev": "cross-env NODE_ENV=development gulp dev --require esm",
-    "format": "prettier -c --ignore-path .gitignore **/*.{json,md}",
+    "format": "prettier --ignore-path .gitignore -c **/*.{json,md}",
     "images": "gulp images --require esm",
     "lint:scripts": "eslint --ignore-path .gitignore .",
     "lint:styles": "stylelint **/*.scss",
