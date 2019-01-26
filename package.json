@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_ENV=development gulp dev --require esm",
     "format": "prettier -c --ignore-path .gitignore **/*.{json,md}",
     "images": "gulp images --require esm",
-    "lint:scripts": "eslint --ignore-path .gitignore --ignore-pattern !.* .",
+    "lint:scripts": "eslint --ignore-path .gitignore .",
     "lint:styles": "stylelint **/*.scss",
     "lint": "yarn lint:scripts && yarn lint:styles",
     "pages": "gulp pages --require esm",
@@ -117,7 +117,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --ignore-pattern !.*"
+      "eslint"
     ],
     "*.scss": [
       "stylelint"
