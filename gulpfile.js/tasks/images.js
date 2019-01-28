@@ -4,7 +4,7 @@ import imageminPngquant from 'imagemin-pngquant'
 import imageminWebp from 'imagemin-webp'
 
 import * as utils from '../utils'
-import common from '../common'
+import common from '../../common'
 import config from '../../config'
 
 const $ = gulpLoadPlugins()

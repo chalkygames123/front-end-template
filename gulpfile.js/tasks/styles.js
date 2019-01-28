@@ -6,7 +6,7 @@ import sassGraphGlob from 'sass-graph-glob'
 import through2 from 'through2'
 
 import * as utils from '../utils'
-import common from '../common'
+import common from '../../common'
 import config from '../../config'
 import postcssConfig from '../../postcss.config'
 

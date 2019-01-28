@@ -4,7 +4,7 @@ import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
 import MinifyPlugin from 'babel-minify-webpack-plugin'
 import WebpackNotifierPlugin from 'webpack-notifier'
 
-import common from './gulpfile.js/common'
+import common from './common'
 import config from './config'
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'production'

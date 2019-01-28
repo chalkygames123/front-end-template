@@ -1,4 +1,4 @@
-import common from '../common'
+import common from '../../common'
 import config from '../../config'
 
 export default function serve(cb) {

@@ -2,7 +2,7 @@ import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 
 import * as utils from '../utils'
-import common from '../common'
+import common from '../../common'
 import config from '../../config'
 
 const $ = gulpLoadPlugins()

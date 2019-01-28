@@ -1,6 +1,6 @@
 import gulp from 'gulp'
 
-import common from '../common'
+import common from '../../common'
 import copy from './copy'
 import images from './images'
 import pages from './pages'

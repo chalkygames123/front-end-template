@@ -6,7 +6,7 @@ import webpack from 'webpack'
 import webpackStream from 'webpack-stream'
 
 import * as utils from '../utils'
-import common from '../common'
+import common from '../../common'
 import config from '../../config'
 import webpackConfig from '../../webpack.config'
 
