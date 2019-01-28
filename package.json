@@ -1,21 +1,21 @@
 {
   "scripts": {
-    "build": "gulp build --require esm",
-    "clean": "gulp clean --require esm",
-    "copy": "gulp copy --require esm",
-    "dev": "cross-env NODE_ENV=development gulp dev --require esm",
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "copy": "gulp copy",
+    "dev": "cross-env NODE_ENV=development gulp dev",
     "format": "prettier --ignore-path .gitignore -c \"**/*.{json,md}\"",
-    "images": "gulp images --require esm",
+    "images": "gulp images",
     "lint:scripts": "eslint --ignore-path .gitignore --ignore-pattern \"!.*\" \".\"",
     "lint:styles": "stylelint --ignore-path .gitignore \"**/*.scss\"",
     "lint": "yarn lint:scripts && yarn lint:styles",
-    "pages": "gulp pages --require esm",
-    "scripts": "gulp scripts --require esm",
-    "serve": "gulp serve --require esm",
-    "start": "gulp default --require esm",
-    "styles": "gulp styles --require esm",
+    "pages": "gulp pages",
+    "scripts": "gulp scripts",
+    "serve": "gulp serve",
+    "start": "gulp default",
+    "styles": "gulp styles",
     "test": "yarn lint && yarn format",
-    "watch": "gulp watch --require esm"
+    "watch": "gulp watch"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
