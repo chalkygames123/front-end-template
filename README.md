@@ -26,6 +26,24 @@ $ npm install # or yarn
 ```bash
 # serve with live/hot reloading at localhost:3000
 $ npm run dev # or yarn dev
+
+# lint all JS files
+$ npm run lint:scripts # or yarn lint:scripts
+
+# fix all JS files
+$ npm run lint:scripts --fix # or yarn lint:scripts --fix
+
+# lint all SCSS files
+$ npm run lint:styles # or yarn lint:styles
+
+# fix all SCSS files
+$ npm run lint:styles --fix # or yarn lint:styles --fix
+
+# check if all JSON and MD files are formatted
+$ npm run format # or yarn format
+
+# format all JSON and MD files
+$ npm run format --write # or yarn format --write
 ```
 
 ### Production
