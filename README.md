@@ -31,13 +31,13 @@ $ npm run dev # or yarn dev
 $ npm run lint:scripts # or yarn lint:scripts
 
 # fix all JS files
-$ npm run lint:scripts --fix # or yarn lint:scripts --fix
+$ npm run lint:scripts -- --fix # or yarn lint:scripts --fix
 
 # lint all SCSS files
 $ npm run lint:styles # or yarn lint:styles
 
 # fix all SCSS files
-$ npm run lint:styles --fix # or yarn lint:styles --fix
+$ npm run lint:styles -- --fix # or yarn lint:styles --fix
 
 # check if all JSON and MD files are formatted
 $ npm run format # or yarn format
