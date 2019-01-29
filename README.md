@@ -43,7 +43,7 @@ $ npm run lint:styles -- --fix # or yarn lint:styles --fix
 $ npm run format # or yarn format
 
 # format all JSON and MD files
-$ npm run format --write # or yarn format --write
+$ npm run format -- --write # or yarn format --write
 ```
 
 ### Production
