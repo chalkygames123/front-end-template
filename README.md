@@ -39,6 +39,9 @@ $ npm run lint:styles # or yarn lint:styles
 # fix all .scss files
 $ npm run lint:styles -- --fix # or yarn lint:styles --fix
 
+# run each linter
+$ npm run lint # or yarn lint
+
 # check if all .json and .md files are formatted
 $ npm run format # or yarn format
 
