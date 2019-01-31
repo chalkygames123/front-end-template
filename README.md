@@ -44,6 +44,9 @@ $ npm run format # or yarn format
 
 # format all .json and .md files
 $ npm run format -- --write # or yarn format --write
+
+# run each linter and formatter
+$ npm run test # or yarn test
 ```
 
 ### Production
