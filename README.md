@@ -2,15 +2,15 @@
 
 A template for building static websites powered by gulp and webpack.
 
-## Requirements
+## Prerequisites
 
-Make sure that the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/creationix/nvm) it can be done with:
+Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/creationix/nvm) it can be done with:
 
 ```bash
 $ nvm install # or nvm i
 ```
 
-Also, make sure that [Yarn](https://yarnpkg.com) installed since some scripts depend on it.
+Also, make sure you have [Yarn](https://yarnpkg.com) installed since some scripts depend on it.
 
 ## Setup
 
@@ -27,22 +27,22 @@ $ npm install # or yarn
 # serve with live/hot reloading at localhost:3000
 $ npm run dev # or yarn dev
 
-# lint all JS files
+# lint all .js files
 $ npm run lint:scripts # or yarn lint:scripts
 
-# fix all JS files
+# fix all .js files
 $ npm run lint:scripts -- --fix # or yarn lint:scripts --fix
 
-# lint all SCSS files
+# lint all .scss files
 $ npm run lint:styles # or yarn lint:styles
 
-# fix all SCSS files
+# fix all .scss files
 $ npm run lint:styles -- --fix # or yarn lint:styles --fix
 
-# check if all JSON and MD files are formatted
+# check if all .json and .md files are formatted
 $ npm run format # or yarn format
 
-# format all JSON and MD files
+# format all .json and .md files
 $ npm run format -- --write # or yarn format --write
 ```
 
