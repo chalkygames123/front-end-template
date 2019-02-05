@@ -11659,15 +11659,10 @@ watchpack@^1.5.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-webpack-cli-scripts@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/webpack-cli-scripts/-/webpack-cli-scripts-1.0.2.tgz#d03894217830e2b1e3e6fdbc2b175059942d94f6"
-  integrity sha512-U/ggmuoxclQgwtot3saL/nfVioJZ3CIYrontvStCfksIE+j7O66LVd29hgPP6cUBVMOnqyaELCsqUf9arNCpMQ==
-
-webpack-cli@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.2.2.tgz#1e6a638ff81d491d0bec7db11910a55450e4189a"
-  integrity sha512-RMYcJeEjNgmCi5c3UwpdWjy+QIxuN8W/u/Dq+FUxWScCwXpOdfSEhqKVov3GFbsB4cS9/hdciJ4Y36vgTaHMWw==
+webpack-cli@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.2.3.tgz#13653549adfd8ccd920ad7be1ef868bacc22e346"
+  integrity sha512-Ik3SjV6uJtWIAN5jp5ZuBMWEAaP5E4V78XJ2nI+paFPh8v4HPSwo/myN0r29Xc/6ZKnd2IdrAlpSgNOu2CDQ6Q==
   dependencies:
     chalk "^2.4.1"
     cross-spawn "^6.0.5"
@@ -11679,7 +11674,6 @@ webpack-cli@^3.2.2:
     loader-utils "^1.1.0"
     supports-color "^5.5.0"
     v8-compile-cache "^2.0.2"
-    webpack-cli-scripts "^1.0.2"
     yargs "^12.0.4"
 
 webpack-notifier@^1.7.0:
