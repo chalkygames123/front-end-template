@@ -38,6 +38,7 @@ ul {
 // Eliminate extra whitespace caused by img element that inserted by access analysis script
 body > img {
   display: block;
-  height: 0 !important; // stylelint-disable-line declaration-no-important
+  // stylelint-disable-next-line declaration-no-important
+  height: 0 !important;
   font-size: 0;
 }
