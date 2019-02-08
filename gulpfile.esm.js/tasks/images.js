@@ -31,9 +31,7 @@ export default function images() {
           $.imagemin.gifsicle({
             optimizationLevel: 3
           }),
-          $.imagemin.jpegtran({
-            progressive: true
-          }),
+          $.imagemin.jpegtran(),
           $.imagemin.svgo({
             plugins: [
               {
@@ -47,10 +45,7 @@ export default function images() {
               }
             ]
           }),
-          imageminPngquant({
-            quality: '80-90',
-            speed: 1
-          })
+          imageminPngquant()
         ])
       )
     )
