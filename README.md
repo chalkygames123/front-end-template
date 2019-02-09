@@ -12,6 +12,14 @@ $ nvm install # or nvm i
 
 Also, make sure you have [Yarn](https://yarnpkg.com) installed since some scripts depend on it.
 
+## Installation
+
+In your directory, run:
+
+```bash
+$ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/master.tar.gz | tar -xz --strip-components=1
+```
+
 ## Setup
 
 ```bash
