@@ -116,7 +116,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --ignore-pattern !.*"
+      "eslint --ignore-pattern \"!.*\""
     ],
     "*.scss": [
       "stylelint"
