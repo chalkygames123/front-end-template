@@ -18,7 +18,6 @@ module.exports = {
     'font-family-name-quotes': 'always-unless-keyword',
     'font-weight-notation': 'numeric',
     'function-calc-no-invalid': true,
-    linebreaks: 'unix',
     'no-empty-source': null,
     'rule-empty-line-before': [
       'always',
