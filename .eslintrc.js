@@ -7,6 +7,7 @@ module.exports = {
   },
   extends: ['standard', 'plugin:prettier/recommended', 'prettier/standard'],
   rules: {
+    'linebreak-style': ['error', 'unix'],
     'no-console': isProd ? 'error' : 'off',
     'no-debugger': isProd ? 'error' : 'off'
   }
