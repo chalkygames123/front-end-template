@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "a11y-dialog": "^5.2.0",
     "animejs": "^3.0.1",
     "axios": "^0.18.0",
     "custom-event-polyfill": "^1.0.6",
