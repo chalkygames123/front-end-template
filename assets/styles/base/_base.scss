@@ -8,16 +8,17 @@ html {
 
 body {
   font-family: 'YakuHanJP', 'Noto Sans JP', sans-serif;
-  font-size: 13px;
-  letter-spacing: 1px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   font-feature-settings: 'palt' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
 
-  @include media-breakpoint-up(md) {
-    font-size: 16px;
-  }
+ol,
+ul {
+  list-style: none;
 }
 
 a {
@@ -25,14 +26,21 @@ a {
   text-decoration: none;
 }
 
+audio,
+canvas,
+iframe,
 img,
-svg {
+svg,
+video {
   vertical-align: middle;
 }
 
-ol,
-ul {
-  list-style: none;
+svg:not([fill]) {
+  fill: currentColor;
+}
+
+table {
+  border-collapse: collapse;
 }
 
 // Eliminate extra whitespace caused by img element that inserted by access analysis script
