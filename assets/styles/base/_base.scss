@@ -43,6 +43,10 @@ table {
   border-collapse: collapse;
 }
 
+[data-whatinput='mouse'] *:focus {
+  outline: none;
+}
+
 // Eliminate extra whitespace caused by img element that inserted by access analysis script
 body > img {
   display: block;
