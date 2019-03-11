@@ -35,7 +35,7 @@
     "smooth-scroll": "^16.0.0",
     "stickyfilljs": "^2.1.0",
     "swiper": "^4.5.0",
-    "tabbable": "^3.1.2",
+    "tabbable": "^4.0.0",
     "what-input": "^5.1.4"
   },
   "devDependencies": {
