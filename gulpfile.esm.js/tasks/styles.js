@@ -26,7 +26,7 @@ export default function styles() {
         })
       )
     )
-    .pipe($.if(isDev, $.cached('sass')))
+    .pipe($.if(isDev, $.cached('styles')))
     .pipe(
       $.if(
         gulp.lastRun(styles),
