@@ -18,10 +18,10 @@
     "watch": "gulp watch"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.0",
     "a11y-dialog": "^5.2.0",
     "animejs": "^3.0.1",
     "axios": "^0.18.0",
+    "core-js": "^3.0.0",
     "custom-event-polyfill": "^1.0.6",
     "element-closest": "^3.0.1",
     "focus-trap": "^5.0.0",
