@@ -7,8 +7,8 @@ module.exports = {
     'at-rule-empty-line-before': [
       'always',
       {
-        except: ['first-nested'],
-        ignore: ['after-comment', 'blockless-after-same-name-blockless'],
+        except: ['first-nested', 'blockless-after-same-name-blockless'],
+        ignore: ['after-comment'],
         ignoreAtRules: ['else']
       }
     ],
@@ -56,6 +56,19 @@ module.exports = {
     'scss/at-mixin-argumentless-call-parentheses': 'always',
     'scss/at-rule-no-unknown': true,
     'scss/declaration-nested-properties': 'never',
+    'scss/double-slash-comment-empty-line-before': [
+      'always',
+      {
+        except: ['first-nested'],
+        ignore: ['stylelint-commands']
+      }
+    ],
+    'scss/double-slash-comment-inline': [
+      'never',
+      {
+        ignore: ['stylelint-commands']
+      }
+    ],
     'scss/double-slash-comment-whitespace-inside': 'always',
     'scss/selector-no-redundant-nesting-selector': true
   }
