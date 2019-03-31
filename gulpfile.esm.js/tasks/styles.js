@@ -92,7 +92,14 @@ export default function styles() {
         })
       )
     )
-    .pipe($.if(!isDev, $.csso()))
+    .pipe(
+      $.if(
+        !isDev,
+        $.csso({
+          forceMediaMerge: true
+        })
+      )
+    )
     .pipe(
       $.if(
         !isDev,
