@@ -1,4 +1,6 @@
-$grid-breakpoints: (
+// Breakpoints
+
+$mq-breakpoints: (
   xxs: 0,
   xs: 320px,
   sm: 375px,
@@ -8,8 +10,7 @@ $grid-breakpoints: (
   xxl: 1440px
 );
 
-$gutter: 20px;
-$gutter-md: 40px;
+// Timing functions
 
 $ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
 $ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1);
@@ -42,3 +43,8 @@ $ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 $ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 $ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Utilities
+
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex,
+  inline-flex;

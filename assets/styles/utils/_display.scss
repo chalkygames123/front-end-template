@@ -1,42 +1,19 @@
 // stylelint-disable declaration-no-important
-@each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-up($breakpoint) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .u-d#{$infix}-none {
-      display: none !important;
-    }
+@each $value in $displays {
+  .u-d-#{$value} {
+    display: $value !important;
+  }
+}
 
-    .u-d#{$infix}-inline {
-      display: inline !important;
-    }
+@each $breakpoint in map-keys($mq-breakpoints) {
+  @include mq($breakpoint) {
+    $infix: '-#{$breakpoint}';
 
-    .u-d#{$infix}-inline-block {
-      display: inline-block !important;
-    }
-
-    .u-d#{$infix}-block {
-      display: block !important;
-    }
-
-    .u-d#{$infix}-table {
-      display: table !important;
-    }
-
-    .u-d#{$infix}-table-row {
-      display: table-row !important;
-    }
-
-    .u-d#{$infix}-table-cell {
-      display: table-cell !important;
-    }
-
-    .u-d#{$infix}-flex {
-      display: flex !important;
-    }
-
-    .u-d#{$infix}-inline-flex {
-      display: inline-flex !important;
+    @each $value in $displays {
+      .u-d#{$infix}-#{$value} {
+        display: $value !important;
+      }
     }
   }
 }

@@ -89,6 +89,7 @@
     "postcss-normalize": "^7.0.1",
     "prettier": "^1.16.4",
     "sass-graph-glob": "^3.0.4",
+    "sass-mq": "^5.0.0",
     "stylelint": "^9.10.1",
     "stylelint-config-prettier": "^5.0.0",
     "stylelint-config-recess-order": "^2.0.1",

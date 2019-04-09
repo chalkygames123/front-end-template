@@ -4,10 +4,10 @@
 }
 
 html {
-  min-width: map-get($grid-breakpoints, xs);
+  min-width: map-get($mq-breakpoints, xs);
 
-  @include media-breakpoint-up(md) {
-    min-width: map-get($grid-breakpoints, xl);
+  @include mq(md) {
+    min-width: map-get($mq-breakpoints, xl);
   }
 }
 
