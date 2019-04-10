@@ -51,11 +51,15 @@ module.exports = {
         },
         {
           type: 'rule',
-          selector: '/^&:\\w/'
+          selector: /^&\w/
         },
         {
           type: 'rule',
-          selector: '/^&::\\w/'
+          selector: /^&::\w/
+        },
+        {
+          type: 'rule',
+          selector: /^&:\w/
         },
         'rules'
       ]
@@ -69,6 +73,14 @@ module.exports = {
     'scss/at-mixin-argumentless-call-parentheses': 'always',
     'scss/at-rule-no-unknown': true,
     'scss/declaration-nested-properties': 'never',
+    'scss/dollar-variable-empty-line-before': [
+      'always',
+      {
+        except: ['first-nested', 'after-dollar-variable'],
+        ignore: ['after-comment']
+      }
+    ],
+    'scss/dollar-variable-no-missing-interpolation': true,
     'scss/double-slash-comment-empty-line-before': [
       'always',
       {
