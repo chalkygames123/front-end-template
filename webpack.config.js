@@ -20,6 +20,7 @@ export default {
     splitChunks: {
       cacheGroups: {
         vendors: {
+          test: /[\\/]node_modules[\\/]/,
           chunks: 'all',
           minSize: 0,
           name: `${common.dir.assets}/${common.dir.scripts}/vendors`
