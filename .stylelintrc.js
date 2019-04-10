@@ -34,15 +34,28 @@ module.exports = {
           type: 'at-rule',
           name: 'extend'
         },
-        'declarations',
-        'at-rules',
         {
           type: 'at-rule',
-          name: 'media'
+          name: 'include',
+          hasBlock: false
+        },
+        'declarations',
+        {
+          type: 'at-rule',
+          hasBlock: true
         },
         {
           type: 'at-rule',
-          name: 'include'
+          name: 'include',
+          hasBlock: true
+        },
+        {
+          type: 'rule',
+          selector: '/^&:\\w/'
+        },
+        {
+          type: 'rule',
+          selector: '/^&::\\w/'
         },
         'rules'
       ]
