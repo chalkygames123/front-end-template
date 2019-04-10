@@ -4,10 +4,10 @@
 }
 
 html {
-  min-width: mq-get-breakpoint-width(xs);
+  min-width: mq-get-breakpoint-width(sm);
 
   @include mq(md) {
-    min-width: mq-get-breakpoint-width(xl);
+    min-width: mq-get-breakpoint-width(lg);
   }
 }
 
