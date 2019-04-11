@@ -16,7 +16,7 @@ const isDev = process.env.NODE_ENV === 'development'
 export default function styles() {
   return gulp
     .src(common.srcPaths.styles, {
-      base: config.srcDir
+      base: config.get('srcDir')
     })
     .pipe(
       $.if(
@@ -32,7 +32,7 @@ export default function styles() {
         gulp.lastRun(styles),
         through2.obj(function(file, encoding, cb) {
           const graph = sassGraphGlob.parseDir(
-            `${config.srcDir}/${common.dir.assets}/${common.dir.styles}`
+            `${config.get('srcDir')}/${common.dir.assets}/${common.dir.styles}`
           )
           const srcPaths = []
 
@@ -46,7 +46,7 @@ export default function styles() {
 
           gulp
             .src(srcPaths, {
-              base: config.srcDir
+              base: config.get('srcDir')
             })
             .on('data', file => {
               this.push(file)
@@ -72,7 +72,7 @@ export default function styles() {
     .pipe(
       $.dartSass({
         importer: nodeSassMagicImporter(),
-        includePaths: `${config.srcDir}/${common.dir.assets}/${
+        includePaths: `${config.get('srcDir')}/${common.dir.assets}/${
           common.dir.styles
         }`,
         fiber: Fiber
@@ -88,7 +88,7 @@ export default function styles() {
       $.if(
         isDev,
         $.sourcemaps.write({
-          sourceRoot: `/${config.srcDir}`
+          sourceRoot: `/${config.get('srcDir')}`
         })
       )
     )
@@ -110,13 +110,13 @@ export default function styles() {
       )
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
-    .pipe($.if(config.gzip && !isDev, $.gzip()))
-    .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
+    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`))
+    .pipe($.if(config.get('gzip') && !isDev, $.gzip()))
+    .pipe($.if(config.get('gzip') && !isDev, utils.detectConflict()))
     .pipe(
       $.if(
-        config.gzip && !isDev,
-        gulp.dest(`${config.distDir}/${config.baseDir}`)
+        config.get('gzip') && !isDev,
+        gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`)
       )
     )
     .pipe(common.server.stream())

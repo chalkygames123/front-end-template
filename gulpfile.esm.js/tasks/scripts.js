@@ -16,7 +16,7 @@ const isDev = process.env.NODE_ENV === 'development'
 export default function scripts() {
   return gulp
     .src(common.srcPaths.scripts, {
-      base: config.srcDir
+      base: config.get('srcDir')
     })
     .pipe(
       $.if(
@@ -29,19 +29,19 @@ export default function scripts() {
     .pipe($.filter(`**/!(_)*${common.ext.scripts}`))
     .pipe(
       vinylNamed(file => {
-        file.base = config.srcDir
+        file.base = config.get('srcDir')
         return upath.normalize(upath.trimExt(file.relative))
       })
     )
     .pipe(webpackStream(webpackConfig, webpack))
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
-    .pipe($.if(config.gzip && !isDev, $.gzip()))
-    .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
+    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`))
+    .pipe($.if(config.get('gzip') && !isDev, $.gzip()))
+    .pipe($.if(config.get('gzip') && !isDev, utils.detectConflict()))
     .pipe(
       $.if(
-        config.gzip && !isDev,
-        gulp.dest(`${config.distDir}/${config.baseDir}`)
+        config.get('gzip') && !isDev,
+        gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`)
       )
     )
     .pipe(common.server.stream())

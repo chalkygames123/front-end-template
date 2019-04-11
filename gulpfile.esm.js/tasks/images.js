@@ -13,9 +13,9 @@ const isDev = process.env.NODE_ENV === 'development'
 export default function images() {
   return gulp
     .src(common.srcPaths.images, {
-      base: config.srcDir
+      base: config.get('srcDir')
     })
-    .pipe($.changed(`${config.distDir}/${config.baseDir}`))
+    .pipe($.changed(`${config.get('distDir')}/${config.get('baseDir')}`))
     .pipe(
       $.if(
         isDev,
@@ -50,11 +50,11 @@ export default function images() {
       )
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
-    .pipe($.if(config.webp, $.filter('**/*.+(png|jp?(e)g)')))
+    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`))
+    .pipe($.if(config.get('webp'), $.filter('**/*.+(png|jp?(e)g)')))
     .pipe(
       $.if(
-        config.webp && !isDev,
+        config.get('webp') && !isDev,
         $.imagemin([
           imageminWebp({
             quality: '90',
@@ -65,13 +65,18 @@ export default function images() {
     )
     .pipe(
       $.if(
-        config.webp,
+        config.get('webp'),
         $.rename({
           extname: '.webp'
         })
       )
     )
-    .pipe($.if(config.webp, utils.detectConflict()))
-    .pipe($.if(config.webp, gulp.dest(`${config.distDir}/${config.baseDir}`)))
+    .pipe($.if(config.get('webp'), utils.detectConflict()))
+    .pipe(
+      $.if(
+        config.get('webp'),
+        gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`)
+      )
+    )
     .pipe(common.server.stream())
 }

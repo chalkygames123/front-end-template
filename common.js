@@ -22,18 +22,20 @@ const common = {
 }
 
 common.srcPaths = {
-  copy: [`${config.srcDir}/${common.dir.static}/**`, '!**/.gitkeep'],
-  images: `${config.srcDir}/${common.dir.assets}/${common.dir.images}/**/*${
-    common.ext.images
+  copy: [`${config.get('srcDir')}/${common.dir.static}/**`, '!**/.gitkeep'],
+  images: `${config.get('srcDir')}/${common.dir.assets}/${
+    common.dir.images
+  }/**/*${common.ext.images}`,
+  includes: `${config.get('srcDir')}/${common.dir.includes}/**/*${
+    common.ext.pages
   }`,
-  includes: `${config.srcDir}/${common.dir.includes}/**/*${common.ext.pages}`,
-  pages: `${config.srcDir}/${common.dir.pages}/**/*${common.ext.pages}`,
-  scripts: `${config.srcDir}/${common.dir.assets}/${common.dir.scripts}/**/*${
-    common.ext.scripts
-  }`,
-  styles: `${config.srcDir}/${common.dir.assets}/${common.dir.styles}/**/*${
-    common.ext.styles
-  }`
+  pages: `${config.get('srcDir')}/${common.dir.pages}/**/*${common.ext.pages}`,
+  scripts: `${config.get('srcDir')}/${common.dir.assets}/${
+    common.dir.scripts
+  }/**/*${common.ext.scripts}`,
+  styles: `${config.get('srcDir')}/${common.dir.assets}/${
+    common.dir.styles
+  }/**/*${common.ext.styles}`
 }
 
 export default common

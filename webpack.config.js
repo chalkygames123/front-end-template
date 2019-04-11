@@ -53,7 +53,7 @@ export default {
     modules: [
       path.resolve(
         __dirname,
-        config.srcDir,
+        config.get('srcDir'),
         common.dir.assets,
         common.dir.scripts
       ),

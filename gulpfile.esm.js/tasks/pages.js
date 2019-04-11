@@ -11,7 +11,7 @@ const isDev = process.env.NODE_ENV === 'development'
 export default function pages() {
   return gulp
     .src(common.srcPaths.pages, {
-      base: `${config.srcDir}/${common.dir.pages}`
+      base: `${config.get('srcDir')}/${common.dir.pages}`
     })
     .pipe(
       $.if(
@@ -25,7 +25,7 @@ export default function pages() {
       $.ejs(
         null,
         {
-          root: `${config.srcDir}/${common.dir.includes}`
+          root: `${config.get('srcDir')}/${common.dir.includes}`
         },
         {
           ext: '.html'
@@ -60,13 +60,13 @@ export default function pages() {
       )
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
-    .pipe($.if(config.gzip && !isDev, $.gzip()))
-    .pipe($.if(config.gzip && !isDev, utils.detectConflict()))
+    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`))
+    .pipe($.if(config.get('gzip') && !isDev, $.gzip()))
+    .pipe($.if(config.get('gzip') && !isDev, utils.detectConflict()))
     .pipe(
       $.if(
-        config.gzip && !isDev,
-        gulp.dest(`${config.distDir}/${config.baseDir}`)
+        config.get('gzip') && !isDev,
+        gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`)
       )
     )
     .pipe(common.server.stream())

@@ -10,11 +10,11 @@ const isDev = process.env.NODE_ENV === 'development'
 export default function copy() {
   return gulp
     .src(common.srcPaths.copy, {
-      base: `${config.srcDir}/${common.dir.static}`,
+      base: `${config.get('srcDir')}/${common.dir.static}`,
       dot: true,
       nodir: true
     })
-    .pipe($.changed(`${config.distDir}/${config.baseDir}`))
+    .pipe($.changed(`${config.get('distDir')}/${config.get('baseDir')}`))
     .pipe(
       $.if(
         isDev,
@@ -23,6 +23,6 @@ export default function copy() {
         })
       )
     )
-    .pipe(gulp.dest(`${config.distDir}/${config.baseDir}`))
+    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`))
     .pipe(common.server.stream())
 }

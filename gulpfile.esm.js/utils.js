@@ -12,7 +12,7 @@ import config from '../config'
 export function detectConflict() {
   return through2.obj((file, encoding, cb) => {
     const conflictablePath = upath.normalize(
-      `${config.srcDir}/${common.dir.static}/${file.relative}`
+      `${config.get('srcDir')}/${common.dir.static}/${file.relative}`
     )
 
     fs.access(conflictablePath, fs.constants.F_OK, error => {
