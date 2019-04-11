@@ -95,6 +95,8 @@ module.exports = {
       }
     ],
     'scss/double-slash-comment-whitespace-inside': 'always',
+    'scss/partial-no-import': true,
+    'scss/selector-nest-combinators': 'always',
     'scss/selector-no-redundant-nesting-selector': true
   }
 }

@@ -36,14 +36,18 @@ video {
   vertical-align: middle;
 }
 
-svg:not([fill]) {
-  fill: currentColor;
+svg {
+  &:not([fill]) {
+    fill: currentColor;
+  }
 }
 
 table {
   border-collapse: collapse;
 }
 
-[data-whatinput='mouse'] *:focus {
-  outline: none;
+[data-whatinput='mouse'] {
+  :focus {
+    outline: none;
+  }
 }
