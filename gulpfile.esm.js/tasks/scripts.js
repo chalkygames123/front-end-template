@@ -11,7 +11,7 @@ import config from '../../config'
 import webpackConfig from '../../webpack.config'
 
 const $ = gulpLoadPlugins()
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = config.get('env') === 'development'
 
 export default function scripts() {
   return gulp

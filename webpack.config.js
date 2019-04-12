@@ -7,12 +7,10 @@ import WebpackNotifierPlugin from 'webpack-notifier'
 import common from './common'
 import config from './config'
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'production'
-
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = config.get('env') === 'development'
 
 export default {
-  mode: process.env.NODE_ENV,
+  mode: config.get('env'),
   output: {
     devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource]?[loaders]'
   },

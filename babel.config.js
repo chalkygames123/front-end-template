@@ -1,4 +1,6 @@
-const isDev = process.env.NODE_ENV === 'development'
+import config from './config'
+
+const isDev = config.get('env') === 'development'
 
 export default api => {
   api.cache.forever()

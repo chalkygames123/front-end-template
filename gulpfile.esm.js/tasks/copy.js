@@ -5,7 +5,7 @@ import common from '../../common'
 import config from '../../config'
 
 const $ = gulpLoadPlugins()
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = config.get('env') === 'development'
 
 export default function copy() {
   return gulp
