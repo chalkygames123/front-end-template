@@ -13,9 +13,9 @@ const isDev = config.get('env') === 'development'
 export default function images() {
   return gulp
     .src(common.srcPaths.images, {
+      since: gulp.lastRun(images),
       base: config.get('srcDir')
     })
-    .pipe($.changed(`${config.get('distDir')}/${config.get('baseDir')}`))
     .pipe(
       $.if(
         isDev,
