@@ -10,7 +10,7 @@ Make sure you have the latest Active LTS version of Node.js installed. If you ar
 $ nvm install # or nvm i
 ```
 
-Also, make sure you have [Yarn](https://yarnpkg.com) installed since some scripts depend on it.
+Also, make sure you have [Yarn](https://yarnpkg.com) installed.
 
 ## Installation
 
@@ -24,7 +24,7 @@ $ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/master
 
 ```bash
 # install dependencies
-$ npm install # or yarn
+$ yarn
 ```
 
 ## Usage
@@ -33,39 +33,39 @@ $ npm install # or yarn
 
 ```bash
 # serve with live/hot reloading at localhost:3000
-$ npm run dev # or yarn dev
+$ yarn dev
 
 # lint all .js files
-$ npm run lint:scripts # or yarn lint:scripts
+$ yarn lint:scripts
 
 # fix all .js files
-$ npm run lint:scripts -- --fix # or yarn lint:scripts --fix
+$ yarn lint:scripts --fix
 
 # lint all .scss files
-$ npm run lint:styles # or yarn lint:styles
+$ yarn lint:styles
 
 # fix all .scss files
-$ npm run lint:styles -- --fix # or yarn lint:styles --fix
+$ yarn lint:styles --fix
 
 # run each linter
-$ npm run lint # or yarn lint
+$ yarn lint
 
 # fix all .js and .scss files
-$ npm run lint:fix # or yarn lint:fix
+$ yarn lint:fix
 
 # check if all .json and .md files are formatted
-$ npm run format # or yarn format
+$ yarn format
 
 # format all .json and .md files
-$ npm run format -- --write # or yarn format --write
+$ yarn format --write
 
 # run each linter and formatter
-$ npm run test # or yarn test
+$ yarn test
 ```
 
 ### Production
 
 ```bash
 # build for production
-$ npm run build # or yarn build
+$ yarn build
 ```
