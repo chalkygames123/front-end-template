@@ -6,6 +6,7 @@
     "dev": "cross-env NODE_ENV=development gulp dev",
     "format": "prettier --ignore-path .gitignore -c \"**/*.{json,md}\"",
     "images": "gulp images",
+    "lint:fix": "yarn lint:scripts --fix && yarn lint:styles --fix",
     "lint:scripts": "eslint --ignore-path .gitignore --ignore-pattern \"!.*\" \".\"",
     "lint:styles": "stylelint --ignore-path .gitignore \"**/*.scss\"",
     "lint": "yarn lint:scripts && yarn lint:styles",

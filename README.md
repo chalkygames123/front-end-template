@@ -50,6 +50,9 @@ $ npm run lint:styles -- --fix # or yarn lint:styles --fix
 # run each linter
 $ npm run lint # or yarn lint
 
+# fix all .js and .scss files
+$ npm run lint:fix # or yarn lint:fix
+
 # check if all .json and .md files are formatted
 $ npm run format # or yarn format
 
