@@ -17,7 +17,7 @@ const config = convict({
     format: String,
     default: 'dist'
   },
-  baseDir: {
+  basePath: {
     doc: 'The base path of the site.',
     format: String,
     default: ''

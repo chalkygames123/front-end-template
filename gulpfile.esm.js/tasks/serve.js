@@ -5,7 +5,7 @@ export default function serve(cb) {
   common.server.init({
     ui: false,
     server: config.get('distDir'),
-    startPath: config.get('baseDir')
+    startPath: config.get('basePath')
   })
 
   cb()

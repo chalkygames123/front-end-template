@@ -110,13 +110,13 @@ export default function styles() {
       )
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`))
+    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('basePath')}`))
     .pipe($.if(config.get('gzip') && !isDev, $.gzip()))
     .pipe($.if(config.get('gzip') && !isDev, utils.detectConflict()))
     .pipe(
       $.if(
         config.get('gzip') && !isDev,
-        gulp.dest(`${config.get('distDir')}/${config.get('baseDir')}`)
+        gulp.dest(`${config.get('distDir')}/${config.get('basePath')}`)
       )
     )
     .pipe(common.server.stream())
