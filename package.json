@@ -64,6 +64,7 @@
     "fibers": "^3.1.1",
     "gulp": "^4.0.0",
     "gulp-cached": "^1.1.1",
+    "gulp-changed": "^3.2.0",
     "gulp-clean-css": "^4.0.0",
     "gulp-csso": "^3.0.1",
     "gulp-dart-sass": "^0.9.1",
