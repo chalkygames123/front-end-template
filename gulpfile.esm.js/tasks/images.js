@@ -1,3 +1,5 @@
+import path from 'path'
+
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import imageminPngquant from 'imagemin-pngquant'
@@ -9,6 +11,14 @@ import config from '../../config'
 
 const $ = gulpLoadPlugins()
 const isDev = config.get('env') === 'development'
+const spritesFilter = $.filter(
+  `${config.get('distDir')}/${common.dir.assets}/${
+    common.dir.images
+  }/sprites/**/*.svg`,
+  {
+    restore: true
+  }
+)
 
 export default function images() {
   return gulp
@@ -51,6 +61,39 @@ export default function images() {
     )
     .pipe(utils.detectConflict())
     .pipe(gulp.dest(`${config.get('distDir')}/${config.get('basePath')}`))
+    .pipe(spritesFilter)
+    .pipe(
+      $.svgSprite({
+        shape: {
+          id: {
+            generator: function(name, file) {
+              const destRelativeName = name.replace(
+                `${common.dir.assets}/${common.dir.images}/sprites/`,
+                ''
+              )
+              const directorySeparatedName = destRelativeName
+                .split(path.sep)
+                .join(this.separator)
+              const trimmedName = path.basename(
+                directorySeparatedName.replace(/\s+/g, this.whitespace),
+                '.svg'
+              )
+              return trimmedName
+            }
+          },
+          transform: null
+        },
+        mode: {
+          symbol: {
+            dest: `${common.dir.assets}/${common.dir.images}`,
+            sprite: 'sprite.symbol.svg'
+          }
+        }
+      })
+    )
+    .pipe(utils.detectConflict())
+    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('basePath')}`))
+    .pipe(spritesFilter.restore)
     .pipe($.if(config.get('webp'), $.filter('**/*.+(png|jp?(e)g)')))
     .pipe(
       $.if(
