@@ -21,6 +21,7 @@ export default function pages() {
         })
       )
     )
+    .pipe($.filter(`**/!(-)*${common.ext.pages}`))
     .pipe(
       $.ejs(
         null,
