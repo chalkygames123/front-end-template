@@ -14,7 +14,6 @@ export default function copy() {
       dot: true,
       nodir: true
     })
-    .pipe($.changed(`${config.get('distDir')}/${config.get('basePath')}`))
     .pipe(
       $.if(
         isDev,
@@ -23,6 +22,7 @@ export default function copy() {
         })
       )
     )
+    .pipe($.changed(`${config.get('distDir')}/${config.get('basePath')}`))
     .pipe(gulp.dest(`${config.get('distDir')}/${config.get('basePath')}`))
     .pipe(common.server.stream())
 }

@@ -25,7 +25,6 @@ export default function images() {
     .src(common.srcPaths.images, {
       base: config.get('srcDir')
     })
-    .pipe($.changed(`${config.get('distDir')}/${config.get('basePath')}`))
     .pipe(
       $.if(
         isDev,
@@ -34,6 +33,7 @@ export default function images() {
         })
       )
     )
+    .pipe($.changed(`${config.get('distDir')}/${config.get('basePath')}`))
     .pipe(
       $.if(
         !isDev,
