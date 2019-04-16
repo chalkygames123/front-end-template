@@ -9,6 +9,7 @@ const common = {
     includes: 'includes',
     pages: 'pages',
     scripts: 'scripts',
+    sprites: 'sprites',
     static: 'static',
     styles: 'styles'
   },
@@ -16,6 +17,7 @@ const common = {
     images: '.+(png|jp?(e)g|gif|svg)',
     pages: '.ejs',
     scripts: '.js',
+    sprites: '.svg',
     styles: '.scss'
   },
   server: browserSync.create()

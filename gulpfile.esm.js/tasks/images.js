@@ -12,9 +12,9 @@ import config from '../../config'
 const $ = gulpLoadPlugins()
 const isDev = config.get('env') === 'development'
 const spritesFilter = $.filter(
-  `${config.get('distDir')}/${common.dir.assets}/${
-    common.dir.images
-  }/sprites/**/*.svg`,
+  `${config.get('distDir')}/${common.dir.assets}/${common.dir.images}/${
+    common.dir.sprites
+  }/**/*${common.ext.sprites}`,
   {
     restore: true
   }
@@ -68,17 +68,19 @@ export default function images() {
           id: {
             generator: function(name, file) {
               const destRelativeName = name.replace(
-                `${common.dir.assets}/${common.dir.images}/sprites/`,
+                `${common.dir.assets}/${common.dir.images}/${
+                  common.dir.sprites
+                }/`,
                 ''
               )
               const directorySeparatedName = destRelativeName
                 .split(path.sep)
                 .join(this.separator)
-              const trimmedName = path.basename(
+
+              return path.basename(
                 directorySeparatedName.replace(/\s+/g, this.whitespace),
-                '.svg'
+                common.ext.sprites
               )
-              return trimmedName
             }
           },
           transform: null
