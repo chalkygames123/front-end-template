@@ -9,6 +9,21 @@ html {
   @include mq(md) {
     min-width: mq-get-breakpoint-width(lg);
   }
+
+  &[data-whatinput='mouse'],
+  &[data-whatinput='touch'] {
+    :not(button) {
+      &:not(input) {
+        &:not(select) {
+          &:not(textarea) {
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 body {
@@ -44,10 +59,4 @@ svg {
 
 table {
   border-collapse: collapse;
-}
-
-[data-whatinput='mouse'] {
-  :focus {
-    outline: none;
-  }
 }
