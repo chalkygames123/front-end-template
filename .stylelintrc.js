@@ -85,7 +85,7 @@ module.exports = {
       'always',
       {
         except: ['first-nested'],
-        ignore: ['stylelint-commands']
+        ignore: ['between-comments', 'stylelint-commands']
       }
     ],
     'scss/double-slash-comment-inline': [
