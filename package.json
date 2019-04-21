@@ -63,7 +63,7 @@
     "esm": "^3.2.22",
     "fancy-log": "^1.3.3",
     "fibers": "^3.1.1",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.1",
     "gulp-cached": "^1.1.1",
     "gulp-changed": "^3.2.0",
     "gulp-clean-css": "^4.0.0",
