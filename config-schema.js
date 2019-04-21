@@ -31,6 +31,16 @@ const config = convict({
     doc: 'Whether to enable WebP compression.',
     format: Boolean,
     default: false
+  },
+  siteName: {
+    doc: 'The site name.',
+    format: String,
+    default: 'Site Name'
+  },
+  origin: {
+    doc: 'The origin of the site.',
+    format: String,
+    default: 'https://example.com'
   }
 })
 

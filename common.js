@@ -7,6 +7,7 @@ const common = {
     assets: 'assets',
     images: 'images',
     includes: 'includes',
+    layouts: 'layouts',
     pages: 'pages',
     scripts: 'scripts',
     sprites: 'sprites',
@@ -15,7 +16,7 @@ const common = {
   },
   ext: {
     images: '.+(png|jp?(e)g|gif|svg)',
-    pages: '.ejs',
+    pages: '.njk',
     scripts: '.js',
     sprites: '.svg',
     styles: '.scss'
@@ -29,6 +30,9 @@ common.srcPaths = {
     common.dir.images
   }/**/*${common.ext.images}`,
   includes: `${config.get('srcDir')}/${common.dir.includes}/**/*${
+    common.ext.pages
+  }`,
+  layouts: `${config.get('srcDir')}/${common.dir.layouts}/**/*${
     common.ext.pages
   }`,
   pages: `${config.get('srcDir')}/${common.dir.pages}/**/*${common.ext.pages}`,

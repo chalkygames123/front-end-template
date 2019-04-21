@@ -881,6 +881,11 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+a-sync-waterfall@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/a-sync-waterfall/-/a-sync-waterfall-1.0.1.tgz#75b6b6aa72598b497a125e7a2770f14f4c8a1fa7"
+  integrity sha512-RYTOHHdWipFUliRFMCS4X2Yn2X8M87V/OpSqWzKKOGhzqyUxzyVmhHDH9sAvG+ZuQf/TAOFsLCpMw09I1ufUnA==
+
 a11y-dialog@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/a11y-dialog/-/a11y-dialog-5.2.0.tgz#bc3f9ccb7154a840bffd61b9385edbd093f7f209"
@@ -1218,6 +1223,11 @@ arrify@^1.0.0, arrify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
   integrity sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
+
+asap@^2.0.3:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
+  integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
 
 asn1.js@^4.0.0:
   version "4.10.1"
@@ -2241,7 +2251,7 @@ camelcase-keys@^4.0.0:
     map-obj "^2.0.0"
     quick-lru "^1.0.0"
 
-camelcase@^2.0.0:
+camelcase@^2.0.0, camelcase@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
   integrity sha1-fB0W1nmhu+WcoCys7PsBHiAfWh8=
@@ -2449,7 +2459,7 @@ cli@~1.0.0:
     exit "0.1.2"
     glob "^7.1.1"
 
-cliui@^3.2.0:
+cliui@^3.0.3, cliui@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-3.2.0.tgz#120601537a916d29940f934da3b48d585a39213d"
   integrity sha1-EgYBU3qRbSmUD5NNo7SNWFo5IT0=
@@ -3531,11 +3541,6 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
-
-ejs@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.6.1.tgz#498ec0d495655abc6f23cd61868d926464071aa0"
-  integrity sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ==
 
 electron-to-chromium@^1.3.122:
   version "1.3.124"
@@ -5098,15 +5103,6 @@ gulp-dart-sass@^0.9.1:
     through2 "^2.0.0"
     vinyl-sourcemaps-apply "^0.2.0"
 
-gulp-ejs@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-ejs/-/gulp-ejs-4.0.0.tgz#032e8bde712d2384b7b0135a474554e8425be5c2"
-  integrity sha512-NlLcMJY1S5nNHEznHM+xhgDCUGr0v+Tr1pp78T/x+icgC3GXs71GPDnklLZAKxY0cmfwNRH0aRidapLDSy37KA==
-  dependencies:
-    ejs "2.6.1"
-    plugin-error "^1.0.0"
-    through2 "^3.0.1"
-
 gulp-filter@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/gulp-filter/-/gulp-filter-5.1.0.tgz#a05e11affb07cf7dcf41a7de1cb7b63ac3783e73"
@@ -5210,6 +5206,17 @@ gulp-notify@^3.2.0:
     node-notifier "^5.2.1"
     node.extend "^2.0.0"
     plugin-error "^0.1.2"
+    through2 "^2.0.3"
+
+gulp-nunjucks-render@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/gulp-nunjucks-render/-/gulp-nunjucks-render-2.2.3.tgz#e42b5d8e107a9ac56aa900c2def00003e06e8990"
+  integrity sha512-YHrmwiwPw2DN16WJVj8S2tgUanB1ssZE8e5rRF6rH1T41mhO7r59iAqw92Yz5WSZXYB9G+uYXDTCODgixYPIRw==
+  dependencies:
+    lodash "^4.17.11"
+    nunjucks "^3.1.2"
+    plugin-error "^1.0.1"
+    replace-ext "^1.0.0"
     through2 "^2.0.3"
 
 gulp-plumber@^1.2.1:
@@ -7823,6 +7830,17 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
+
+nunjucks@^3.1.2:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/nunjucks/-/nunjucks-3.2.0.tgz#53e95f43c9555e822e8950008a201b1002d49933"
+  integrity sha512-YS/qEQ6N7qCnUdm6EoYRBfJUdWNT0PpKbbRnogV2XyXbBm2STIP1O6yrdZHgwMVK7fIYUx7i8+yatEixnXSB1w==
+  dependencies:
+    a-sync-waterfall "^1.0.0"
+    asap "^2.0.3"
+    yargs "^3.32.0"
+  optionalDependencies:
+    chokidar "^2.0.0"
 
 oauth-sign@~0.9.0:
   version "0.9.0"
@@ -11525,6 +11543,11 @@ wide-align@^1.1.0:
   dependencies:
     string-width "^1.0.2 || 2"
 
+window-size@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.4.tgz#f8e1aa1ee5a53ec5bf151ffa09742a6ad7697876"
+  integrity sha1-+OGqHuWlPsW/FR/6CXQqatdpeHY=
+
 window-size@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.2.0.tgz#b4315bb4214a3d7058ebeee892e13fa24d98b075"
@@ -11639,7 +11662,7 @@ xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.0, xtend@~4.0.1:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
   integrity sha1-pcbVMr5lbiPbgg77lDofBJmNY68=
 
-y18n@^3.2.1:
+y18n@^3.2.0, y18n@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
   integrity sha1-bRX7qITAhnnA136I53WegR4H+kE=
@@ -11752,6 +11775,19 @@ yargs@^12.0.2, yargs@^12.0.5:
     which-module "^2.0.0"
     y18n "^3.2.1 || ^4.0.0"
     yargs-parser "^11.1.1"
+
+yargs@^3.32.0:
+  version "3.32.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-3.32.0.tgz#03088e9ebf9e756b69751611d2a5ef591482c995"
+  integrity sha1-AwiOnr+edWtpdRYR0qXvWRSCyZU=
+  dependencies:
+    camelcase "^2.0.1"
+    cliui "^3.0.3"
+    decamelize "^1.1.1"
+    os-locale "^1.4.0"
+    string-width "^1.0.1"
+    window-size "^0.1.4"
+    y18n "^3.2.0"
 
 yargs@^7.1.0:
   version "7.1.0"

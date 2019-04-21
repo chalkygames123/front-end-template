@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="UTF-8">
+
+    <title>{{ title + ' - ' + config.siteName if title else config.siteName }}</title>
+    <meta name="description" content="{{ description | default('Page Description') }}">
+
+    <meta property="og:title" content="{{ title | default(config.siteName) }}">
+    <meta property="og:type" content="{{ ogType | default('website') }}">
+    <meta property="og:image" content="{{ config.origin }}/assets/images/ogp.jpg">
+    <meta property="og:url" content="{{ config.origin }}">
+    <meta property="og:description" content="{{ description | default('Page Description') }}">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:og:site_name" content="{{ config.siteName }}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% include 'includes/gtm-head.njk' %}
+
+    {% if config.basePath %}
+    <link rel="icon" href="{{ config.basePath }}/favicon.ico">
+    {% endif %}
+
+    {% block headBeforeEnd %}
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="stylesheet" href="/assets/styles/pages/common/style.css">
+    {% endblock %}
+  </head>
+
+  <body>
+    {% include 'includes/gtm-body.njk' %}
+
+    <div class="l-page">
+      {% include 'includes/header.njk' %}
+
+      <main class="l-main">
+        {% block content %}
+        {% endblock %}
+      </main>
+
+      {% include 'includes/footer.njk' %}
+    </div>
+
+    {% block bodyBeforeEnd %}
+    <script src="/assets/scripts/vendors.js" defer></script>
+    <script src="/assets/scripts/pages/common.js" defer></script>
+    {% endblock %}
+  </body>
+</html>

@@ -23,15 +23,11 @@ export default function pages() {
     )
     .pipe($.filter(`**/!(-)*${common.ext.pages}`))
     .pipe(
-      $.ejs(
-        null,
-        {
-          root: `${config.get('srcDir')}/${common.dir.includes}`
-        },
-        {
-          ext: '.html'
+      $.nunjucksRender({
+        manageEnv: env => {
+          env.addGlobal('config', config.getProperties())
         }
-      )
+      })
     )
     .pipe($.htmlhint('.htmlhintrc'))
     .pipe($.htmlhint.reporter())
