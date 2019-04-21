@@ -5098,15 +5098,14 @@ gulp-dart-sass@^0.9.1:
     through2 "^2.0.0"
     vinyl-sourcemaps-apply "^0.2.0"
 
-gulp-ejs@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/gulp-ejs/-/gulp-ejs-3.3.0.tgz#97b04f77566fdc102f5033c99f4df2d05c3ee9c8"
-  integrity sha512-PTZ7lexVY+7KlsvySINa8Ohyvq63C4M+Bh8Om2k2HTuekM3oLWtGMg52rCstbPPoKc5HWGPYsGnYCkbvSd8P2A==
+gulp-ejs@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-ejs/-/gulp-ejs-4.0.0.tgz#032e8bde712d2384b7b0135a474554e8425be5c2"
+  integrity sha512-NlLcMJY1S5nNHEznHM+xhgDCUGr0v+Tr1pp78T/x+icgC3GXs71GPDnklLZAKxY0cmfwNRH0aRidapLDSy37KA==
   dependencies:
     ejs "2.6.1"
     plugin-error "^1.0.0"
-    replace-ext "^1.0.0"
-    through2 "^3.0.0"
+    through2 "^3.0.1"
 
 gulp-filter@^5.1.0:
   version "5.1.0"
@@ -10737,7 +10736,7 @@ through2@3.0.0:
     readable-stream "2 || 3"
     xtend "~4.0.1"
 
-through2@^3.0.0, through2@^3.0.1:
+through2@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/through2/-/through2-3.0.1.tgz#39276e713c3302edf9e388dd9c812dd3b825bd5a"
   integrity sha512-M96dvTalPT3YbYLaKaCuwu+j06D/8Jfib0o/PxbVt6Amhv3dUAtW6rTV1jPgJSBG83I/e04Y6xkVdVhSRhi0ww==
