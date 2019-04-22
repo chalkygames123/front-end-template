@@ -2,7 +2,7 @@
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-![GitHub](https://img.shields.io/github/license/chalkygames123/front-end-template.svg)
+[![GitHub](https://img.shields.io/github/license/chalkygames123/front-end-template.svg)](https://opensource.org/licenses/MIT)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f464261d-62a9-4b11-9503-148eff317bb0/deploy-status)](https://app.netlify.com/sites/front-end-template-chalkygames123/deploys)
 
 A template for building static websites powered by gulp and webpack.
