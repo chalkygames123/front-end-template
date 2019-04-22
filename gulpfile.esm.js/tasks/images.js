@@ -1,9 +1,8 @@
-import path from 'path'
-
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import imageminPngquant from 'imagemin-pngquant'
 import imageminWebp from 'imagemin-webp'
+import upath from 'upath'
 
 import * as utils from '../utils'
 import common from '../../common'
@@ -67,17 +66,17 @@ export default function images() {
         shape: {
           id: {
             generator: function(name, file) {
-              const destRelativeName = path.relative(
+              const destRelativeName = upath.relative(
                 `${common.dir.assets}/${common.dir.images}/${
                   common.dir.sprites
                 }`,
                 name
               )
               const directorySeparatedName = destRelativeName
-                .split(path.sep)
+                .split(upath.sep)
                 .join(this.separator)
 
-              return path.basename(
+              return upath.basename(
                 directorySeparatedName.replace(/\s+/g, this.whitespace),
                 common.ext.sprites
               )

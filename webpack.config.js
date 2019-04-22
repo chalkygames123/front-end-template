@@ -1,4 +1,4 @@
-import path from 'path'
+import upath from 'upath'
 
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
 import MinifyPlugin from 'babel-minify-webpack-plugin'
@@ -49,13 +49,13 @@ export default {
   },
   resolve: {
     modules: [
-      path.resolve(
+      upath.resolve(
         __dirname,
         config.get('srcDir'),
         common.dir.assets,
         common.dir.scripts
       ),
-      path.resolve(__dirname, 'node_modules')
+      upath.resolve(__dirname, 'node_modules')
     ]
   },
   devtool: isDev ? 'eval-source-map' : false,

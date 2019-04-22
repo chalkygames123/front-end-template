@@ -1,5 +1,4 @@
 import fs from 'fs'
-import path from 'path'
 
 import chalk from 'chalk'
 import fancyLog from 'fancy-log'
@@ -11,7 +10,8 @@ import config from '../config'
 
 export function detectConflict() {
   return through2.obj((file, encoding, cb) => {
-    const conflictablePath = upath.normalize(
+    const conflictablePath = upath.relative(
+      '',
       `${config.get('srcDir')}/${common.dir.static}/${file.relative}`
     )
 
@@ -19,7 +19,7 @@ export function detectConflict() {
       if (!error) {
         fancyLog.error(
           `${chalk.magenta(
-            upath.normalize(path.relative('', file.history[0]))
+            upath.relative('', file.history[0])
           )} conflicts with ${chalk.magenta(conflictablePath)}`
         )
 

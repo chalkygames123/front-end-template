@@ -30,7 +30,7 @@ export default function scripts() {
     .pipe(
       vinylNamed(file => {
         file.base = config.get('srcDir')
-        return upath.normalize(upath.trimExt(file.relative))
+        return upath.toUnix(upath.trimExt(file.relative))
       })
     )
     .pipe(webpackStream(webpackConfig, webpack))
