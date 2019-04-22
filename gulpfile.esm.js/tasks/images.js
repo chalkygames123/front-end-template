@@ -67,11 +67,11 @@ export default function images() {
         shape: {
           id: {
             generator: function(name, file) {
-              const destRelativeName = name.replace(
+              const destRelativeName = path.relative(
                 `${common.dir.assets}/${common.dir.images}/${
                   common.dir.sprites
-                }/`,
-                ''
+                }`,
+                name
               )
               const directorySeparatedName = destRelativeName
                 .split(path.sep)
