@@ -32,7 +32,7 @@ export default function images() {
         })
       )
     )
-    .pipe($.changed(`${config.get('distDir')}/${config.get('basePath')}`))
+    .pipe($.changed(`${config.get('distDir')}/${config.get('site.basePath')}`))
     .pipe(
       $.if(
         !isDev,
@@ -59,7 +59,7 @@ export default function images() {
       )
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('basePath')}`))
+    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`))
     .pipe(spritesFilter)
     .pipe(
       $.svgSprite({
@@ -93,7 +93,7 @@ export default function images() {
       })
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('basePath')}`))
+    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`))
     .pipe(spritesFilter.restore)
     .pipe($.if(config.get('webp'), $.filter('**/*.+(png|jp?(e)g)')))
     .pipe(
@@ -119,7 +119,7 @@ export default function images() {
     .pipe(
       $.if(
         config.get('webp'),
-        gulp.dest(`${config.get('distDir')}/${config.get('basePath')}`)
+        gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`)
       )
     )
     .pipe(common.server.stream())

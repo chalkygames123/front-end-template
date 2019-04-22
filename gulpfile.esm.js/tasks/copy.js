@@ -22,7 +22,7 @@ export default function copy() {
         })
       )
     )
-    .pipe($.changed(`${config.get('distDir')}/${config.get('basePath')}`))
-    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('basePath')}`))
+    .pipe($.changed(`${config.get('distDir')}/${config.get('site.basePath')}`))
+    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`))
     .pipe(common.server.stream())
 }

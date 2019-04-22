@@ -17,11 +17,6 @@ const config = convict({
     format: String,
     default: 'dist'
   },
-  basePath: {
-    doc: 'The base path of the site.',
-    format: String,
-    default: ''
-  },
   gzip: {
     doc: 'Whether to enable gzip compression.',
     format: Boolean,
@@ -42,6 +37,11 @@ const config = convict({
       doc: 'The origin of the site.',
       format: String,
       default: 'https://example.com'
+    },
+    basePath: {
+      doc: 'The base path of the site.',
+      format: String,
+      default: ''
     }
   }
 })
