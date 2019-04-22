@@ -32,15 +32,17 @@ const config = convict({
     format: Boolean,
     default: false
   },
-  siteName: {
-    doc: 'The site name.',
-    format: String,
-    default: 'Site Name'
-  },
-  origin: {
-    doc: 'The origin of the site.',
-    format: String,
-    default: 'https://example.com'
+  site: {
+    name: {
+      doc: 'The site name.',
+      format: String,
+      default: 'Site Name'
+    },
+    origin: {
+      doc: 'The origin of the site.',
+      format: String,
+      default: 'https://example.com'
+    }
   }
 })
 

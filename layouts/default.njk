@@ -3,16 +3,16 @@
   <head prefix="og: http://ogp.me/ns#">
     <meta charset="UTF-8">
 
-    <title>{{ title + ' - ' + config.siteName if title else config.siteName }}</title>
+    <title>{{ title + ' - ' + config.site.name if title else config.site.name }}</title>
     <meta name="description" content="{{ description | default('Page Description') }}">
 
-    <meta property="og:title" content="{{ title | default(config.siteName) }}">
+    <meta property="og:title" content="{{ title | default(config.site.name) }}">
     <meta property="og:type" content="{{ ogType | default('website') }}">
-    <meta property="og:image" content="{{ config.origin }}/assets/images/ogp.jpg">
-    <meta property="og:url" content="{{ config.origin }}">
+    <meta property="og:image" content="{{ config.site.origin }}/assets/images/ogp.jpg">
+    <meta property="og:url" content="{{ config.site.origin }}">
     <meta property="og:description" content="{{ description | default('Page Description') }}">
     <meta property="og:locale" content="ja_JP">
-    <meta property="og:og:site_name" content="{{ config.siteName }}">
+    <meta property="og:og:site_name" content="{{ config.site.name }}">
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
