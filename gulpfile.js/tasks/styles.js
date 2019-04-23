@@ -8,7 +8,6 @@ import through2 from 'through2'
 import * as utils from '../utils'
 import common from '../../common'
 import config from '../../config'
-import postcssConfig from '../../postcss.config'
 
 const $ = gulpLoadPlugins()
 const isDev = config.get('env') === 'development'
@@ -69,6 +68,7 @@ export default function styles() {
       })
     )
     .pipe($.if(isDev, $.sourcemaps.init()))
+    .pipe($.postcss())
     .pipe(
       $.dartSass({
         importer: nodeSassMagicImporter(),
@@ -78,7 +78,6 @@ export default function styles() {
         fiber: Fiber
       })
     )
-    .pipe($.postcss(postcssConfig.plugins, postcssConfig.options)) // TODO: postcss-load-config が依存する cosmiconfig が v5 に更新されたら引数を空にする
     .pipe(
       $.rename({
         extname: '.css'

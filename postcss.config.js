@@ -1,7 +1,11 @@
-import autoprefixer from 'autoprefixer'
-import postcssNormalize from 'postcss-normalize'
+// TODO: postcss-load-config が依存する cosmiconfig が v5 に更新されたら ESM syntax に書き直す
 
-export default {
+const autoprefixer = require('autoprefixer')
+const postcssNormalize = require('postcss-normalize')
+const postcssScss = require('postcss-scss')
+
+module.exports = {
+  syntax: postcssScss,
   plugins: [
     postcssNormalize(),
     autoprefixer({
