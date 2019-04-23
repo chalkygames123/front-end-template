@@ -3,6 +3,7 @@ import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import nodeSassMagicImporter from 'node-sass-magic-importer'
 import sassGraphGlob from 'sass-graph-glob'
+import stripAnsi from 'strip-ansi'
 import through2 from 'through2'
 
 import * as utils from '../utils'
@@ -21,7 +22,9 @@ export default function styles() {
       $.if(
         isDev,
         $.plumber({
-          errorHandler: $.notify.onError()
+          errorHandler: $.notify.onError(error => {
+            return stripAnsi(error.message)
+          })
         })
       )
     )
@@ -55,17 +58,6 @@ export default function styles() {
             })
         })
       )
-    )
-    .pipe(
-      $.stylelint({
-        reporters: [
-          {
-            failOnError: true,
-            formatter: 'string',
-            console: true
-          }
-        ]
-      })
     )
     .pipe($.if(isDev, $.sourcemaps.init()))
     .pipe($.postcss())
