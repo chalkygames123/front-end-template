@@ -3,24 +3,24 @@
   <head prefix="og: http://ogp.me/ns#">
     <meta charset="UTF-8">
 
-    <title>{{ title + ' - ' + config.site.name if title else config.site.name }}</title>
-    <meta name="description" content="{{ description | default('Page Description') }}">
+    <title>{{ page.title + ' - ' + site.name if page.title else site.name }}</title>
+    <meta name="description" content="{{ page.description | default('Page Description') }}">
 
-    <meta property="og:title" content="{{ title | default(config.site.name) }}">
-    <meta property="og:type" content="{{ ogType | default('website') }}">
-    <meta property="og:image" content="{{ config.site.origin }}/assets/images/ogp.jpg">
-    <meta property="og:url" content="{{ config.site.origin }}">
-    <meta property="og:description" content="{{ description | default('Page Description') }}">
+    <meta property="og:title" content="{{ page.title | default(site.name) }}">
+    <meta property="og:type" content="{{ page.ogType | default('website') }}">
+    <meta property="og:image" content="{{ site.origin }}/assets/images/ogp.jpg">
+    <meta property="og:url" content="{{ site.origin }}">
+    <meta property="og:description" content="{{ page.description | default('Page Description') }}">
     <meta property="og:locale" content="ja_JP">
-    <meta property="og:og:site_name" content="{{ config.site.name }}">
+    <meta property="og:og:site_name" content="{{ site.name }}">
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% include 'includes/gtm-head.njk' %}
 
-    {% if config.basePath %}
-    <link rel="icon" href="{{ config.basePath }}/favicon.ico">
+    {% if site.basePath %}
+    <link rel="icon" href="{{ site.basePath }}/favicon.ico">
     {% endif %}
 
     {% block headBeforeEnd %}

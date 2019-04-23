@@ -25,7 +25,7 @@ export default function pages() {
     .pipe(
       $.nunjucksRender({
         manageEnv: env => {
-          env.addGlobal('config', config.getProperties())
+          env.addGlobal('site', config.getProperties().site)
         }
       })
     )
