@@ -5,6 +5,7 @@ import nodeSassMagicImporter from 'node-sass-magic-importer'
 import sassGraphGlob from 'sass-graph-glob'
 import stripAnsi from 'strip-ansi'
 import through2 from 'through2'
+import upath from 'upath'
 
 import * as utils from '../utils'
 import common from '../../common'
@@ -33,10 +34,25 @@ export default function styles() {
       $.if(
         gulp.lastRun(styles),
         through2.obj(function(file, encoding, cb) {
-          const graph = sassGraphGlob.parseDir(
-            `${config.get('srcDir')}/${common.dir.assets}/${common.dir.styles}`
-          )
           const srcPaths = []
+          const graph = upath
+            .relative('', file.path)
+            .startsWith(
+              upath.join(
+                config.get('srcDir'),
+                common.dir.assets,
+                common.dir.styles,
+                'pages'
+              )
+            )
+            ? sassGraphGlob.parseDir(file.dirname)
+            : sassGraphGlob.parseDir(
+                upath.join(
+                  config.get('srcDir'),
+                  common.dir.assets,
+                  common.dir.styles
+                )
+              )
 
           srcPaths.push(file.path)
 
