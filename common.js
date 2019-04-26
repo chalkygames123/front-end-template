@@ -1,4 +1,5 @@
 import browserSync from 'browser-sync'
+import upath from 'upath'
 
 import config from './config'
 
@@ -24,23 +25,49 @@ const common = {
   server: browserSync.create(),
   get srcPaths() {
     return {
-      copy: [`${config.get('srcDir')}/${this.dir.static}/**`, '!**/.gitkeep'],
-      images: `${config.get('srcDir')}/${this.dir.assets}/${
-        this.dir.images
-      }/**/*${this.ext.images}`,
-      includes: `${config.get('srcDir')}/${this.dir.includes}/**/*${
-        this.ext.pages
-      }`,
-      layouts: `${config.get('srcDir')}/${this.dir.layouts}/**/*${
-        this.ext.pages
-      }`,
-      pages: `${config.get('srcDir')}/${this.dir.pages}/**/*${this.ext.pages}`,
-      scripts: `${config.get('srcDir')}/${this.dir.assets}/${
-        this.dir.scripts
-      }/**/*${this.ext.scripts}`,
-      styles: `${config.get('srcDir')}/${this.dir.assets}/${
-        this.dir.styles
-      }/**/*${this.ext.styles}`
+      copy: [
+        upath.join(config.get('srcDir'), this.dir.static, '**'),
+        '!**/.gitkeep'
+      ],
+      images: upath.join(
+        config.get('srcDir'),
+        this.dir.assets,
+        this.dir.images,
+        '**',
+        `*${this.ext.images}`
+      ),
+      includes: upath.join(
+        config.get('srcDir'),
+        this.dir.includes,
+        '**',
+        `*${this.ext.pages}`
+      ),
+      layouts: upath.join(
+        config.get('srcDir'),
+        this.dir.layouts,
+        '**',
+        `*${this.ext.pages}`
+      ),
+      pages: upath.join(
+        config.get('srcDir'),
+        this.dir.pages,
+        '**',
+        `*${this.ext.pages}`
+      ),
+      scripts: upath.join(
+        config.get('srcDir'),
+        this.dir.assets,
+        this.dir.scripts,
+        '**',
+        `*${this.ext.scripts}`
+      ),
+      styles: upath.join(
+        config.get('srcDir'),
+        this.dir.assets,
+        this.dir.styles,
+        '**',
+        `*${this.ext.styles}`
+      )
     }
   }
 }

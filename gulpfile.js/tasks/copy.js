@@ -1,5 +1,6 @@
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
+import upath from 'upath'
 
 import common from '../../common'
 import config from '../../config'
@@ -10,7 +11,7 @@ const isDev = config.get('env') === 'development'
 export default function copy() {
   return gulp
     .src(common.srcPaths.copy, {
-      base: `${config.get('srcDir')}/${common.dir.static}`,
+      base: upath.join(config.get('srcDir'), common.dir.static),
       dot: true,
       nodir: true
     })
@@ -22,7 +23,11 @@ export default function copy() {
         })
       )
     )
-    .pipe($.changed(`${config.get('distDir')}/${config.get('site.basePath')}`))
-    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`))
+    .pipe(
+      $.changed(upath.join(config.get('distDir'), config.get('site.basePath')))
+    )
+    .pipe(
+      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+    )
     .pipe(common.server.stream())
 }

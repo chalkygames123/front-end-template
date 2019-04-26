@@ -11,9 +11,14 @@ import config from '../../config'
 const $ = gulpLoadPlugins()
 const isDev = config.get('env') === 'development'
 const spritesFilter = $.filter(
-  `${config.get('distDir')}/${common.dir.assets}/${common.dir.images}/${
-    common.dir.sprites
-  }/**/*${common.ext.sprites}`,
+  upath.join(
+    config.get('distDir'),
+    common.dir.assets,
+    common.dir.images,
+    common.dir.sprites,
+    '**',
+    `*${common.ext.sprites}`
+  ),
   {
     restore: true
   }
@@ -32,7 +37,9 @@ export default function images() {
         })
       )
     )
-    .pipe($.changed(`${config.get('distDir')}/${config.get('site.basePath')}`))
+    .pipe(
+      $.changed(upath.join(config.get('distDir'), config.get('site.basePath')))
+    )
     .pipe(
       $.if(
         !isDev,
@@ -59,7 +66,9 @@ export default function images() {
       )
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`))
+    .pipe(
+      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+    )
     .pipe(spritesFilter)
     .pipe(
       $.svgSprite({
@@ -67,9 +76,11 @@ export default function images() {
           id: {
             generator: function(name, file) {
               const destRelativeName = upath.relative(
-                `${common.dir.assets}/${common.dir.images}/${
+                upath.join(
+                  common.dir.assets,
+                  common.dir.images,
                   common.dir.sprites
-                }`,
+                ),
                 name
               )
               const directorySeparatedName = destRelativeName
@@ -86,14 +97,16 @@ export default function images() {
         },
         mode: {
           symbol: {
-            dest: `${common.dir.assets}/${common.dir.images}`,
+            dest: upath.join(common.dir.assets, common.dir.images),
             sprite: 'sprite.symbol.svg'
           }
         }
       })
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`))
+    .pipe(
+      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+    )
     .pipe(spritesFilter.restore)
     .pipe($.if(config.get('webp'), $.filter('**/*.+(png|jp?(e)g)')))
     .pipe(
@@ -119,7 +132,9 @@ export default function images() {
     .pipe(
       $.if(
         config.get('webp'),
-        gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`)
+        gulp.dest(
+          upath.join(config.get('distDir'), config.get('site.basePath'))
+        )
       )
     )
     .pipe(common.server.stream())

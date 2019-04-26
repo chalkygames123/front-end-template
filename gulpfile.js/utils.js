@@ -12,7 +12,7 @@ export function detectConflict() {
   return through2.obj((file, encoding, cb) => {
     const conflictablePath = upath.relative(
       '',
-      `${config.get('srcDir')}/${common.dir.static}/${file.relative}`
+      upath.join(config.get('srcDir'), common.dir.static, file.relative)
     )
 
     fs.access(conflictablePath, fs.constants.F_OK, error => {

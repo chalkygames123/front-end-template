@@ -1,5 +1,6 @@
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
+import upath from 'upath'
 
 import * as utils from '../utils'
 import common from '../../common'
@@ -11,7 +12,7 @@ const isDev = config.get('env') === 'development'
 export default function pages() {
   return gulp
     .src(common.srcPaths.pages, {
-      base: `${config.get('srcDir')}/${common.dir.pages}`
+      base: upath.join(config.get('srcDir'), common.dir.pages)
     })
     .pipe(
       $.if(
@@ -57,13 +58,17 @@ export default function pages() {
       )
     )
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`))
+    .pipe(
+      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+    )
     .pipe($.if(config.get('gzip') && !isDev, $.gzip()))
     .pipe($.if(config.get('gzip') && !isDev, utils.detectConflict()))
     .pipe(
       $.if(
         config.get('gzip') && !isDev,
-        gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`)
+        gulp.dest(
+          upath.join(config.get('distDir'), config.get('site.basePath'))
+        )
       )
     )
     .pipe(common.server.stream())

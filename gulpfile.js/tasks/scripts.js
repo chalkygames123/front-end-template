@@ -35,13 +35,17 @@ export default function scripts() {
     )
     .pipe(webpackStream(webpackConfig, webpack))
     .pipe(utils.detectConflict())
-    .pipe(gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`))
+    .pipe(
+      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+    )
     .pipe($.if(config.get('gzip') && !isDev, $.gzip()))
     .pipe($.if(config.get('gzip') && !isDev, utils.detectConflict()))
     .pipe(
       $.if(
         config.get('gzip') && !isDev,
-        gulp.dest(`${config.get('distDir')}/${config.get('site.basePath')}`)
+        gulp.dest(
+          upath.join(config.get('distDir'), config.get('site.basePath'))
+        )
       )
     )
     .pipe(common.server.stream())
