@@ -35,16 +35,9 @@ export default function styles() {
         gulp.lastRun(styles),
         through2.obj(function(file, encoding, cb) {
           const srcPaths = []
-          const graph = upath
-            .relative('', file.path)
-            .startsWith(
-              upath.join(
-                config.get('srcDir'),
-                common.dir.assets,
-                common.dir.styles,
-                'pages'
-              )
-            )
+          const graph = file.relative.startsWith(
+            upath.join(common.dir.assets, common.dir.styles, 'pages')
+          )
             ? sassGraphGlob.parseDir(file.dirname)
             : sassGraphGlob.parseDir(
                 upath.join(
