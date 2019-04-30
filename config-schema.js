@@ -35,13 +35,23 @@ const config = convict({
     },
     origin: {
       doc: 'The origin of the site.',
-      format: String,
+      format: value => {
+        if (/\/$/.test(value)) {
+          throw new Error('must not have trailing slash')
+        }
+      },
       default: 'https://example.com'
     },
     basePath: {
       doc: 'The base path of the site.',
-      format: String,
-      default: ''
+      format: value => {
+        if (!/^(?=\/)(?!.*\/{2,})[^\s\\]+(?<=\/)$/.test(value)) {
+          throw new Error(
+            'must have leading and trailing slashes, and must not have duplicates'
+          )
+        }
+      },
+      default: '/'
     }
   }
 })
