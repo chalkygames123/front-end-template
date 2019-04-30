@@ -24,9 +24,32 @@ export default function pages() {
     )
     .pipe($.filter(`**/!(-)*${common.ext.pages}`))
     .pipe(
+      $.data(file => ({
+        page: {
+          path: upath
+            .join(
+              '/',
+              config.get('site.basePath'),
+              upath.changeExt(file.relative, '.html')
+            )
+            .replace(/\/index\.html$/, '/'),
+          dirname: upath.join(
+            config.get('site.basePath'),
+            upath.dirname(file.relative),
+            '/'
+          )
+        }
+      }))
+    )
+    .pipe(
       $.nunjucksRender({
+        path: config.get('srcDir'),
         manageEnv: env => {
           env.addGlobal('site', config.getProperties().site)
+          env.addFilter('setattr', (dictionary, key, value) => {
+            dictionary[key] = value
+            return dictionary
+          })
         }
       })
     )
