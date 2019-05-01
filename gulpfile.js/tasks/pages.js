@@ -46,9 +46,9 @@ export default function pages() {
         path: config.get('srcDir'),
         manageEnv: env => {
           env.addGlobal('site', config.getProperties().site)
-          env.addFilter('setattr', (dictionary, key, value) => {
-            dictionary[key] = value
-            return dictionary
+          env.addFilter('setprop', (object, key, value) => {
+            object[key] = value
+            return object
           })
         }
       })

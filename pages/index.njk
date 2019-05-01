@@ -1,12 +1,12 @@
 {% extends 'layouts/default.njk' %}
 
-{% set page = page | setattr('title', 'Page Title') %}
-{% set page = page | setattr('description', 'Page Description') %}
-{% set page = page | setattr('ogType', 'website') %}
+{% set page = page | setprop('title', 'Page Title') %}
+{% set page = page | setprop('description', 'Page Description') %}
+{% set page = page | setprop('ogType', 'website') %}
 
 {% block headBeforeEnd %}
 {{ super() }}
-<link rel="stylesheet" href="/assets/styles/pages/index/style.css">
+<link rel="stylesheet" href="{{ site.basePath }}assets/styles/pages/index/style.css">
 {% endblock %}
 
 {% block content %}
@@ -14,5 +14,5 @@
 
 {% block bodyBeforeEnd %}
 {{ super() }}
-<script src="/assets/scripts/pages/index.js" defer></script>
+<script src="{{ site.basePath }}assets/scripts/pages/index.js" defer></script>
 {% endblock %}
