@@ -21,12 +21,12 @@
   "dependencies": {
     "a11y-dialog": "^5.2.0",
     "animejs": "^3.0.1",
-    "axios": "^0.18.0",
     "core-js": "^3.0.1",
     "custom-event-polyfill": "^1.0.7",
     "element-closest": "^3.0.1",
     "focus-trap": "^5.0.0",
     "intersection-observer": "^0.6.0",
+    "ky": "^0.10.0",
     "lodash": "^4.17.11",
     "no-scroll": "^2.1.1",
     "objectFitPolyfill": "^2.2.0",
