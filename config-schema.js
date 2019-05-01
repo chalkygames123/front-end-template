@@ -37,7 +37,7 @@ const config = convict({
       doc: 'The origin of the site.',
       format: value => {
         if (/\/$/.test(value)) {
-          throw new Error('must not have trailing slash')
+          throw new Error('must not have a trailing slash')
         }
       },
       default: 'https://example.com'
