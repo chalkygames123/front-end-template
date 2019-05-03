@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
 
     <title>{{ page.title + ' - ' + site.name if page.title else site.name }}</title>
-    <meta name="description" content="{{ page.description | default('Page Description') }}">
+    <meta name="description" content="{{ page.description }}">
 
     <meta property="og:title" content="{{ page.title | default(site.name) }}">
     <meta property="og:type" content="{{ page.ogType | default('website') }}">
     <meta property="og:image" content="{{ site.origin }}{{ site.basePath }}assets/images/ogp.jpg">
     <meta property="og:url" content="{{ site.origin }}{{ page.path }}">
-    <meta property="og:description" content="{{ page.description | default('Page Description') }}">
+    <meta property="og:description" content="{{ page.description }}">
     <meta property="og:locale" content="ja_JP">
     <meta property="og:og:site_name" content="{{ site.name }}">
     <meta name="twitter:card" content="summary_large_image">
