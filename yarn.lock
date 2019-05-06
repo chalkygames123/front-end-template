@@ -3838,10 +3838,10 @@ eslint-plugin-import@^2.17.2:
     read-pkg-up "^2.0.0"
     resolve "^1.10.0"
 
-eslint-plugin-node@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-9.0.0.tgz#a35f617b3f948622e992e901efbc3c9dcb34f42a"
-  integrity sha512-46VIO0apTu0b5Hh+lFsTGeRBG+3XksfVR3CrSrP+Bk+bYVuSQ3JxlCW3RLiJYtC0HxKbn4HFqepj+DT8HRUGGQ==
+eslint-plugin-node@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-9.0.1.tgz#93e44626fa62bcb6efea528cee9687663dc03b62"
+  integrity sha512-fljT5Uyy3lkJzuqhxrYanLSsvaILs9I7CmQ31atTtZ0DoIzRbbvInBh4cQ1CrthFHInHYBQxfPmPt6KLHXNXdw==
   dependencies:
     eslint-plugin-es "^1.4.0"
     eslint-utils "^1.3.1"
@@ -5283,10 +5283,10 @@ gulp-svg-sprite@^1.5.0:
     svg-sprite "^1.5.0"
     through2 "^2.0.3"
 
-gulp@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/gulp/-/gulp-4.0.1.tgz#987a38a55a7d3677f6b49e291b06bc05809f33d9"
-  integrity sha512-yDVtVunxrAdsk7rIV/b7lVSBifPN1Eqe6wTjsESGrFcL+MEVzaaeNTkpUuGTUptloSOU+8oJm/lBJbgPV+tMAw==
+gulp@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/gulp/-/gulp-4.0.2.tgz#543651070fd0f6ab0a0650c6a3e6ff5a7cb09caa"
+  integrity sha512-dvEs27SCZt2ibF29xYgmnwwCYZxdxhQ/+LFWlbAW8y7jt68L/65402Lz3+CKy0Ov4rOs+NERmDq7YlZaDqUIfA==
   dependencies:
     glob-watcher "^5.0.3"
     gulp-cli "^2.2.0"
@@ -11430,10 +11430,10 @@ watchpack@^1.5.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-webpack-cli@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.3.1.tgz#98b0499c7138ba9ece8898bd99c4f007db59909d"
-  integrity sha512-c2inFU7SM0IttEgF7fK6AaUsbBnORRzminvbyRKS+NlbQHVZdCtzKBlavRL5359bFsywXGRAItA5di/IruC8mg==
+webpack-cli@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.3.2.tgz#aed2437b0db0a7faa2ad28484e166a5360014a91"
+  integrity sha512-FLkobnaJJ+03j5eplxlI0TUxhGCOdfewspIGuvDVtpOlrAuKMFC57K42Ukxqs1tn8947/PM6tP95gQc0DCzRYA==
   dependencies:
     chalk "^2.4.1"
     cross-spawn "^6.0.5"
