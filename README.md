@@ -5,7 +5,7 @@
 [![GitHub](https://img.shields.io/github/license/chalkygames123/front-end-template.svg)](https://opensource.org/licenses/MIT)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f464261d-62a9-4b11-9503-148eff317bb0/deploy-status)](https://app.netlify.com/sites/front-end-template-chalkygames123/deploys)
 
-A template for building static websites.
+> A template for building static websites
 
 ## Prerequisites
 
