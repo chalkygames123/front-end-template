@@ -82,11 +82,6 @@ export default function styles() {
       })
     )
     .pipe(
-      $.rename({
-        extname: '.css'
-      })
-    )
-    .pipe(
       $.if(
         isDev,
         $.sourcemaps.write({
