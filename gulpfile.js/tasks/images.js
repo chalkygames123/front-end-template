@@ -1,5 +1,6 @@
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
+import imageminMozjpeg from 'imagemin-mozjpeg'
 import imageminPngquant from 'imagemin-pngquant'
 import imageminWebp from 'imagemin-webp'
 import upath from 'upath'
@@ -44,10 +45,11 @@ export default function images() {
       $.if(
         !isDev,
         $.imagemin([
+          imageminPngquant(),
+          imageminMozjpeg(),
           $.imagemin.gifsicle({
             optimizationLevel: 3
           }),
-          $.imagemin.jpegtran(),
           $.imagemin.svgo({
             plugins: [
               {
@@ -60,8 +62,7 @@ export default function images() {
                 cleanupIDs: false
               }
             ]
-          }),
-          imageminPngquant()
+          })
         ])
       )
     )
