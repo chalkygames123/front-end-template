@@ -21,7 +21,7 @@ export default {
           test: /[\\/]node_modules[\\/]/,
           chunks: 'all',
           minSize: 0,
-          name: `${common.dir.assets}/${common.dir.scripts}/vendors`
+          name: upath.join(common.dir.assets, common.dir.scripts, 'vendors')
         }
       }
     }
