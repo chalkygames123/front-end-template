@@ -5,7 +5,7 @@
 
 {% block headBeforeEnd %}
 {{ super() }}
-<link rel="stylesheet" href="{{ site.basePath }}assets/styles/pages/index/style.css">
+<link rel="stylesheet" href="assets/styles/pages/{{ page.relative | trimext }}/style.css">
 {% endblock %}
 
 {% block content %}
@@ -13,5 +13,5 @@
 
 {% block bodyBeforeEnd %}
 {{ super() }}
-<script src="{{ site.basePath }}assets/scripts/pages/index.js" defer></script>
+<script src="assets/scripts/pages/{{ page.relative | trimext }}.js" defer></script>
 {% endblock %}

@@ -37,7 +37,8 @@ export default function pages() {
             config.get('site.basePath'),
             upath.dirname(file.relative),
             '/'
-          )
+          ),
+          relative: upath.changeExt(file.relative, '.html')
         }
       }))
     )
@@ -49,6 +50,9 @@ export default function pages() {
           env.addFilter('setprop', (object, key, value) => {
             object[key] = value
             return object
+          })
+          env.addFilter('trimext', path => {
+            return upath.trimExt(path)
           })
         }
       })
