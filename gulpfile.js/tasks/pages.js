@@ -58,7 +58,7 @@ export default function pages() {
       })
     )
     .pipe($.htmlhint('.htmlhintrc'))
-    .pipe($.htmlhint.reporter())
+    .pipe($.htmlhint.reporter('htmlhint-stylish'))
     .pipe(
       $.htmlhint.failOnError({
         suppress: true
