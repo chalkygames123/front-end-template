@@ -65,6 +65,12 @@ export default function pages() {
       })
     )
     .pipe(
+      $.w3cjs({
+        showInfo: true
+      })
+    )
+    .pipe($.w3cjs.reporter())
+    .pipe(
       $.if(
         !isDev,
         $.htmlmin({
