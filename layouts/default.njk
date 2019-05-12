@@ -17,8 +17,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <base href="{{ site.basePath }}">
-
     {% include 'includes/gtm-head.njk' %}
 
     {% if site.basePath !== '/' %}
@@ -26,8 +24,8 @@
     {% endif %}
 
     {% block headBeforeEnd %}
-    <link rel="stylesheet" href="assets/styles/main.css">
-    <link rel="stylesheet" href="assets/styles/pages/common/style.css">
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="stylesheet" href="/assets/styles/pages/common/style.css">
     {% endblock %}
   </head>
 
@@ -46,8 +44,8 @@
     </div>
 
     {% block bodyBeforeEnd %}
-    <script src="assets/scripts/vendors.js" defer></script>
-    <script src="assets/scripts/pages/common.js" defer></script>
+    <script src="/assets/scripts/vendors.js" defer></script>
+    <script src="/assets/scripts/pages/common.js" defer></script>
     {% endblock %}
   </body>
 </html>
