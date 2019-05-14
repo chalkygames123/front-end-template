@@ -1,13 +1,13 @@
 import gulp from 'gulp'
 
-import common from '../../common'
-import copy from './copy'
-import images from './images'
-import pages from './pages'
-import scripts from './scripts'
-import styles from './styles'
+import { common } from '../../common'
+import { copy } from './copy'
+import { images } from './images'
+import { pages } from './pages'
+import { scripts } from './scripts'
+import { styles } from './styles'
 
-export default function watch() {
+export function watch() {
   gulp.watch(common.srcPaths.copy, copy)
   gulp.watch(common.srcPaths.images, images)
   gulp.watch(common.srcPaths.includes, pages)

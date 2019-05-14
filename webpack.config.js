@@ -4,8 +4,8 @@ import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
 import MinifyPlugin from 'babel-minify-webpack-plugin'
 import WebpackNotifierPlugin from 'webpack-notifier'
 
-import common from './common'
-import config from './config'
+import { common } from './common'
+import { config } from './config'
 
 const isDev = config.get('env') === 'development'
 

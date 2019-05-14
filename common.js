@@ -1,9 +1,9 @@
 import browserSync from 'browser-sync'
 import upath from 'upath'
 
-import config from './config'
+import { config } from './config'
 
-const common = {
+export const common = {
   dir: {
     assets: 'assets',
     images: 'images',
@@ -71,5 +71,3 @@ const common = {
     }
   }
 }
-
-export default common

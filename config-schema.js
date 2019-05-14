@@ -1,6 +1,6 @@
 import convict from 'convict'
 
-const config = convict({
+export const config = convict({
   env: {
     doc: 'The site environment.',
     format: ['production', 'development'],
@@ -59,5 +59,3 @@ const config = convict({
 config.validate({
   allowed: 'strict'
 })
-
-export default config

@@ -1,9 +1,9 @@
-import config from './config-schema'
+import { config } from './config-schema'
+
+export { config }
 
 config.load({})
 
 config.validate({
   allowed: 'strict'
 })
-
-export default config

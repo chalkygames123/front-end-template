@@ -1,7 +1,7 @@
-import common from '../../common'
-import config from '../../config'
+import { common } from '../../common'
+import { config } from '../../config'
 
-export default function serve(cb) {
+export function serve(cb) {
   common.server.init({
     ui: false,
     server: config.get('distDir'),

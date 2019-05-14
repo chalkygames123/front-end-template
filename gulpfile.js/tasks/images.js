@@ -5,9 +5,9 @@ import imageminPngquant from 'imagemin-pngquant'
 import imageminWebp from 'imagemin-webp'
 import upath from 'upath'
 
-import * as utils from '../utils'
-import common from '../../common'
-import config from '../../config'
+import { common } from '../../common'
+import { config } from '../../config'
+import { detectConflict } from '../utils'
 
 const $ = gulpLoadPlugins()
 const isDev = config.get('env') === 'development'
@@ -25,7 +25,7 @@ const spritesFilter = $.filter(
   }
 )
 
-export default function images() {
+export function images() {
   return gulp
     .src(common.srcPaths.images, {
       base: config.get('srcDir')
@@ -66,7 +66,7 @@ export default function images() {
         ])
       )
     )
-    .pipe(utils.detectConflict())
+    .pipe(detectConflict())
     .pipe(
       gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
     )
@@ -104,7 +104,7 @@ export default function images() {
         }
       })
     )
-    .pipe(utils.detectConflict())
+    .pipe(detectConflict())
     .pipe(
       gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
     )
@@ -129,7 +129,7 @@ export default function images() {
         })
       )
     )
-    .pipe($.if(config.get('webp'), utils.detectConflict()))
+    .pipe($.if(config.get('webp'), detectConflict()))
     .pipe(
       $.if(
         config.get('webp'),

@@ -5,8 +5,8 @@ import fancyLog from 'fancy-log'
 import through2 from 'through2'
 import upath from 'upath'
 
-import common from '../common'
-import config from '../config'
+import { common } from '../common'
+import { config } from '../config'
 
 export function detectConflict() {
   return through2.obj((file, encoding, cb) => {

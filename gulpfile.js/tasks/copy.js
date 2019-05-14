@@ -2,13 +2,13 @@ import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import upath from 'upath'
 
-import common from '../../common'
-import config from '../../config'
+import { common } from '../../common'
+import { config } from '../../config'
 
 const $ = gulpLoadPlugins()
 const isDev = config.get('env') === 'development'
 
-export default function copy() {
+export function copy() {
   return gulp
     .src(common.srcPaths.copy, {
       base: upath.join(config.get('srcDir'), common.dir.static),
