@@ -9,5 +9,5 @@ import serve from './tasks/serve'
 import styles from './tasks/styles'
 import watch from './tasks/watch'
 
-export default serve
 export { build, clean, copy, dev, images, pages, scripts, serve, styles, watch }
+export default serve

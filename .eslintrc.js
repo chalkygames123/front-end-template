@@ -5,9 +5,10 @@ module.exports = {
   env: {
     browser: true
   },
-  extends: ['standard', 'plugin:prettier/recommended', 'prettier/standard'],
+  extends: ['airbnb-base', 'plugin:prettier/recommended'],
   rules: {
     'no-console': isProd ? 'error' : 'off',
-    'no-debugger': isProd ? 'error' : 'off'
+    'no-debugger': isProd ? 'error' : 'off',
+    'import/no-extraneous-dependencies': 'off'
   }
 }

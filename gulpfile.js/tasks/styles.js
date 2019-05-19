@@ -7,9 +7,9 @@ import stripAnsi from 'strip-ansi'
 import through2 from 'through2'
 import upath from 'upath'
 
-import * as utils from '../utils'
 import common from '../../common'
 import config from '../../config'
+import detectConflict from '../utils/detectConflict'
 
 const $ = gulpLoadPlugins()
 const isDev = config.get('env') === 'development'
@@ -33,8 +33,8 @@ export default function styles() {
     .pipe(
       $.if(
         gulp.lastRun(styles),
-        through2.obj(function(file, encoding, cb) {
-          const srcPaths = []
+        through2.obj(function resolveDependencies(file, encoding, cb) {
+          const dependentPaths = []
           const graph = file.relative.startsWith(
             upath.join(common.dir.assets, common.dir.styles, 'pages')
           )
@@ -47,20 +47,20 @@ export default function styles() {
                 )
               )
 
-          srcPaths.push(file.path)
+          dependentPaths.push(file.path)
 
           graph.visitAncestors(file.path, path => {
-            if (srcPaths.indexOf(path) < 0) {
-              srcPaths.push(path)
+            if (dependentPaths.indexOf(path) < 0) {
+              dependentPaths.push(path)
             }
           })
 
           gulp
-            .src(srcPaths, {
+            .src(dependentPaths, {
               base: config.get('srcDir')
             })
-            .on('data', file => {
-              this.push(file)
+            .on('data', dependentFile => {
+              this.push(dependentFile)
             })
             .on('end', () => {
               cb()
@@ -106,12 +106,12 @@ export default function styles() {
         })
       )
     )
-    .pipe(utils.detectConflict())
+    .pipe(detectConflict())
     .pipe(
       gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe($.if(config.get('gzip') && !isDev, $.gzip()))
-    .pipe($.if(config.get('gzip') && !isDev, utils.detectConflict()))
+    .pipe($.if(config.get('gzip') && !isDev, detectConflict()))
     .pipe(
       $.if(
         config.get('gzip') && !isDev,

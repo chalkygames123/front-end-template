@@ -5,9 +5,9 @@ import vinylNamed from 'vinyl-named'
 import webpack from 'webpack'
 import webpackStream from 'webpack-stream'
 
-import * as utils from '../utils'
 import common from '../../common'
 import config from '../../config'
+import detectConflict from '../utils/detectConflict'
 import webpackConfig from '../../webpack.config'
 
 const $ = gulpLoadPlugins()
@@ -29,17 +29,16 @@ export default function scripts() {
     .pipe($.filter(`**/!(_)*${common.ext.scripts}`))
     .pipe(
       vinylNamed(file => {
-        file.base = config.get('srcDir')
         return upath.toUnix(upath.trimExt(file.relative))
       })
     )
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(utils.detectConflict())
+    .pipe(detectConflict())
     .pipe(
       gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe($.if(config.get('gzip') && !isDev, $.gzip()))
-    .pipe($.if(config.get('gzip') && !isDev, utils.detectConflict()))
+    .pipe($.if(config.get('gzip') && !isDev, detectConflict()))
     .pipe(
       $.if(
         config.get('gzip') && !isDev,

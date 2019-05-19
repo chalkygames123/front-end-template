@@ -2,9 +2,9 @@ import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import upath from 'upath'
 
-import * as utils from '../utils'
 import common from '../../common'
 import config from '../../config'
+import detectConflict from '../utils/detectConflict'
 
 const $ = gulpLoadPlugins()
 const isDev = config.get('env') === 'development'
@@ -48,6 +48,7 @@ export default function pages() {
         manageEnv: env => {
           env.addGlobal('site', config.getProperties().site)
           env.addFilter('setprop', (object, key, value) => {
+            // eslint-disable-next-line no-param-reassign
             object[key] = value
             return object
           })
@@ -90,12 +91,12 @@ export default function pages() {
         })
       )
     )
-    .pipe(utils.detectConflict())
+    .pipe(detectConflict())
     .pipe(
       gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe($.if(config.get('gzip') && !isDev, $.gzip()))
-    .pipe($.if(config.get('gzip') && !isDev, utils.detectConflict()))
+    .pipe($.if(config.get('gzip') && !isDev, detectConflict()))
     .pipe(
       $.if(
         config.get('gzip') && !isDev,
