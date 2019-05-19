@@ -9,7 +9,7 @@ import detectConflict from '../utils/detectConflict'
 const $ = gulpLoadPlugins()
 const isDev = config.get('env') === 'development'
 
-export default function pages() {
+export default function templates() {
   return gulp
     .src(common.srcPaths.pages, {
       base: upath.join(config.get('srcDir'), common.dir.pages)
@@ -22,7 +22,7 @@ export default function pages() {
         })
       )
     )
-    .pipe($.filter(`**/!(-)*${common.ext.pages}`))
+    .pipe($.filter(`**/!(-)*${common.ext.templates}`))
     .pipe(
       $.data(file => ({
         page: {

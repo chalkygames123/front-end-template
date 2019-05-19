@@ -10,11 +10,11 @@
     "lint:scripts": "eslint --ignore-path .gitignore --ignore-pattern \"!.*\" \".\"",
     "lint:styles": "stylelint --ignore-path .gitignore \"**/*.scss\"",
     "lint": "yarn lint:scripts && yarn lint:styles",
-    "pages": "gulp pages",
     "scripts": "gulp scripts",
     "serve": "gulp serve",
     "start": "gulp default",
     "styles": "gulp styles",
+    "templates": "gulp templates",
     "test": "yarn lint && yarn format",
     "watch": "gulp watch"
   },

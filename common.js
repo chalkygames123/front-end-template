@@ -17,7 +17,7 @@ const common = {
   },
   ext: {
     images: '.+(png|jp?(e)g|gif|svg)',
-    pages: '.njk',
+    templates: '.njk',
     scripts: '.js',
     sprites: '.svg',
     styles: '.scss'
@@ -40,19 +40,19 @@ const common = {
         config.get('srcDir'),
         this.dir.includes,
         '**',
-        `*${this.ext.pages}`
+        `*${this.ext.templates}`
       ),
       layouts: upath.join(
         config.get('srcDir'),
         this.dir.layouts,
         '**',
-        `*${this.ext.pages}`
+        `*${this.ext.templates}`
       ),
       pages: upath.join(
         config.get('srcDir'),
         this.dir.pages,
         '**',
-        `*${this.ext.pages}`
+        `*${this.ext.templates}`
       ),
       scripts: upath.join(
         config.get('srcDir'),

@@ -8,7 +8,7 @@ import upath from 'upath'
 import common from '../../common'
 import config from '../../config'
 
-export default function detectConflict() {
+export default function() {
   return through2.obj((file, encoding, cb) => {
     const conflictablePath = upath.relative(
       '',
