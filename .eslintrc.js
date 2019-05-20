@@ -9,6 +9,19 @@ module.exports = {
   rules: {
     'no-console': isProd ? 'error' : 'off',
     'no-debugger': isProd ? 'error' : 'off',
-    'import/no-extraneous-dependencies': 'off'
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '.stylelintrc.js',
+          'common.js',
+          'config-schema.js',
+          'gulpfile.js/**',
+          'postcss.config.js',
+          'webpack.config.js'
+        ],
+        optionalDependencies: false
+      }
+    ]
   }
 }
