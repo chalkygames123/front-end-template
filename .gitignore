@@ -3,7 +3,6 @@
 # Edit at https://www.gitignore.io/?templates=node,macos,windows,eclipse,intellij,visualstudiocode
 
 ### Eclipse ###
-
 .metadata
 bin/
 tmp/
@@ -140,6 +139,9 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
+# JetBrains templates
+**___jb_tmp___
+
 ### Intellij Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
@@ -186,6 +188,10 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Runtime data
 pids
