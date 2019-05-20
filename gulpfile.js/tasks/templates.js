@@ -48,9 +48,9 @@ export default function templates() {
         manageEnv: env => {
           env.addGlobal('site', config.getProperties().site)
           env.addFilter('setprop', (object, key, value) => {
-            // eslint-disable-next-line no-param-reassign
-            object[key] = value
-            return object
+            const newObject = object
+            newObject[key] = value
+            return newObject
           })
           env.addFilter('trimext', path => {
             return upath.trimExt(path)

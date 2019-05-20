@@ -4,14 +4,14 @@
 {% set page = page | setprop('description', 'Page Description') %}
 
 {% block headBeforeEnd %}
-{{ super() }}
-<link rel="stylesheet" href="/assets/styles/pages/{{ page.relative | trimext }}/style.css">
+  {{ super() }}
+  <link rel="stylesheet" href="/assets/styles/pages/{{ page.relative | trimext }}/style.css">
 {% endblock %}
 
 {% block content %}
 {% endblock %}
 
 {% block bodyBeforeEnd %}
-{{ super() }}
-<script src="/assets/scripts/pages/{{ page.relative | trimext }}.js" defer></script>
+  {{ super() }}
+  <script src="/assets/scripts/pages/{{ page.relative | trimext }}.js" defer></script>
 {% endblock %}
