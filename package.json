@@ -22,10 +22,10 @@
     "a11y-dialog": "^5.2.0",
     "animejs": "^3.0.1",
     "body-scroll-lock": "^2.6.1",
-    "core-js": "^3.0.1",
+    "core-js": "^3.1.2",
     "custom-event-polyfill": "^1.0.7",
     "element-closest": "^3.0.1",
-    "focus-trap": "^5.0.0",
+    "focus-trap": "^5.0.1",
     "intersection-observer": "^0.7.0",
     "ky": "^0.11.0",
     "lodash": "^4.17.11",
@@ -40,8 +40,8 @@
     "what-input": "^5.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "autoprefixer": "^9.5.1",
     "babel-loader": "^8.0.6",
     "babel-minify-webpack-plugin": "^0.3.1",
@@ -107,7 +107,7 @@
     "through2": "^3.0.1",
     "upath": "^1.1.2",
     "vinyl-named": "^1.1.0",
-    "webpack": "^4.31.0",
+    "webpack": "^4.32.1",
     "webpack-cli": "^3.3.2",
     "webpack-notifier": "^1.7.0",
     "webpack-stream": "^5.2.1"
