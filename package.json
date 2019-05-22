@@ -31,7 +31,7 @@
     "lodash": "^4.17.11",
     "objectFitPolyfill": "^2.2.0",
     "picturefill": "^3.0.3",
-    "simplebar": "^3.1.5",
+    "simplebar": "^4.0.0",
     "smooth-scroll": "^16.0.3",
     "stickyfilljs": "^2.1.0",
     "svgxuse": "^1.2.6",
