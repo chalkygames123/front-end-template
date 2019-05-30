@@ -40,9 +40,6 @@ $ yarn
 # serve with live/hot reload at localhost:3000
 $ yarn dev
 
-# launch server
-$ yarn start
-
 # lint all .js files
 $ yarn lint:scripts
 
