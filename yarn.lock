@@ -625,10 +625,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@csstools/normalize.css@^9.0.1":
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
-  integrity sha512-6It2EVfGskxZCQhuykrfnALg7oVeiI6KclWSmGDqB0AiInVrTGB9Jp9i4/Ad21u9Jde/voVQz6eFX/eSg/UsPA==
+"@csstools/normalize.css@^10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
+  integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
 "@gulp-sourcemaps/identity-map@1.X":
   version "1.0.2"
@@ -2075,7 +2075,7 @@ browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
-browserslist@^4.1.1, browserslist@^4.6.0, browserslist@^4.6.1:
+browserslist@^4.6.0, browserslist@^4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.6.1.tgz#ee5059b1aec18cbec9d055d6cb5e24ae50343a9b"
   integrity sha512-1MC18ooMPRG2UuVFJTHFIAkk6mpByJfxCrnUyvSlu/hyQSFHMrlhM02SzNuCV+quTP4CKmqtOMAIjrifrpBJXQ==
@@ -8689,12 +8689,12 @@ posix-character-classes@^0.1.0:
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
-postcss-browser-comments@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-browser-comments/-/postcss-browser-comments-2.0.0.tgz#dc48d6a8ddbff188a80a000b7393436cb18aed88"
-  integrity sha512-xGG0UvoxwBc4Yx4JX3gc0RuDl1kc4bVihCzzk6UC72YPfq5fu3c717Nu8Un3nvnq1BJ31gBnFXIG/OaUTnpHgA==
+postcss-browser-comments@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-browser-comments/-/postcss-browser-comments-3.0.0.tgz#1248d2d935fb72053c8e1f61a84a57292d9f65e9"
+  integrity sha512-qfVjLfq7HFd2e0HW4s1dvU8X080OZdG46fFbIBFjW7US7YPDcWfRvdElvwMJr2LI6hMmD+7LnH2HcmXTs+uOig==
   dependencies:
-    postcss "^7.0.2"
+    postcss "^7"
 
 postcss-html@^0.36.0:
   version "0.36.0"
@@ -8738,15 +8738,16 @@ postcss-media-query-parser@^0.2.3:
   resolved "https://registry.yarnpkg.com/postcss-media-query-parser/-/postcss-media-query-parser-0.2.3.tgz#27b39c6f4d94f81b1a73b8f76351c609e5cef244"
   integrity sha1-J7Ocb02U+Bsac7j3Y1HGCeXO8kQ=
 
-postcss-normalize@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/postcss-normalize/-/postcss-normalize-7.0.1.tgz#eb51568d962b8aa61a8318383c8bb7e54332282e"
-  integrity sha512-NOp1fwrG+6kVXWo7P9SizCHX6QvioxFD/hZcI2MLxPmVnFJFC0j0DDpIuNw2tUDeCFMni59gCVgeJ1/hYhj2OQ==
+postcss-normalize@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-normalize/-/postcss-normalize-8.0.0.tgz#7b540c4c70e05defdc85a2e4a4ea25df734cd35f"
+  integrity sha512-6GGHJIn5N3DG9dq8k0k+ZL5cyE0KvdMbot7hRqX8MEnoWluK2iQzcbH1c1YnFkIMToi8262M79vNqdXzE5bwow==
   dependencies:
-    "@csstools/normalize.css" "^9.0.1"
-    browserslist "^4.1.1"
-    postcss "^7.0.2"
-    postcss-browser-comments "^2.0.0"
+    "@csstools/normalize.css" "^10.1.0"
+    browserslist "^4.6.1"
+    postcss "^7.0.16"
+    postcss-browser-comments "^3.0.0"
+    sanitize.css "^10.0.0"
 
 postcss-reporter@^6.0.1:
   version "6.0.1"
@@ -8838,7 +8839,7 @@ postcss@^6.0.14:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.2, postcss@^7.0.7:
+postcss@^7, postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.2, postcss@^7.0.7:
   version "7.0.16"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.16.tgz#48f64f1b4b558cb8b52c88987724359acb010da2"
   integrity sha512-MOo8zNSlIqh22Uaa3drkdIAgUGEL+AD1ESiSdmElLUmE2uVDo1QloiT/IfW9qRw8Gw+Y/w69UVMGwbufMSftxA==
@@ -9627,6 +9628,11 @@ safe-regex@^1.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+
+sanitize.css@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/sanitize.css/-/sanitize.css-10.0.0.tgz#b5cb2547e96d8629a60947544665243b1dc3657a"
+  integrity sha512-vTxrZz4dX5W86M6oVWVdOVe72ZiPs41Oi7Z6Km4W5Turyz28mrXSJhhEBZoRtzJWIv3833WKVwLSDWWkEfupMg==
 
 sass-graph-glob@^3.0.4:
   version "3.0.4"
