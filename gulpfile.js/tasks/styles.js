@@ -50,7 +50,7 @@ export default function styles() {
           dependentPaths.push(file.path)
 
           graph.visitAncestors(file.path, path => {
-            if (dependentPaths.indexOf(path) < 0) {
+            if (dependentPaths.includes(path) < 0) {
               dependentPaths.push(path)
             }
           })
