@@ -28,7 +28,7 @@
     "focus-trap": "^5.0.1",
     "intersection-observer": "^0.7.0",
     "ky": "^0.11.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "objectFitPolyfill": "^2.3.0",
     "picturefill": "^3.0.3",
     "simplebar": "^4.1.0",
