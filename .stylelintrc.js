@@ -70,9 +70,12 @@ module.exports = {
         unspecified: 'bottomAlphabetical'
       }
     ],
+    'scss/at-each-key-value-single-line': true,
+    'scss/at-if-no-null': true,
+    'scss/at-import-partial-extension': 'never',
     'scss/at-mixin-argumentless-call-parentheses': 'always',
+    'scss/at-rule-conditional-no-parentheses': true,
     'scss/at-rule-no-unknown': true,
-    'scss/declaration-nested-properties': 'never',
     'scss/dollar-variable-empty-line-before': [
       'always',
       {
@@ -95,8 +98,15 @@ module.exports = {
       }
     ],
     'scss/double-slash-comment-whitespace-inside': 'always',
+    'scss/comment-no-loud': true,
+    'scss/declaration-nested-properties': 'never',
+    'scss/dimension-no-non-numeric-values': true,
+    'scss/function-color-relative': true,
+    'scss/function-quote-no-quoted-strings-inside': true,
+    'scss/function-unquote-no-unquoted-strings-inside': true,
     'scss/partial-no-import': true,
     'scss/selector-nest-combinators': 'always',
-    'scss/selector-no-redundant-nesting-selector': true
+    'scss/selector-no-redundant-nesting-selector': true,
+    'scss/selector-no-union-class-name': true
   }
 }
