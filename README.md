@@ -7,9 +7,19 @@
 
 > A practical template for building static websites
 
+## Getting started
+
+Create a new directory and then run:
+
+```bash
+$ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/master.tar.gz | tar -xz --strip-components=1
+```
+
+Alternatively, open the following link to create a new repository on GitHub from this template: https://github.com/chalkygames123/front-end-template/generate
+
 ## Prerequisites
 
-Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/creationix/nvm) it can be done with the following command after installing the template:
+Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/creationix/nvm), you can do that by running the following command once in your project:
 
 ```bash
 $ nvm install # or nvm i
@@ -17,26 +27,12 @@ $ nvm install # or nvm i
 
 Also, make sure you have [Yarn](https://yarnpkg.com) installed.
 
-## Installation
-
-In your directory, run:
-
-```bash
-$ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/master.tar.gz | tar -xz --strip-components=1
-```
-
-## Setup
+## Usage
 
 ```bash
 # install dependencies
 $ yarn
-```
 
-## Usage
-
-### Development
-
-```bash
 # serve with live/hot reload at localhost:3000
 $ yarn dev
 
@@ -66,11 +62,7 @@ $ yarn format --write
 
 # run each linter and formatter
 $ yarn test
-```
 
-### Production
-
-```bash
 # build for production
 $ yarn build
 ```
