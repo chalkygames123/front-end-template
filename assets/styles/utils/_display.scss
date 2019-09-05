@@ -8,10 +8,8 @@
 
 @each $breakpoint in map-keys($mq-breakpoints) {
   @include mq($breakpoint) {
-    $infix: '-#{$breakpoint}';
-
     @each $value in $displays {
-      .u-d#{$infix}-#{$value} {
+      .u-d-#{$breakpoint}-#{$value} {
         display: $value !important;
       }
     }
