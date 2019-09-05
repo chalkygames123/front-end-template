@@ -19,7 +19,7 @@ Alternatively, open the following link to create a new repository on GitHub from
 
 ## Prerequisites
 
-Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/creationix/nvm), you can do that by running the following command once in your project:
+Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/nvm-sh/nvm), you can do that by running the following command once in your project:
 
 ```bash
 $ nvm install # or nvm i
