@@ -39,28 +39,28 @@ $ yarn dev
 # lint all .js files
 $ yarn lint:scripts
 
-# fix all .js files
+# lint and fix all .js files
 $ yarn lint:scripts --fix
 
 # lint all .scss files
 $ yarn lint:styles
 
-# fix all .scss files
+# lint and fix all .scss files
 $ yarn lint:styles --fix
 
-# run each linter
+# run all lint scripts
 $ yarn lint
 
-# fix all .js and .scss files
-$ yarn lint:fix
+# run all lint and fix scripts
+$ yarn lint --fix
 
 # check if all .json and .md files are formatted
-$ yarn format
+$ yarn check:format
 
 # format all .json and .md files
-$ yarn format --write
+$ yarn format
 
-# run each linter and formatter
+# run all lint and format check scripts
 $ yarn test
 
 # build for production

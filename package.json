@@ -1,21 +1,20 @@
 {
   "scripts": {
     "build": "gulp build",
+    "check:format": "prettier --ignore-path .gitignore \"**/*.{json,md}\" --check",
     "clean": "gulp clean",
     "copy": "gulp copy",
     "dev": "cross-env NODE_ENV=development gulp dev",
-    "format": "prettier --ignore-path .gitignore -c \"**/*.{json,md}\"",
+    "format": "prettier --ignore-path .gitignore \"**/*.{json,md}\" --write",
     "images": "gulp images",
-    "lint:fix": "yarn lint:scripts --fix && yarn lint:styles --fix",
     "lint:scripts": "eslint --ignore-path .gitignore --ignore-pattern \"!.*\" \".\"",
     "lint:styles": "stylelint --ignore-path .gitignore \"**/*.scss\"",
-    "lint": "yarn lint:scripts && yarn lint:styles",
+    "lint": "npm-run-all \"lint:* {@}\" --",
     "scripts": "gulp scripts",
     "serve": "gulp serve",
-    "start": "gulp default",
     "styles": "gulp styles",
     "templates": "gulp templates",
-    "test": "yarn lint && yarn format",
+    "test": "npm-run-all lint check:format",
     "watch": "gulp watch"
   },
   "dependencies": {
@@ -90,6 +89,7 @@
     "lint-staged": "^9.2.5",
     "lodash-webpack-plugin": "^0.11.5",
     "node-sass-magic-importer": "^5.3.2",
+    "npm-run-all": "^4.1.5",
     "postcss-normalize": "^8.0.1",
     "postcss-reporter": "^6.0.1",
     "postcss-scss": "^2.0.0",
@@ -130,7 +130,7 @@
       "stylelint"
     ],
     "*.{json,md}": [
-      "prettier -c"
+      "prettier --check"
     ]
   }
 }

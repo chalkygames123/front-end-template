@@ -22,4 +22,4 @@ export {
   watch
 }
 
-export default serve
+export default dev
