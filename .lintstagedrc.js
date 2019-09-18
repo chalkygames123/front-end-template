@@ -1,5 +1,5 @@
 module.exports = {
-  '*.js': ['eslint --ignore-pattern "!.*"'],
-  '*.scss': ['stylelint'],
-  '*.{json,md}': ['prettier --check']
+  '*.js': ['eslint --ignore-pattern "!.*" --fix', 'git add'],
+  '*.scss': ['stylelint --fix', 'git add'],
+  '*.{json,md}': ['prettier --check --write', 'git add']
 }
