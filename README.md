@@ -19,7 +19,7 @@ Alternatively, open the following link to create a new repository on GitHub from
 
 ## Prerequisites
 
-Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/nvm-sh/nvm), you can do that by running the following command once in your project:
+Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/nvm-sh/nvm), just run the following command once in your project:
 
 ```bash
 $ nvm install # or nvm i
@@ -40,19 +40,19 @@ $ yarn dev
 $ yarn lint:scripts
 
 # lint and fix all .js files
-$ yarn lint:scripts --fix
+$ yarn lint-fix:scripts
 
 # lint all .scss files
 $ yarn lint:styles
 
 # lint and fix all .scss files
-$ yarn lint:styles --fix
+$ yarn lint-fix:styles
 
 # run all lint scripts
 $ yarn lint
 
 # run all lint and fix scripts
-$ yarn lint --fix
+$ yarn lint-fix
 
 # check if all .json and .md files are formatted
 $ yarn check:format
