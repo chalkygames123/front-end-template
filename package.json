@@ -112,25 +112,6 @@
     "webpack-notifier": "^1.8.0",
     "webpack-stream": "^5.2.1"
   },
-  "engines": {
-    "node": ">=8.10.0"
-  },
   "private": true,
-  "browserslist": "defaults",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --ignore-pattern \"!.*\""
-    ],
-    "*.scss": [
-      "stylelint"
-    ],
-    "*.{json,md}": [
-      "prettier --check"
-    ]
-  }
+  "browserslist": "defaults"
 }
