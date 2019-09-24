@@ -1,7 +1,3 @@
-import config from './config'
-
-const isDev = config.get('env') === 'development'
-
 export default api => {
   api.cache.forever()
 
@@ -15,7 +11,6 @@ export default api => {
           corejs: 3
         }
       ]
-    ],
-    plugins: [!isDev && 'lodash'].filter(Boolean)
+    ]
   }
 }

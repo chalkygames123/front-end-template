@@ -1,6 +1,5 @@
 import upath from 'upath'
 
-import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
 import WebpackNotifierPlugin from 'webpack-notifier'
 
 import common from './common'
@@ -62,11 +61,6 @@ export default {
     isDev &&
       new WebpackNotifierPlugin({
         skipFirstNotification: true
-      }),
-    !isDev &&
-      new LodashModuleReplacementPlugin({
-        shorthands: true,
-        collections: true
       })
   ].filter(Boolean)
 }
