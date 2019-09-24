@@ -1,7 +1,6 @@
 import upath from 'upath'
 
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
-import MinifyPlugin from 'babel-minify-webpack-plugin'
 import WebpackNotifierPlugin from 'webpack-notifier'
 
 import common from './common'
@@ -68,7 +67,6 @@ export default {
       new LodashModuleReplacementPlugin({
         shorthands: true,
         collections: true
-      }),
-    !isDev && new MinifyPlugin()
+      })
   ].filter(Boolean)
 }
