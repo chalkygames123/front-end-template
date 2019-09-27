@@ -15,6 +15,7 @@
     "lint": "npm-run-all lint:*",
     "scripts": "gulp scripts",
     "serve": "gulp serve",
+    "start": "gulp serve",
     "styles": "gulp styles",
     "templates": "gulp templates",
     "test": "npm-run-all lint check:format",
