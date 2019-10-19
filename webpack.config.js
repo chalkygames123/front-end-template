@@ -16,13 +16,16 @@ export default {
     splitChunks: {
       cacheGroups: {
         vendors: {
-          test: /[\\/]node_modules[\\/]/,
           chunks: 'all',
-          minSize: 0,
-          name: upath.join(common.dir.assets, common.dir.scripts, 'vendors')
+          name: upath.join(common.dir.assets, common.dir.scripts, 'vendors'),
+          test: /[\\/]node_modules[\\/]/
         }
       }
-    }
+    },
+    runtimeChunk: {
+      name: upath.join(common.dir.assets, common.dir.scripts, 'runtime')
+    },
+    noEmitOnErrors: false
   },
   module: {
     rules: [
