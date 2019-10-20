@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 const autoprefixer = require('autoprefixer')
 const postcssNormalize = require('postcss-normalize')
 const postcssScss = require('postcss-scss')

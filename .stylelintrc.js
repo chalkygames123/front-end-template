@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 const stylelintConfigRecessOrder = require('stylelint-config-recess-order')
 
 module.exports = {

@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 import browserSync from 'browser-sync'
 import upath from 'upath'
 
