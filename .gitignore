@@ -327,3 +327,7 @@ $RECYCLE.BIN/
 
 # Build output
 dist
+
+# Locally-trusted certificate and its key
+localhost-key.pem
+localhost.pem

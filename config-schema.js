@@ -29,6 +29,11 @@ const config = convict({
     format: Boolean,
     default: false
   },
+  https: {
+    doc: 'Whether to enable HTTPS.',
+    format: Boolean,
+    default: false
+  },
   site: {
     name: {
       doc: 'The site name.',
