@@ -52,10 +52,7 @@ module.exports = {
           name: 'include',
           hasBlock: true
         },
-        {
-          type: 'rule',
-          selector: /^&\w/
-        },
+        'rules',
         {
           type: 'rule',
           selector: /^&::\w/
@@ -63,8 +60,7 @@ module.exports = {
         {
           type: 'rule',
           selector: /^&:\w/
-        },
-        'rules'
+        }
       ]
     ],
     'order/properties-order': [
@@ -108,8 +104,9 @@ module.exports = {
     'scss/function-quote-no-quoted-strings-inside': true,
     'scss/function-unquote-no-unquoted-strings-inside': true,
     'scss/partial-no-import': true,
-    'scss/selector-nest-combinators': 'always',
     'scss/selector-no-redundant-nesting-selector': true,
-    'scss/selector-no-union-class-name': true
+    'scss/selector-no-union-class-name': true,
+    'scss/no-duplicate-dollar-variables': true,
+    'scss/no-duplicate-mixins': true
   }
 }

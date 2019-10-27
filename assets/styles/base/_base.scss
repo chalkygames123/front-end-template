@@ -12,16 +12,8 @@ html {
 
   &[data-whatinput='mouse'],
   &[data-whatinput='touch'] {
-    :not(button) {
-      &:not(input) {
-        &:not(select) {
-          &:not(textarea) {
-            &:focus {
-              outline: none;
-            }
-          }
-        }
-      }
+    :not(button):not(input):not(select):not(textarea):focus {
+      outline: none;
     }
   }
 }
