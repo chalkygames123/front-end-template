@@ -25,7 +25,6 @@
 
     {% block headBeforeEnd %}
       <link rel="stylesheet" href="/assets/styles/main.css">
-      <link rel="stylesheet" href="/assets/styles/pages/common/style.css">
     {% endblock %}
   </head>
 
@@ -45,8 +44,6 @@
 
     {% block bodyBeforeEnd %}
       <script src="/assets/scripts/runtime.js" defer></script>
-      <script src="/assets/scripts/pages/{{ page.relative | trimext }}.js" defer></script>
-      <script src="/assets/scripts/pages/common.js" defer></script>
       <script src="/assets/scripts/vendors.js" defer></script>
     {% endblock %}
   </body>
