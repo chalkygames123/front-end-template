@@ -2,7 +2,6 @@ import upath from 'upath'
 
 import WebpackNotifierPlugin from 'webpack-notifier'
 
-import common from './common'
 import config from './config'
 
 const isDev = config.get('env') === 'development'
@@ -17,13 +16,21 @@ export default {
       cacheGroups: {
         vendors: {
           chunks: 'all',
-          name: upath.join(common.dir.assets, common.dir.scripts, 'vendors'),
+          name: upath.join(
+            config.get('dir.assets'),
+            config.get('dir.scripts'),
+            'vendors'
+          ),
           test: /[\\/]node_modules[\\/]/
         }
       }
     },
     runtimeChunk: {
-      name: upath.join(common.dir.assets, common.dir.scripts, 'runtime')
+      name: upath.join(
+        config.get('dir.assets'),
+        config.get('dir.scripts'),
+        'runtime'
+      )
     },
     noEmitOnErrors: false
   },
@@ -53,8 +60,8 @@ export default {
       upath.resolve(
         __dirname,
         config.get('srcDir'),
-        common.dir.assets,
-        common.dir.scripts
+        config.get('dir.assets'),
+        config.get('dir.scripts')
       ),
       upath.resolve(__dirname, 'node_modules')
     ]

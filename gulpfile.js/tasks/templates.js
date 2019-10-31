@@ -2,7 +2,7 @@ import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import upath from 'upath'
 
-import common from '../../common'
+import common from '../common'
 import config from '../../config'
 import detectConflict from '../utils/detectConflict'
 
@@ -11,8 +11,8 @@ const isDev = config.get('env') === 'development'
 
 export default function templates() {
   return gulp
-    .src(common.srcPaths.pages, {
-      base: upath.join(config.get('srcDir'), common.dir.pages)
+    .src(config.get('srcPaths.pages'), {
+      base: upath.join(config.get('srcDir'), config.get('dir.pages'))
     })
     .pipe(
       $.if(
@@ -22,7 +22,7 @@ export default function templates() {
         })
       )
     )
-    .pipe($.filter(`**/!(-)*${common.ext.templates}`))
+    .pipe($.filter(`**/!(-)*${config.get('ext.templates')}`))
     .pipe(
       $.data(file => ({
         page: {

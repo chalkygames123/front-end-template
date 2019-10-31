@@ -5,7 +5,7 @@ import imageminPngquant from 'imagemin-pngquant'
 import imageminWebp from 'imagemin-webp'
 import upath from 'upath'
 
-import common from '../../common'
+import common from '../common'
 import config from '../../config'
 import detectConflict from '../utils/detectConflict'
 
@@ -14,11 +14,11 @@ const isDev = config.get('env') === 'development'
 const spritesFilter = $.filter(
   upath.join(
     config.get('distDir'),
-    common.dir.assets,
-    common.dir.images,
-    common.dir.sprites,
+    config.get('dir.assets'),
+    config.get('dir.images'),
+    config.get('dir.sprites'),
     '**',
-    `*${common.ext.sprites}`
+    `*${config.get('ext.sprites')}`
   ),
   {
     restore: true
@@ -27,7 +27,7 @@ const spritesFilter = $.filter(
 
 export default function images() {
   return gulp
-    .src(common.srcPaths.images, {
+    .src(config.get('srcPaths.images'), {
       base: config.get('srcDir')
     })
     .pipe(
@@ -78,9 +78,9 @@ export default function images() {
             generator(name) {
               const destRelativeName = upath.relative(
                 upath.join(
-                  common.dir.assets,
-                  common.dir.images,
-                  common.dir.sprites
+                  config.get('dir.assets'),
+                  config.get('dir.images'),
+                  config.get('dir.sprites')
                 ),
                 name
               )
@@ -90,7 +90,7 @@ export default function images() {
 
               return upath.basename(
                 directorySeparatedName.replace(/\s+/g, this.whitespace),
-                common.ext.sprites
+                config.get('ext.sprites')
               )
             }
           },
@@ -98,7 +98,10 @@ export default function images() {
         },
         mode: {
           symbol: {
-            dest: upath.join(common.dir.assets, common.dir.images),
+            dest: upath.join(
+              config.get('dir.assets'),
+              config.get('dir.images')
+            ),
             sprite: 'sprite.symbol.svg'
           }
         }

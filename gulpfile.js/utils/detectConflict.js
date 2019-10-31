@@ -5,14 +5,13 @@ import fancyLog from 'fancy-log'
 import through2 from 'through2'
 import upath from 'upath'
 
-import common from '../../common'
 import config from '../../config'
 
 export default function() {
   return through2.obj((file, encoding, cb) => {
     const conflictablePath = upath.relative(
       '',
-      upath.join(config.get('srcDir'), common.dir.static, file.relative)
+      upath.join(config.get('srcDir'), config.get('dir.static'), file.relative)
     )
 
     fs.access(conflictablePath, fs.constants.F_OK, error => {

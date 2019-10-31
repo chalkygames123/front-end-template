@@ -7,7 +7,7 @@ import stripAnsi from 'strip-ansi'
 import through2 from 'through2'
 import upath from 'upath'
 
-import common from '../../common'
+import common from '../common'
 import config from '../../config'
 import detectConflict from '../utils/detectConflict'
 
@@ -16,7 +16,7 @@ const isDev = config.get('env') === 'development'
 
 export default function styles() {
   return gulp
-    .src(common.srcPaths.styles, {
+    .src(config.get('srcPaths.styles'), {
       base: config.get('srcDir')
     })
     .pipe(
@@ -36,14 +36,18 @@ export default function styles() {
         through2.obj(function resolveDependencies(file, encoding, cb) {
           const dependentPaths = []
           const graph = file.relative.startsWith(
-            upath.join(common.dir.assets, common.dir.styles, 'pages')
+            upath.join(
+              config.get('dir.assets'),
+              config.get('dir.styles'),
+              'pages'
+            )
           )
             ? sassGraphGlob.parseDir(file.dirname)
             : sassGraphGlob.parseDir(
                 upath.join(
                   config.get('srcDir'),
-                  common.dir.assets,
-                  common.dir.styles
+                  config.get('dir.assets'),
+                  config.get('dir.styles')
                 )
               )
 
@@ -75,8 +79,8 @@ export default function styles() {
         importer: nodeSassMagicImporter(),
         includePaths: upath.join(
           config.get('srcDir'),
-          common.dir.assets,
-          common.dir.styles
+          config.get('dir.assets'),
+          config.get('dir.styles')
         ),
         fiber: Fiber
       })

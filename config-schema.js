@@ -1,8 +1,21 @@
 /* eslint import/no-extraneous-dependencies: ["error", { "optionalDependencies": false }] */
 
 import convict from 'convict'
+import upath from 'upath'
 
-const config = convict({
+convict.addFormat({
+  name: 'globs',
+  validate: value => {
+    if (
+      (typeof value !== 'string' && !Array.isArray(value)) ||
+      (Array.isArray(value) && value.some(el => typeof el !== 'string'))
+    ) {
+      throw new TypeError('must be a string or an array of strings')
+    }
+  }
+})
+
+const schema = {
   env: {
     doc: 'The site environment.',
     format: ['production', 'development'],
@@ -60,6 +73,171 @@ const config = convict({
       },
       default: '/'
     }
+  },
+  dir: {
+    assets: {
+      doc: 'The assets directory.',
+      format: String,
+      default: 'assets'
+    },
+    images: {
+      doc: 'The images directory.',
+      format: String,
+      default: 'images'
+    },
+    includes: {
+      doc: 'The includes directory.',
+      format: String,
+      default: 'includes'
+    },
+    layouts: {
+      doc: 'The layouts directory.',
+      format: String,
+      default: 'layouts'
+    },
+    pages: {
+      doc: 'The pages directory.',
+      format: String,
+      default: 'pages'
+    },
+    scripts: {
+      doc: 'The scripts directory.',
+      format: String,
+      default: 'scripts'
+    },
+    sprites: {
+      doc: 'The sprites directory.',
+      format: String,
+      default: 'sprites'
+    },
+    static: {
+      doc: 'The static directory.',
+      format: String,
+      default: 'static'
+    },
+    styles: {
+      doc: 'The styles directory.',
+      format: String,
+      default: 'styles'
+    }
+  },
+  ext: {
+    images: {
+      doc: 'The images extension.',
+      format: String,
+      default: '.+(png|jp?(e)g|gif|svg)'
+    },
+    templates: {
+      doc: 'The templates extension.',
+      format: String,
+      default: '.njk'
+    },
+    scripts: {
+      doc: 'The scripts extension.',
+      format: String,
+      default: '.js'
+    },
+    sprites: {
+      doc: 'The sprites extension.',
+      format: String,
+      default: '.svg'
+    },
+    styles: {
+      doc: 'The styles extension.',
+      format: String,
+      default: '.scss'
+    }
+  },
+  srcPaths: {
+    copy: {
+      doc: 'The copy source paths.',
+      format: 'globs',
+      default: ''
+    },
+    images: {
+      doc: 'The images source paths.',
+      format: 'globs',
+      default: ''
+    },
+    includes: {
+      doc: 'The includes source paths.',
+      format: 'globs',
+      default: ''
+    },
+    layouts: {
+      doc: 'The layouts source paths.',
+      format: 'globs',
+      default: ''
+    },
+    pages: {
+      doc: 'The pages source paths.',
+      format: 'globs',
+      default: ''
+    },
+    scripts: {
+      doc: 'The scripts source paths.',
+      format: 'globs',
+      default: ''
+    },
+    styles: {
+      doc: 'The styles source paths.',
+      format: 'globs',
+      default: ''
+    }
+  }
+}
+
+const config = convict(schema)
+
+config.validate({
+  allowed: 'strict'
+})
+
+config.load({
+  srcPaths: {
+    copy: [
+      upath.join(config.get('srcDir'), config.get('dir.static'), '**'),
+      '!**/.gitkeep'
+    ],
+    images: upath.join(
+      config.get('srcDir'),
+      config.get('dir.assets'),
+      config.get('dir.images'),
+      '**',
+      `*${config.get('ext.images')}`
+    ),
+    includes: upath.join(
+      config.get('srcDir'),
+      config.get('dir.includes'),
+      '**',
+      `*${config.get('ext.templates')}`
+    ),
+    layouts: upath.join(
+      config.get('srcDir'),
+      config.get('dir.layouts'),
+      '**',
+      `*${config.get('ext.templates')}`
+    ),
+    pages: upath.join(
+      config.get('srcDir'),
+      config.get('dir.pages'),
+      '**',
+      `*${config.get('ext.templates')}`
+    ),
+    scripts: upath.join(
+      config.get('srcDir'),
+      config.get('dir.assets'),
+      config.get('dir.scripts'),
+      '**',
+      `*${config.get('ext.scripts')}`
+    ),
+    styles: upath.join(
+      config.get('srcDir'),
+      config.get('dir.assets'),
+      config.get('dir.styles'),
+      '**',
+      `*${config.get('ext.styles')}`
+    )
   }
 })
 

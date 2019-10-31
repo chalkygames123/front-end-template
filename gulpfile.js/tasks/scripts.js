@@ -5,7 +5,7 @@ import vinylNamed from 'vinyl-named'
 import webpack from 'webpack'
 import webpackStream from 'webpack-stream'
 
-import common from '../../common'
+import common from '../common'
 import config from '../../config'
 import detectConflict from '../utils/detectConflict'
 import webpackConfig from '../../webpack.config'
@@ -15,7 +15,7 @@ const isDev = config.get('env') === 'development'
 
 export default function scripts() {
   return gulp
-    .src(common.srcPaths.scripts, {
+    .src(config.get('srcPaths.scripts'), {
       base: config.get('srcDir')
     })
     .pipe(
@@ -26,7 +26,7 @@ export default function scripts() {
         })
       )
     )
-    .pipe($.filter(`**/!(_)*${common.ext.scripts}`))
+    .pipe($.filter(`**/!(_)*${config.get('ext.scripts')}`))
     .pipe(
       vinylNamed(file => {
         return upath.toUnix(upath.trimExt(file.relative))
