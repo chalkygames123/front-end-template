@@ -11,6 +11,7 @@ export default function serve() {
           cert: 'localhost.pem'
         }
       : false,
+    online: false,
     startPath: config.get('site.basePath')
   })
 }
