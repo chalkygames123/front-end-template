@@ -83,13 +83,6 @@ module.exports = {
       }
     ],
     'scss/dollar-variable-no-missing-interpolation': true,
-    'scss/double-slash-comment-empty-line-before': [
-      'always',
-      {
-        except: ['first-nested'],
-        ignore: ['between-comments', 'stylelint-commands']
-      }
-    ],
     'scss/double-slash-comment-inline': [
       'never',
       {
