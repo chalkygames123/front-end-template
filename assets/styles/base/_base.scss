@@ -3,7 +3,14 @@
   margin: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html {
+  box-sizing: border-box;
   min-width: mq-get-breakpoint-width(sm);
 
   @include mq(md) {
@@ -22,6 +29,10 @@ body {
   font-family: 'YakuHanJP_Noto', 'Noto Sans JP', sans-serif;
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+
+h1 {
+  margin: 0;
 }
 
 ol,
