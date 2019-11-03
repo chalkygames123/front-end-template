@@ -1,15 +1,17 @@
-// stylelint-disable declaration-no-important
+@use '../abstracts' as a;
 
-@each $value in $displays {
+@each $value in a.$displays {
   .u-d-#{$value} {
+    // stylelint-disable-next-line declaration-no-important
     display: $value !important;
   }
 }
 
-@each $breakpoint in map-keys($mq-breakpoints) {
-  @include mq($breakpoint) {
-    @each $value in $displays {
+@each $breakpoint in map-keys(a.$mq-breakpoints) {
+  @include a.mq($breakpoint) {
+    @each $value in a.$displays {
       .u-d-#{$breakpoint}-#{$value} {
+        // stylelint-disable-next-line declaration-no-important
         display: $value !important;
       }
     }

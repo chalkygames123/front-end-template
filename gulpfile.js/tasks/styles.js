@@ -1,10 +1,8 @@
 import Fiber from 'fibers'
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
-import nodeSassMagicImporter from 'node-sass-magic-importer'
-import sassGraphGlob from 'sass-graph-glob'
+import sass from 'sass'
 import stripAnsi from 'strip-ansi'
-import through2 from 'through2'
 import upath from 'upath'
 
 import common from '../common'
@@ -13,6 +11,8 @@ import detectConflict from '../utils/detectConflict'
 
 const $ = gulpLoadPlugins()
 const isDev = config.get('env') === 'development'
+
+$.sass.compiler = sass
 
 export default function styles() {
   return gulp
@@ -29,59 +29,10 @@ export default function styles() {
         })
       )
     )
-    .pipe($.if(isDev, $.cached('styles')))
-    .pipe(
-      $.if(
-        gulp.lastRun(styles),
-        through2.obj(function resolveDependencies(file, encoding, cb) {
-          const dependentPaths = []
-          const graph = file.relative.startsWith(
-            upath.join(
-              config.get('dir.assets'),
-              config.get('dir.styles'),
-              'pages'
-            )
-          )
-            ? sassGraphGlob.parseDir(file.dirname)
-            : sassGraphGlob.parseDir(
-                upath.join(
-                  config.get('srcDir'),
-                  config.get('dir.assets'),
-                  config.get('dir.styles')
-                )
-              )
-
-          dependentPaths.push(file.path)
-
-          graph.visitAncestors(file.path, path => {
-            if (dependentPaths.includes(path) === false) {
-              dependentPaths.push(path)
-            }
-          })
-
-          gulp
-            .src(dependentPaths, {
-              base: config.get('srcDir')
-            })
-            .on('data', dependentFile => {
-              this.push(dependentFile)
-            })
-            .on('end', () => {
-              cb()
-            })
-        })
-      )
-    )
     .pipe($.if(isDev, $.sourcemaps.init()))
     .pipe($.postcss())
     .pipe(
-      $.dartSass({
-        importer: nodeSassMagicImporter(),
-        includePaths: upath.join(
-          config.get('srcDir'),
-          config.get('dir.assets'),
-          config.get('dir.styles')
-        ),
+      $.sass({
         fiber: Fiber
       })
     )

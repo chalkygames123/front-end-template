@@ -1,3 +1,5 @@
+@use '../abstracts' as a;
+
 .u-clearfix {
-  @include clearfix();
+  @include a.clearfix();
 }

@@ -1,20 +1,10 @@
-@charset 'utf-8';
-
-// prerequisites
-
-@import '~sass-mq';
-@import 'abstracts/*';
-
-// vendors
-
-@import 'normalize';
-@import 'vendors/*';
-@import url('https://cdn.jsdelivr.net/npm/yakuhanjp@3.2.0/dist/css/yakuhanjp-noto.min.css');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
-
-// categorized rules
-
-@import 'utils/*';
-@import 'base/*';
-@import 'layout/*';
-@import 'components/*';
+@use 'node_modules/normalize.css/normalize';
+@use 'node_modules/yakuhanjp/src/scss/yakuhanjp-noto' with (
+  $yakuhanjp-noto-eot-use: false,
+  $yakuhanjp-noto-cdn-use: true
+);
+@use './vendors';
+@use './base';
+@use './layouts';
+@use './components';
+@use './utils';

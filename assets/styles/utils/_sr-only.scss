@@ -1,3 +1,5 @@
+@use '../abstracts' as a;
+
 .u-sr-only {
-  @include sr-only();
+  @include a.sr-only();
 }
