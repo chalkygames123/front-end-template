@@ -14,8 +14,9 @@ export default function() {
       upath.join(config.get('srcDir'), config.get('dir.static'), file.relative)
     )
 
-    fs.access(conflictablePath, fs.constants.F_OK, error => {
-      if (!error) {
+    fs.promises
+      .access(conflictablePath, fs.constants.F_OK)
+      .then(() => {
         fancyLog.error(
           `${chalk.magenta(
             upath.relative('', file.history[0])
@@ -23,9 +24,9 @@ export default function() {
         )
 
         return cb(new Error('A conflict detected.'))
-      }
-
-      return cb(null, file)
-    })
+      })
+      .catch(() => {
+        return cb(null, file)
+      })
   })
 }
