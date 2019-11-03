@@ -55,17 +55,6 @@ export default {
       }
     ]
   },
-  resolve: {
-    modules: [
-      upath.resolve(
-        __dirname,
-        config.get('srcDir'),
-        config.get('dir.assets'),
-        config.get('dir.scripts')
-      ),
-      upath.resolve(__dirname, 'node_modules')
-    ]
-  },
   devtool: isDev ? 'eval-source-map' : false,
   plugins: [
     isDev &&
