@@ -36,23 +36,23 @@ $ yarn
 # serve with live/hot reload at localhost:3000
 $ yarn dev
 
-# lint all .js files
-$ yarn lint:scripts
-
-# lint and fix all .js files
-$ yarn lint-fix:scripts
+# run all linting
+$ yarn lint
 
 # lint all .scss files
 $ yarn lint:styles
 
-# lint and fix all .scss files
+# lint all .js files
+$ yarn lint:scripts
+
+# run all linting with auto fixing
+$ yarn lint-fix
+
+# lint all .scss files with auto fixing
 $ yarn lint-fix:styles
 
-# run all lint scripts
-$ yarn lint
-
-# run all lint and fix scripts
-$ yarn lint-fix
+# lint all .js files with auto fixing
+$ yarn lint-fix:scripts
 
 # check if all .json and .md files are formatted
 $ yarn check:format
@@ -60,7 +60,7 @@ $ yarn check:format
 # format all .json and .md files
 $ yarn format
 
-# run all lint and format check scripts
+# run all linting and format checking
 $ yarn test
 
 # build for production
