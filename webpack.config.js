@@ -1,7 +1,5 @@
 import upath from 'upath'
 
-import WebpackNotifierPlugin from 'webpack-notifier'
-
 import config from './config'
 
 const isDev = config.get('env') === 'development'
@@ -31,8 +29,7 @@ export default {
         config.get('dir.scripts'),
         'runtime'
       )
-    },
-    noEmitOnErrors: false
+    }
   },
   module: {
     rules: [
@@ -47,7 +44,9 @@ export default {
           {
             loader: 'eslint-loader',
             options: {
-              cache: true
+              cache: true,
+              failOnError: true,
+              failOnWarning: true
             }
           }
         ],
@@ -55,11 +54,5 @@ export default {
       }
     ]
   },
-  devtool: isDev ? 'eval-source-map' : false,
-  plugins: [
-    isDev &&
-      new WebpackNotifierPlugin({
-        skipFirstNotification: true
-      })
-  ].filter(Boolean)
+  devtool: isDev ? 'eval-source-map' : false
 }

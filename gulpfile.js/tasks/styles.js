@@ -1,8 +1,9 @@
+import stream from 'stream'
+
 import Fiber from 'fibers'
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import sass from 'sass'
-import stripAnsi from 'strip-ansi'
 import upath from 'upath'
 
 import common from '../common'
@@ -14,66 +15,44 @@ const isDev = config.get('env') === 'development'
 
 $.sass.compiler = sass
 
-export default function styles() {
-  return gulp
-    .src(config.get('srcPaths.styles'), {
+export default function styles(cb) {
+  stream.pipeline(
+    gulp.src(config.get('srcPaths.styles'), {
       base: config.get('srcDir')
-    })
-    .pipe(
-      $.if(
-        isDev,
-        $.plumber({
-          errorHandler: $.notify.onError(error => {
-            return stripAnsi(error.message)
-          })
-        })
-      )
-    )
-    .pipe($.if(isDev, $.sourcemaps.init()))
-    .pipe($.postcss())
-    .pipe(
-      $.sass({
-        fiber: Fiber
+    }),
+    $.if(isDev, $.sourcemaps.init()),
+    $.postcss(),
+    $.sass({
+      fiber: Fiber
+    }),
+    $.if(
+      isDev,
+      $.sourcemaps.write({
+        sourceRoot: `/${config.get('srcDir')}`
       })
-    )
-    .pipe(
-      $.if(
-        isDev,
-        $.sourcemaps.write({
-          sourceRoot: `/${config.get('srcDir')}`
-        })
-      )
-    )
-    .pipe(
-      $.if(
-        !isDev,
-        $.csso({
-          forceMediaMerge: true
-        })
-      )
-    )
-    .pipe(
-      $.if(
-        !isDev,
-        $.cleanCss({
-          level: 2,
-          rebase: false
-        })
-      )
-    )
-    .pipe(detectConflict())
-    .pipe(
+    ),
+    $.if(
+      !isDev,
+      $.csso({
+        forceMediaMerge: true
+      })
+    ),
+    $.if(
+      !isDev,
+      $.cleanCss({
+        level: 2,
+        rebase: false
+      })
+    ),
+    detectConflict(),
+    gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath'))),
+    $.if(config.get('gzip') && !isDev, $.gzip()),
+    $.if(config.get('gzip') && !isDev, detectConflict()),
+    $.if(
+      config.get('gzip') && !isDev,
       gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
-    )
-    .pipe($.if(config.get('gzip') && !isDev, $.gzip()))
-    .pipe($.if(config.get('gzip') && !isDev, detectConflict()))
-    .pipe(
-      $.if(
-        config.get('gzip') && !isDev,
-        gulp.dest(
-          upath.join(config.get('distDir'), config.get('site.basePath'))
-        )
-      )
-    )
-    .pipe(common.server.stream())
+    ),
+    $.if(isDev, common.server.stream()),
+    cb
+  )
 }
