@@ -28,7 +28,7 @@ module.exports = {
         ignore: ['after-comment']
       }
     ],
-    'unicode-bom': 'never',
+    // 'unicode-bom': 'never',
     'order/order': [
       [
         'custom-properties',
