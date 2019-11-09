@@ -1,4 +1,5 @@
 {
+  "private": true,
   "scripts": {
     "build": "gulp build",
     "check:format": "prettier --ignore-path .gitignore \"**/*.{json,md}\" --check",
@@ -7,12 +8,12 @@
     "dev": "cross-env NODE_ENV=development gulp dev",
     "format": "npm-run-all \"check:format --write\"",
     "images": "gulp images",
+    "lint": "npm-run-all lint:*",
+    "lint-fix": "npm-run-all lint-fix:*",
     "lint-fix:scripts": "npm-run-all \"lint:scripts --fix\"",
     "lint-fix:styles": "npm-run-all \"lint:styles --fix\" \"lint:styles --fix\"",
-    "lint-fix": "npm-run-all lint-fix:*",
     "lint:scripts": "eslint --ignore-path .gitignore --ignore-pattern \"!.*\" \".\"",
     "lint:styles": "stylelint --ignore-path .gitignore \"**/*.scss\"",
-    "lint": "npm-run-all lint:*",
     "scripts": "gulp scripts",
     "serve": "gulp serve",
     "start": "gulp serve",
@@ -92,6 +93,7 @@
     "postcss-reporter": "^6.0.1",
     "postcss-scss": "^2.0.0",
     "prettier": "^1.19.1",
+    "prettier-plugin-package": "^0.3.1",
     "sass": "^1.23.3",
     "sass-mq": "^5.0.1",
     "stylelint": "^11.1.1",
@@ -107,6 +109,5 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-stream": "^5.2.1"
-  },
-  "private": true
+  }
 }
