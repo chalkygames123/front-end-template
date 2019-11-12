@@ -1,5 +1,3 @@
-/* eslint import/no-extraneous-dependencies: ["error", { "optionalDependencies": false }] */
-
 import convict from 'convict'
 import upath from 'upath'
 

@@ -1,5 +1,3 @@
-/* eslint import/no-extraneous-dependencies: ["error", { "optionalDependencies": false }] */
-
 const autoprefixer = require('autoprefixer')
 const postcssScss = require('postcss-scss')
 const stylelint = require('stylelint')
