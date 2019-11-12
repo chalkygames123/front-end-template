@@ -50,13 +50,16 @@ export default function templates(cb) {
     }),
     $.htmlhint('.htmlhintrc'),
     $.htmlhint.reporter('htmlhint-stylish'),
-    $.htmlhint.failOnError({
-      suppress: true
-    }),
+    $.if(
+      !isDev,
+      $.htmlhint.failOnError({
+        suppress: true
+      })
+    ),
     $.w3cjs({
       showInfo: true
     }),
-    $.w3cjs.reporter(),
+    $.if(!isDev, $.w3cjs.reporter()),
     $.if(
       !isDev,
       $.htmlmin({

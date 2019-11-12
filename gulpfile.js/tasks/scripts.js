@@ -20,6 +20,9 @@ export default function scripts(cb) {
     gulp.src(config.get('srcPaths.scripts'), {
       base: config.get('srcDir')
     }),
+    $.eslint(),
+    $.eslint.format(),
+    $.if(!isDev, $.eslint.failOnError()),
     $.filter(`**/!(_)*${config.get('ext.scripts')}`),
     vinylNamed(file => {
       return upath.toUnix(upath.trimExt(file.relative))

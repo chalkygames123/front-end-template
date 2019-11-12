@@ -3,6 +3,10 @@ const postcssScss = require('postcss-scss')
 const stylelint = require('stylelint')
 const postcssReporter = require('postcss-reporter')
 
+const config = require('./config')
+
+const isDev = config.get('env') === 'development'
+
 module.exports = {
   syntax: postcssScss,
   plugins: [
@@ -12,7 +16,7 @@ module.exports = {
     }),
     postcssReporter({
       clearReportedMessages: true,
-      throwError: true
+      throwError: !isDev
     })
   ]
 }

@@ -1,5 +1,5 @@
-import convict from 'convict'
-import upath from 'upath'
+const convict = require('convict')
+const upath = require('upath')
 
 convict.addFormat({
   name: 'globs',
@@ -243,4 +243,4 @@ config.validate({
   allowed: 'strict'
 })
 
-export default config
+module.exports = config

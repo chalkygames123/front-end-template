@@ -7,6 +7,8 @@ import upath from 'upath'
 
 import config from '../../config'
 
+const isDev = config.get('env') === 'development'
+
 export default function() {
   return through2.obj((file, encoding, cb) => {
     const conflictablePath = upath.relative(
@@ -18,12 +20,14 @@ export default function() {
       .access(conflictablePath, fs.constants.F_OK)
       .then(() => {
         fancyLog.error(
-          `${chalk.magenta(
-            upath.relative('', file.history[0])
-          )} conflicts with ${chalk.magenta(conflictablePath)}`
+          `${chalk.red(
+            `Error: The following files are conflicted: ${chalk.magenta(
+              `${upath.relative('', file.history[0])}, ${conflictablePath}`
+            )}`
+          )}`
         )
 
-        return cb(new Error('A conflict detected.'))
+        return isDev ? cb(null, file) : cb(new Error('A conflict detected.'))
       })
       .catch(() => {
         return cb(null, file)
