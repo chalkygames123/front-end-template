@@ -7,7 +7,7 @@ import upath from 'upath'
 
 import config from '../../config'
 
-const isDev = config.get('env') === 'development'
+const isDev = process.env.NODE_ENV !== 'production'
 
 export default function() {
   return through2.obj((file, encoding, cb) => {

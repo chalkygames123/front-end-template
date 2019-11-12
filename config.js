@@ -1,4 +1,4 @@
-const config = require('./config-schema')
+import config from './config-schema'
 
 // Uncomment the following line to list available configurations and the defaults
 // console.log(config.getProperties())
@@ -9,4 +9,4 @@ config.validate({
   allowed: 'strict'
 })
 
-module.exports = config
+export default config

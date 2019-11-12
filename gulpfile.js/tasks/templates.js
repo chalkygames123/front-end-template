@@ -9,7 +9,7 @@ import config from '../../config'
 import detectConflict from '../utils/detectConflict'
 
 const $ = gulpLoadPlugins()
-const isDev = config.get('env') === 'development'
+const isDev = process.env.NODE_ENV !== 'production'
 
 export default function templates(cb) {
   stream.pipeline(

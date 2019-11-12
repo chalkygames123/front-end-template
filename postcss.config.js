@@ -3,9 +3,7 @@ const postcssScss = require('postcss-scss')
 const stylelint = require('stylelint')
 const postcssReporter = require('postcss-reporter')
 
-const config = require('./config')
-
-const isDev = config.get('env') === 'development'
+const isDev = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   syntax: postcssScss,

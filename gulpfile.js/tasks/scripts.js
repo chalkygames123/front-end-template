@@ -13,7 +13,7 @@ import detectConflict from '../utils/detectConflict'
 import webpackConfig from '../../webpack.config'
 
 const $ = gulpLoadPlugins()
-const isDev = config.get('env') === 'development'
+const isDev = process.env.NODE_ENV !== 'production'
 
 export default function scripts(cb) {
   stream.pipeline(

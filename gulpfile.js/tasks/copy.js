@@ -8,7 +8,7 @@ import common from '../common'
 import config from '../../config'
 
 const $ = gulpLoadPlugins()
-const isDev = config.get('env') === 'development'
+const isDev = process.env.NODE_ENV !== 'production'
 
 export default function copy(cb) {
   stream.pipeline(

@@ -1,5 +1,5 @@
-const convict = require('convict')
-const upath = require('upath')
+import convict from 'convict'
+import upath from 'upath'
 
 convict.addFormat({
   name: 'globs',
@@ -14,12 +14,6 @@ convict.addFormat({
 })
 
 const schema = {
-  env: {
-    doc: 'The site environment.',
-    format: ['production', 'development'],
-    default: 'production',
-    env: 'NODE_ENV'
-  },
   srcDir: {
     doc: 'The source directory.',
     format: String,
@@ -243,4 +237,4 @@ config.validate({
   allowed: 'strict'
 })
 
-module.exports = config
+export default config

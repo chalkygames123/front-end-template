@@ -8,3 +8,5 @@ export { default as serve, default } from './tasks/serve'
 export { default as styles } from './tasks/styles'
 export { default as templates } from './tasks/templates'
 export { default as watch } from './tasks/watch'
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'production'
