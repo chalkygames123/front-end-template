@@ -14,6 +14,7 @@ module.exports = {
     ],
     'at-rule-no-unknown': null,
     'color-named': 'never',
+    'declaration-block-no-redundant-longhand-properties': true,
     'declaration-no-important': true,
     'font-family-name-quotes': 'always-unless-keyword',
     'font-weight-notation': 'numeric',
@@ -26,6 +27,7 @@ module.exports = {
         ignore: ['after-comment']
       }
     ],
+    'shorthand-property-no-redundant-values': true,
     // 'unicode-bom': 'never',
     'order/order': [
       [
