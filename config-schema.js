@@ -171,6 +171,11 @@ const schema = {
       format: 'globs',
       default: ''
     },
+    sprites: {
+      doc: 'The sprites source paths.',
+      format: 'globs',
+      default: ''
+    },
     styles: {
       doc: 'The styles source paths.',
       format: 'globs',
@@ -222,6 +227,14 @@ config.load({
       config.get('dir.scripts'),
       '**',
       `*${config.get('ext.scripts')}`
+    ),
+    sprites: upath.join(
+      config.get('srcDir'),
+      config.get('dir.assets'),
+      config.get('dir.images'),
+      config.get('dir.sprites'),
+      '**',
+      `*${config.get('ext.sprites')}`
     ),
     styles: upath.join(
       config.get('srcDir'),
