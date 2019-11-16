@@ -6455,10 +6455,10 @@ kuler@1.0.x:
   dependencies:
     colornames "^1.1.1"
 
-ky@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/ky/-/ky-0.15.0.tgz#bea059d57cc179575adadbba2d8e15610d8fd75b"
-  integrity sha512-6IlJRPFHq4ZKRRa9lyh6YqHqlmddAkfyXI9CYvZpLQtg7fQvwncPHyHrmtXAHKCqHOilINPMT88eW6FTA3HwkA==
+ky@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/ky/-/ky-0.16.0.tgz#11abdc0048a1b16c0316aa198bdf6b5426d07226"
+  integrity sha512-a3mwZwG7BTKUHfSEwcwT1zcZZy/vW2LarWswSnTkV+mddtKx95PKutIQLn/v6EbZsp4mj0YNHpw5wyjw0PcsIg==
 
 last-run@^1.1.0:
   version "1.1.1"
@@ -6533,10 +6533,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lint-staged@^9.4.2:
-  version "9.4.2"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.4.2.tgz#14cb577a9512f520691f8b5aefce6a8f7ead6c04"
-  integrity sha512-OFyGokJSWTn2M6vngnlLXjaHhi8n83VIZZ5/1Z26SULRUWgR3ITWpAEQC9Pnm3MC/EpCxlwts/mQWDHNji2+zA==
+lint-staged@^9.4.3:
+  version "9.4.3"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.4.3.tgz#f55ad5f94f6e105294bfd6499b23142961f7b982"
+  integrity sha512-PejnI+rwOAmKAIO+5UuAZU9gxdej/ovSEOAY34yMfC3OS4Ac82vCBPzAWLReR9zCPOMqeVwQRaZ3bUBpAsaL2Q==
   dependencies:
     chalk "^2.4.2"
     commander "^2.20.0"
@@ -9476,10 +9476,10 @@ sass-mq@^5.0.1:
   resolved "https://registry.yarnpkg.com/sass-mq/-/sass-mq-5.0.1.tgz#42c711e657d884ff6a1bb4d405dfb6f08a7dc622"
   integrity sha512-ugSVZO5fzasSFrGfKCtY02spnkOOfo9U9sXuzCuSXoCl1CgcoqdJRdNmigZkhvRVph1GKM6o0pgI00Jjc445CA==
 
-sass@^1.23.3:
-  version "1.23.3"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.23.3.tgz#f07503b9e8d2bcf06ef69e8beea5d085589b1620"
-  integrity sha512-1DKRZxJMOh4Bme16AbWTyYeJAjTlrvw2+fWshHHaepeJfGq2soFZTnt0YhWit+bohtDu4LdyPoEj6VFD4APHog==
+sass@^1.23.6:
+  version "1.23.6"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.23.6.tgz#7cce6dbeac1b8caeb33301a817642ee2708f7d7e"
+  integrity sha512-awBvj9xrAuiS2TOCcYSUGCmaBV3UW6fVSK4oJ2LHS8IRfnRLc5EJihw90C7ZJ/skcEwFGSf9/XO5NlMiKupBCg==
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
@@ -9739,10 +9739,10 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
-simplebar@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-5.0.6.tgz#2392bc27211bb3d4f9077e521d3c00d6311fbc69"
-  integrity sha512-PAbvrH/eKon7NUTpD0ZxH+xnEeVGPaaQINJFWxJzTj6TtaN7KG80+US2HEU/xgaxaBGotqb1SmDhczaR5YuxYw==
+simplebar@^5.0.7:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-5.0.7.tgz#9c35a944a7abff1a3c4b6bc5dfb53997dc9b14ed"
+  integrity sha512-Bp/s94+3hHBXkhi8VBkuXiNHePMGLDVjMwUEJckC3uIBwLUmJbYnT6jqoETal46l+zXbEklffLRr/TtsQwjw0A==
   dependencies:
     can-use-dom "^0.1.0"
     core-js "^3.0.1"
