@@ -72,7 +72,7 @@
     "gulp-data": "^1.3.1",
     "gulp-filter": "^6.0.0",
     "gulp-gzip": "^1.4.2",
-    "gulp-htmlhint": "^2.2.1",
+    "gulp-htmlhint": "^3.0.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.2.0",
     "gulp-load-plugins": "^2.0.1",
