@@ -9,5 +9,3 @@ export { default as sprites } from './tasks/sprites'
 export { default as styles } from './tasks/styles'
 export { default as templates } from './tasks/templates'
 export { default as watch } from './tasks/watch'
-
-process.env.NODE_ENV = process.env.NODE_ENV || 'production'

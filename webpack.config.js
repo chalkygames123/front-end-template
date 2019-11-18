@@ -2,8 +2,6 @@ import upath from 'upath'
 
 import config from './config'
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'production'
-
 const isDev = process.env.NODE_ENV !== 'production'
 
 export default {
