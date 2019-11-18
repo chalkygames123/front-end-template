@@ -3,8 +3,6 @@ const postcssScss = require('postcss-scss')
 const stylelint = require('stylelint')
 const postcssReporter = require('postcss-reporter')
 
-const isDev = process.env.NODE_ENV !== 'production'
-
 module.exports = {
   syntax: postcssScss,
   plugins: [
@@ -13,8 +11,7 @@ module.exports = {
       grid: 'autoplace'
     }),
     postcssReporter({
-      clearReportedMessages: true,
-      throwError: !isDev
+      clearReportedMessages: true
     })
   ]
 }

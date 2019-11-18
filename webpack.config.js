@@ -40,6 +40,12 @@ export default {
             options: {
               cacheDirectory: true
             }
+          },
+          {
+            loader: 'eslint-loader',
+            options: {
+              cache: true
+            }
           }
         ],
         exclude: /[\\/]node_modules[\\/]/

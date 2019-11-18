@@ -7,8 +7,6 @@ import upath from 'upath'
 
 import config from '../../config'
 
-const isDev = process.env.NODE_ENV !== 'production'
-
 export default function() {
   return through2.obj((file, encoding, cb) => {
     const conflictablePath = upath.relative(
@@ -27,10 +25,8 @@ export default function() {
           )}`
         )
 
-        return isDev ? cb(null, file) : cb(new Error('A conflict detected.'))
+        return cb(new Error('A conflict detected.'))
       })
-      .catch(() => {
-        return cb(null, file)
-      })
+      .catch(() => cb(null, file))
   })
 }
