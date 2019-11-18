@@ -51,10 +51,6 @@ export default function templates(cb) {
       }),
       $.htmlhint('.htmlhintrc'),
       $.htmlhint.reporter('htmlhint-stylish'),
-      $.w3cjs({
-        showInfo: true
-      }),
-      !isDev && $.w3cjs.reporter(),
       !isDev &&
         $.htmlmin({
           collapseBooleanAttributes: true,
