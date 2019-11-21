@@ -1,5 +1,3 @@
-import stream from 'stream'
-
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import upath from 'upath'
@@ -11,12 +9,12 @@ import detectConflict from '../utils/detectConflict'
 const $ = gulpLoadPlugins()
 const isDev = process.env.NODE_ENV !== 'production'
 
-export default function sprites(cb) {
-  stream.pipeline(
-    ...[
-      gulp.src(config.get('srcPaths.sprites'), {
-        base: config.get('srcDir')
-      }),
+export default function sprites() {
+  return gulp
+    .src(config.get('srcPaths.sprites'), {
+      base: config.get('srcDir')
+    })
+    .pipe(
       $.svgSprite({
         shape: {
           id: {
@@ -60,11 +58,11 @@ export default function sprites(cb) {
             sprite: 'sprite.symbol.svg'
           }
         }
-      }),
-      detectConflict(),
-      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath'))),
-      isDev && common.server.stream()
-    ].filter(Boolean),
-    cb
-  )
+      })
+    )
+    .pipe(detectConflict())
+    .pipe(
+      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+    )
+    .pipe($.if(isDev, common.server.stream()))
 }

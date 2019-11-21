@@ -1,5 +1,3 @@
-import stream from 'stream'
-
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import upath from 'upath'
@@ -11,13 +9,13 @@ import detectConflict from '../utils/detectConflict'
 const $ = gulpLoadPlugins()
 const isDev = process.env.NODE_ENV !== 'production'
 
-export default function templates(cb) {
-  stream.pipeline(
-    ...[
-      gulp.src(config.get('srcPaths.pages'), {
-        base: upath.join(config.get('srcDir'), config.get('dir.pages'))
-      }),
-      $.filter(`**/!(-)*${config.get('ext.templates')}`),
+export default function templates() {
+  return gulp
+    .src(config.get('srcPaths.pages'), {
+      base: upath.join(config.get('srcDir'), config.get('dir.pages'))
+    })
+    .pipe($.filter(`**/!(-)*${config.get('ext.templates')}`))
+    .pipe(
       $.data(file => ({
         site: config.getProperties().site,
         page: {
@@ -35,7 +33,9 @@ export default function templates(cb) {
           ),
           relative: upath.changeExt(file.relative, '.html')
         }
-      })),
+      }))
+    )
+    .pipe(
       $.nunjucksRender({
         path: config.get('srcDir'),
         manageEnv: env => {
@@ -48,10 +48,13 @@ export default function templates(cb) {
             return upath.trimExt(path)
           })
         }
-      }),
-      $.htmlhint('.htmlhintrc'),
-      $.htmlhint.reporter('htmlhint-stylish'),
-      !isDev &&
+      })
+    )
+    .pipe($.htmlhint('.htmlhintrc'))
+    .pipe($.htmlhint.reporter('htmlhint-stylish'))
+    .pipe(
+      $.if(
+        !isDev,
         $.htmlmin({
           collapseBooleanAttributes: true,
           collapseWhitespace: true,
@@ -66,21 +69,13 @@ export default function templates(cb) {
           removeStyleLinkTypeAttributes: true,
           trimCustomFragments: true,
           useShortDoctype: true
-        }),
-      detectConflict(),
-      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath'))),
-      ...(config.get('gzip') && !isDev
-        ? [
-            $.gzip(),
-            detectConflict(),
-            gulp.dest(
-              upath.join(config.get('distDir'), config.get('site.basePath'))
-            )
-          ]
-        : []
-      ).filter(Boolean),
-      isDev && common.server.stream()
-    ].filter(Boolean),
-    cb
-  )
+        })
+      )
+    )
+    .pipe(detectConflict())
+    .pipe(
+      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+    )
+    .pipe($.if(config.get('gzip') && !isDev, common.gzipChannel()))
+    .pipe($.if(isDev, common.server.stream()))
 }

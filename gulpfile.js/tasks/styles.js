@@ -1,5 +1,3 @@
-import stream from 'stream'
-
 import Fiber from 'fibers'
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
@@ -15,44 +13,47 @@ const isDev = process.env.NODE_ENV !== 'production'
 
 $.sass.compiler = sass
 
-export default function styles(cb) {
-  stream.pipeline(
-    ...[
-      gulp.src(config.get('srcPaths.styles'), {
-        base: config.get('srcDir')
-      }),
-      isDev && $.sourcemaps.init(),
-      $.postcss(),
+export default function styles() {
+  return gulp
+    .src(config.get('srcPaths.styles'), {
+      base: config.get('srcDir')
+    })
+    .pipe($.if(isDev, $.sourcemaps.init()))
+    .pipe($.postcss())
+    .pipe(
       $.sass({
         fiber: Fiber
-      }),
-      isDev &&
+      })
+    )
+    .pipe(
+      $.if(
+        isDev,
         $.sourcemaps.write({
           sourceRoot: `/${config.get('srcDir')}`
-        }),
-      !isDev &&
+        })
+      )
+    )
+    .pipe(
+      $.if(
+        !isDev,
         $.csso({
           forceMediaMerge: true
-        }),
-      !isDev &&
+        })
+      )
+    )
+    .pipe(
+      $.if(
+        !isDev,
         $.cleanCss({
           level: 2,
           rebase: false
-        }),
-      detectConflict(),
-      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath'))),
-      ...(config.get('gzip') && !isDev
-        ? [
-            $.gzip(),
-            detectConflict(),
-            gulp.dest(
-              upath.join(config.get('distDir'), config.get('site.basePath'))
-            )
-          ]
-        : []
-      ).filter(Boolean),
-      isDev && common.server.stream()
-    ].filter(Boolean),
-    cb
-  )
+        })
+      )
+    )
+    .pipe(detectConflict())
+    .pipe(
+      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+    )
+    .pipe($.if(config.get('gzip') && !isDev, common.gzipChannel()))
+    .pipe($.if(isDev, common.server.stream()))
 }
