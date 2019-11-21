@@ -9,7 +9,7 @@ import config from '../../config'
 import detectConflict from '../utils/detectConflict'
 
 const $ = gulpLoadPlugins()
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = config.get('mode') !== 'production'
 
 $.sass.compiler = sass
 

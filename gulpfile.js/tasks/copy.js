@@ -6,7 +6,7 @@ import common from '../common'
 import config from '../../config'
 
 const $ = gulpLoadPlugins()
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = config.get('mode') !== 'production'
 
 export default function copy() {
   return gulp

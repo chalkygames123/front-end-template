@@ -14,6 +14,12 @@ convict.addFormat({
 })
 
 const schema = {
+  mode: {
+    doc: 'The mode of the build.',
+    format: ['production', 'development'],
+    default: 'production',
+    arg: 'mode'
+  },
   srcDir: {
     doc: 'The source directory.',
     format: String,

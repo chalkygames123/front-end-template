@@ -2,10 +2,10 @@ import upath from 'upath'
 
 import config from './config'
 
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = config.get('mode') !== 'production'
 
 export default {
-  mode: process.env.NODE_ENV,
+  mode: config.get('mode'),
   output: {
     devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource]?[loaders]'
   },

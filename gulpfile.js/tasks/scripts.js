@@ -11,7 +11,7 @@ import detectConflict from '../utils/detectConflict'
 import webpackConfig from '../../webpack.config'
 
 const $ = gulpLoadPlugins()
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = config.get('mode') !== 'production'
 
 export default function scripts() {
   return gulp
