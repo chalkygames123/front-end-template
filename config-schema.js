@@ -33,7 +33,7 @@ const schema = {
   gzip: {
     doc: 'Whether to enable gzip compression.',
     format: Boolean,
-    default: true
+    default: false
   },
   webp: {
     doc: 'Whether to enable WebP compression.',
