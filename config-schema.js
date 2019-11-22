@@ -23,27 +23,32 @@ const schema = {
   srcDir: {
     doc: 'The source directory.',
     format: String,
-    default: '.'
+    default: '.',
+    arg: 'src-dir'
   },
   distDir: {
     doc: 'The dist directory.',
     format: String,
-    default: 'dist'
+    default: 'dist',
+    arg: 'dist-dir'
   },
   gzip: {
     doc: 'Whether to enable gzip compression.',
     format: Boolean,
-    default: false
+    default: false,
+    arg: 'gzip'
   },
   webp: {
     doc: 'Whether to enable WebP compression.',
     format: Boolean,
-    default: false
+    default: false,
+    arg: 'webp'
   },
   https: {
     doc: 'Whether to enable HTTPS.',
     format: Boolean,
-    default: false
+    default: false,
+    arg: 'https'
   },
   site: {
     name: {
