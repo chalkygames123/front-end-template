@@ -25,7 +25,7 @@ export default function() {
           )}`
         )
 
-        return cb(new Error('A conflict detected.'))
+        return cb(new Error('Conflict detected.'))
       })
       .catch(() => cb(null, file))
   })

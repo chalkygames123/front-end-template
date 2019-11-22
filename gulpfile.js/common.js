@@ -10,13 +10,13 @@ import detectConflict from './utils/detectConflict'
 const $ = gulpLoadPlugins()
 
 const common = {
-  server: browserSync.create(),
   gzipChannel: lazypipe()
     .pipe($.gzip)
     .pipe(detectConflict)
     .pipe(() =>
       gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
-    )
+    ),
+  server: browserSync.create()
 }
 
 export default common
