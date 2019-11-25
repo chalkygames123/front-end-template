@@ -6,8 +6,8 @@ import imageminWebp from 'imagemin-webp'
 import lazypipe from 'lazypipe'
 import upath from 'upath'
 
-import common from '../common'
 import config from '../../config'
+import common from '../common'
 import detectConflict from '../utils/detectConflict'
 
 const $ = gulpLoadPlugins()

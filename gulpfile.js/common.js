@@ -5,6 +5,7 @@ import lazypipe from 'lazypipe'
 import upath from 'upath'
 
 import config from '../config'
+
 import detectConflict from './utils/detectConflict'
 
 const $ = gulpLoadPlugins()

@@ -4,6 +4,23 @@ module.exports = {
     browser: true
   },
   extends: ['airbnb-base', 'plugin:prettier/recommended'],
+  rules: {
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'unknown',
+          'parent',
+          'sibling',
+          'index'
+        ],
+        'newlines-between': 'always'
+      }
+    ]
+  },
   overrides: [
     {
       files: [

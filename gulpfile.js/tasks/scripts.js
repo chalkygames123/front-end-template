@@ -5,10 +5,10 @@ import vinylNamed from 'vinyl-named'
 import webpack from 'webpack'
 import webpackStream from 'webpack-stream'
 
-import common from '../common'
 import config from '../../config'
-import detectConflict from '../utils/detectConflict'
 import webpackConfig from '../../webpack.config'
+import common from '../common'
+import detectConflict from '../utils/detectConflict'
 
 const $ = gulpLoadPlugins()
 const isDev = config.get('mode') !== 'production'

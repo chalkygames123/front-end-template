@@ -4,8 +4,8 @@ import gulpLoadPlugins from 'gulp-load-plugins'
 import sass from 'sass'
 import upath from 'upath'
 
-import common from '../common'
 import config from '../../config'
+import common from '../common'
 import detectConflict from '../utils/detectConflict'
 
 const $ = gulpLoadPlugins()
