@@ -3,17 +3,15 @@
 {% set page = page | setprop('title', 'Page Title') %}
 {% set page = page | setprop('description', 'Page Description') %}
 
-{% block headBeforeEnd %}
+{% block styles %}
   {{ super() }}
-  <link rel="stylesheet" href="/assets/styles/pages/common/style.css">
   <link rel="stylesheet" href="/assets/styles/pages/index/style.css">
 {% endblock %}
 
-{% block content %}
+{% block scripts %}
+  {{ super() }}
+  <script src="/assets/scripts/pages/index.js" async></script>
 {% endblock %}
 
-{% block bodyBeforeEnd %}
-  {{ super() }}
-  <script src="/assets/scripts/pages/common.js" defer></script>
-  <script src="/assets/scripts/pages/index.js" defer></script>
+{% block content %}
 {% endblock %}
