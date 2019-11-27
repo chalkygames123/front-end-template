@@ -14,6 +14,7 @@ export default {
       cacheGroups: {
         vendors: {
           chunks: 'all',
+          minSize: 0,
           name: upath.join(
             config.get('dir.assets'),
             config.get('dir.scripts'),
