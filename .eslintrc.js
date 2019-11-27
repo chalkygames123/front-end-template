@@ -3,7 +3,11 @@ module.exports = {
   env: {
     browser: true
   },
-  extends: ['airbnb-base', 'plugin:prettier/recommended'],
+  extends: [
+    'airbnb-base',
+    'plugin:eslint-comments/recommended',
+    'plugin:prettier/recommended'
+  ],
   rules: {
     'import/order': [
       'error',
