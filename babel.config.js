@@ -1,4 +1,4 @@
-export default api => {
+module.exports = api => {
   api.cache.forever()
 
   return {
