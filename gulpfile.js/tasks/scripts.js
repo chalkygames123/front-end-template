@@ -18,7 +18,13 @@ export default function scripts() {
     .src(config.get('srcPaths.scripts'), {
       base: config.get('srcDir')
     })
-    .pipe($.filter(`**/!(_)*${config.get('ext.scripts')}`))
+    .pipe(
+      $.filter(
+        `${config.get('dir.assets')}/${config.get('dir.scripts')}/${config.get(
+          'dir.pages'
+        )}/**/!(_)*`
+      )
+    )
     .pipe(
       vinylNamed(file => {
         return upath.toUnix(upath.trimExt(file.relative))

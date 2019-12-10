@@ -14,7 +14,7 @@ export default function templates() {
     .src(config.get('srcPaths.pages'), {
       base: upath.join(config.get('srcDir'), config.get('dir.pages'))
     })
-    .pipe($.filter(`**/!(-)*${config.get('ext.templates')}`))
+    .pipe($.filter('**/!(-)*'))
     .pipe(
       $.data(file => ({
         site: config.getProperties().site,
