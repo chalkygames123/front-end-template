@@ -59,8 +59,9 @@ export default function images() {
           }),
           $.imagemin.svgo({
             plugins: [
-              { removeUselessDefs: false },
               { removeViewBox: false },
+              { removeUnknownsAndDefaults: false },
+              { removeUselessDefs: false },
               { cleanupIDs: false }
             ]
           })

@@ -41,8 +41,9 @@ export default function sprites() {
             !isDev && {
               svgo: {
                 plugins: [
-                  { removeUselessDefs: false },
                   { removeViewBox: false },
+                  { removeUnknownsAndDefaults: false },
+                  { removeUselessDefs: false },
                   { cleanupIDs: false }
                 ]
               }
