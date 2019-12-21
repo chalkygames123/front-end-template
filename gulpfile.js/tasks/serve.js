@@ -11,7 +11,10 @@ export default function serve() {
       key: 'localhost-key.pem',
       cert: 'localhost.pem'
     },
+    ghostMode: false,
     online: false,
+    open: false,
+    notify: false,
     startPath: config.get('site.basePath')
   })
 }
