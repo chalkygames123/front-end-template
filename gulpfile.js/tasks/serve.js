@@ -1,9 +1,11 @@
+import browserSync from 'browser-sync'
+
 import config from '../../config'
-import common from '../common'
 
 export default function serve() {
-  common.server.init({
+  browserSync.create().init({
     ui: false,
+    files: config.get('distDir'),
     server: config.get('distDir'),
     https: config.get('https') && {
       key: 'localhost-key.pem',

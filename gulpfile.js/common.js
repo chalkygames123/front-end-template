@@ -1,6 +1,5 @@
 import path from 'path'
 
-import browserSync from 'browser-sync'
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import lazypipe from 'lazypipe'
@@ -17,8 +16,7 @@ const common = {
     .pipe(detectConflict)
     .pipe(() =>
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
-    ),
-  server: browserSync.create()
+    )
 }
 
 export default common

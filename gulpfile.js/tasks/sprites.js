@@ -4,7 +4,6 @@ import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 
 import config from '../../config'
-import common from '../common'
 import detectConflict from '../utils/detectConflict'
 
 const $ = gulpLoadPlugins()
@@ -63,5 +62,4 @@ export default function sprites() {
     .pipe(
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
-    .pipe($.if(isDev, common.server.stream()))
 }

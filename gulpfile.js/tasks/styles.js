@@ -56,5 +56,4 @@ export default function styles() {
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe($.if(config.get('gzip') && !isDev, common.gzipChannel()))
-    .pipe($.if(isDev, common.server.stream()))
 }

@@ -8,7 +8,6 @@ import imageminWebp from 'imagemin-webp'
 import lazypipe from 'lazypipe'
 
 import config from '../../config'
-import common from '../common'
 import detectConflict from '../utils/detectConflict'
 
 const $ = gulpLoadPlugins()
@@ -72,5 +71,4 @@ export default function images() {
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe($.if(config.get('webp'), webpChannel()))
-    .pipe($.if(isDev, common.server.stream()))
 }

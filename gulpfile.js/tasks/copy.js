@@ -4,7 +4,6 @@ import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 
 import config from '../../config'
-import common from '../common'
 
 const $ = gulpLoadPlugins()
 const isDev = config.get('mode') !== 'production'
@@ -25,5 +24,4 @@ export default function copy() {
     .pipe(
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
-    .pipe($.if(isDev, common.server.stream()))
 }
