@@ -3,10 +3,10 @@
   <head prefix="og: http://ogp.me/ns#">
     <meta charset="UTF-8">
 
-    <title>{{ page.title + ' - ' + site.name if page.title else site.name }}</title>
+    <title>{{ page.name + ' - ' + site.name if page.name else site.name }}</title>
     <meta name="description" content="{{ page.description }}">
 
-    <meta property="og:title" content="{{ page.title | default(site.name) }}">
+    <meta property="og:title" content="{{ page.name | default(site.name) }}">
     <meta property="og:type" content="{{ page.ogType | default('website') }}">
     <meta property="og:image" content="{{ site.origin }}{{ site.basePath }}assets/images/ogp.jpg">
     <meta property="og:url" content="{{ site.origin }}{{ page.path }}">
