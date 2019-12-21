@@ -44,9 +44,6 @@ export default function templates() {
             newObject[key] = value
             return newObject
           })
-          env.addFilter('trimext', path => {
-            return upath.trimExt(path)
-          })
         }
       })
     )
