@@ -1,3 +1,5 @@
+import path from 'path'
+
 import browserSync from 'browser-sync'
 
 import config from '../../config'
@@ -15,6 +17,6 @@ export default function serve() {
     online: false,
     open: false,
     notify: false,
-    startPath: config.get('site.basePath')
+    startPath: path.join(config.get('site.basePath'), config.get('index'))
   })
 }

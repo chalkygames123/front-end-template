@@ -51,6 +51,11 @@ const schema = {
     default: false,
     arg: 'https'
   },
+  index: {
+    doc: 'The index path for web server',
+    format: String,
+    default: 'index.html'
+  },
   site: {
     name: {
       doc: 'The site name.',
