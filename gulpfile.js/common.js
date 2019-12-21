@@ -1,8 +1,9 @@
+import path from 'path'
+
 import browserSync from 'browser-sync'
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import lazypipe from 'lazypipe'
-import upath from 'upath'
 
 import config from '../config'
 
@@ -15,7 +16,7 @@ const common = {
     .pipe($.gzip)
     .pipe(detectConflict)
     .pipe(() =>
-      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+      gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     ),
   server: browserSync.create()
 }

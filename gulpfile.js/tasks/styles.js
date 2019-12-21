@@ -1,8 +1,9 @@
+import path from 'path'
+
 import Fiber from 'fibers'
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import sass from 'sass'
-import upath from 'upath'
 
 import config from '../../config'
 import common from '../common'
@@ -52,7 +53,7 @@ export default function styles() {
     )
     .pipe(detectConflict())
     .pipe(
-      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+      gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe($.if(config.get('gzip') && !isDev, common.gzipChannel()))
     .pipe($.if(isDev, common.server.stream()))

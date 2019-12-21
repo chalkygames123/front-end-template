@@ -1,6 +1,7 @@
+import path from 'path'
+
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
-import upath from 'upath'
 
 import config from '../../config'
 import common from '../common'
@@ -19,8 +20,8 @@ export default function sprites() {
         shape: {
           id: {
             generator(name) {
-              const destRelativeName = upath.relative(
-                upath.join(
+              const destRelativeName = path.relative(
+                path.join(
                   config.get('dir.assets'),
                   config.get('dir.images'),
                   config.get('dir.sprites')
@@ -28,10 +29,10 @@ export default function sprites() {
                 name
               )
               const directorySeparatedName = destRelativeName
-                .split(upath.sep)
+                .split(path.sep)
                 .join(this.separator)
 
-              return upath.basename(
+              return path.basename(
                 directorySeparatedName.replace(/\s+/g, this.whitespace),
                 config.get('ext.sprites')
               )
@@ -52,10 +53,7 @@ export default function sprites() {
         },
         mode: {
           symbol: {
-            dest: upath.join(
-              config.get('dir.assets'),
-              config.get('dir.images')
-            ),
+            dest: path.join(config.get('dir.assets'), config.get('dir.images')),
             sprite: 'sprite.symbol.svg'
           }
         }
@@ -63,7 +61,7 @@ export default function sprites() {
     )
     .pipe(detectConflict())
     .pipe(
-      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+      gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe($.if(isDev, common.server.stream()))
 }

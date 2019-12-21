@@ -1,10 +1,11 @@
+import path from 'path'
+
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import imageminMozjpeg from 'imagemin-mozjpeg'
 import imageminPngquant from 'imagemin-pngquant'
 import imageminWebp from 'imagemin-webp'
 import lazypipe from 'lazypipe'
-import upath from 'upath'
 
 import config from '../../config'
 import common from '../common'
@@ -32,7 +33,7 @@ const webpChannel = lazypipe()
   )
   .pipe(detectConflict)
   .pipe(() =>
-    gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+    gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
   )
 
 export default function images() {
@@ -43,9 +44,7 @@ export default function images() {
     .pipe(
       $.if(
         isDev,
-        $.changed(
-          upath.join(config.get('distDir'), config.get('site.basePath'))
-        )
+        $.changed(path.join(config.get('distDir'), config.get('site.basePath')))
       )
     )
     .pipe(
@@ -70,7 +69,7 @@ export default function images() {
     )
     .pipe(detectConflict())
     .pipe(
-      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+      gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe($.if(config.get('webp'), webpChannel()))
     .pipe($.if(isDev, common.server.stream()))

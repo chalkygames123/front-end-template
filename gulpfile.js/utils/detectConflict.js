@@ -1,17 +1,17 @@
 import fs from 'fs'
+import path from 'path'
 
 import chalk from 'chalk'
 import fancyLog from 'fancy-log'
 import through2 from 'through2'
-import upath from 'upath'
 
 import config from '../../config'
 
 export default function() {
   return through2.obj((file, encoding, cb) => {
-    const conflictablePath = upath.relative(
+    const conflictablePath = path.relative(
       '',
-      upath.join(config.get('srcDir'), config.get('dir.static'), file.relative)
+      path.join(config.get('srcDir'), config.get('dir.static'), file.relative)
     )
 
     fs.promises
@@ -20,7 +20,7 @@ export default function() {
         fancyLog.error(
           `${chalk.red(
             `Error: The following files are conflicted: ${chalk.magenta(
-              `${upath.relative('', file.history[0])}, ${conflictablePath}`
+              `${path.relative('', file.history[0])}, ${conflictablePath}`
             )}`
           )}`
         )

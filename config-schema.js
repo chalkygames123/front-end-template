@@ -1,5 +1,6 @@
+import path from 'path'
+
 import convict from 'convict'
-import upath from 'upath'
 
 convict.addFormat({
   name: 'globs',
@@ -204,42 +205,42 @@ config.validate({
 config.load({
   srcPaths: {
     copy: [
-      upath.join(config.get('srcDir'), config.get('dir.static'), '**'),
+      path.join(config.get('srcDir'), config.get('dir.static'), '**'),
       '!**/.gitkeep'
     ],
-    images: upath.join(
+    images: path.join(
       config.get('srcDir'),
       config.get('dir.assets'),
       config.get('dir.images'),
       '**',
       `*${config.get('ext.images')}`
     ),
-    includes: upath.join(
+    includes: path.join(
       config.get('srcDir'),
       config.get('dir.includes'),
       '**',
       `*${config.get('ext.templates')}`
     ),
-    layouts: upath.join(
+    layouts: path.join(
       config.get('srcDir'),
       config.get('dir.layouts'),
       '**',
       `*${config.get('ext.templates')}`
     ),
-    pages: upath.join(
+    pages: path.join(
       config.get('srcDir'),
       config.get('dir.pages'),
       '**',
       `*${config.get('ext.templates')}`
     ),
-    scripts: upath.join(
+    scripts: path.join(
       config.get('srcDir'),
       config.get('dir.assets'),
       config.get('dir.scripts'),
       '**',
       `*${config.get('ext.scripts')}`
     ),
-    sprites: upath.join(
+    sprites: path.join(
       config.get('srcDir'),
       config.get('dir.assets'),
       config.get('dir.images'),
@@ -247,7 +248,7 @@ config.load({
       '**',
       `*${config.get('ext.sprites')}`
     ),
-    styles: upath.join(
+    styles: path.join(
       config.get('srcDir'),
       config.get('dir.assets'),
       config.get('dir.styles'),

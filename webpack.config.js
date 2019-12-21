@@ -1,4 +1,4 @@
-import upath from 'upath'
+import path from 'path'
 
 import config from './config'
 
@@ -15,7 +15,7 @@ export default {
         vendors: {
           chunks: 'all',
           minSize: 0,
-          name: upath.join(
+          name: path.join(
             config.get('dir.assets'),
             config.get('dir.scripts'),
             'vendors'
@@ -25,7 +25,7 @@ export default {
       }
     },
     runtimeChunk: {
-      name: upath.join(
+      name: path.join(
         config.get('dir.assets'),
         config.get('dir.scripts'),
         'runtime'

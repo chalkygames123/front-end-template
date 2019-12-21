@@ -1,6 +1,7 @@
+import path from 'path'
+
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
-import upath from 'upath'
 import vinylNamed from 'vinyl-named'
 import webpack from 'webpack'
 import webpackStream from 'webpack-stream'
@@ -27,13 +28,13 @@ export default function scripts() {
     )
     .pipe(
       vinylNamed(file => {
-        return upath.toUnix(upath.trimExt(file.relative))
+        return file.relative.replace(/\.[^.]+$/, '')
       })
     )
     .pipe(webpackStream(webpackConfig, webpack))
     .pipe(detectConflict())
     .pipe(
-      gulp.dest(upath.join(config.get('distDir'), config.get('site.basePath')))
+      gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe($.if(config.get('gzip') && !isDev, common.gzipChannel()))
     .pipe($.if(isDev, common.server.stream()))
