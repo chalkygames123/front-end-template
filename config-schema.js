@@ -54,7 +54,7 @@ const schema = {
   index: {
     doc: 'The index path for web server',
     format: String,
-    default: 'index.html'
+    default: ''
   },
   site: {
     name: {
