@@ -1,6 +1,6 @@
-import path from 'path'
+const path = require('path')
 
-import convict from 'convict'
+const convict = require('convict')
 
 convict.addFormat({
   name: 'globs',
@@ -267,4 +267,4 @@ config.validate({
   allowed: 'strict'
 })
 
-export default config
+module.exports = config
