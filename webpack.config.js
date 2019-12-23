@@ -1,13 +1,48 @@
-import path from 'path'
+const path = require('path')
 
-import config from './config'
+const glob = require('glob')
+const CompressionPlugin = require('compression-webpack-plugin')
+
+const config = require('./config')
 
 const isDev = config.get('mode') !== 'production'
 
-export default {
+/**
+ * @type import('webpack').Configuration
+ */
+module.exports = {
   mode: config.get('mode'),
+  entry() {
+    return Object.fromEntries(
+      glob
+        .sync(config.get('srcPaths.scripts'))
+        .map(file => [
+          path
+            .relative(
+              path.join(
+                config.get('srcDir'),
+                config.get('dir.assets'),
+                config.get('dir.scripts')
+              ),
+              file
+            )
+            .replace(/\.[^.]+$/, ''),
+          `./${file}`
+        ])
+    )
+  },
   output: {
-    devtoolModuleFilenameTemplate: 'webpack://[namespace]/[resource]?[loaders]'
+    path: path.resolve(
+      __dirname,
+      config.get('distDir'),
+      config.get('dir.assets'),
+      config.get('dir.scripts')
+    ),
+    publicPath: path.join(
+      config.get('site.basePath'),
+      config.get('dir.assets'),
+      config.get('dir.scripts')
+    )
   },
   optimization: {
     splitChunks: {
@@ -15,26 +50,24 @@ export default {
         vendors: {
           chunks: 'all',
           minSize: 0,
-          name: path.join(
-            config.get('dir.assets'),
-            config.get('dir.scripts'),
-            'vendors'
-          ),
+          name: 'vendors',
           test: /[\\/]node_modules[\\/]/
         }
       }
     },
-    runtimeChunk: {
-      name: path.join(
-        config.get('dir.assets'),
-        config.get('dir.scripts'),
-        'runtime'
-      )
-    }
+    runtimeChunk: 'single'
   },
   module: {
     rules: [
       {
+        test: /\.js$/,
+        include: [
+          path.resolve(
+            __dirname,
+            config.get('dir.assets'),
+            config.get('dir.scripts')
+          )
+        ],
         use: [
           {
             loader: 'babel-loader',
@@ -48,10 +81,17 @@ export default {
               cache: true
             }
           }
-        ],
-        exclude: /[\\/]node_modules[\\/]/
+        ]
       }
     ]
   },
-  devtool: isDev ? 'eval-source-map' : false
+  devtool: isDev ? 'eval-source-map' : false,
+  context: __dirname,
+  plugins: [
+    config.get('gzip') &&
+      !isDev &&
+      new CompressionPlugin({
+        minRatio: 1
+      })
+  ].filter(Boolean)
 }

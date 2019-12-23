@@ -243,7 +243,7 @@ config.load({
       config.get('dir.assets'),
       config.get('dir.scripts'),
       '**',
-      `*${config.get('ext.scripts')}`
+      `!(_)*${config.get('ext.scripts')}`
     ),
     sprites: path.join(
       config.get('srcDir'),
