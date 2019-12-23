@@ -55,7 +55,7 @@ $ yarn lint-fix:styles
 $ yarn lint-fix:scripts
 
 # check if all .json and .md files are formatted
-$ yarn check-format
+$ yarn format-check
 
 # format all .json and .md files
 $ yarn format
