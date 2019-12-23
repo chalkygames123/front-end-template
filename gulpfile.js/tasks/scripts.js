@@ -1,10 +1,7 @@
-import webpack from 'webpack'
-
 import config from '../../config'
-import webpackConfig from '../../webpack.config'
+import common from '../common'
 
 const isDev = config.get('mode') !== 'production'
-const compiler = webpack(webpackConfig)
 const handler = cb => (err, stats) => {
   // eslint-disable-next-line no-console
   console.log(
@@ -18,8 +15,8 @@ const handler = cb => (err, stats) => {
 
 export default function scripts(cb) {
   if (isDev) {
-    compiler.watch({}, handler(cb))
+    common.webpackCompiler.watch({}, handler(cb))
   } else {
-    compiler.run(handler(cb))
+    common.webpackCompiler.run(handler(cb))
   }
 }

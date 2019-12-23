@@ -1,6 +1,7 @@
 import gulp from 'gulp'
 
 import config from '../../config'
+import common from '../common'
 
 import copy from './copy'
 import images from './images'
@@ -16,6 +17,17 @@ export default function watch(cb) {
   gulp.watch(config.get('srcPaths.pages'), templates)
   gulp.watch(config.get('srcPaths.sprites'), sprites)
   gulp.watch(config.get('srcPaths.styles'), styles)
+
+  if (!common.webpackCompiler.running) {
+    common.webpackCompiler.watch({}, (err, stats) => {
+      // eslint-disable-next-line no-console
+      console.log(
+        stats.toString({
+          colors: true
+        })
+      )
+    })
+  }
 
   cb()
 }
