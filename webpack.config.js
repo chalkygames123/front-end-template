@@ -1,7 +1,7 @@
 const path = require('path')
 
-const glob = require('glob')
 const CompressionPlugin = require('compression-webpack-plugin')
+const globby = require('globby')
 
 const config = require('./config')
 
@@ -13,10 +13,9 @@ const isDev = config.get('mode') !== 'production'
 module.exports = {
   mode: config.get('mode'),
   entry() {
-    return Object.fromEntries(
-      glob
-        .sync(config.get('srcPaths.scripts'))
-        .map(file => [
+    return globby(config.get('srcPaths.scripts')).then(files =>
+      Object.fromEntries(
+        files.map(file => [
           path
             .relative(
               path.join(
@@ -29,6 +28,7 @@ module.exports = {
             .replace(/\.[^.]+$/, ''),
           `./${file}`
         ])
+      )
     )
   },
   output: {
