@@ -236,7 +236,7 @@ config.load({
       config.get('srcDir'),
       config.get('dir.pages'),
       '**',
-      `!(-)*${config.get('ext.templates')}`
+      `*${config.get('ext.templates')}`
     ),
     scripts: path.join(
       config.get('srcDir'),
