@@ -3,7 +3,10 @@ import path from 'path'
 import Fiber from 'fibers'
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
+import postcssReporter from 'postcss-reporter'
+import postcssScss from 'postcss-scss'
 import sass from 'sass'
+import stylelint from 'stylelint'
 
 import config from '../../config'
 import common from '../common'
@@ -20,12 +23,25 @@ export default function styles() {
       base: config.get('srcDir')
     })
     .pipe($.if(isDev, $.sourcemaps.init()))
-    .pipe($.postcss())
+    .pipe(
+      $.postcss(
+        [
+          stylelint(),
+          postcssReporter({
+            clearReportedMessages: true
+          })
+        ],
+        {
+          syntax: postcssScss
+        }
+      )
+    )
     .pipe(
       $.sass({
         fiber: Fiber
       })
     )
+    .pipe($.postcss())
     .pipe(
       $.if(
         isDev,
