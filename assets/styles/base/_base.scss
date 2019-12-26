@@ -21,7 +21,7 @@ html {
 
   &[data-whatinput='mouse'],
   &[data-whatinput='touch'] {
-    :not(button):not(input):not(select):not(textarea):focus {
+    :focus {
       outline: none;
     }
   }
@@ -45,6 +45,14 @@ ul {
 a {
   color: currentColor;
   text-decoration: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  line-height: normal;
 }
 
 audio,
