@@ -28,7 +28,7 @@ module.exports = {
       }
     ],
     'shorthand-property-no-redundant-values': true,
-    // 'unicode-bom': 'never',
+    'unicode-bom': 'never',
     'order/order': [
       [
         'custom-properties',
