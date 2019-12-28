@@ -23,16 +23,14 @@
     <link rel="icon" href="{{ site.basePath }}favicon.ico">
     {% endif %}
 
+    {% include 'includes/styles.njk' %}
+
     {% block styles %}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap">
-    <link rel="stylesheet" href="/assets/styles/main.css">
-    <link rel="stylesheet" href="/assets/styles/pages/common/style.css">
     {% endblock %}
 
+    {% include 'includes/scripts.njk' %}
+
     {% block scripts %}
-    <script src="/assets/scripts/runtime.js" defer></script>
-    <script src="/assets/scripts/vendors.js" defer></script>
-    <script src="/assets/scripts/pages/common.js" defer></script>
     {% endblock %}
   </head>
 
