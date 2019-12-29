@@ -1,23 +1,26 @@
 import path from 'path'
 
 import gulp from 'gulp'
-import gulpLoadPlugins from 'gulp-load-plugins'
+import gulpData from 'gulp-data'
+import gulpFilter from 'gulp-filter'
+import gulpHtmlhint from 'gulp-htmlhint'
+import gulpHtmlmin from 'gulp-htmlmin'
+import gulpIf from 'gulp-if'
+import gulpNunjucksRender from 'gulp-nunjucks-render'
 
 import config from '../../config'
 import common from '../common'
 import detectConflict from '../utils/detectConflict'
 
-const $ = gulpLoadPlugins()
 const isDev = config.get('mode') !== 'production'
-
 export default function templates() {
   return gulp
     .src(config.get('srcPaths.pages'), {
       base: path.join(config.get('srcDir'), config.get('dir.pages'))
     })
-    .pipe($.filter('**/!(-)*'))
+    .pipe(gulpFilter('**/!(-)*'))
     .pipe(
-      $.data(file => ({
+      gulpData(file => ({
         site: config.getProperties().site,
         page: {
           path: path
@@ -37,7 +40,7 @@ export default function templates() {
       }))
     )
     .pipe(
-      $.nunjucksRender({
+      gulpNunjucksRender({
         path: config.get('srcDir'),
         manageEnv: env => {
           env.addFilter('setprop', (object, key, value) => {
@@ -48,12 +51,12 @@ export default function templates() {
         }
       })
     )
-    .pipe($.htmlhint('.htmlhintrc'))
-    .pipe($.htmlhint.reporter('htmlhint-stylish'))
+    .pipe(gulpHtmlhint('.htmlhintrc'))
+    .pipe(gulpHtmlhint.reporter('htmlhint-stylish'))
     .pipe(
-      $.if(
+      gulpIf(
         !isDev,
-        $.htmlmin({
+        gulpHtmlmin({
           collapseBooleanAttributes: true,
           collapseWhitespace: true,
           decodeEntities: true,
@@ -74,5 +77,5 @@ export default function templates() {
     .pipe(
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
-    .pipe($.if(config.get('gzip') && !isDev, common.gzipChannel()))
+    .pipe(gulpIf(config.get('gzip') && !isDev, common.gzipChannel()))
 }

@@ -1,11 +1,11 @@
 import path from 'path'
 
 import gulp from 'gulp'
-import gulpLoadPlugins from 'gulp-load-plugins'
+import gulpChanged from 'gulp-changed'
+import gulpIf from 'gulp-if'
 
 import config from '../../config'
 
-const $ = gulpLoadPlugins()
 const isDev = config.get('mode') !== 'production'
 
 export default function copy() {
@@ -16,9 +16,11 @@ export default function copy() {
       nodir: true
     })
     .pipe(
-      $.if(
+      gulpIf(
         isDev,
-        $.changed(path.join(config.get('distDir'), config.get('site.basePath')))
+        gulpChanged(
+          path.join(config.get('distDir'), config.get('site.basePath'))
+        )
       )
     )
     .pipe(

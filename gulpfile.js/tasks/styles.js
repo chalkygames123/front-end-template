@@ -2,26 +2,31 @@ import path from 'path'
 
 import Fiber from 'fibers'
 import gulp from 'gulp'
-import gulpLoadPlugins from 'gulp-load-plugins'
+import gulpCleanCss from 'gulp-clean-css'
+import gulpCsso from 'gulp-csso'
+import gulpIf from 'gulp-if'
+import gulpPostcss from 'gulp-postcss'
+import gulpSass from 'gulp-sass'
+import gulpSourcemaps from 'gulp-sourcemaps'
+import gulpStylelint from 'gulp-stylelint'
 import sass from 'sass'
 
 import config from '../../config'
 import common from '../common'
 import detectConflict from '../utils/detectConflict'
 
-const $ = gulpLoadPlugins()
 const isDev = config.get('mode') !== 'production'
 
-$.sass.compiler = sass
+gulpSass.compiler = sass
 
 export default function styles() {
   return gulp
     .src(config.get('srcPaths.styles'), {
       base: config.get('srcDir')
     })
-    .pipe($.if(isDev, $.sourcemaps.init()))
+    .pipe(gulpIf(isDev, gulpSourcemaps.init()))
     .pipe(
-      $.stylelint({
+      gulpStylelint({
         reporters: [
           {
             formatter: 'string',
@@ -31,31 +36,31 @@ export default function styles() {
       })
     )
     .pipe(
-      $.sass({
+      gulpSass({
         fiber: Fiber
       })
     )
-    .pipe($.postcss())
+    .pipe(gulpPostcss())
     .pipe(
-      $.if(
+      gulpIf(
         isDev,
-        $.sourcemaps.write({
+        gulpSourcemaps.write({
           sourceRoot: `/${config.get('srcDir')}`
         })
       )
     )
     .pipe(
-      $.if(
+      gulpIf(
         !isDev,
-        $.csso({
+        gulpCsso({
           forceMediaMerge: true
         })
       )
     )
     .pipe(
-      $.if(
+      gulpIf(
         !isDev,
-        $.cleanCss({
+        gulpCleanCss({
           level: 2,
           rebase: false
         })
@@ -65,5 +70,5 @@ export default function styles() {
     .pipe(
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
-    .pipe($.if(config.get('gzip') && !isDev, common.gzipChannel()))
+    .pipe(gulpIf(config.get('gzip') && !isDev, common.gzipChannel()))
 }

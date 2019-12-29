@@ -1,12 +1,11 @@
 import path from 'path'
 
 import gulp from 'gulp'
-import gulpLoadPlugins from 'gulp-load-plugins'
+import gulpSvgSprite from 'gulp-svg-sprite'
 
 import config from '../../config'
 import detectConflict from '../utils/detectConflict'
 
-const $ = gulpLoadPlugins()
 const isDev = config.get('mode') !== 'production'
 
 export default function sprites() {
@@ -15,7 +14,7 @@ export default function sprites() {
       base: config.get('srcDir')
     })
     .pipe(
-      $.svgSprite({
+      gulpSvgSprite({
         shape: {
           id: {
             generator(name) {
