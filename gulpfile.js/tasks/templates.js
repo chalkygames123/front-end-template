@@ -3,6 +3,7 @@ import path from 'path'
 import gulp from 'gulp'
 import gulpData from 'gulp-data'
 import gulpFilter from 'gulp-filter'
+import gulpGzip from 'gulp-gzip'
 import gulpHtmlhint from 'gulp-htmlhint'
 import gulpHtmlmin from 'gulp-htmlmin'
 import gulpIf from 'gulp-if'
@@ -13,6 +14,7 @@ import common from '../common'
 import detectConflict from '../utils/detectConflict'
 
 const isDev = config.get('mode') !== 'production'
+
 export default function templates() {
   return gulp
     .src(config.get('srcPaths.pages'), {
@@ -77,5 +79,13 @@ export default function templates() {
     .pipe(
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
-    .pipe(gulpIf(config.get('gzip') && !isDev, common.gzipChannel()))
+    .pipe(gulpIf(isDev, common.server.stream()))
+    .pipe(gulpIf(config.get('gzip') && !isDev, gulpGzip()))
+    .pipe(gulpIf(config.get('gzip') && !isDev, detectConflict()))
+    .pipe(
+      gulpIf(
+        config.get('gzip') && !isDev,
+        gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
+      )
+    )
 }

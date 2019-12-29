@@ -9,34 +9,12 @@ import gulpRename from 'gulp-rename'
 import imageminMozjpeg from 'imagemin-mozjpeg'
 import imageminPngquant from 'imagemin-pngquant'
 import imageminWebp from 'imagemin-webp'
-import lazypipe from 'lazypipe'
 
 import config from '../../config'
+import common from '../common'
 import detectConflict from '../utils/detectConflict'
 
 const isDev = config.get('mode') !== 'production'
-const webpChannel = lazypipe()
-  .pipe(() => gulpFilter('**/*.+(png|jp?(e)g)'))
-  .pipe(() =>
-    gulpIf(
-      !isDev,
-      gulpImagemin([
-        imageminWebp({
-          quality: '90',
-          method: 6
-        })
-      ])
-    )
-  )
-  .pipe(() =>
-    gulpRename({
-      extname: '.webp'
-    })
-  )
-  .pipe(detectConflict)
-  .pipe(() =>
-    gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
-  )
 
 export default function images() {
   return gulp
@@ -75,5 +53,33 @@ export default function images() {
     .pipe(
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
-    .pipe(gulpIf(config.get('webp'), webpChannel()))
+    .pipe(gulpIf(isDev, common.server.stream()))
+    .pipe(gulpIf(config.get('webp'), gulpFilter('**/*.+(png|jp?(e)g)')))
+    .pipe(
+      gulpIf(
+        config.get('webp') && !isDev,
+        gulpImagemin([
+          imageminWebp({
+            quality: '90',
+            method: 6
+          })
+        ])
+      )
+    )
+    .pipe(
+      gulpIf(
+        config.get('webp'),
+        gulpRename({
+          extname: '.webp'
+        })
+      )
+    )
+    .pipe(gulpIf(config.get('webp'), detectConflict()))
+    .pipe(
+      gulpIf(
+        config.get('webp'),
+        gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
+      )
+    )
+    .pipe(gulpIf(isDev, common.server.stream()))
 }

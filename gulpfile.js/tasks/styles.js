@@ -4,6 +4,7 @@ import Fiber from 'fibers'
 import gulp from 'gulp'
 import gulpCleanCss from 'gulp-clean-css'
 import gulpCsso from 'gulp-csso'
+import gulpGzip from 'gulp-gzip'
 import gulpIf from 'gulp-if'
 import gulpPostcss from 'gulp-postcss'
 import gulpSass from 'gulp-sass'
@@ -70,5 +71,13 @@ export default function styles() {
     .pipe(
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
-    .pipe(gulpIf(config.get('gzip') && !isDev, common.gzipChannel()))
+    .pipe(gulpIf(isDev, common.server.stream()))
+    .pipe(gulpIf(config.get('gzip') && !isDev, gulpGzip()))
+    .pipe(gulpIf(config.get('gzip') && !isDev, detectConflict()))
+    .pipe(
+      gulpIf(
+        config.get('gzip') && !isDev,
+        gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
+      )
+    )
 }

@@ -1,9 +1,11 @@
 import path from 'path'
 
 import gulp from 'gulp'
+import gulpIf from 'gulp-if'
 import gulpSvgSprite from 'gulp-svg-sprite'
 
 import config from '../../config'
+import common from '../common'
 import detectConflict from '../utils/detectConflict'
 
 const isDev = config.get('mode') !== 'production'
@@ -61,4 +63,5 @@ export default function sprites() {
     .pipe(
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
+    .pipe(gulpIf(isDev, common.server.stream()))
 }
