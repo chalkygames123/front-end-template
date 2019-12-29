@@ -60,7 +60,6 @@ export default function images() {
         config.get('webp') && !isDev,
         gulpImagemin([
           imageminWebp({
-            quality: '90',
             method: 6
           })
         ])
