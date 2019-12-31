@@ -1,8 +1,8 @@
-const stylelintConfigRecessOrder = require('stylelint-config-recess-order')
-
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-prettier/recommended'],
-  plugins: ['stylelint-order', 'stylelint-scss'],
+  extends: [
+    'stylelint-config-twbs-bootstrap/scss',
+    'stylelint-prettier/recommended'
+  ],
   rules: {
     'at-rule-empty-line-before': [
       'always',
@@ -12,12 +12,7 @@ module.exports = {
         ignoreAtRules: ['else']
       }
     ],
-    'at-rule-no-unknown': null,
-    'color-named': 'never',
     'declaration-block-no-redundant-longhand-properties': true,
-    'declaration-no-important': true,
-    'font-family-name-quotes': 'always-unless-keyword',
-    'font-weight-notation': 'numeric',
     'function-calc-no-invalid': true,
     'no-empty-source': null,
     'rule-empty-line-before': [
@@ -27,8 +22,6 @@ module.exports = {
         ignore: ['after-comment']
       }
     ],
-    'shorthand-property-no-redundant-values': true,
-    'unicode-bom': 'never',
     'order/order': [
       [
         'custom-properties',
@@ -63,18 +56,10 @@ module.exports = {
         }
       ]
     ],
-    'order/properties-order': [
-      stylelintConfigRecessOrder.rules['order/properties-order'],
-      {
-        unspecified: 'bottomAlphabetical'
-      }
-    ],
     'scss/at-each-key-value-single-line': true,
     'scss/at-if-no-null': true,
     'scss/at-import-partial-extension': 'never',
-    'scss/at-mixin-argumentless-call-parentheses': 'always',
     'scss/at-rule-conditional-no-parentheses': true,
-    'scss/at-rule-no-unknown': true,
     'scss/dollar-variable-empty-line-before': [
       'always',
       {
@@ -82,13 +67,7 @@ module.exports = {
         ignore: ['after-comment']
       }
     ],
-    'scss/dollar-variable-no-missing-interpolation': true,
-    'scss/double-slash-comment-inline': [
-      'never',
-      {
-        ignore: ['stylelint-commands']
-      }
-    ],
+    'scss/double-slash-comment-inline': 'never',
     'scss/double-slash-comment-whitespace-inside': 'always',
     'scss/comment-no-loud': true,
     'scss/declaration-nested-properties': 'never',
@@ -99,7 +78,14 @@ module.exports = {
     'scss/partial-no-import': true,
     'scss/selector-no-redundant-nesting-selector': true,
     'scss/selector-no-union-class-name': true,
-    'scss/no-duplicate-dollar-variables': true,
-    'scss/no-duplicate-mixins': true
+    'scss/no-duplicate-dollar-variables': [
+      true,
+      {
+        ignoreInsideAtRules: ['if', 'mixin']
+      }
+    ],
+    'scss/operator-no-newline-after': null,
+    'scss/operator-no-newline-before': null,
+    'scss/operator-no-unspaced': null
   }
 }
