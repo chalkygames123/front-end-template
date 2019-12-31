@@ -11,21 +11,19 @@
   box-sizing: inherit;
 }
 
+[data-whatinput='mouse'] *:focus,
+[data-whatinput='touch'] *:focus {
+  outline: none;
+}
+
 html {
   box-sizing: border-box;
   min-width: a.mq-get-breakpoint-width(sm);
   font-size: 62.5%;
-  line-height: normal;
+  line-height: inherit;
 
   @include a.mq(md) {
     min-width: a.mq-get-breakpoint-width(lg);
-  }
-
-  &[data-whatinput='mouse'],
-  &[data-whatinput='touch'] {
-    :focus {
-      outline: none;
-    }
   }
 }
 
@@ -55,7 +53,7 @@ input,
 optgroup,
 select,
 textarea {
-  line-height: normal;
+  line-height: inherit;
 }
 
 audio,
