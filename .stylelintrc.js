@@ -15,13 +15,6 @@ module.exports = {
     'declaration-block-no-redundant-longhand-properties': true,
     'function-calc-no-invalid': true,
     'no-empty-source': null,
-    'rule-empty-line-before': [
-      'always',
-      {
-        except: ['first-nested'],
-        ignore: ['after-comment']
-      }
-    ],
     'order/order': [
       [
         'custom-properties',
@@ -56,10 +49,20 @@ module.exports = {
         }
       ]
     ],
+    'rule-empty-line-before': [
+      'always',
+      {
+        except: ['first-nested'],
+        ignore: ['after-comment']
+      }
+    ],
     'scss/at-each-key-value-single-line': true,
     'scss/at-if-no-null': true,
     'scss/at-import-partial-extension': 'never',
     'scss/at-rule-conditional-no-parentheses': true,
+    'scss/comment-no-loud': true,
+    'scss/declaration-nested-properties': 'never',
+    'scss/dimension-no-non-numeric-values': true,
     'scss/dollar-variable-empty-line-before': [
       'always',
       {
@@ -69,15 +72,9 @@ module.exports = {
     ],
     'scss/double-slash-comment-inline': 'never',
     'scss/double-slash-comment-whitespace-inside': 'always',
-    'scss/comment-no-loud': true,
-    'scss/declaration-nested-properties': 'never',
-    'scss/dimension-no-non-numeric-values': true,
     'scss/function-color-relative': true,
     'scss/function-quote-no-quoted-strings-inside': true,
     'scss/function-unquote-no-unquoted-strings-inside': true,
-    'scss/partial-no-import': true,
-    'scss/selector-no-redundant-nesting-selector': true,
-    'scss/selector-no-union-class-name': true,
     'scss/no-duplicate-dollar-variables': [
       true,
       {
@@ -86,6 +83,9 @@ module.exports = {
     ],
     'scss/operator-no-newline-after': null,
     'scss/operator-no-newline-before': null,
-    'scss/operator-no-unspaced': null
+    'scss/operator-no-unspaced': null,
+    'scss/partial-no-import': true,
+    'scss/selector-no-redundant-nesting-selector': true,
+    'scss/selector-no-union-class-name': true
   }
 }
