@@ -18,7 +18,7 @@ module.exports = function watch(cb) {
   gulp.watch(config.get('srcPaths.sprites'), sprites)
   gulp.watch(config.get('srcPaths.styles'), styles)
 
-  if (!common.webpackCompiler.running) {
+  if (!common.webpackCompiler.watchMode) {
     common.webpackCompiler.watch({}, (err, stats) => {
       // eslint-disable-next-line no-console
       console.log(
