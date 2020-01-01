@@ -1,26 +1,26 @@
-import path from 'path'
+const path = require('path')
 
-import Fiber from 'fibers'
-import gulp from 'gulp'
-import gulpCleanCss from 'gulp-clean-css'
-import gulpCsso from 'gulp-csso'
-import gulpGzip from 'gulp-gzip'
-import gulpIf from 'gulp-if'
-import gulpPostcss from 'gulp-postcss'
-import gulpSass from 'gulp-sass'
-import gulpSourcemaps from 'gulp-sourcemaps'
-import gulpStylelint from 'gulp-stylelint'
-import sass from 'sass'
+const Fiber = require('fibers')
+const gulp = require('gulp')
+const gulpCleanCss = require('gulp-clean-css')
+const gulpCsso = require('gulp-csso')
+const gulpGzip = require('gulp-gzip')
+const gulpIf = require('gulp-if')
+const gulpPostcss = require('gulp-postcss')
+const gulpSass = require('gulp-sass')
+const gulpSourcemaps = require('gulp-sourcemaps')
+const gulpStylelint = require('gulp-stylelint')
+const sass = require('sass')
 
-import config from '../../config'
-import common from '../common'
-import detectConflict from '../utils/detectConflict'
+const config = require('../../config')
+const common = require('../common')
+const detectConflict = require('../utils/detectConflict')
 
 const isDev = config.get('mode') !== 'production'
 
 gulpSass.compiler = sass
 
-export default function styles() {
+module.exports = function styles() {
   return gulp
     .src(config.get('srcPaths.styles'), {
       base: config.get('srcDir')

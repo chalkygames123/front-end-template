@@ -1,13 +1,13 @@
-import fs from 'fs'
-import path from 'path'
+const fs = require('fs')
+const path = require('path')
 
-import chalk from 'chalk'
-import fancyLog from 'fancy-log'
-import through2 from 'through2'
+const chalk = require('chalk')
+const fancyLog = require('fancy-log')
+const through2 = require('through2')
 
-import config from '../../config'
+const config = require('../../config')
 
-export default function() {
+module.exports = () => {
   return through2.obj((file, encoding, cb) => {
     const conflictablePath = path.relative(
       '',

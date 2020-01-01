@@ -1,7 +1,7 @@
-import del from 'del'
+const del = require('del')
 
-import config from '../../config'
+const config = require('../../config')
 
-export default function clean() {
+module.exports = function clean() {
   return del(config.get('distDir'))
 }

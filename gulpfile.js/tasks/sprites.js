@@ -1,16 +1,16 @@
-import path from 'path'
+const path = require('path')
 
-import gulp from 'gulp'
-import gulpIf from 'gulp-if'
-import gulpSvgSprite from 'gulp-svg-sprite'
+const gulp = require('gulp')
+const gulpIf = require('gulp-if')
+const gulpSvgSprite = require('gulp-svg-sprite')
 
-import config from '../../config'
-import common from '../common'
-import detectConflict from '../utils/detectConflict'
+const config = require('../../config')
+const common = require('../common')
+const detectConflict = require('../utils/detectConflict')
 
 const isDev = config.get('mode') !== 'production'
 
-export default function sprites() {
+module.exports = function sprites() {
   return gulp
     .src(config.get('srcPaths.sprites'), {
       base: config.get('srcDir')

@@ -1,21 +1,21 @@
-import path from 'path'
+const path = require('path')
 
-import gulp from 'gulp'
-import gulpData from 'gulp-data'
-import gulpFilter from 'gulp-filter'
-import gulpGzip from 'gulp-gzip'
-import gulpHtmlhint from 'gulp-htmlhint'
-import gulpHtmlmin from 'gulp-htmlmin'
-import gulpIf from 'gulp-if'
-import gulpNunjucksRender from 'gulp-nunjucks-render'
+const gulp = require('gulp')
+const gulpData = require('gulp-data')
+const gulpFilter = require('gulp-filter')
+const gulpGzip = require('gulp-gzip')
+const gulpHtmlhint = require('gulp-htmlhint')
+const gulpHtmlmin = require('gulp-htmlmin')
+const gulpIf = require('gulp-if')
+const gulpNunjucksRender = require('gulp-nunjucks-render')
 
-import config from '../../config'
-import common from '../common'
-import detectConflict from '../utils/detectConflict'
+const config = require('../../config')
+const common = require('../common')
+const detectConflict = require('../utils/detectConflict')
 
 const isDev = config.get('mode') !== 'production'
 
-export default function templates() {
+module.exports = function templates() {
   return gulp
     .src(config.get('srcPaths.pages'), {
       base: path.join(config.get('srcDir'), config.get('dir.pages'))

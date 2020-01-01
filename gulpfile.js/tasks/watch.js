@@ -1,15 +1,15 @@
-import gulp from 'gulp'
+const gulp = require('gulp')
 
-import config from '../../config'
-import common from '../common'
+const config = require('../../config')
+const common = require('../common')
 
-import copy from './copy'
-import images from './images'
-import sprites from './sprites'
-import styles from './styles'
-import templates from './templates'
+const copy = require('./copy')
+const images = require('./images')
+const sprites = require('./sprites')
+const styles = require('./styles')
+const templates = require('./templates')
 
-export default function watch(cb) {
+module.exports = function watch(cb) {
   gulp.watch(config.get('srcPaths.copy'), copy)
   gulp.watch(config.get('srcPaths.images'), images)
   gulp.watch(config.get('srcPaths.includes'), templates)

@@ -1,5 +1,5 @@
-import config from '../../config'
-import common from '../common'
+const config = require('../../config')
+const common = require('../common')
 
 const isDev = config.get('mode') !== 'production'
 const handler = cb => (err, stats) => {
@@ -13,7 +13,7 @@ const handler = cb => (err, stats) => {
   cb()
 }
 
-export default function scripts(cb) {
+module.exports = function scripts(cb) {
   if (isDev) {
     common.webpackCompiler.watch({}, handler(cb))
   } else {

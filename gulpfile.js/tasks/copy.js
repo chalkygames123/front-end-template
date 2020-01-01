@@ -1,15 +1,15 @@
-import path from 'path'
+const path = require('path')
 
-import gulp from 'gulp'
-import gulpChanged from 'gulp-changed'
-import gulpIf from 'gulp-if'
+const gulp = require('gulp')
+const gulpChanged = require('gulp-changed')
+const gulpIf = require('gulp-if')
 
-import config from '../../config'
-import common from '../common'
+const config = require('../../config')
+const common = require('../common')
 
 const isDev = config.get('mode') !== 'production'
 
-export default function copy() {
+module.exports = function copy() {
   return gulp
     .src(config.get('srcPaths.copy'), {
       base: path.join(config.get('srcDir'), config.get('dir.static')),

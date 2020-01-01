@@ -1,14 +1,14 @@
-import gulp from 'gulp'
+const gulp = require('gulp')
 
-import clean from './clean'
-import copy from './copy'
-import images from './images'
-import scripts from './scripts'
-import sprites from './sprites'
-import styles from './styles'
-import templates from './templates'
+const clean = require('./clean')
+const copy = require('./copy')
+const images = require('./images')
+const scripts = require('./scripts')
+const sprites = require('./sprites')
+const styles = require('./styles')
+const templates = require('./templates')
 
-export default gulp.series(
+module.exports = gulp.series(
   clean,
   gulp.parallel(copy, images, scripts, sprites, styles, templates)
 )

@@ -1,11 +1,12 @@
-export { default as build } from './build'
-export { default as clean } from './clean'
-export { default as copy } from './copy'
-export { default as images } from './images'
-export { default as scripts } from './scripts'
-export { default as serve } from './serve'
-export { default as sprites } from './sprites'
-export { default, default as start } from './start'
-export { default as styles } from './styles'
-export { default as templates } from './templates'
-export { default as watch } from './watch'
+module.exports.build = require('./build')
+module.exports.clean = require('./clean')
+module.exports.copy = require('./copy')
+module.exports.default = require('./start')
+module.exports.images = require('./images')
+module.exports.scripts = require('./scripts')
+module.exports.serve = require('./serve')
+module.exports.sprites = require('./sprites')
+module.exports.start = require('./start')
+module.exports.styles = require('./styles')
+module.exports.templates = require('./templates')
+module.exports.watch = require('./watch')

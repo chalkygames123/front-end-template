@@ -1,22 +1,22 @@
-import path from 'path'
+const path = require('path')
 
-import gulp from 'gulp'
-import gulpChanged from 'gulp-changed'
-import gulpFilter from 'gulp-filter'
-import gulpIf from 'gulp-if'
-import gulpImagemin from 'gulp-imagemin'
-import gulpRename from 'gulp-rename'
-import imageminMozjpeg from 'imagemin-mozjpeg'
-import imageminPngquant from 'imagemin-pngquant'
-import imageminWebp from 'imagemin-webp'
+const gulp = require('gulp')
+const gulpChanged = require('gulp-changed')
+const gulpFilter = require('gulp-filter')
+const gulpIf = require('gulp-if')
+const gulpImagemin = require('gulp-imagemin')
+const gulpRename = require('gulp-rename')
+const imageminMozjpeg = require('imagemin-mozjpeg')
+const imageminPngquant = require('imagemin-pngquant')
+const imageminWebp = require('imagemin-webp')
 
-import config from '../../config'
-import common from '../common'
-import detectConflict from '../utils/detectConflict'
+const config = require('../../config')
+const common = require('../common')
+const detectConflict = require('../utils/detectConflict')
 
 const isDev = config.get('mode') !== 'production'
 
-export default function images() {
+module.exports = function images() {
   return gulp
     .src(config.get('srcPaths.images'), {
       base: config.get('srcDir')

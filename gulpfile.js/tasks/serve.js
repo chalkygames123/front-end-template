@@ -1,9 +1,9 @@
-import path from 'path'
+const path = require('path')
 
-import config from '../../config'
-import common from '../common'
+const config = require('../../config')
+const common = require('../common')
 
-export default function serve(cb) {
+module.exports = function serve(cb) {
   common.server.init(
     {
       ui: false,
