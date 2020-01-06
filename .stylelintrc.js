@@ -86,6 +86,7 @@ module.exports = {
     'scss/operator-no-unspaced': null,
     'scss/partial-no-import': true,
     'scss/selector-no-redundant-nesting-selector': true,
-    'scss/selector-no-union-class-name': true
+    'scss/selector-no-union-class-name': true,
+    'selector-class-pattern': null
   }
 }
