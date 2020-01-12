@@ -210,42 +210,42 @@ config.validate({
 config.load({
   srcPaths: {
     copy: [
-      path.join(config.get('srcDir'), config.get('dir.static'), '**'),
+      path.posix.join(config.get('srcDir'), config.get('dir.static'), '**'),
       '!**/.gitkeep'
     ],
-    images: path.join(
+    images: path.posix.join(
       config.get('srcDir'),
       config.get('dir.assets'),
       config.get('dir.images'),
       '**',
       `*${config.get('ext.images')}`
     ),
-    includes: path.join(
+    includes: path.posix.join(
       config.get('srcDir'),
       config.get('dir.includes'),
       '**',
       `*${config.get('ext.templates')}`
     ),
-    layouts: path.join(
+    layouts: path.posix.join(
       config.get('srcDir'),
       config.get('dir.layouts'),
       '**',
       `*${config.get('ext.templates')}`
     ),
-    pages: path.join(
+    pages: path.posix.join(
       config.get('srcDir'),
       config.get('dir.pages'),
       '**',
       `*${config.get('ext.templates')}`
     ),
-    scripts: path.join(
+    scripts: path.posix.join(
       config.get('srcDir'),
       config.get('dir.assets'),
       config.get('dir.scripts'),
       '**',
       `!(_)*${config.get('ext.scripts')}`
     ),
-    sprites: path.join(
+    sprites: path.posix.join(
       config.get('srcDir'),
       config.get('dir.assets'),
       config.get('dir.images'),
@@ -253,7 +253,7 @@ config.load({
       '**',
       `*${config.get('ext.sprites')}`
     ),
-    styles: path.join(
+    styles: path.posix.join(
       config.get('srcDir'),
       config.get('dir.assets'),
       config.get('dir.styles'),
