@@ -87,7 +87,7 @@
     "gulp-stylelint": "^11.0.0",
     "gulp-svg-sprite": "^1.5.0",
     "htmlhint-stylish": "^1.0.3",
-    "husky": "^3.1.0",
+    "husky": "^4.0.7",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "imagemin-webp": "^5.1.0",
