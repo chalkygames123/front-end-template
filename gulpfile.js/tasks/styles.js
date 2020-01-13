@@ -22,7 +22,7 @@ gulpSass.compiler = sass
 
 module.exports = function styles() {
   return gulp
-    .src(config.get('srcPaths.styles'), {
+    .src(common.srcPaths.styles, {
       base: config.get('srcDir')
     })
     .pipe(gulpIf(isDev, gulpSourcemaps.init()))

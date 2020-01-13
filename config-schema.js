@@ -1,18 +1,4 @@
-const path = require('path')
-
 const convict = require('convict')
-
-convict.addFormat({
-  name: 'globs',
-  validate: value => {
-    if (
-      (typeof value !== 'string' && !Array.isArray(value)) ||
-      (Array.isArray(value) && value.some(el => typeof el !== 'string'))
-    ) {
-      throw new TypeError('must be a string or an array of strings')
-    }
-  }
-})
 
 const schema = {
   mode: {
@@ -156,112 +142,10 @@ const schema = {
       format: String,
       default: '.scss'
     }
-  },
-  srcPaths: {
-    copy: {
-      doc: 'The copy source paths.',
-      format: 'globs',
-      default: ''
-    },
-    images: {
-      doc: 'The images source paths.',
-      format: 'globs',
-      default: ''
-    },
-    includes: {
-      doc: 'The includes source paths.',
-      format: 'globs',
-      default: ''
-    },
-    layouts: {
-      doc: 'The layouts source paths.',
-      format: 'globs',
-      default: ''
-    },
-    pages: {
-      doc: 'The pages source paths.',
-      format: 'globs',
-      default: ''
-    },
-    scripts: {
-      doc: 'The scripts source paths.',
-      format: 'globs',
-      default: ''
-    },
-    sprites: {
-      doc: 'The sprites source paths.',
-      format: 'globs',
-      default: ''
-    },
-    styles: {
-      doc: 'The styles source paths.',
-      format: 'globs',
-      default: ''
-    }
   }
 }
 
 const config = convict(schema)
-
-config.validate({
-  allowed: 'strict'
-})
-
-config.load({
-  srcPaths: {
-    copy: [
-      path.posix.join(config.get('srcDir'), config.get('dir.static'), '**'),
-      '!**/.gitkeep'
-    ],
-    images: path.posix.join(
-      config.get('srcDir'),
-      config.get('dir.assets'),
-      config.get('dir.images'),
-      '**',
-      `*${config.get('ext.images')}`
-    ),
-    includes: path.posix.join(
-      config.get('srcDir'),
-      config.get('dir.includes'),
-      '**',
-      `*${config.get('ext.templates')}`
-    ),
-    layouts: path.posix.join(
-      config.get('srcDir'),
-      config.get('dir.layouts'),
-      '**',
-      `*${config.get('ext.templates')}`
-    ),
-    pages: path.posix.join(
-      config.get('srcDir'),
-      config.get('dir.pages'),
-      '**',
-      `*${config.get('ext.templates')}`
-    ),
-    scripts: path.posix.join(
-      config.get('srcDir'),
-      config.get('dir.assets'),
-      config.get('dir.scripts'),
-      '**',
-      `!(_)*${config.get('ext.scripts')}`
-    ),
-    sprites: path.posix.join(
-      config.get('srcDir'),
-      config.get('dir.assets'),
-      config.get('dir.images'),
-      config.get('dir.sprites'),
-      '**',
-      `*${config.get('ext.sprites')}`
-    ),
-    styles: path.posix.join(
-      config.get('srcDir'),
-      config.get('dir.assets'),
-      config.get('dir.styles'),
-      '**',
-      `*${config.get('ext.styles')}`
-    )
-  }
-})
 
 config.validate({
   allowed: 'strict'

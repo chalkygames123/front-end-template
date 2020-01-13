@@ -11,7 +11,7 @@ const isDev = config.get('mode') !== 'production'
 
 module.exports = function copy() {
   return gulp
-    .src(config.get('srcPaths.copy'), {
+    .src(common.srcPaths.copy, {
       base: path.join(config.get('srcDir'), config.get('dir.static')),
       dot: true,
       nodir: true

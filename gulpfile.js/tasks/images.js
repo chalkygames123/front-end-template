@@ -18,7 +18,7 @@ const isDev = config.get('mode') !== 'production'
 
 module.exports = function images() {
   return gulp
-    .src(config.get('srcPaths.images'), {
+    .src(common.srcPaths.images, {
       base: config.get('srcDir')
     })
     .pipe(

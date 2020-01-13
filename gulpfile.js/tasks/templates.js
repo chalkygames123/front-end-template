@@ -17,7 +17,7 @@ const isDev = config.get('mode') !== 'production'
 
 module.exports = function templates() {
   return gulp
-    .src(config.get('srcPaths.pages'), {
+    .src(common.srcPaths.pages, {
       base: path.join(config.get('srcDir'), config.get('dir.pages'))
     })
     .pipe(gulpFilter('**/!(-)*'))

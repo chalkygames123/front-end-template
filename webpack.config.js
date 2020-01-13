@@ -13,7 +13,15 @@ const isDev = config.get('mode') !== 'production'
 module.exports = {
   mode: config.get('mode'),
   entry() {
-    return globby(config.get('srcPaths.scripts')).then(files =>
+    return globby(
+      path.posix.join(
+        config.get('srcDir'),
+        config.get('dir.assets'),
+        config.get('dir.scripts'),
+        '**',
+        `!(_)*${config.get('ext.scripts')}`
+      )
+    ).then(files =>
       Object.fromEntries(
         files.map(file => [
           path

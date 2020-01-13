@@ -12,7 +12,7 @@ const isDev = config.get('mode') !== 'production'
 
 module.exports = function sprites() {
   return gulp
-    .src(config.get('srcPaths.sprites'), {
+    .src(common.srcPaths.sprites, {
       base: config.get('srcDir')
     })
     .pipe(
