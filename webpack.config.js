@@ -32,9 +32,10 @@ module.exports = {
     )
   },
   output: {
-    path: path.resolve(
+    path: path.join(
       __dirname,
       config.get('distDir'),
+      config.get('site.basePath'),
       config.get('dir.assets'),
       config.get('dir.scripts')
     ),
@@ -62,8 +63,9 @@ module.exports = {
       {
         test: /\.js$/,
         include: [
-          path.resolve(
+          path.join(
             __dirname,
+            config.get('srcDir'),
             config.get('dir.assets'),
             config.get('dir.scripts')
           )
