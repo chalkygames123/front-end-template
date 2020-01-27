@@ -1,8 +1,8 @@
 const config = require('./config-schema')
 
-// Uncomment the following line to list available configurations and the defaults
-// console.log(config.getProperties())
-
+/**
+ * For available configurations, see: config-schema.js
+ */
 config.load({})
 
 config.validate({
