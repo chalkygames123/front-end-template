@@ -21,7 +21,10 @@ module.exports = {
           'sibling',
           'index'
         ],
-        'newlines-between': 'always'
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc'
+        }
       }
     ]
   },
