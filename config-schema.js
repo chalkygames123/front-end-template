@@ -19,17 +19,6 @@ const schema = {
     default: 'dist',
     arg: 'dist-dir'
   },
-  https: {
-    doc: 'Whether to enable HTTPS.',
-    format: Boolean,
-    default: false,
-    arg: 'https'
-  },
-  index: {
-    doc: 'The index path for web server',
-    format: String,
-    default: ''
-  },
   site: {
     name: {
       doc: 'The site name.',
