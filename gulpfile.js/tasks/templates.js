@@ -3,7 +3,6 @@ const path = require('path')
 const gulp = require('gulp')
 const gulpData = require('gulp-data')
 const gulpFilter = require('gulp-filter')
-const gulpGzip = require('gulp-gzip')
 const gulpHtmlhint = require('gulp-htmlhint')
 const gulpHtmlmin = require('gulp-htmlmin')
 const gulpIf = require('gulp-if')
@@ -80,12 +79,4 @@ module.exports = function templates() {
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe(gulpIf(isDev, common.server.stream()))
-    .pipe(gulpIf(config.get('gzip') && !isDev, gulpGzip()))
-    .pipe(gulpIf(config.get('gzip') && !isDev, detectConflict()))
-    .pipe(
-      gulpIf(
-        config.get('gzip') && !isDev,
-        gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
-      )
-    )
 }

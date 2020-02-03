@@ -4,7 +4,6 @@ const Fiber = require('fibers')
 const gulp = require('gulp')
 const gulpCleanCss = require('gulp-clean-css')
 const gulpCsso = require('gulp-csso')
-const gulpGzip = require('gulp-gzip')
 const gulpIf = require('gulp-if')
 const gulpPostcss = require('gulp-postcss')
 const gulpSass = require('gulp-sass')
@@ -72,12 +71,4 @@ module.exports = function styles() {
       gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
     )
     .pipe(gulpIf(isDev, common.server.stream()))
-    .pipe(gulpIf(config.get('gzip') && !isDev, gulpGzip()))
-    .pipe(gulpIf(config.get('gzip') && !isDev, detectConflict()))
-    .pipe(
-      gulpIf(
-        config.get('gzip') && !isDev,
-        gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
-      )
-    )
 }

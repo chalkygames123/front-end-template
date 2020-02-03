@@ -19,12 +19,6 @@ const schema = {
     default: 'dist',
     arg: 'dist-dir'
   },
-  gzip: {
-    doc: 'Whether to enable gzip compression.',
-    format: Boolean,
-    default: false,
-    arg: 'gzip'
-  },
   webp: {
     doc: 'Whether to enable WebP compression.',
     format: Boolean,

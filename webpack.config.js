@@ -1,6 +1,5 @@
 const path = require('path')
 
-const CompressionPlugin = require('compression-webpack-plugin')
 const globby = require('globby')
 
 const config = require('./config')
@@ -96,12 +95,5 @@ module.exports = {
     ]
   },
   devtool: isDev ? 'eval-source-map' : false,
-  context: __dirname,
-  plugins: [
-    config.get('gzip') &&
-      !isDev &&
-      new CompressionPlugin({
-        minRatio: 1
-      })
-  ].filter(Boolean)
+  context: __dirname
 }
