@@ -19,12 +19,6 @@ const schema = {
     default: 'dist',
     arg: 'dist-dir'
   },
-  webp: {
-    doc: 'Whether to enable WebP compression.',
-    format: Boolean,
-    default: false,
-    arg: 'webp'
-  },
   https: {
     doc: 'Whether to enable HTTPS.',
     format: Boolean,
