@@ -1,10 +1,5 @@
 # Front-End Template
 
-[![code style: airbnb](https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![license: MIT](https://img.shields.io/github/license/chalkygames123/front-end-template.svg)](https://opensource.org/licenses/MIT)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f464261d-62a9-4b11-9503-148eff317bb0/deploy-status)](https://app.netlify.com/sites/front-end-template-chalkygames123/deploys)
-
 > A practical template for building static websites
 
 ## Getting started
@@ -16,6 +11,19 @@ $ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/master
 ```
 
 Alternatively, open the following link to create a new repository on GitHub from this template: https://github.com/chalkygames123/front-end-template/generate
+
+---
+
+**Remove everything from here and above**
+
+---
+
+# Project Name
+
+[![code style: airbnb](https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
+> Project description
 
 ## Prerequisites
 
