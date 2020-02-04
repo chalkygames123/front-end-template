@@ -6,7 +6,7 @@
 
 Create a new directory and then run:
 
-```bash
+```shell
 $ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/master.tar.gz | tar -xz --strip-components=1
 ```
 
