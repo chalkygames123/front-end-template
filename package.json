@@ -9,7 +9,7 @@
     "copy": "gulp copy",
     "dev": "gulp start --mode=development",
     "format": "yarn format-check --write",
-    "format-check": "prettier --ignore-path .gitignore \"**/*.{json,md}\" --check",
+    "format-check": "prettier --ignore-path .gitignore \"**/*.{json,md,y?(a)ml}\" --check",
     "images": "gulp images",
     "lint": "npm-run-all lint:*",
     "lint-fix": "npm-run-all lint-fix:*",
