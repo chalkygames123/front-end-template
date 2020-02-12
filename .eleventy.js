@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const htmlmin = require('html-minifier')
+const htmlMinifier = require('html-minifier')
 const htmlhint = require('htmlhint').default
 const signale = require('signale')
 
@@ -11,9 +11,9 @@ const isDev = config.get('mode') !== 'production'
 const htmlhintRules = JSON.parse(fs.readFileSync('.htmlhintrc', 'utf8'))
 
 module.exports = eleventyConfig => {
-  eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
+  eleventyConfig.addTransform('html-minifier', (content, outputPath) => {
     if (outputPath.endsWith('.html') && !isDev) {
-      const result = htmlmin.minify(content, {
+      const result = htmlMinifier.minify(content, {
         collapseBooleanAttributes: true,
         collapseWhitespace: true,
         decodeEntities: true,
@@ -36,21 +36,23 @@ module.exports = eleventyConfig => {
   })
 
   eleventyConfig.addLinter('htmlhint', (content, inputPath, outputPath) => {
-    const result = htmlhint.verify(content, htmlhintRules)
+    if (outputPath.endsWith('.html')) {
+      const result = htmlhint.verify(content, htmlhintRules)
 
-    if (result.length > 0) {
-      const report = htmlhint
-        .format(result, {
-          colors: true,
-          indent: 4
-        })
-        .reduce((acc, line) => {
-          return `${acc}\n${line}`
-        }, '')
+      if (result.length > 0) {
+        const report = htmlhint
+          .format(result, {
+            colors: true,
+            indent: 4
+          })
+          .reduce((acc, line) => {
+            return `${acc}\n${line}`
+          }, '')
 
-      signale.error(
-        `HTMLHint: ${result.length} error(s) found in ${outputPath}${report}\n`
-      )
+        signale.error(
+          `HTMLHint: ${result.length} error(s) found in ${outputPath}${report}\n`
+        )
+      }
     }
   })
 
