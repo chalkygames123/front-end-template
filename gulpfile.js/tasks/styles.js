@@ -67,8 +67,6 @@ module.exports = function styles() {
       )
     )
     .pipe(detectConflict())
-    .pipe(
-      gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
-    )
+    .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(gulpIf(isDev, common.server.stream()))
 }

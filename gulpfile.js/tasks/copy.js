@@ -19,13 +19,9 @@ module.exports = function copy() {
     .pipe(
       gulpIf(
         isDev,
-        gulpChanged(
-          path.join(config.get('distDir'), config.get('site.basePath'))
-        )
+        gulpChanged(path.join(config.get('distDir'), config.get('publicPath')))
       )
     )
-    .pipe(
-      gulp.dest(path.join(config.get('distDir'), config.get('site.basePath')))
-    )
+    .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(gulpIf(isDev, common.server.stream()))
 }

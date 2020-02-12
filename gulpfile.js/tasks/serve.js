@@ -21,7 +21,7 @@ module.exports = function serve(cb) {
       online: false,
       open: false,
       notify: false,
-      startPath: path.join(config.get('site.basePath'))
+      startPath: path.join(config.get('publicPath'))
     },
     cb
   )

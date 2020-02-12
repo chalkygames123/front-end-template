@@ -19,32 +19,16 @@ const schema = {
     default: 'dist',
     arg: 'dist-dir'
   },
-  site: {
-    name: {
-      doc: 'The site name.',
-      format: String,
-      default: 'Site Name'
+  publicPath: {
+    doc: 'The base path of the site.',
+    format: value => {
+      if (!/^(?=\/)(?!.*\/{2,})[^\s\\]+(?<=\/)$/.test(value)) {
+        throw new Error(
+          'must have leading and trailing slashes, and must not have duplicates'
+        )
+      }
     },
-    origin: {
-      doc: 'The origin of the site.',
-      format: value => {
-        if (/\/$/.test(value)) {
-          throw new Error('must not have a trailing slash')
-        }
-      },
-      default: 'https://example.com'
-    },
-    basePath: {
-      doc: 'The base path of the site.',
-      format: value => {
-        if (!/^(?=\/)(?!.*\/{2,})[^\s\\]+(?<=\/)$/.test(value)) {
-          throw new Error(
-            'must have leading and trailing slashes, and must not have duplicates'
-          )
-        }
-      },
-      default: '/'
-    }
+    default: '/'
   },
   dir: {
     assets: {
@@ -56,21 +40,6 @@ const schema = {
       doc: 'The images directory.',
       format: String,
       default: 'images'
-    },
-    includes: {
-      doc: 'The includes directory.',
-      format: String,
-      default: 'includes'
-    },
-    layouts: {
-      doc: 'The layouts directory.',
-      format: String,
-      default: 'layouts'
-    },
-    pages: {
-      doc: 'The pages directory.',
-      format: String,
-      default: 'pages'
     },
     scripts: {
       doc: 'The scripts directory.',
@@ -98,11 +67,6 @@ const schema = {
       doc: 'The images extension.',
       format: String,
       default: '.+(png|jp?(e)g|gif|svg)'
-    },
-    templates: {
-      doc: 'The templates extension.',
-      format: String,
-      default: '.njk'
     },
     scripts: {
       doc: 'The scripts extension.',

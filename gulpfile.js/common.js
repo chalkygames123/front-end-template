@@ -1,12 +1,18 @@
 const path = require('path')
 
+const Eleventy = require('@11ty/eleventy')
 const browserSync = require('browser-sync')
 const webpack = require('webpack')
 
 const config = require('../config')
 const webpackConfig = require('../webpack.config')
 
-const common = {
+const eleventy = new Eleventy()
+
+eleventy.init()
+
+module.exports = {
+  eleventy,
   server: browserSync.create(),
   srcPaths: {
     copy: [
@@ -19,24 +25,6 @@ const common = {
       config.get('dir.images'),
       '**',
       `*${config.get('ext.images')}`
-    ),
-    includes: path.posix.join(
-      config.get('srcDir'),
-      config.get('dir.includes'),
-      '**',
-      `*${config.get('ext.templates')}`
-    ),
-    layouts: path.posix.join(
-      config.get('srcDir'),
-      config.get('dir.layouts'),
-      '**',
-      `*${config.get('ext.templates')}`
-    ),
-    pages: path.posix.join(
-      config.get('srcDir'),
-      config.get('dir.pages'),
-      '**',
-      `*${config.get('ext.templates')}`
     ),
     sprites: path.posix.join(
       config.get('srcDir'),
@@ -56,5 +44,3 @@ const common = {
   },
   webpackCompiler: webpack(webpackConfig)
 }
-
-module.exports = common

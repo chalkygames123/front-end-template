@@ -42,12 +42,12 @@ module.exports = {
     path: path.join(
       __dirname,
       config.get('distDir'),
-      config.get('site.basePath'),
+      config.get('publicPath'),
       config.get('dir.assets'),
       config.get('dir.scripts')
     ),
     publicPath: path.join(
-      config.get('site.basePath'),
+      config.get('publicPath'),
       config.get('dir.assets'),
       config.get('dir.scripts')
     )

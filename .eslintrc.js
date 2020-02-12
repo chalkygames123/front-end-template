@@ -31,9 +31,10 @@ module.exports = {
   overrides: [
     {
       files: [
-        'gulpfile.js/**',
+        '.eleventy.js',
         '.stylelintrc.js',
         'config-schema.js',
+        'gulpfile.js/**',
         'postcss.config.js'
       ],
       rules: {

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="UTF-8">
+
+    <title>{{ title + ' - ' + global.siteName if title else global.siteName }}</title>
+    <meta name="description" content="{{ description }}">
+
+    <meta property="og:title" content="{{ title | default(global.siteName) }}">
+    <meta property="og:type" content="{{ ogType | default('website') }}">
+    <meta property="og:image" content="{{ global.origin }}{{ global.publicPath }}assets/images/ogp.jpg">
+    <meta property="og:url" content="{{ global.origin }}{{ page.url }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="{{ global.siteName }}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% include 'gtm-head.njk' %}
+
+    {% if global.publicPath !== '/' %}
+    <link rel="icon" href="{{ global.publicPath }}favicon.ico">
+    {% endif %}
+
+    {% include 'styles.njk' %}
+
+    {% for style in styles %}
+    <link rel="stylesheet" href="{{ style | url }}">
+    {% endfor %}
+
+    {% include 'scripts.njk' %}
+
+    {% for script in scripts %}
+    <script src="{{ script | url }}" defer></script>
+    {% endfor %}
+  </head>
+
+  <body>
+    {% include 'gtm-body.njk' %}
+
+    <div class="l-page">
+      {% include 'header.njk' %}
+
+      <main class="l-main">
+        {{ content | safe }}
+      </main>
+
+      {% include 'footer.njk' %}
+    </div>
+  </body>
+</html>
