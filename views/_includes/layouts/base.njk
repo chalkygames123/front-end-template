@@ -17,19 +17,19 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% include 'gtm-head.njk' %}
+    {% include 'pages/common/gtm-head.njk' %}
 
     {% if site.publicPath !== '/' %}
     <link rel="icon" href="{{ site.publicPath }}favicon.ico">
     {% endif %}
 
-    {% include 'styles.njk' %}
+    {% include 'pages/common/styles.njk' %}
 
     {% for style in styles %}
     <link rel="stylesheet" href="{{ style | url }}">
     {% endfor %}
 
-    {% include 'scripts.njk' %}
+    {% include 'pages/common/scripts.njk' %}
 
     {% for script in scripts %}
     <script src="{{ script | url }}" defer></script>
@@ -37,16 +37,16 @@
   </head>
 
   <body>
-    {% include 'gtm-body.njk' %}
+    {% include 'pages/common/gtm-body.njk' %}
 
     <div class="l-page">
-      {% include 'header.njk' %}
+      {% include 'pages/common/header.njk' %}
 
       <main class="l-main">
         {{ content | safe }}
       </main>
 
-      {% include 'footer.njk' %}
+      {% include 'pages/common/footer.njk' %}
     </div>
   </body>
 </html>
