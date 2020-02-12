@@ -29,7 +29,7 @@ Alternatively, open the following link to create a new repository on GitHub from
 
 Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/nvm-sh/nvm), just run the following command once in your project:
 
-```bash
+```shell
 $ nvm install # or nvm i
 ```
 
@@ -37,7 +37,7 @@ Also, make sure you have [Yarn](https://yarnpkg.com) installed.
 
 ## Usage
 
-```bash
+```shell
 # install dependencies
 $ yarn
 
