@@ -1,7 +1,7 @@
 const config = require('../../config')
 
 module.exports = {
-  siteName: 'Site Name',
+  name: 'Site Name',
   origin: 'https://example.com',
-  ...config.getProperties()
+  publicPath: config.get('publicPath')
 }

@@ -1,5 +1,3 @@
-const path = require('path')
-
 const config = require('../../config')
 const common = require('../common')
 
@@ -21,7 +19,7 @@ module.exports = function serve(cb) {
       online: false,
       open: false,
       notify: false,
-      startPath: path.join(config.get('publicPath'))
+      startPath: config.get('publicPath')
     },
     cb
   )

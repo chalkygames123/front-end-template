@@ -3,24 +3,24 @@
   <head prefix="og: http://ogp.me/ns#">
     <meta charset="UTF-8">
 
-    <title>{{ title + ' - ' + global.siteName if title else global.siteName }}</title>
+    <title>{{ title + ' | ' + site.name if title else site.name }}</title>
     <meta name="description" content="{{ description }}">
 
-    <meta property="og:title" content="{{ title | default(global.siteName) }}">
+    <meta property="og:title" content="{{ title | default(site.name) }}">
     <meta property="og:type" content="{{ ogType | default('website') }}">
-    <meta property="og:image" content="{{ global.origin }}{{ global.publicPath }}assets/images/ogp.jpg">
-    <meta property="og:url" content="{{ global.origin }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.origin }}{{ site.publicPath }}assets/images/ogp.jpg">
+    <meta property="og:url" content="{{ site.origin }}{{ page.url }}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:locale" content="ja_JP">
-    <meta property="og:site_name" content="{{ global.siteName }}">
+    <meta property="og:site_name" content="{{ site.name }}">
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% include 'gtm-head.njk' %}
 
-    {% if global.publicPath !== '/' %}
-    <link rel="icon" href="{{ global.publicPath }}favicon.ico">
+    {% if site.publicPath !== '/' %}
+    <link rel="icon" href="{{ site.publicPath }}favicon.ico">
     {% endif %}
 
     {% include 'styles.njk' %}
