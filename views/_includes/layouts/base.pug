@@ -1,0 +1,45 @@
+doctype html
+html(lang='ja')
+  head(prefix='og: http://ogp.me/ns#')
+    meta(charset='UTF-8')
+
+    title= title ? `${title} | ${site.name}` : site.name
+    meta(name='description' content=description)
+
+    meta(property='og:title' content=title || site.name)
+    meta(property='og:type' content=ogType || 'website')
+    meta(property='og:image' content=`${site.origin}${site.publicPath}assets/images/ogp.jpg`)
+    meta(property='og:url' content=`${site.origin}${page.url}`)
+    meta(property='og:description' content=description)
+    meta(property='og:locale' content='ja_JP')
+    meta(property='og:site_name' content=site.name)
+    meta(name='twitter:card' content='summary_large_image')
+
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+
+    include /pages/common/gtm-head
+
+    if site.publicPath !== '/'
+      link(rel='icon' href=`${site.publicPath}favicon.ico`)
+
+    block styles
+      link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap')
+      link(rel='stylesheet' href='/assets/styles/main.css')
+      link(rel='stylesheet' href='/assets/styles/pages/common/style.css')
+
+    block scripts
+      script(src='/assets/scripts/runtime.js' defer)
+      script(src='/assets/scripts/vendors.js' defer)
+      script(src='/assets/scripts/adjust-viewport.js')
+      script(src='/assets/scripts/pages/common.js' defer)
+
+  body
+    include /pages/common/gtm-body
+
+    div.l-page
+      include /pages/common/header
+
+      main.l-main
+        block content
+
+      include /pages/common/footer
