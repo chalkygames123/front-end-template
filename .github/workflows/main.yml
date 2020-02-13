@@ -7,7 +7,7 @@ on:
 
 env:
   CI: true
-  CACHE_VERSION: v1
+  # CACHE_VERSION: v1
 
 jobs:
   build:
@@ -24,15 +24,15 @@ jobs:
         with:
           node-version: '12.x'
 
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      # - name: Get yarn cache
+      #   id: yarn-cache
+      #   run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ env.CACHE_VERSION }}-${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ env.CACHE_VERSION }}-${{ runner.os }}-yarn-
+      # - uses: actions/cache@v1
+      #   with:
+      #     path: ${{ steps.yarn-cache.outputs.dir }}
+      #     key: ${{ env.CACHE_VERSION }}-${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      #     restore-keys: ${{ env.CACHE_VERSION }}-${{ runner.os }}-yarn-
 
       - run: yarn
 
