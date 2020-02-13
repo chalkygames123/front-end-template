@@ -2,7 +2,6 @@ const fs = require('fs')
 const path = require('path')
 
 const chalk = require('chalk')
-const fancyLog = require('fancy-log')
 const through2 = require('through2')
 
 const config = require('../../config')
@@ -17,15 +16,15 @@ module.exports = () => {
     fs.promises
       .access(conflictablePath, fs.constants.F_OK)
       .then(() => {
-        fancyLog.error(
-          `${chalk.red(
-            `Error: The following files are conflicted: ${chalk.magenta(
-              `${path.relative('', file.history[0])}, ${conflictablePath}`
-            )}`
-          )}`
-        )
+        const inputPath = path.relative('', file.history[0])
 
-        return cb(new Error('Conflict detected.'))
+        return cb(
+          new Error(
+            `${chalk.magenta(inputPath)} conflicts with ${chalk.magenta(
+              conflictablePath
+            )}`
+          )
+        )
       })
       .catch(() => cb(null, file))
   })
