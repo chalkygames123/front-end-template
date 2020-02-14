@@ -18,13 +18,23 @@ module.exports = function watch(cb) {
   }
 
   if (!common.webpackCompiler.watchMode) {
+    let firstRun = true
+
     common.webpackCompiler.watch({}, (err, stats) => {
-      // eslint-disable-next-line no-console
-      console.log(
-        stats.toString({
-          colors: true
-        })
-      )
+      if (!firstRun) {
+        // eslint-disable-next-line no-console
+        console.log(
+          stats.toString({
+            colors: true
+          })
+        )
+      }
+
+      if (firstRun) {
+        firstRun = false
+        // eslint-disable-next-line no-console
+        console.log('webpack is watching the files…')
+      }
     })
   }
 
