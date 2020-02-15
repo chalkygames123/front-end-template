@@ -21,13 +21,7 @@ const schema = {
   },
   publicPath: {
     doc: 'The base path of the site.',
-    format: value => {
-      if (!/^(?=\/)(?!.*\/{2,})[^\s\\]+(?<=\/)$/.test(value)) {
-        throw new Error(
-          'must have leading and trailing slashes, and must not have duplicates'
-        )
-      }
-    },
+    format: String,
     default: '/'
   },
   dir: {
