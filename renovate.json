@@ -1,5 +1,7 @@
 {
   "extends": ["config:base", "group:allNonMajor"],
   "rangeStrategy": "bump",
-  "supportPolicy": ["lts_latest"]
+  "node": {
+    "supportPolicy": ["lts_latest"]
+  }
 }
