@@ -62,10 +62,10 @@ $ yarn lint-fix:styles
 # lint all .js files with auto fixing
 $ yarn lint-fix:scripts
 
-# check if all .json and .md files are formatted
+# check if all configured files are formatted
 $ yarn format-check
 
-# format all .json and .md files
+# format all configured files
 $ yarn format
 
 # run all linting and format checking
