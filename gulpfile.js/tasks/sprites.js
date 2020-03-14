@@ -1,7 +1,6 @@
 const path = require('path')
 
 const gulp = require('gulp')
-const gulpIf = require('gulp-if')
 const gulpSvgSprite = require('gulp-svg-sprite')
 
 const config = require('../../config')
@@ -69,7 +68,7 @@ function sprites() {
     )
     .pipe(detectConflict())
     .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
-    .pipe(gulpIf(isDev, common.server.stream()))
+    .pipe(common.server.stream())
 }
 
 if (config.get('watch')) {

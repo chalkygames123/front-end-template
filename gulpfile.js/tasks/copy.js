@@ -27,7 +27,7 @@ function copy() {
       )
     )
     .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
-    .pipe(gulpIf(isDev, common.server.stream()))
+    .pipe(common.server.stream())
 }
 
 if (config.get('watch')) {
