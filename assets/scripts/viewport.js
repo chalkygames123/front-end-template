@@ -10,5 +10,5 @@ function handleChange() {
   viewportEl.setAttribute('content', viewportContent)
 }
 
-mediaQueryList.addEventListener('change', handleChange)
+mediaQueryList.addListener(handleChange)
 handleChange()
