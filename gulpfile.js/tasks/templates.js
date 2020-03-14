@@ -2,7 +2,7 @@ const Eleventy = require('@11ty/eleventy')
 
 const config = require('../../config')
 
-async function templates(cb) {
+async function templates() {
   const eleventy = new Eleventy()
 
   await eleventy.init()
@@ -12,8 +12,6 @@ async function templates(cb) {
   } else {
     await eleventy.write()
   }
-
-  cb()
 }
 
 module.exports = templates
