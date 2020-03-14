@@ -7,6 +7,12 @@ const schema = {
     default: 'production',
     arg: 'mode'
   },
+  watch: {
+    doc: 'Whether to enable watch mode.',
+    format: Boolean,
+    default: false,
+    arg: 'watch'
+  },
   srcDir: {
     doc: 'The source directory.',
     format: String,

@@ -7,11 +7,15 @@ const gulpIf = require('gulp-if')
 const config = require('../../config')
 const common = require('../common')
 
+const srcPaths = [
+  path.posix.join(config.get('srcDir'), config.get('dir.static'), '**'),
+  '!**/.gitkeep'
+]
 const isDev = config.get('mode') !== 'production'
 
-module.exports = function copy() {
+function copy() {
   return gulp
-    .src(common.srcPaths.copy, {
+    .src(srcPaths, {
       base: path.join(config.get('srcDir'), config.get('dir.static')),
       dot: true,
       nodir: true
@@ -25,3 +29,9 @@ module.exports = function copy() {
     .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(gulpIf(isDev, common.server.stream()))
 }
+
+if (config.get('watch')) {
+  gulp.watch(srcPaths, copy)
+}
+
+module.exports = copy

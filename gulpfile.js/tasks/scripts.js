@@ -1,22 +1,26 @@
+const webpack = require('webpack')
+
 const config = require('../../config')
-const common = require('../common')
+const webpackConfig = require('../../webpack.config')
 
-const isDev = config.get('mode') !== 'production'
-const handler = cb => (err, stats) => {
-  // eslint-disable-next-line no-console
-  console.log(
-    stats.toString({
-      colors: true
-    })
-  )
+function scripts(cb) {
+  const webpackCompiler = webpack(webpackConfig)
+  const handler = (err, stats) => {
+    // eslint-disable-next-line no-console
+    console.log(
+      stats.toString({
+        colors: true
+      })
+    )
 
-  cb()
-}
+    cb()
+  }
 
-module.exports = function scripts(cb) {
-  if (isDev) {
-    common.webpackCompiler.watch({}, handler(cb))
+  if (config.get('watch')) {
+    webpackCompiler.watch({}, handler)
   } else {
-    common.webpackCompiler.run(handler(cb))
+    webpackCompiler.run(handler)
   }
 }
+
+module.exports = scripts

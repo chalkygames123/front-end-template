@@ -1,8 +1,19 @@
+const Eleventy = require('@11ty/eleventy')
+
 const config = require('../../config')
-const common = require('../common')
 
-const isDev = config.get('mode') !== 'production'
+async function templates(cb) {
+  const eleventy = new Eleventy()
 
-module.exports = function templates() {
-  return isDev ? common.eleventy.watch() : common.eleventy.write()
+  await eleventy.init()
+
+  if (config.get('watch')) {
+    await eleventy.watch()
+  } else {
+    await eleventy.write()
+  }
+
+  cb()
 }
+
+module.exports = templates

@@ -7,7 +7,7 @@
     "build": "gulp build",
     "clean": "gulp clean",
     "copy": "gulp copy",
-    "dev": "gulp start --mode=development",
+    "dev": "gulp start --mode=development --watch",
     "format": "yarn format-check --write",
     "format-check": "prettier --ignore-path .gitignore \"**/*.{json,md,y?(a)ml}\" --check",
     "images": "gulp images",
@@ -25,8 +25,7 @@
     "templates": "gulp templates",
     "test": "npm-run-all test:*",
     "test:format": "yarn format-check",
-    "test:lint": "yarn lint",
-    "watch": "gulp watch"
+    "test:lint": "yarn lint"
   },
   "dependencies": {
     "core-js": "^3.6.4",

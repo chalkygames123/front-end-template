@@ -11,11 +11,18 @@ const config = require('../../config')
 const common = require('../common')
 const detectConflict = require('../utils/detectConflict')
 
+const srcPaths = path.posix.join(
+  config.get('srcDir'),
+  config.get('dir.assets'),
+  config.get('dir.images'),
+  '**',
+  `*${config.get('ext.images')}`
+)
 const isDev = config.get('mode') !== 'production'
 
-module.exports = function images() {
+function images() {
   return gulp
-    .src(common.srcPaths.images, {
+    .src(srcPaths, {
       base: config.get('srcDir')
     })
     .pipe(
@@ -48,3 +55,9 @@ module.exports = function images() {
     .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(gulpIf(isDev, common.server.stream()))
 }
+
+if (config.get('watch')) {
+  gulp.watch(srcPaths, images)
+}
+
+module.exports = images

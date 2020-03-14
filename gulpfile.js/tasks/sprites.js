@@ -8,11 +8,19 @@ const config = require('../../config')
 const common = require('../common')
 const detectConflict = require('../utils/detectConflict')
 
+const srcPaths = path.posix.join(
+  config.get('srcDir'),
+  config.get('dir.assets'),
+  config.get('dir.images'),
+  config.get('dir.sprites'),
+  '**',
+  `*${config.get('ext.sprites')}`
+)
 const isDev = config.get('mode') !== 'production'
 
-module.exports = function sprites() {
+function sprites() {
   return gulp
-    .src(common.srcPaths.sprites, {
+    .src(srcPaths, {
       base: config.get('srcDir')
     })
     .pipe(
@@ -63,3 +71,9 @@ module.exports = function sprites() {
     .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(gulpIf(isDev, common.server.stream()))
 }
+
+if (config.get('watch')) {
+  gulp.watch(srcPaths, sprites)
+}
+
+module.exports = sprites

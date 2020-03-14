@@ -15,13 +15,20 @@ const config = require('../../config')
 const common = require('../common')
 const detectConflict = require('../utils/detectConflict')
 
+const srcPaths = path.posix.join(
+  config.get('srcDir'),
+  config.get('dir.assets'),
+  config.get('dir.styles'),
+  '**',
+  `*${config.get('ext.styles')}`
+)
 const isDev = config.get('mode') !== 'production'
 
 gulpSass.compiler = sass
 
-module.exports = function styles() {
+function styles() {
   return gulp
-    .src(common.srcPaths.styles, {
+    .src(srcPaths, {
       base: config.get('srcDir')
     })
     .pipe(gulpIf(isDev, gulpSourcemaps.init()))
@@ -70,3 +77,9 @@ module.exports = function styles() {
     .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(gulpIf(isDev, common.server.stream()))
 }
+
+if (config.get('watch')) {
+  gulp.watch(srcPaths, styles)
+}
+
+module.exports = styles
