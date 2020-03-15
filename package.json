@@ -56,7 +56,7 @@
     "globby": "^11.0.0",
     "gulp": "^4.0.2",
     "gulp-changed": "^4.0.2",
-    "gulp-clean-css": "^4.2.0",
+    "gulp-clean-css": "^4.3.0",
     "gulp-csso": "^4.0.1",
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
