@@ -3,7 +3,6 @@ const path = require('path')
 
 const htmlMinifier = require('html-minifier')
 const htmlhint = require('htmlhint').default
-const signale = require('signale')
 
 const config = require('./config')
 
@@ -49,7 +48,8 @@ module.exports = eleventyConfig => {
             return `${acc}\n${line}`
           }, '')
 
-        signale.error(
+        // eslint-disable-next-line no-console
+        console.error(
           `HTMLHint: ${result.length} error(s) found in ${outputPath}${report}\n`
         )
       }
