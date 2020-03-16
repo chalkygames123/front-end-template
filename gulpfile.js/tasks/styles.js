@@ -1,15 +1,16 @@
 const path = require('path')
 
+const CleanCSS = require('clean-css')
+const csso = require('csso')
 const Fiber = require('fibers')
 const gulp = require('gulp')
-const gulpCleanCss = require('gulp-clean-css')
-const gulpCsso = require('gulp-csso')
 const gulpIf = require('gulp-if')
 const gulpPostcss = require('gulp-postcss')
 const gulpSass = require('gulp-sass')
 const gulpSourcemaps = require('gulp-sourcemaps')
 const gulpStylelint = require('gulp-stylelint')
 const sass = require('sass')
+const through2 = require('through2')
 
 const config = require('../../config')
 const common = require('../common')
@@ -23,6 +24,10 @@ const srcPaths = path.posix.join(
   `*${config.get('ext.styles')}`
 )
 const isDev = config.get('mode') !== 'production'
+const cleanCss = new CleanCSS({
+  level: 2,
+  rebase: false
+})
 
 gulpSass.compiler = sass
 
@@ -59,17 +64,28 @@ function styles() {
     .pipe(
       gulpIf(
         !isDev,
-        gulpCsso({
-          forceMediaMerge: true
+        through2.obj((file, encoding, cb) => {
+          const result = csso.minify(file.contents.toString(), {
+            forceMediaMerge: true
+          })
+
+          // eslint-disable-next-line no-param-reassign
+          file.contents = Buffer.from(result.css)
+
+          cb(null, file)
         })
       )
     )
     .pipe(
       gulpIf(
         !isDev,
-        gulpCleanCss({
-          level: 2,
-          rebase: false
+        through2.obj((file, encoding, cb) => {
+          const result = cleanCss.minify(file.contents.toString())
+
+          // eslint-disable-next-line no-param-reassign
+          file.contents = Buffer.from(result.styles)
+
+          cb(null, file)
         })
       )
     )
