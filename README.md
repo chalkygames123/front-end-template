@@ -47,29 +47,26 @@ $ yarn dev
 # run all linting
 $ yarn lint
 
-# lint all .scss files
-$ yarn lint:styles
-
 # lint all .js files
 $ yarn lint:scripts
+
+# lint all .scss files
+$ yarn lint:styles
 
 # run all linting with auto fixing
 $ yarn lint-fix
 
-# lint all .scss files with auto fixing
-$ yarn lint-fix:styles
-
 # lint all .js files with auto fixing
 $ yarn lint-fix:scripts
+
+# lint all .scss files with auto fixing
+$ yarn lint-fix:styles
 
 # check if all configured files are formatted
 $ yarn format-check
 
 # format all configured files
 $ yarn format
-
-# run all linting and format checking
-$ yarn test
 
 # build for production
 $ yarn build
