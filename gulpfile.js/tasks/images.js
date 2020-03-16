@@ -4,7 +4,6 @@ const gulp = require('gulp')
 const gulpChanged = require('gulp-changed')
 const gulpIf = require('gulp-if')
 const gulpImagemin = require('gulp-imagemin')
-const imageminMozjpeg = require('imagemin-mozjpeg')
 const imageminPngquant = require('imagemin-pngquant')
 
 const config = require('../../config')
@@ -36,7 +35,7 @@ function images() {
         !isDev,
         gulpImagemin([
           imageminPngquant(),
-          imageminMozjpeg(),
+          gulpImagemin.mozjpeg(),
           gulpImagemin.gifsicle({
             optimizationLevel: 3
           }),
