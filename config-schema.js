@@ -1,3 +1,5 @@
+/* eslint 'import/no-extraneous-dependencies': ['error', { optionalDependencies: false }] */
+
 const convict = require('convict')
 
 const schema = {

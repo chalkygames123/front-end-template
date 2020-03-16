@@ -27,24 +27,5 @@ module.exports = {
         }
       }
     ]
-  },
-  overrides: [
-    {
-      files: [
-        '.eleventy.js',
-        '.stylelintrc.js',
-        'config-schema.js',
-        'gulpfile.js/**',
-        'postcss.config.js'
-      ],
-      rules: {
-        'import/no-extraneous-dependencies': [
-          'error',
-          {
-            optionalDependencies: false
-          }
-        ]
-      }
-    }
-  ]
+  }
 }
