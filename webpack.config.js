@@ -18,7 +18,7 @@ module.exports = {
         config.get('dir.assets'),
         config.get('dir.scripts'),
         '**',
-        `!(_)*${config.get('ext.scripts')}`
+        `!(_)*.js`
       )
     ).then(files =>
       Object.fromEntries(

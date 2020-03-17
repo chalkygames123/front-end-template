@@ -13,7 +13,7 @@ const srcPaths = path.posix.join(
   config.get('dir.images'),
   config.get('dir.sprites'),
   '**',
-  `*${config.get('ext.sprites')}`
+  `*.svg`
 )
 const isDev = config.get('mode') !== 'production'
 
@@ -41,7 +41,7 @@ function sprites() {
 
               return path.basename(
                 directorySeparatedName.replace(/\s+/g, this.whitespace),
-                config.get('ext.sprites')
+                '.svg'
               )
             }
           },

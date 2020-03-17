@@ -63,28 +63,6 @@ const schema = {
       format: String,
       default: 'styles'
     }
-  },
-  ext: {
-    images: {
-      doc: 'The images extension.',
-      format: String,
-      default: '.+(png|jp?(e)g|gif|svg)'
-    },
-    scripts: {
-      doc: 'The scripts extension.',
-      format: String,
-      default: '.js'
-    },
-    sprites: {
-      doc: 'The sprites extension.',
-      format: String,
-      default: '.svg'
-    },
-    styles: {
-      doc: 'The styles extension.',
-      format: String,
-      default: '.scss'
-    }
   }
 }
 

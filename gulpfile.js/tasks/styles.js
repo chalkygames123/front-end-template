@@ -21,7 +21,7 @@ const srcPaths = path.posix.join(
   config.get('dir.assets'),
   config.get('dir.styles'),
   '**',
-  `*${config.get('ext.styles')}`
+  `*.scss`
 )
 const isDev = config.get('mode') !== 'production'
 const cleanCss = new CleanCSS({

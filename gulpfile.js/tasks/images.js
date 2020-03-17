@@ -15,7 +15,7 @@ const srcPaths = path.posix.join(
   config.get('dir.assets'),
   config.get('dir.images'),
   '**',
-  `*${config.get('ext.images')}`
+  `*.+(png|jp?(e)g|gif|svg)`
 )
 const isDev = config.get('mode') !== 'production'
 
