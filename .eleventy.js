@@ -60,7 +60,7 @@ module.exports = eleventyConfig => {
 
   return {
     dir: {
-      input: 'views',
+      input: path.join(config.get('srcDir'), 'views'),
       output: path.join(config.get('distDir'), config.get('publicPath'))
     },
     pathPrefix: config.get('publicPath')
