@@ -31,8 +31,7 @@ module.exports = {
       config.get('distDir'),
       config.get('publicPath'),
       'assets/scripts'
-    ),
-    publicPath: path.join(config.get('publicPath'), 'assets/scripts')
+    )
   },
   optimization: {
     splitChunks: {
