@@ -8,7 +8,7 @@ const config = require('../../config')
 const common = require('../common')
 
 const srcPaths = [
-  path.posix.join(config.get('srcDir'), config.get('dir.static'), '**'),
+  path.posix.join(config.get('srcDir'), 'static/**'),
   '!**/.gitkeep'
 ]
 const isDev = config.get('mode') !== 'production'
@@ -16,7 +16,7 @@ const isDev = config.get('mode') !== 'production'
 function copy() {
   return gulp
     .src(srcPaths, {
-      base: path.join(config.get('srcDir'), config.get('dir.static')),
+      base: path.join(config.get('srcDir'), 'static'),
       dot: true,
       nodir: true
     })

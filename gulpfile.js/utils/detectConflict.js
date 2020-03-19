@@ -10,7 +10,7 @@ module.exports = () => {
   return through2.obj((file, encoding, cb) => {
     const conflictablePath = path.relative(
       '',
-      path.join(config.get('srcDir'), config.get('dir.static'), file.relative)
+      path.join(config.get('srcDir'), 'static', file.relative)
     )
 
     fs.promises

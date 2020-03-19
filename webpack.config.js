@@ -13,25 +13,12 @@ module.exports = {
   mode: config.get('mode'),
   entry() {
     return globby(
-      path.posix.join(
-        config.get('srcDir'),
-        config.get('dir.assets'),
-        config.get('dir.scripts'),
-        '**',
-        `!(_)*.js`
-      )
+      path.posix.join(config.get('srcDir'), 'assets/scripts/**/!(_)*.js')
     ).then(files =>
       Object.fromEntries(
         files.map(file => [
           path
-            .relative(
-              path.join(
-                config.get('srcDir'),
-                config.get('dir.assets'),
-                config.get('dir.scripts')
-              ),
-              file
-            )
+            .relative(path.join(config.get('srcDir'), 'assets/scripts'), file)
             .replace(/\.[^.]+$/, ''),
           `./${file}`
         ])
@@ -43,14 +30,9 @@ module.exports = {
       __dirname,
       config.get('distDir'),
       config.get('publicPath'),
-      config.get('dir.assets'),
-      config.get('dir.scripts')
+      'assets/scripts'
     ),
-    publicPath: path.join(
-      config.get('publicPath'),
-      config.get('dir.assets'),
-      config.get('dir.scripts')
-    )
+    publicPath: path.join(config.get('publicPath'), 'assets/scripts')
   },
   optimization: {
     splitChunks: {
@@ -69,14 +51,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: [
-          path.join(
-            __dirname,
-            config.get('srcDir'),
-            config.get('dir.assets'),
-            config.get('dir.scripts')
-          )
-        ],
+        include: [path.join(__dirname, config.get('srcDir'), 'assets/scripts')],
         use: [
           {
             loader: 'babel-loader',

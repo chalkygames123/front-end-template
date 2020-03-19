@@ -18,10 +18,7 @@ const detectConflict = require('../utils/detectConflict')
 
 const srcPaths = path.posix.join(
   config.get('srcDir'),
-  config.get('dir.assets'),
-  config.get('dir.styles'),
-  '**',
-  `*.scss`
+  'assets/styles/**/*.scss'
 )
 const isDev = config.get('mode') !== 'production'
 const cleanCss = new CleanCSS({

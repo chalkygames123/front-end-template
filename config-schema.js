@@ -31,38 +31,6 @@ const schema = {
     doc: 'The base path of the site.',
     format: String,
     default: '/'
-  },
-  dir: {
-    assets: {
-      doc: 'The assets directory.',
-      format: String,
-      default: 'assets'
-    },
-    images: {
-      doc: 'The images directory.',
-      format: String,
-      default: 'images'
-    },
-    scripts: {
-      doc: 'The scripts directory.',
-      format: String,
-      default: 'scripts'
-    },
-    sprites: {
-      doc: 'The sprites directory.',
-      format: String,
-      default: 'sprites'
-    },
-    static: {
-      doc: 'The static directory.',
-      format: String,
-      default: 'static'
-    },
-    styles: {
-      doc: 'The styles directory.',
-      format: String,
-      default: 'styles'
-    }
   }
 }
 
