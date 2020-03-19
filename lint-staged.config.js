@@ -1,5 +1,5 @@
 module.exports = {
-  '*.js': 'eslint --ignore-pattern "!.*" --fix',
+  '*.js': 'eslint --fix',
   '*.scss': ['stylelint --fix', 'stylelint --fix'],
   '*.{json,md,y?(a)ml}': 'prettier --check --write'
 }
