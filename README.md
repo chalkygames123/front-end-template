@@ -10,7 +10,7 @@ Create a new directory and then run:
 $ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/master.tar.gz | tar -xz --strip-components=1
 ```
 
-Alternatively, open the following link to create a new repository on GitHub from this template: https://github.com/chalkygames123/front-end-template/generate
+Alternatively, [create a new repository from this template on GitHub](https://github.com/chalkygames123/front-end-template/generate).
 
 ---
 
@@ -27,11 +27,7 @@ Alternatively, open the following link to create a new repository on GitHub from
 
 ## Prerequisites
 
-Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/nvm-sh/nvm), just run the following command once in your project:
-
-```shell
-$ nvm install # or nvm i
-```
+Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/nvm-sh/nvm), just run `$ nvm install` (or `$ nvm i`) for the first time of setting up the project.
 
 Also, make sure you have [Yarn](https://yarnpkg.com) installed.
 
