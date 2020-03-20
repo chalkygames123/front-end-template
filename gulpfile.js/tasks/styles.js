@@ -62,25 +62,14 @@ function styles() {
       gulpIf(
         !isDev,
         through2.obj((file, encoding, cb) => {
-          const result = csso.minify(file.contents.toString(), {
+          const cssoResult = csso.minify(file.contents.toString(), {
             forceMediaMerge: true
           })
 
-          // eslint-disable-next-line no-param-reassign
-          file.contents = Buffer.from(result.css)
-
-          cb(null, file)
-        })
-      )
-    )
-    .pipe(
-      gulpIf(
-        !isDev,
-        through2.obj((file, encoding, cb) => {
-          const result = cleanCss.minify(file.contents.toString())
+          const cleanCssResult = cleanCss.minify(cssoResult.css)
 
           // eslint-disable-next-line no-param-reassign
-          file.contents = Buffer.from(result.styles)
+          file.contents = Buffer.from(cleanCssResult.styles)
 
           cb(null, file)
         })
