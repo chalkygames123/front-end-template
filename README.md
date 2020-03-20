@@ -50,13 +50,13 @@ $ yarn lint:scripts
 $ yarn lint:styles
 
 # run all linting with auto fixing
-$ yarn lint-fix
+$ yarn fix
 
 # lint all .js files with auto fixing
-$ yarn lint-fix:scripts
+$ yarn fix:scripts
 
 # lint all .scss files with auto fixing
-$ yarn lint-fix:styles
+$ yarn fix:styles
 
 # check if all configured files are formatted
 $ yarn format-check
