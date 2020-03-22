@@ -12,14 +12,14 @@ module.exports = function serve(cb) {
         process.env.SSL_CERTIFICATE_KEY !== undefined
           ? {
               key: process.env.SSL_CERTIFICATE_KEY,
-              cert: process.env.SSL_CERTIFICATE
+              cert: process.env.SSL_CERTIFICATE,
             }
           : false,
       ghostMode: false,
       online: false,
       open: false,
       notify: false,
-      startPath: config.get('publicPath')
+      startPath: config.get('publicPath'),
     },
     cb
   )

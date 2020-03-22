@@ -19,7 +19,7 @@ const isDev = config.get('mode') !== 'production'
 function images() {
   return gulp
     .src(srcPaths, {
-      base: config.get('srcDir')
+      base: config.get('srcDir'),
     })
     .pipe(
       gulpIf(
@@ -34,16 +34,16 @@ function images() {
           imageminPngquant(),
           gulpImagemin.mozjpeg(),
           gulpImagemin.gifsicle({
-            optimizationLevel: 3
+            optimizationLevel: 3,
           }),
           gulpImagemin.svgo({
             plugins: [
               { removeViewBox: false },
               { removeUnknownsAndDefaults: false },
               { removeUselessDefs: false },
-              { cleanupIDs: false }
-            ]
-          })
+              { cleanupIDs: false },
+            ],
+          }),
         ])
       )
     )

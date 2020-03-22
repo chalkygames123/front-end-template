@@ -11,7 +11,7 @@ const config = require('./config')
 const isDev = config.get('mode') !== 'production'
 const htmlhintRules = JSON.parse(fs.readFileSync('.htmlhintrc', 'utf8'))
 
-module.exports = eleventyConfig => {
+module.exports = (eleventyConfig) => {
   eleventyConfig.addTransform('html-minifier', (content, outputPath) => {
     if (outputPath.endsWith('.html') && !isDev) {
       const result = htmlMinifier.minify(content, {
@@ -27,7 +27,7 @@ module.exports = eleventyConfig => {
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
         trimCustomFragments: true,
-        useShortDoctype: true
+        useShortDoctype: true,
       })
 
       return result
@@ -44,7 +44,7 @@ module.exports = eleventyConfig => {
         const report = htmlhint
           .format(result, {
             colors: true,
-            indent: 4
+            indent: 4,
           })
           .reduce((acc, line) => {
             return `${acc}\n${line}`
@@ -61,8 +61,8 @@ module.exports = eleventyConfig => {
   return {
     dir: {
       input: path.join(config.get('srcDir'), 'views'),
-      output: path.join(config.get('distDir'), config.get('publicPath'))
+      output: path.join(config.get('distDir'), config.get('publicPath')),
     },
-    pathPrefix: config.get('publicPath')
+    pathPrefix: config.get('publicPath'),
   }
 }

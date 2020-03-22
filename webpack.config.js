@@ -14,13 +14,13 @@ module.exports = {
   entry() {
     return globby(
       path.posix.join(config.get('srcDir'), 'assets/scripts/**/!(_)*.js')
-    ).then(files =>
+    ).then((files) =>
       Object.fromEntries(
-        files.map(file => [
+        files.map((file) => [
           path
             .relative(path.join(config.get('srcDir'), 'assets/scripts'), file)
             .replace(/\.[^.]+$/, ''),
-          `./${file}`
+          `./${file}`,
         ])
       )
     )
@@ -31,7 +31,7 @@ module.exports = {
       config.get('distDir'),
       config.get('publicPath'),
       'assets/scripts'
-    )
+    ),
   },
   optimization: {
     splitChunks: {
@@ -40,11 +40,11 @@ module.exports = {
           chunks: 'all',
           minSize: 0,
           name: 'vendors',
-          test: /[\\/]node_modules[\\/]/
-        }
-      }
+          test: /[\\/]node_modules[\\/]/,
+        },
+      },
     },
-    runtimeChunk: 'single'
+    runtimeChunk: 'single',
   },
   module: {
     rules: [
@@ -55,19 +55,19 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: true
-            }
+              cacheDirectory: true,
+            },
           },
           {
             loader: 'eslint-loader',
             options: {
-              cache: true
-            }
-          }
-        ]
-      }
-    ]
+              cache: true,
+            },
+          },
+        ],
+      },
+    ],
   },
   devtool: isDev ? 'eval-source-map' : false,
-  context: __dirname
+  context: __dirname,
 }

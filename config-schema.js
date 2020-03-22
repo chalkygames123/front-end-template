@@ -7,37 +7,37 @@ const schema = {
     doc: 'The mode of the build.',
     format: ['production', 'development'],
     default: 'production',
-    arg: 'mode'
+    arg: 'mode',
   },
   watch: {
     doc: 'Whether to enable watch mode.',
     format: Boolean,
     default: false,
-    arg: 'watch'
+    arg: 'watch',
   },
   srcDir: {
     doc: 'The source directory.',
     format: String,
     default: '.',
-    arg: 'src-dir'
+    arg: 'src-dir',
   },
   distDir: {
     doc: 'The dist directory.',
     format: String,
     default: 'dist',
-    arg: 'dist-dir'
+    arg: 'dist-dir',
   },
   publicPath: {
     doc: 'The base path of the site.',
     format: String,
-    default: '/'
-  }
+    default: '/',
+  },
 }
 
 const config = convict(schema)
 
 config.validate({
-  allowed: 'strict'
+  allowed: 'strict',
 })
 
 module.exports = config

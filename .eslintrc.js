@@ -1,12 +1,12 @@
 module.exports = {
   root: true,
   env: {
-    browser: true
+    browser: true,
   },
   extends: [
     'airbnb-base',
     'plugin:eslint-comments/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   ignorePatterns: ['!.*', '*/**/.*'],
   rules: {
@@ -20,13 +20,13 @@ module.exports = {
           'unknown',
           'parent',
           'sibling',
-          'index'
+          'index',
         ],
         'newlines-between': 'always',
         alphabetize: {
-          order: 'asc'
-        }
-      }
-    ]
-  }
+          order: 'asc',
+        },
+      },
+    ],
+  },
 }

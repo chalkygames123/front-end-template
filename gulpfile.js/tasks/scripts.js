@@ -9,7 +9,7 @@ function scripts(cb) {
     // eslint-disable-next-line no-console
     console.log(
       stats.toString({
-        colors: true
+        colors: true,
       })
     )
 

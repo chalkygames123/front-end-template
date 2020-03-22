@@ -23,7 +23,7 @@ const srcPaths = path.posix.join(
 const isDev = config.get('mode') !== 'production'
 const cleanCss = new CleanCSS({
   level: 2,
-  rebase: false
+  rebase: false,
 })
 
 gulpSass.compiler = sass
@@ -31,7 +31,7 @@ gulpSass.compiler = sass
 function styles() {
   return gulp
     .src(srcPaths, {
-      base: config.get('srcDir')
+      base: config.get('srcDir'),
     })
     .pipe(gulpIf(isDev, gulpSourcemaps.init()))
     .pipe(
@@ -39,14 +39,14 @@ function styles() {
         reporters: [
           {
             formatter: 'string',
-            console: true
-          }
-        ]
+            console: true,
+          },
+        ],
       })
     )
     .pipe(
       gulpSass({
-        fiber: Fiber
+        fiber: Fiber,
       })
     )
     .pipe(gulpPostcss())
@@ -54,7 +54,7 @@ function styles() {
       gulpIf(
         isDev,
         gulpSourcemaps.write({
-          sourceRoot: `/${config.get('srcDir')}`
+          sourceRoot: `/${config.get('srcDir')}`,
         })
       )
     )
@@ -63,7 +63,7 @@ function styles() {
         !isDev,
         through2.obj((file, encoding, cb) => {
           const cssoResult = csso.minify(file.contents.toString(), {
-            forceMediaMerge: true
+            forceMediaMerge: true,
           })
 
           const cleanCssResult = cleanCss.minify(cssoResult.css)

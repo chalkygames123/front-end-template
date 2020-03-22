@@ -16,7 +16,7 @@ const isDev = config.get('mode') !== 'production'
 function sprites() {
   return gulp
     .src(srcPaths, {
-      base: config.get('srcDir')
+      base: config.get('srcDir'),
     })
     .pipe(
       gulpSvgSprite({
@@ -35,7 +35,7 @@ function sprites() {
                 directorySeparatedName.replace(/\s+/g, this.whitespace),
                 '.svg'
               )
-            }
+            },
           },
           transform: [
             !isDev && {
@@ -44,18 +44,18 @@ function sprites() {
                   { removeViewBox: false },
                   { removeUnknownsAndDefaults: false },
                   { removeUselessDefs: false },
-                  { cleanupIDs: false }
-                ]
-              }
-            }
-          ].filter(Boolean)
+                  { cleanupIDs: false },
+                ],
+              },
+            },
+          ].filter(Boolean),
         },
         mode: {
           symbol: {
             dest: 'assets/images',
-            sprite: 'sprite.symbol.svg'
-          }
-        }
+            sprite: 'sprite.symbol.svg',
+          },
+        },
       })
     )
     .pipe(detectConflict())

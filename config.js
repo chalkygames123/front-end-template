@@ -6,7 +6,7 @@ const config = require('./config-schema')
 config.load({})
 
 config.validate({
-  allowed: 'strict'
+  allowed: 'strict',
 })
 
 module.exports = config

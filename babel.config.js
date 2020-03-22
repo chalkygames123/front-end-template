@@ -1,4 +1,4 @@
-module.exports = api => {
+module.exports = (api) => {
   api.cache.forever()
 
   return {
@@ -8,9 +8,9 @@ module.exports = api => {
         {
           modules: false,
           useBuiltIns: 'usage',
-          corejs: 3
-        }
-      ]
-    ]
+          corejs: 3,
+        },
+      ],
+    ],
   }
 }

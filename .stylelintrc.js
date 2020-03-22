@@ -1,7 +1,7 @@
 module.exports = {
   extends: [
     'stylelint-config-twbs-bootstrap/scss',
-    'stylelint-prettier/recommended'
+    'stylelint-prettier/recommended',
   ],
   rules: {
     'at-rule-empty-line-before': [
@@ -9,8 +9,8 @@ module.exports = {
       {
         except: ['first-nested', 'blockless-after-same-name-blockless'],
         ignore: ['after-comment'],
-        ignoreAtRules: ['else']
-      }
+        ignoreAtRules: ['else'],
+      },
     ],
     'declaration-block-no-redundant-longhand-properties': true,
     'function-calc-no-invalid': true,
@@ -21,40 +21,40 @@ module.exports = {
         'dollar-variables',
         {
           type: 'at-rule',
-          name: 'extend'
+          name: 'extend',
         },
         {
           type: 'at-rule',
           name: 'include',
-          hasBlock: false
+          hasBlock: false,
         },
         'declarations',
         {
           type: 'at-rule',
-          hasBlock: true
+          hasBlock: true,
         },
         {
           type: 'at-rule',
           name: 'include',
-          hasBlock: true
+          hasBlock: true,
         },
         'rules',
         {
           type: 'rule',
-          selector: /^&::\w/
+          selector: /^&::\w/,
         },
         {
           type: 'rule',
-          selector: /^&:\w/
-        }
-      ]
+          selector: /^&:\w/,
+        },
+      ],
     ],
     'rule-empty-line-before': [
       'always',
       {
         except: ['first-nested'],
-        ignore: ['after-comment']
-      }
+        ignore: ['after-comment'],
+      },
     ],
     'scss/at-each-key-value-single-line': true,
     'scss/at-if-no-null': true,
@@ -67,8 +67,8 @@ module.exports = {
       'always',
       {
         except: ['first-nested', 'after-dollar-variable'],
-        ignore: ['after-comment']
-      }
+        ignore: ['after-comment'],
+      },
     ],
     'scss/double-slash-comment-inline': 'never',
     'scss/double-slash-comment-whitespace-inside': 'always',
@@ -78,8 +78,8 @@ module.exports = {
     'scss/no-duplicate-dollar-variables': [
       true,
       {
-        ignoreInsideAtRules: ['if', 'mixin']
-      }
+        ignoreInsideAtRules: ['if', 'mixin'],
+      },
     ],
     'scss/operator-no-newline-after': null,
     'scss/operator-no-newline-before': null,
@@ -87,6 +87,6 @@ module.exports = {
     'scss/partial-no-import': true,
     'scss/selector-no-redundant-nesting-selector': true,
     'scss/selector-no-union-class-name': true,
-    'selector-class-pattern': null
-  }
+    'selector-class-pattern': null,
+  },
 }
