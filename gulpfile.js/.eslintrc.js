@@ -3,8 +3,8 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        optionalDependencies: false
-      }
-    ]
-  }
+        optionalDependencies: false,
+      },
+    ],
+  },
 }

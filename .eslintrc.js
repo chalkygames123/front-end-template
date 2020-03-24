@@ -8,7 +8,7 @@ module.exports = {
     'plugin:eslint-comments/recommended',
     'plugin:prettier/recommended',
   ],
-  ignorePatterns: '!.*',
+  ignorePatterns: ['!.*'],
   rules: {
     'import/order': [
       'error',
