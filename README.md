@@ -58,10 +58,10 @@ $ yarn fix:scripts
 # lint all .scss files with auto fixing
 $ yarn fix:styles
 
-# check if all configured files are formatted
+# check if all files are formatted
 $ yarn format-check
 
-# format all configured files
+# format all files
 $ yarn format
 
 # build for production
