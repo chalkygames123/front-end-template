@@ -46,9 +46,7 @@ module.exports = (eleventyConfig) => {
             colors: true,
             indent: 4,
           })
-          .reduce((acc, line) => {
-            return `${acc}\n${line}`
-          }, '')
+          .reduce((acc, line) => `${acc}\n${line}`, '')
 
         // eslint-disable-next-line no-console
         console.error(
