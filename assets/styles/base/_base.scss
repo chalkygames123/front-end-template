@@ -18,12 +18,12 @@
 
 html {
   box-sizing: border-box;
-  min-width: a.mq-get-breakpoint-width(sm);
+  min-width: 375px;
   font-size: 62.5%;
   line-height: inherit;
 
   @include a.mq(md) {
-    min-width: a.mq-get-breakpoint-width(lg);
+    min-width: 1280px;
   }
 }
 
