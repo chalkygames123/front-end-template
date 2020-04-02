@@ -38,7 +38,7 @@
     "autoprefixer": "^9.7.4",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.7",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "clean-css": "^4.2.3",
     "convict": "^5.2.0",
     "csso": "^4.0.2",
