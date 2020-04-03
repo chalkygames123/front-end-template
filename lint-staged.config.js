@@ -1,5 +1,5 @@
 module.exports = {
   '*.js': 'eslint --fix',
   '*.scss': ['stylelint --fix', 'stylelint --fix'],
-  '*': 'prettier --check --write',
+  '*.{json,md,y?(a)ml}': 'prettier --check --write',
 }
