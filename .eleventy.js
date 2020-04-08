@@ -58,7 +58,7 @@ module.exports = (eleventyConfig) => {
 
   return {
     dir: {
-      input: path.join(config.get('srcDir'), 'views'),
+      input: path.join(config.get('srcDir'), 'templates'),
       output: path.join(config.get('distDir'), config.get('publicPath')),
     },
     pathPrefix: config.get('publicPath'),
