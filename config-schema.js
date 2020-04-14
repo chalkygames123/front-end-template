@@ -28,7 +28,7 @@ const schema = {
     arg: 'dist-dir',
   },
   publicPath: {
-    doc: 'The base path of the site.',
+    doc: 'The public path of the site.',
     format: String,
     default: '/',
   },
