@@ -7,7 +7,7 @@
     <meta name="description" content="{{ description }}">
 
     <meta property="og:title" content="{{ title or site.name }}">
-    <meta property="og:type" content="{{ ogType or 'website' }}">
+    <meta property="og:type" content="{{ og.type or 'website' }}">
     <meta property="og:image" content="{{ site.origin }}{{ '/assets/images/ogp.jpg' | url }}">
     <meta property="og:url" content="{{ site.origin }}{{ page.url }}">
     <meta property="og:description" content="{{ description }}">
