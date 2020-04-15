@@ -27,7 +27,7 @@ Alternatively, [create a new repository from this template on GitHub](https://gi
 
 ## Prerequisites
 
-Make sure you have the latest Active LTS version of Node.js installed. If you are using [nvm](https://github.com/nvm-sh/nvm), just run `$ nvm install` (or `$ nvm i`) for the first time of setting up the project.
+Make sure you have Node.js 12.x installed. If you are using [nvm](https://github.com/nvm-sh/nvm), just run `$ nvm install` (or `$ nvm i`) for the first time of setting up the project.
 
 Also, make sure you have [Yarn](https://yarnpkg.com) installed.
 
