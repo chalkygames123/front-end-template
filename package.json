@@ -40,7 +40,7 @@
     "browser-sync": "^2.26.7",
     "chalk": "^4.0.0",
     "clean-css": "^4.2.3",
-    "convict": "^5.2.0",
+    "convict": "^6.0.0",
     "csso": "^4.0.3",
     "del": "^5.1.0",
     "dotenv": "^8.2.0",
