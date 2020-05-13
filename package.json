@@ -31,10 +31,10 @@
     "yakuhanjp": "^3.3.1"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy": "^0.11.0",
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
-    "@types/webpack": "^4.41.12",
+    "@types/webpack": "^4.41.13",
     "autoprefixer": "^9.7.6",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.7",
@@ -63,7 +63,7 @@
     "gulp-stylelint": "^13.0.0",
     "gulp-svg-sprite": "^1.5.0",
     "html-minifier": "^4.0.0",
-    "htmlhint": "^0.11.0",
+    "htmlhint": "^0.12.0",
     "husky": "^4.2.5",
     "imagemin-pngquant": "^8.0.0",
     "lint-staged": "^10.2.2",
