@@ -27,7 +27,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "normalize.css": "^8.0.1",
-    "what-input": "^5.2.7",
+    "what-input": "^5.2.9",
     "yakuhanjp": "^3.3.1"
   },
   "devDependencies": {
@@ -35,7 +35,7 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@types/webpack": "^4.41.13",
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.0",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.7",
     "chalk": "^4.0.0",
@@ -63,7 +63,7 @@
     "gulp-stylelint": "^13.0.0",
     "gulp-svg-sprite": "^1.5.0",
     "html-minifier": "^4.0.0",
-    "htmlhint": "^0.12.0",
+    "htmlhint": "^0.12.2",
     "husky": "^4.2.5",
     "imagemin-pngquant": "^8.0.0",
     "lint-staged": "^10.2.2",
@@ -72,7 +72,7 @@
     "prettier-plugin-package": "^1.0.0",
     "sass": "^1.26.5",
     "sass-mq": "^5.0.1",
-    "stylelint": "^13.3.3",
+    "stylelint": "^13.4.0",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-twbs-bootstrap": "^2.0.2",
     "stylelint-prettier": "^1.1.2",
