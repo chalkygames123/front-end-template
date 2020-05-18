@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 
 const htmlMinifier = require('html-minifier')
-const htmlhint = require('htmlhint').default
+const htmlhint = require('htmlhint').HTMLHint
 
 const config = require('./config')
 
