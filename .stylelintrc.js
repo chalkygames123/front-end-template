@@ -12,8 +12,10 @@ module.exports = {
         ignoreAtRules: ['else'],
       },
     ],
+    'alpha-value-notation': 'number',
     'declaration-block-no-redundant-longhand-properties': true,
     'function-calc-no-invalid': true,
+    'hue-degree-notation': 'angle',
     'no-empty-source': null,
     'order/order': [
       [
