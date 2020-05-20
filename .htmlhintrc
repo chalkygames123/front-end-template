@@ -17,6 +17,7 @@
   "id-unique": true,
   "inline-script-disabled": false,
   "inline-style-disabled": false,
+  "input-requires-label": true,
   "script-disabled": false,
   "space-tab-mixed-disabled": "space2",
   "spec-char-escape": true,
@@ -26,5 +27,7 @@
   "tag-self-close": false,
   "tagname-lowercase": true,
   "tagname-specialchars": true,
-  "title-require": true
+  "title-require": true,
+  "tags-check": false,
+  "attr-no-unnecessary-whitespace": true
 }
