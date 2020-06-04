@@ -65,7 +65,7 @@
     "html-minifier": "^4.0.0",
     "htmlhint": "^0.14.0",
     "husky": "^4.2.5",
-    "imagemin-pngquant": "^8.0.0",
+    "imagemin-pngquant": "^9.0.0",
     "lint-staged": "^10.2.8",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
