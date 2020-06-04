@@ -4,6 +4,7 @@ module.exports = {
     'stylelint-prettier/recommended',
   ],
   rules: {
+    'alpha-value-notation': 'number',
     'at-rule-empty-line-before': [
       'always',
       {
@@ -12,7 +13,6 @@ module.exports = {
         ignoreAtRules: ['else'],
       },
     ],
-    'alpha-value-notation': 'number',
     'declaration-block-no-redundant-longhand-properties': true,
     'function-calc-no-invalid': true,
     'hue-degree-notation': 'angle',
