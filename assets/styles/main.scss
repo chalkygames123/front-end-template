@@ -3,7 +3,7 @@
   $yakuhanjp-noto-eot-use: false,
   $yakuhanjp-noto-cdn-use: true
 );
-@use './base';
-@use './layouts';
-@use './components';
-@use './utils';
+@use 'base';
+@use 'layouts';
+@use 'components';
+@use 'utils';
