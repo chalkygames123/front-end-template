@@ -44,7 +44,7 @@
     "csso": "^4.0.3",
     "del": "^5.1.0",
     "dotenv": "^8.2.0",
-    "eslint": "~7.2",
+    "eslint": "~7.3",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-loader": "^4.0.2",
