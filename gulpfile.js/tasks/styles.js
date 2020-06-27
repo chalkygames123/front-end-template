@@ -1,4 +1,5 @@
 const path = require('path')
+const { Transform } = require('stream')
 
 const CleanCSS = require('clean-css')
 const csso = require('csso')
@@ -10,7 +11,6 @@ const gulpSass = require('gulp-sass')
 const gulpSourcemaps = require('gulp-sourcemaps')
 const gulpStylelint = require('gulp-stylelint')
 const sass = require('sass')
-const through2 = require('through2')
 
 const config = require('../../config')
 const common = require('../common')
@@ -61,17 +61,20 @@ function styles() {
     .pipe(
       gulpIf(
         !isDev,
-        through2.obj((file, encoding, cb) => {
-          const cssoResult = csso.minify(file.contents.toString(), {
-            forceMediaMerge: true,
-          })
+        new Transform({
+          objectMode: true,
+          transform(file, encoding, cb) {
+            const cssoResult = csso.minify(file.contents.toString(), {
+              forceMediaMerge: true,
+            })
 
-          const cleanCssResult = cleanCss.minify(cssoResult.css)
+            const cleanCssResult = cleanCss.minify(cssoResult.css)
 
-          // eslint-disable-next-line no-param-reassign
-          file.contents = Buffer.from(cleanCssResult.styles)
+            // eslint-disable-next-line no-param-reassign
+            file.contents = Buffer.from(cleanCssResult.styles)
 
-          cb(null, file)
+            cb(null, file)
+          },
         })
       )
     )
