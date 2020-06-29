@@ -14,6 +14,13 @@ module.exports = {
       },
     ],
     'declaration-block-no-redundant-longhand-properties': true,
+    'declaration-empty-line-before': [
+      'always',
+      {
+        except: ['first-nested', 'after-declaration'],
+        ignore: ['after-comment'],
+      },
+    ],
     'function-calc-no-invalid': true,
     'hue-degree-notation': 'angle',
     'no-empty-source': null,
