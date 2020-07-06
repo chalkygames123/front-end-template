@@ -8,7 +8,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 [data-whatinput='mouse'] *:focus,
@@ -17,7 +17,6 @@
 }
 
 html {
-  box-sizing: border-box;
   min-width: 375px;
   font-size: 62.5%;
   line-height: inherit;
@@ -38,14 +37,18 @@ h1 {
   margin: 0;
 }
 
-ol,
-ul {
+li {
   list-style: none;
 }
 
 a {
   color: currentColor;
   text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
 }
 
 button,
@@ -66,9 +69,7 @@ video {
 }
 
 svg {
-  &:not([fill]) {
-    fill: currentColor;
-  }
+  fill: currentColor;
 }
 
 table {
