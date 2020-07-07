@@ -69,7 +69,9 @@ video {
 }
 
 svg {
-  fill: currentColor;
+  &:not([fill]) {
+    fill: currentColor;
+  }
 }
 
 table {
