@@ -56,6 +56,10 @@ module.exports = {
           type: 'rule',
           selector: /^&:\w/,
         },
+        {
+          type: 'rule',
+          selector: /^&/,
+        },
       ],
     ],
     'rule-empty-line-before': [
