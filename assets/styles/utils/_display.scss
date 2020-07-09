@@ -1,9 +1,9 @@
 @use '../abstracts' as a;
 
-$displays: none, inline, inline-block, block, table, table-row, table-cell, flex,
+$values: none, inline, inline-block, block, table, table-row, table-cell, flex,
   inline-flex;
 
-@each $value in $displays {
+@each $value in $values {
   .u-d-#{$value} {
     // stylelint-disable-next-line declaration-no-important
     display: $value !important;
@@ -12,7 +12,7 @@ $displays: none, inline, inline-block, block, table, table-row, table-cell, flex
 
 @each $breakpoint in map-keys(a.$mq-breakpoints) {
   @include a.mq($breakpoint) {
-    @each $value in $displays {
+    @each $value in $values {
       .u-d-#{$breakpoint}-#{$value} {
         // stylelint-disable-next-line declaration-no-important
         display: $value !important;
