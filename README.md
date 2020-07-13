@@ -27,7 +27,7 @@ Alternatively, [create a new repository from this template on GitHub](https://gi
 
 ## Prerequisites
 
-Make sure you have Node.js 12.x installed. If you are using [nvm](https://github.com/nvm-sh/nvm), just run `$ nvm install` (or `$ nvm i`) for the first time of setting up the project.
+Make sure you have Node.js 12.x installed. By using [NVS](https://github.com/jasongin/nvs), you can automatically switch the version.
 
 Also, make sure you have [Yarn](https://yarnpkg.com) installed.
 
@@ -40,7 +40,7 @@ $ yarn
 # serve with live/hot reload at localhost:3000
 $ yarn dev
 
-# run all linting
+# run all lints
 $ yarn lint
 
 # lint all .js files
@@ -49,13 +49,13 @@ $ yarn lint:scripts
 # lint all .scss files
 $ yarn lint:styles
 
-# run all linting with auto fixing
+# run all lints with autofix
 $ yarn fix
 
-# lint all .js files with auto fixing
+# lint all .js files with autofix
 $ yarn fix:scripts
 
-# lint all .scss files with auto fixing
+# lint all .scss files with autofix
 $ yarn fix:styles
 
 # check if all files are formatted
