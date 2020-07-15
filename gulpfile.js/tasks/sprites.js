@@ -9,7 +9,7 @@ const detectConflict = require('../utils/detectConflict')
 
 const srcPaths = path.posix.join(
   config.get('srcDir'),
-  'assets/images/sprites/**/*.svg'
+  'assets/sprites/**/*.svg'
 )
 const isDev = config.get('mode') !== 'production'
 
@@ -23,10 +23,7 @@ function sprites() {
         shape: {
           id: {
             generator(name) {
-              const destRelativeName = path.relative(
-                'assets/images/sprites',
-                name
-              )
+              const destRelativeName = path.relative('assets/sprites', name)
               const directorySeparatedName = destRelativeName
                 .split(path.sep)
                 .join(this.separator)
@@ -52,7 +49,7 @@ function sprites() {
         },
         mode: {
           symbol: {
-            dest: 'assets/images',
+            dest: 'assets',
             sprite: 'sprite.symbol.svg',
           },
         },
