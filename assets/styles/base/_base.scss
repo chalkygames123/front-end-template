@@ -49,6 +49,10 @@ a {
 button {
   background-color: transparent;
   border: 0;
+
+  &:not(:disabled):not([aria-disabled='true']) {
+    cursor: pointer;
+  }
 }
 
 button,
