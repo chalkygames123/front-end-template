@@ -16,7 +16,6 @@ module.exports = function serve(cb) {
             }
           : false,
       ghostMode: false,
-      online: false,
       open: false,
       notify: false,
       startPath: config.get('publicPath'),
