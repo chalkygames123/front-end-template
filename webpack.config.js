@@ -1,10 +1,17 @@
 const path = require('path')
 
-const globby = require('globby')
+const Fdir = require('fdir')
 
 const config = require('./config')
 
 const isDev = config.get('mode') !== 'production'
+const crawler = new Fdir()
+  .withBasePath()
+  .filter((filePath) => {
+    const basename = path.basename(filePath)
+    return !basename.startsWith('.') && basename.endsWith('.js')
+  })
+  .crawl(path.posix.join(config.get('srcDir'), 'assets/scripts'))
 
 /**
  * @type import('webpack').Configuration
@@ -12,17 +19,17 @@ const isDev = config.get('mode') !== 'production'
 module.exports = {
   mode: config.get('mode'),
   entry() {
-    return globby(
-      path.posix.join(config.get('srcDir'), 'assets/scripts/**/!(_)*.js')
-    ).then((files) =>
-      Object.fromEntries(
-        files.map((file) => [
-          path
-            .relative(path.join(config.get('srcDir'), 'assets/scripts'), file)
-            .replace(/\.[^.]+$/, ''),
-          `./${file}`,
-        ])
-      )
+    const filePaths = crawler.sync()
+
+    return Object.fromEntries(
+      filePaths.map((filePath) => {
+        const chunkName = path
+          .relative(path.join(config.get('srcDir'), 'assets/scripts'), filePath)
+          .replace(/\.[^.]+$/, '')
+        const entryPoint = `./${filePath}`
+
+        return [chunkName, entryPoint]
+      })
     )
   },
   output: {
