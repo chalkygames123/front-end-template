@@ -17,7 +17,6 @@ function copy() {
   return gulp
     .src(srcPaths, {
       base: path.join(config.get('srcDir'), 'static'),
-      dot: true,
       nodir: true,
     })
     .pipe(
