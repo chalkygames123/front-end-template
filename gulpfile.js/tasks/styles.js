@@ -14,7 +14,6 @@ const sass = require('sass')
 
 const config = require('../../config')
 const common = require('../common')
-const detectConflict = require('../utils/detectConflict')
 const ignore = require('../utils/ignore')
 
 const srcPaths = path.posix.join(
@@ -80,7 +79,6 @@ function styles() {
         })
       )
     )
-    .pipe(detectConflict())
     .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(common.server.stream())
 }

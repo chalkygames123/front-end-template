@@ -8,7 +8,6 @@ const imageminPngquant = require('imagemin-pngquant')
 
 const config = require('../../config')
 const common = require('../common')
-const detectConflict = require('../utils/detectConflict')
 const ignore = require('../utils/ignore')
 
 const srcPaths = path.posix.join(
@@ -49,7 +48,6 @@ function images() {
         ])
       )
     )
-    .pipe(detectConflict())
     .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(common.server.stream())
 }
