@@ -15,6 +15,7 @@ const sass = require('sass')
 const config = require('../../config')
 const common = require('../common')
 const detectConflict = require('../utils/detectConflict')
+const ignore = require('../utils/ignore')
 
 const srcPaths = path.posix.join(
   config.get('srcDir'),
@@ -33,6 +34,7 @@ function styles() {
     .src(srcPaths, {
       base: config.get('srcDir'),
     })
+    .pipe(ignore())
     .pipe(gulpIf(isDev, gulpSourcemaps.init()))
     .pipe(
       gulpStylelint({

@@ -9,6 +9,7 @@ const imageminPngquant = require('imagemin-pngquant')
 const config = require('../../config')
 const common = require('../common')
 const detectConflict = require('../utils/detectConflict')
+const ignore = require('../utils/ignore')
 
 const srcPaths = path.posix.join(
   config.get('srcDir'),
@@ -21,6 +22,7 @@ function images() {
     .src(srcPaths, {
       base: config.get('srcDir'),
     })
+    .pipe(ignore())
     .pipe(
       gulpIf(
         isDev,

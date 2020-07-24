@@ -1,15 +1,22 @@
+const fs = require('fs')
 const path = require('path')
 
 const Fdir = require('fdir')
+const ignore = require('ignore')
 
 const config = require('./config')
 
 const isDev = config.get('mode') !== 'production'
+const ig = ignore().add(fs.readFileSync('.gitignore').toString())
 const crawler = new Fdir()
   .withBasePath()
   .filter((filePath) => {
     const basename = path.basename(filePath)
-    return !basename.startsWith('.') && basename.endsWith('.js')
+    return (
+      !ig.ignores(filePath) &&
+      !basename.startsWith('.') &&
+      basename.endsWith('.js')
+    )
   })
   .crawl(path.posix.join(config.get('srcDir'), 'assets/scripts'))
 

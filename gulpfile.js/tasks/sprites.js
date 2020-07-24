@@ -6,6 +6,7 @@ const gulpSvgSprite = require('gulp-svg-sprite')
 const config = require('../../config')
 const common = require('../common')
 const detectConflict = require('../utils/detectConflict')
+const ignore = require('../utils/ignore')
 
 const srcPaths = path.posix.join(
   config.get('srcDir'),
@@ -18,6 +19,7 @@ function sprites() {
     .src(srcPaths, {
       base: config.get('srcDir'),
     })
+    .pipe(ignore())
     .pipe(
       gulpSvgSprite({
         shape: {
