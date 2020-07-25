@@ -3,7 +3,7 @@ const { Transform } = require('stream')
 
 const ignore = require('ignore')
 
-const ig = ignore().add(fs.readFileSync('.gitignore').toString())
+const ig = ignore().add(fs.readFileSync('.gitignore', 'utf8'))
 
 module.exports = () => {
   return new Transform({

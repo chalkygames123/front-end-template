@@ -7,7 +7,7 @@ const ignore = require('ignore')
 const config = require('./config')
 
 const isDev = config.get('mode') !== 'production'
-const ig = ignore().add(fs.readFileSync('.gitignore').toString())
+const ig = ignore().add(fs.readFileSync('.gitignore', 'utf8'))
 const crawler = new Fdir()
   .withBasePath()
   .filter((filePath) => {
