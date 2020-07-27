@@ -7,10 +7,7 @@ const gulpIf = require('gulp-if')
 const config = require('../../config')
 const common = require('../common')
 
-const srcPaths = [
-  path.posix.join(config.get('srcDir'), 'static/**'),
-  '!**/.gitkeep',
-]
+const srcPaths = path.posix.join(config.get('srcDir'), 'static/**')
 const isDev = config.get('mode') !== 'production'
 
 function copy() {
