@@ -83,7 +83,6 @@ module.exports = {
         ignore: ['after-comment'],
       },
     ],
-    'scss/double-slash-comment-inline': 'never',
     'scss/double-slash-comment-whitespace-inside': 'always',
     'scss/function-color-relative': true,
     'scss/function-quote-no-quoted-strings-inside': true,
