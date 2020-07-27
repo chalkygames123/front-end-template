@@ -50,7 +50,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "fdir": "^3.4.3",
+    "fdir": "^4.0.0",
     "fibers": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-changed": "^4.0.2",
