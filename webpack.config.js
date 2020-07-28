@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const Fdir = require('fdir')
+const Fdir = require('fdir').fdir
 const ignore = require('ignore')
 
 const config = require('./config')
