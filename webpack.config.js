@@ -25,8 +25,8 @@ const crawler = new Fdir()
  */
 module.exports = {
   mode: config.get('mode'),
-  entry() {
-    const filePaths = crawler.sync()
+  async entry() {
+    const filePaths = await crawler.withPromise()
 
     return Object.fromEntries(
       filePaths.map((filePath) => {
