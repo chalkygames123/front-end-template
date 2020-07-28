@@ -12,6 +12,7 @@ const crawler = new Fdir()
   .withBasePath()
   .filter((filePath) => {
     const basename = path.basename(filePath)
+
     return (
       !ig.ignores(filePath) &&
       !basename.startsWith('.') &&
