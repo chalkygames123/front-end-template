@@ -1,0 +1,13 @@
+diff --git a/node_modules/eslint/lib/cli-engine/config-array/ignore-pattern.js b/node_modules/eslint/lib/cli-engine/config-array/ignore-pattern.js
+index 6eaec42..6234398 100644
+--- a/node_modules/eslint/lib/cli-engine/config-array/ignore-pattern.js
++++ b/node_modules/eslint/lib/cli-engine/config-array/ignore-pattern.js
+@@ -109,7 +109,7 @@ function dirSuffix(filePath) {
+     return isDir ? "/" : "";
+ }
+ 
+-const DefaultPatterns = Object.freeze(["/**/node_modules/*"]);
++const DefaultPatterns = Object.freeze(["/**/node_modules/**"]);
+ const DotPatterns = Object.freeze([".*", "!.eslintrc.*", "!../"]);
+ 
+ //------------------------------------------------------------------------------
