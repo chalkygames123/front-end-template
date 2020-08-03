@@ -8,7 +8,7 @@
 
     <meta property="og:title" content="{{ title or site.name }}">
     <meta property="og:type" content="{{ og.type or 'website' }}">
-    <meta property="og:image" content="{{ site.origin }}{{ '/assets/images/ogp.jpg' | url }}">
+    <meta property="og:image" content="{{ site.origin }}/assets/images/ogp.jpg">
     <meta property="og:url" content="{{ site.origin }}{{ page.url }}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:locale" content="ja_JP">
@@ -21,15 +21,15 @@
 
     {% block styles %}
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <link href="{{ '/assets/styles/main.css' | url }}" rel="stylesheet">
-    <link href="{{ '/assets/styles/pages/common/style.css' | url }}" rel="stylesheet">
+    <link href="/assets/styles/main.css" rel="stylesheet">
+    <link href="/assets/styles/pages/common/style.css" rel="stylesheet">
     {% endblock %}
 
     {% block scripts %}
-    <script src="{{ '/assets/scripts/runtime.js' | url }}"></script>
-    <script src="{{ '/assets/scripts/viewport.js' | url }}"></script>
-    <script src="{{ '/assets/scripts/vendors.js' | url }}" defer></script>
-    <script src="{{ '/assets/scripts/pages/common.js' | url }}" defer></script>
+    <script src="/assets/scripts/runtime.js"></script>
+    <script src="/assets/scripts/viewport.js"></script>
+    <script src="/assets/scripts/vendors.js" defer></script>
+    <script src="/assets/scripts/pages/common.js" defer></script>
     {% endblock %}
   </head>
 
