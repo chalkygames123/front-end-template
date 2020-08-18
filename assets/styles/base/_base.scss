@@ -19,7 +19,6 @@
 html {
   min-width: 375px;
   font-size: 62.5%;
-  line-height: inherit;
 
   @include a.mq(md) {
     min-width: 1280px;
@@ -33,12 +32,48 @@ body {
   overflow-wrap: break-word;
 }
 
+li {
+  list-style-type: none;
+}
+
+th {
+  font-weight: inherit;
+}
+
+address {
+  font-style: inherit;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 h1 {
   margin: 0;
 }
 
-li {
-  list-style: none;
+cite,
+dfn,
+em,
+i,
+var {
+  font-style: inherit;
+}
+
+small {
+  font-size: inherit;
 }
 
 a {
@@ -46,38 +81,13 @@ a {
   text-decoration: none;
 }
 
-button {
-  background-color: transparent;
-  border: 0;
-
-  &:not(:disabled):not([aria-disabled='true']) {
-    cursor: pointer;
-  }
-}
-
 button,
 input,
-optgroup,
 select,
 textarea {
-  line-height: inherit;
-}
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
   vertical-align: middle;
 }
 
-svg {
-  &:not([fill]) {
-    fill: currentColor;
-  }
-}
-
-table {
-  border-collapse: collapse;
+button:not(:disabled):not([aria-disabled='true']) {
+  cursor: pointer;
 }
