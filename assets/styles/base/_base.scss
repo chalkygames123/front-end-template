@@ -85,13 +85,11 @@ button,
 input,
 select,
 textarea {
+  padding: 0;
   vertical-align: middle;
+  border: 0;
 }
 
-button {
-  border: 0;
-
-  &:not(:disabled):not([aria-disabled='true']) {
-    cursor: pointer;
-  }
+button:not(:disabled):not([aria-disabled='true']) {
+  cursor: pointer;
 }
