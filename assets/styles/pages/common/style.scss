@@ -1,1 +1,4 @@
-// @use '';
+[data-whatinput='mouse'] *:focus,
+[data-whatinput='touch'] *:focus {
+  outline: none;
+}

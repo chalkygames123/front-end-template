@@ -11,11 +11,6 @@
   box-sizing: border-box;
 }
 
-[data-whatinput='mouse'] *:focus,
-[data-whatinput='touch'] *:focus {
-  outline: none;
-}
-
 html {
   min-width: 375px;
   font-size: 62.5%;
