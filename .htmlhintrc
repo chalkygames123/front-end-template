@@ -18,7 +18,7 @@
   "id-unique": true,
   "inline-script-disabled": false,
   "inline-style-disabled": false,
-  "input-requires-label": true,
+  "input-requires-label": false,
   "script-disabled": false,
   "space-tab-mixed-disabled": "space2",
   "spec-char-escape": true,
