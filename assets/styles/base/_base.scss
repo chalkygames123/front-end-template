@@ -13,7 +13,11 @@
 
 html {
   min-width: 375px;
+  font-family: 'YakuHanJP_Noto', 'Noto Sans JP', sans-serif;
   font-size: 62.5%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-break: normal;
 
   @include a.mq(md) {
     min-width: 1280px;
@@ -21,10 +25,7 @@ html {
 }
 
 body {
-  font-family: 'YakuHanJP_Noto', 'Noto Sans JP', sans-serif;
   font-size: 1.6rem;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }
 
 li {
