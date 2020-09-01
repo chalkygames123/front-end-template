@@ -345,7 +345,6 @@ $RECYCLE.BIN/
 
 # Override gitignore.io's settings
 .idea
-.vscode
 
 # Build output
 dist
