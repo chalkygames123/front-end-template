@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
+const ESLintPlugin = require('eslint-webpack-plugin')
 const Fdir = require('fdir').fdir
 const ignore = require('ignore')
 
@@ -73,16 +74,11 @@ module.exports = {
               cacheDirectory: true,
             },
           },
-          {
-            loader: 'eslint-loader',
-            options: {
-              cache: true,
-            },
-          },
         ],
       },
     ],
   },
   devtool: isDev ? 'eval-source-map' : false,
   context: __dirname,
+  plugins: [new ESLintPlugin()],
 }
