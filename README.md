@@ -12,6 +12,12 @@ $ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/master
 
 Alternatively, [create a new repository from this template on GitHub](https://github.com/chalkygames123/front-end-template/generate).
 
+Right after the initialization, you may want to delete these files and directories or modify its content according to your needs:
+
+- `.github`
+- `LICENSE.md`
+- `renovate.json`
+
 ---
 
 **Remove everything from here and above**
