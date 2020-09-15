@@ -33,7 +33,9 @@ function images() {
         !isDev,
         gulpImagemin([
           imageminPngquant(),
-          gulpImagemin.mozjpeg(),
+          gulpImagemin.mozjpeg({
+            quality: 90,
+          }),
           gulpImagemin.gifsicle({
             optimizationLevel: 3,
           }),
