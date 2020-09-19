@@ -8,7 +8,7 @@ module.exports = {
     'at-rule-empty-line-before': [
       'always',
       {
-        except: ['first-nested', 'blockless-after-same-name-blockless'],
+        except: ['blockless-after-same-name-blockless', 'first-nested'],
         ignore: ['after-comment'],
         ignoreAtRules: ['else'],
       },
@@ -17,11 +17,10 @@ module.exports = {
     'declaration-empty-line-before': [
       'always',
       {
-        except: ['first-nested', 'after-declaration'],
+        except: ['after-declaration', 'first-nested'],
         ignore: ['after-comment'],
       },
     ],
-    'function-calc-no-invalid': true,
     'hue-degree-notation': 'angle',
     'no-empty-source': null,
     'order/order': [
@@ -77,7 +76,7 @@ module.exports = {
     'scss/dollar-variable-empty-line-before': [
       'always',
       {
-        except: ['first-nested', 'after-dollar-variable'],
+        except: ['after-dollar-variable', 'first-nested'],
         ignore: ['after-comment'],
       },
     ],
@@ -91,8 +90,6 @@ module.exports = {
         ignoreInsideAtRules: ['if', 'mixin'],
       },
     ],
-    'scss/operator-no-newline-after': null,
-    'scss/operator-no-newline-before': null,
     'scss/partial-no-import': true,
     'scss/selector-no-union-class-name': true,
     'selector-class-pattern': null,
