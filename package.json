@@ -56,7 +56,7 @@
     "gulp-changed": "^4.0.2",
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
-    "gulp-postcss": "^8.0.0",
+    "gulp-postcss": "^9.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
