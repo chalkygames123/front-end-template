@@ -84,6 +84,7 @@ module.exports = {
     'scss/function-color-relative': true,
     'scss/function-quote-no-quoted-strings-inside': true,
     'scss/function-unquote-no-unquoted-strings-inside': true,
+    'scss/map-keys-quotes': 'always',
     'scss/no-duplicate-dollar-variables': [
       true,
       {
