@@ -90,6 +90,7 @@ module.exports = {
         ignoreInsideAtRules: ['if', 'mixin'],
       },
     ],
+    'scss/no-global-function-names': true,
     'scss/partial-no-import': true,
     'scss/selector-no-union-class-name': true,
     'selector-class-pattern': null,
