@@ -1,7 +1,10 @@
 {
   "extends": ["config:base", "group:allNonMajor"],
-  "rangeStrategy": "bump",
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "node": {
     "supportPolicy": ["lts_latest"]
-  }
+  },
+  "rangeStrategy": "bump"
 }
