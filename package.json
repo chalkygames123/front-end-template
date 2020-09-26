@@ -41,7 +41,7 @@
     "clean-css": "^4.2.3",
     "convict": "^6.0.0",
     "csso": "^4.0.3",
-    "del": "^5.1.0",
+    "del": "^6.0.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.9.0",
     "eslint-config-airbnb-base": "^14.2.0",
