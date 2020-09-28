@@ -9,6 +9,12 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
+    'eslint-comments/disable-enable-pair': [
+      'error',
+      {
+        allowWholeFile: true,
+      },
+    ],
     'import/order': [
       'error',
       {
