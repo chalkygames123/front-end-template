@@ -29,6 +29,10 @@ const cleanCss = new CleanCSS({
 gulpSass.compiler = sass
 
 function styles() {
+  if (config.get('watch') && !gulp.lastRun(styles)) {
+    gulp.watch(srcPaths, styles)
+  }
+
   return gulp
     .src(srcPaths, {
       base: config.get('srcDir'),
@@ -81,10 +85,6 @@ function styles() {
     )
     .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(common.server.stream())
-}
-
-if (config.get('watch')) {
-  gulp.watch(srcPaths, styles)
 }
 
 module.exports = styles
