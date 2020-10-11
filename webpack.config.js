@@ -50,15 +50,13 @@ module.exports = {
     ),
   },
   optimization: {
-    moduleIds: 'hashed',
     runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
-        vendors: {
+        defaultVendors: {
           chunks: 'all',
           minSize: 0,
           name: 'vendors',
-          test: /[\\/]node_modules[\\/]/,
         },
       },
     },
