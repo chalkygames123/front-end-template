@@ -67,7 +67,11 @@ module.exports = {
   },
   devtool: isDev ? 'eval-source-map' : false,
   context: __dirname,
-  plugins: [new ESLintPlugin()],
+  plugins: [
+    new ESLintPlugin({
+      files: [path.posix.join(config.get('srcDir'), 'assets/scripts')],
+    }),
+  ],
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
