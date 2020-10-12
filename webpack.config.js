@@ -49,18 +49,6 @@ module.exports = {
       'assets/scripts'
     ),
   },
-  optimization: {
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        defaultVendors: {
-          chunks: 'all',
-          minSize: 0,
-          name: 'vendors',
-        },
-      },
-    },
-  },
   module: {
     rules: [
       {
@@ -80,4 +68,16 @@ module.exports = {
   devtool: isDev ? 'eval-source-map' : false,
   context: __dirname,
   plugins: [new ESLintPlugin()],
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        defaultVendors: {
+          chunks: 'all',
+          minSize: 0,
+          name: 'vendors',
+        },
+      },
+    },
+  },
 }
