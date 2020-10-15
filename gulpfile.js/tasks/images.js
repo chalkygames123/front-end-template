@@ -17,10 +17,6 @@ const srcPaths = path.posix.join(
 const isDev = config.get('mode') !== 'production'
 
 function images() {
-  if (config.get('watch') && !gulp.lastRun(images)) {
-    gulp.watch(srcPaths, images)
-  }
-
   return gulp
     .src(srcPaths, {
       base: config.get('srcDir'),
@@ -56,6 +52,10 @@ function images() {
     )
     .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(common.server.stream())
+}
+
+if (config.get('watch')) {
+  gulp.watch(srcPaths, images)
 }
 
 module.exports = images
