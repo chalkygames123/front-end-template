@@ -1,4 +1,12 @@
-@mixin sr-only {
+@mixin clearfix {
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
+
+@mixin visually-hidden {
   // stylelint-disable declaration-no-important
   position: absolute !important;
   width: 1px !important;
@@ -11,10 +19,8 @@
   // stylelint-enable declaration-no-important
 }
 
-@mixin clearfix {
-  &::after {
-    display: block;
-    clear: both;
-    content: '';
+@mixin visually-hidden-focusable() {
+  &:not(:focus) {
+    @include visually-hidden();
   }
 }
