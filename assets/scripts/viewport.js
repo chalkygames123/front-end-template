@@ -1,8 +1,13 @@
+const minWidth = 375
 const el = document.querySelector('meta[name="viewport"]')
-const updateContent = ({ matches }) => {
-  el.setAttribute('content', matches ? 'width=device-width' : 'width=375')
+const updateContent = () => {
+  if (window.screen.width < minWidth) {
+    el.setAttribute('content', `width=${minWidth}`)
+  } else {
+    el.setAttribute('content', 'width=device-width')
+  }
 }
-const mql = window.matchMedia('(min-device-width: 375px)')
 
-mql.addListener(updateContent)
-updateContent(mql)
+updateContent()
+
+window.addEventListener('orientationchange', updateContent)
