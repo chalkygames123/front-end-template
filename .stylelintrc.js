@@ -25,8 +25,6 @@ module.exports = {
     'no-empty-source': null,
     'order/order': [
       [
-        'custom-properties',
-        'dollar-variables',
         {
           type: 'at-rule',
           name: 'extend',
