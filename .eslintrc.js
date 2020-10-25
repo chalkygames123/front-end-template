@@ -3,11 +3,7 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: [
-    'airbnb-base',
-    'plugin:eslint-comments/recommended',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['airbnb-base', 'plugin:eslint-comments/recommended', 'prettier'],
   rules: {
     'eslint-comments/disable-enable-pair': [
       'error',

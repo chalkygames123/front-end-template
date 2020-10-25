@@ -12,7 +12,7 @@ const pattern = `*.{${extensions
   .join(',')}}`
 
 module.exports = {
-  '*.js': 'eslint --fix',
-  '*.scss': ['stylelint --fix', 'stylelint --fix'],
+  '*.js': ['prettier --check --write', 'eslint --fix'],
+  '*.scss': ['prettier --check --write', 'stylelint --fix', 'stylelint --fix'],
   [pattern]: 'prettier --check --write',
 }
