@@ -10,7 +10,7 @@ $values: none, inline, inline-block, block, table, table-row, table-cell, flex,
   }
 }
 
-@each $breakpoint in map-keys(a.$mq-breakpoints) {
+@each $breakpoint in map-keys(a.$breakpoints) {
   @include a.mq($breakpoint) {
     @each $value in $values {
       .u-d-#{$breakpoint}-#{$value} {

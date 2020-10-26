@@ -70,7 +70,6 @@
     "prettier": "^2.1.2",
     "prettier-plugin-package": "^1.2.0",
     "sass": "^1.27.0",
-    "sass-mq": "^5.0.1",
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-twbs-bootstrap": "^2.1.0",

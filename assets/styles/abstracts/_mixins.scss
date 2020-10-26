@@ -1,8 +1,26 @@
+@use 'functions' as f;
+
 @mixin clearfix {
   &::after {
     display: block;
     clear: both;
     content: '';
+  }
+}
+
+@mixin mq($key, $invert: false) {
+  $breakpoint: f.get-breakpoint-width($key);
+
+  @if $breakpoint {
+    @if $invert {
+      @media not all and (min-width: #{$breakpoint}) {
+        @content;
+      }
+    } @else {
+      @media (min-width: #{$breakpoint}) {
+        @content;
+      }
+    }
   }
 }
 

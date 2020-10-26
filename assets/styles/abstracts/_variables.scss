@@ -1,7 +1,7 @@
 // Breakpoints
 
-$mq-breakpoints: (
-  'md': 768px,
+$breakpoints: (
+  'md': 768 / 16 * 1em,
 );
 
 // Timing functions

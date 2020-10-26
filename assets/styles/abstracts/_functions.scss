@@ -1,0 +1,10 @@
+@use "sass:map";
+@use 'variables' as v;
+
+@function get-breakpoint-width($key) {
+  @if not map.has-key(v.$breakpoints, $key) {
+    @warn "Breakpoint #{$key} wasn't found in $breakpoints.";
+  }
+
+  @return map.get(v.$breakpoints, $key);
+}
