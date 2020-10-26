@@ -67,6 +67,12 @@ module.exports = {
       },
     ],
     'scss/at-each-key-value-single-line': true,
+    'scss/at-function-named-arguments': [
+      'never',
+      {
+        ignoreFunctions: ['color.adjust', 'color.change', 'color.scale'],
+      },
+    ],
     'scss/at-if-no-null': true,
     'scss/at-rule-conditional-no-parentheses': true,
     'scss/comment-no-loud': true,
