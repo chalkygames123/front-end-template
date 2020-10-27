@@ -1,5 +1,13 @@
 @use "sass:map";
+@use 'sass:math';
 @use 'variables' as v;
+
+@function drop-shadow-offsets($distance, $degree) {
+  $offset-x: $distance * math.cos($degree) * -1;
+  $offset-y: $distance * math.sin($degree);
+
+  @return $offset-x $offset-y;
+}
 
 @function get-breakpoint-width($key) {
   @if not map.has-key(v.$breakpoints, $key) {
