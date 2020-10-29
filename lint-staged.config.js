@@ -8,7 +8,7 @@ const extensions = prettier
 const extensionsToExclude = ['.js', '.scss']
 const pattern = `*.{${extensions
   .filter((ext) => !extensionsToExclude.includes(ext))
-  .map((ext) => ext.slice(1))
+  .map((ext) => ext.replace('.', ''))
   .join(',')}}`
 
 module.exports = {
