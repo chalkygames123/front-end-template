@@ -39,10 +39,10 @@ function sprites() {
             !isDev && {
               svgo: {
                 plugins: [
-                  { removeViewBox: false },
+                  { cleanupIDs: false },
                   { removeUnknownsAndDefaults: false },
                   { removeUselessDefs: false },
-                  { cleanupIDs: false },
+                  { removeViewBox: false },
                 ],
               },
             },

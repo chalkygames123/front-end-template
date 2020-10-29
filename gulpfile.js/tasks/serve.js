@@ -4,21 +4,21 @@ const common = require('../common')
 module.exports = function serve(cb) {
   common.server.init(
     {
-      ui: false,
-      watch: true,
-      server: config.get('distDir'),
+      ghostMode: false,
       https:
         process.env.SSL_CERTIFICATE !== undefined &&
         process.env.SSL_CERTIFICATE_KEY !== undefined
           ? {
-              key: process.env.SSL_CERTIFICATE_KEY,
               cert: process.env.SSL_CERTIFICATE,
+              key: process.env.SSL_CERTIFICATE_KEY,
             }
           : false,
-      ghostMode: false,
-      open: false,
       notify: false,
+      open: false,
+      server: config.get('distDir'),
       startPath: config.get('publicPath'),
+      ui: false,
+      watch: true,
     },
     cb
   )

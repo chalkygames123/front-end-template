@@ -41,10 +41,10 @@ function images() {
           }),
           gulpImagemin.svgo({
             plugins: [
-              { removeViewBox: false },
+              { cleanupIDs: false },
               { removeUnknownsAndDefaults: false },
               { removeUselessDefs: false },
-              { cleanupIDs: false },
+              { removeViewBox: false },
             ],
           }),
         ])
