@@ -4,7 +4,7 @@ const { Transform } = require('stream')
 const CleanCSS = require('clean-css')
 const csso = require('csso')
 const Fiber = require('fibers')
-const gulp = require('gulp')
+const { dest, src, watch } = require('gulp')
 const gulpIf = require('gulp-if')
 const gulpPostcss = require('gulp-postcss')
 const gulpSass = require('gulp-sass')
@@ -29,10 +29,9 @@ const cleanCss = new CleanCSS({
 gulpSass.compiler = sass
 
 function styles() {
-  return gulp
-    .src(srcPaths, {
-      base: config.get('srcDir'),
-    })
+  return src(srcPaths, {
+    base: config.get('srcDir'),
+  })
     .pipe(ignore())
     .pipe(gulpIf(isDev, gulpSourcemaps.init()))
     .pipe(
@@ -79,12 +78,12 @@ function styles() {
         })
       )
     )
-    .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
+    .pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(common.server.stream())
 }
 
 if (config.get('watch')) {
-  gulp.watch(srcPaths, styles)
+  watch(srcPaths, styles)
 }
 
 module.exports = styles

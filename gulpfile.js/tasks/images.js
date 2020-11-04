@@ -1,6 +1,6 @@
 const path = require('path')
 
-const gulp = require('gulp')
+const { dest, src, watch } = require('gulp')
 const gulpChanged = require('gulp-changed')
 const gulpIf = require('gulp-if')
 const gulpImagemin = require('gulp-imagemin')
@@ -17,10 +17,9 @@ const srcPaths = path.posix.join(
 const isDev = config.get('mode') !== 'production'
 
 function images() {
-  return gulp
-    .src(srcPaths, {
-      base: config.get('srcDir'),
-    })
+  return src(srcPaths, {
+    base: config.get('srcDir'),
+  })
     .pipe(ignore())
     .pipe(
       gulpIf(
@@ -50,12 +49,12 @@ function images() {
         ])
       )
     )
-    .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
+    .pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(common.server.stream())
 }
 
 if (config.get('watch')) {
-  gulp.watch(srcPaths, images)
+  watch(srcPaths, images)
 }
 
 module.exports = images

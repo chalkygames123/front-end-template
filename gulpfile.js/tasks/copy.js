@@ -1,6 +1,6 @@
 const path = require('path')
 
-const gulp = require('gulp')
+const { dest, src, watch } = require('gulp')
 const gulpChanged = require('gulp-changed')
 const gulpIf = require('gulp-if')
 
@@ -11,23 +11,22 @@ const srcPaths = path.posix.join(config.get('srcDir'), 'static/**')
 const isDev = config.get('mode') !== 'production'
 
 function copy() {
-  return gulp
-    .src(srcPaths, {
-      base: path.join(config.get('srcDir'), 'static'),
-      nodir: true,
-    })
+  return src(srcPaths, {
+    base: path.join(config.get('srcDir'), 'static'),
+    nodir: true,
+  })
     .pipe(
       gulpIf(
         isDev,
         gulpChanged(path.join(config.get('distDir'), config.get('publicPath')))
       )
     )
-    .pipe(gulp.dest(path.join(config.get('distDir'), config.get('publicPath'))))
+    .pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(common.server.stream())
 }
 
 if (config.get('watch')) {
-  gulp.watch(srcPaths, copy)
+  watch(srcPaths, copy)
 }
 
 module.exports = copy

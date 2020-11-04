@@ -1,4 +1,4 @@
-const gulp = require('gulp')
+const { parallel, series } = require('gulp')
 
 const clean = require('./clean')
 const copy = require('./copy')
@@ -8,7 +8,7 @@ const sprites = require('./sprites')
 const styles = require('./styles')
 const templates = require('./templates')
 
-module.exports = gulp.series(
+module.exports = series(
   clean,
-  gulp.parallel(copy, images, scripts, sprites, styles, templates)
+  parallel(copy, images, scripts, sprites, styles, templates)
 )
