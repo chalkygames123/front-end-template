@@ -19,7 +19,6 @@
     "lint:styles": "stylelint \"**/*.scss\"",
     "scripts": "gulp scripts",
     "serve": "gulp serve",
-    "sprites": "gulp sprites",
     "start": "gulp start",
     "styles": "gulp styles",
     "templates": "gulp templates"
@@ -58,7 +57,6 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
-    "gulp-svg-sprite": "^1.5.0",
     "html-minifier": "^4.0.0",
     "htmlhint": "^0.14.1",
     "husky": "^4.3.0",
