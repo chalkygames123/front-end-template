@@ -69,7 +69,7 @@ module.exports = {
   context: __dirname,
   plugins: [
     new ESLintPlugin({
-      files: [path.posix.join(config.get('srcDir'), 'assets/scripts')],
+      files: [path.join(config.get('srcDir'), 'assets/scripts')],
     }),
   ],
   optimization: {
