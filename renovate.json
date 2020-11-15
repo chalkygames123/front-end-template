@@ -3,8 +3,5 @@
   "lockFileMaintenance": {
     "enabled": true
   },
-  "node": {
-    "supportPolicy": ["lts_latest"]
-  },
   "rangeStrategy": "bump"
 }
