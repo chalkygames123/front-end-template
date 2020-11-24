@@ -15,7 +15,7 @@ Alternatively, [create a new repository from this template on GitHub](https://gi
 Right after the initialization, you may want to delete these files and directories or modify its content according to your needs:
 
 - `.github`
-- `LICENSE.md`
+- `LICENSE`
 - `renovate.json`
 
 ---
