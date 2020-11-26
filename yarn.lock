@@ -1006,6 +1006,17 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@chalkygames123/stylelint-config@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@chalkygames123/stylelint-config/-/stylelint-config-2.1.1.tgz#4cffac1bcd68f175dfd56d68cb6588ca583711e7"
+  integrity sha512-Czfb/Uuu8inCNGtG4rcnfVEnWIcOfR0NxPO9pSVDB6f5T67hBVk3umCKazsDNMF1fXcrKkn2Hi5ZejiMMo+kqw==
+  dependencies:
+    stylelint-config-recess-order "^2.3.0"
+    stylelint-config-recommended-scss "^4.2.0"
+    stylelint-config-standard "^20.0.0"
+    stylelint-order "^4.1.0"
+    stylelint-scss "^3.18.0"
+
 "@eslint/eslintrc@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.2.1.tgz#f72069c330461a06684d119384435e12a5d76e3c"
@@ -9434,6 +9445,13 @@ stylelint-config-prettier@^8.0.2:
   resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-8.0.2.tgz#da9de33da4c56893cbe7e26df239a7374045e14e"
   integrity sha512-TN1l93iVTXpF9NJstlvP7nOu9zY2k+mN0NSFQ/VEGz15ZIP9ohdDZTtCWHs5LjctAhSAzaILULGbgiM0ItId3A==
 
+stylelint-config-recess-order@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recess-order/-/stylelint-config-recess-order-2.3.0.tgz#ee33adc4faf3a09ed8e3a53f682e1682e1884ff8"
+  integrity sha512-z1d1m///to9ikecxP0uM2ljAmogHL1A+A4MUXtYrJvZRFPfPeODebimmJacx4cRL/oltEo3I6HqtreyRrn4lBg==
+  dependencies:
+    stylelint-order "4.1.x"
+
 stylelint-config-recommended-scss@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-4.2.0.tgz#3ad3fc858215cfd16a0f90aecf1ac0ea8a3e6971"
@@ -9453,17 +9471,7 @@ stylelint-config-standard@^20.0.0:
   dependencies:
     stylelint-config-recommended "^3.0.0"
 
-stylelint-config-twbs-bootstrap@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-twbs-bootstrap/-/stylelint-config-twbs-bootstrap-2.1.0.tgz#8cc4c908654c7bf7c5f479c3735caf4273b5c24b"
-  integrity sha512-KBYy7WrViHoryQVUuwxmGsZgWPqcSgJzq/960koADjRWluZRj4aGgyeQYevnz0SyKTn+t99Q3ewfwQVIpOWwwQ==
-  dependencies:
-    stylelint-config-recommended-scss "^4.2.0"
-    stylelint-config-standard "^20.0.0"
-    stylelint-order "^4.1.0"
-    stylelint-scss "^3.18.0"
-
-stylelint-order@^4.1.0:
+stylelint-order@4.1.x, stylelint-order@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-4.1.0.tgz#692d05b7d0c235ac66fcf5ea1d9e5f08a76747f6"
   integrity sha512-sVTikaDvMqg2aJjh4r48jsdfmqLT+nqB1MOsaBnvM3OwLx4S+WXcsxsgk5w18h/OZoxZCxuyXMh61iBHcj9Qiw==
