@@ -5,8 +5,8 @@ const ignore = require('ignore')
 
 const ig = ignore().add(fs.readFileSync('.gitignore', 'utf8'))
 
-module.exports = () => {
-  return new Transform({
+module.exports = () =>
+  new Transform({
     objectMode: true,
     transform(file, encoding, cb) {
       if (ig.ignores(file.relative)) {
@@ -16,4 +16,3 @@ module.exports = () => {
       }
     },
   })
-}
