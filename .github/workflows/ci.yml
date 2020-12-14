@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  main:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
