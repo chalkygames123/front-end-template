@@ -3,7 +3,6 @@ const { Transform } = require('stream')
 
 const CleanCSS = require('clean-css')
 const csso = require('csso')
-const Fiber = require('fibers')
 const { dest, src, watch } = require('gulp')
 const gulpIf = require('gulp-if')
 const gulpPostcss = require('gulp-postcss')
@@ -44,11 +43,7 @@ function styles() {
         ],
       })
     )
-    .pipe(
-      gulpSass({
-        fiber: Fiber,
-      })
-    )
+    .pipe(gulpSass())
     .pipe(gulpPostcss())
     .pipe(
       gulpIf(
