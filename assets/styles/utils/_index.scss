@@ -1,4 +1,4 @@
-@forward 'clearfix';
-@forward 'display';
-@forward 'visually-hidden-focusable';
-@forward 'visually-hidden';
+@use 'clearfix';
+@use 'display';
+@use 'visually-hidden-focusable';
+@use 'visually-hidden';
