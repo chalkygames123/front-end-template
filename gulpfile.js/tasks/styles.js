@@ -9,6 +9,7 @@ const gulpPostcss = require('gulp-postcss')
 const gulpSass = require('gulp-sass')
 const gulpSourcemaps = require('gulp-sourcemaps')
 const gulpStylelint = require('gulp-stylelint')
+const PluginError = require('plugin-error')
 const sass = require('sass')
 
 const config = require('../../config')
@@ -27,7 +28,7 @@ const cleanCss = new CleanCSS({
 
 gulpSass.compiler = sass
 
-function styles() {
+function styles(cb) {
   return src(srcPaths, {
     base: config.get('srcDir'),
   })
@@ -43,7 +44,11 @@ function styles() {
         ],
       })
     )
-    .pipe(gulpSass())
+    .pipe(
+      gulpSass().on('error', (error) => {
+        cb(new PluginError('gulp-sass', error.messageFormatted))
+      })
+    )
     .pipe(gulpPostcss())
     .pipe(
       gulpIf(
@@ -58,7 +63,7 @@ function styles() {
         !isDev,
         new Transform({
           objectMode: true,
-          transform(file, encoding, cb) {
+          transform(file, encoding, cb2) {
             const cssoResult = csso.minify(file.contents.toString(), {
               forceMediaMerge: true,
             })
@@ -68,7 +73,7 @@ function styles() {
             // eslint-disable-next-line no-param-reassign
             file.contents = Buffer.from(cleanCssResult.styles)
 
-            cb(null, file)
+            cb2(null, file)
           },
         })
       )
