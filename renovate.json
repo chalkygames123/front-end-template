@@ -3,5 +3,11 @@
   "lockFileMaintenance": {
     "enabled": true
   },
+  "packageRules": [
+    {
+      "packageNames": ["node"],
+      "enabled": false
+    }
+  ],
   "rangeStrategy": "bump"
 }
