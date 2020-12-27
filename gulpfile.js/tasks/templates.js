@@ -2,9 +2,9 @@ const Eleventy = require('@11ty/eleventy')
 
 const config = require('../../config')
 
-async function templates() {
-  const eleventy = new Eleventy()
+const eleventy = new Eleventy()
 
+async function templates() {
   await eleventy.init()
 
   if (config.get('watch')) {
