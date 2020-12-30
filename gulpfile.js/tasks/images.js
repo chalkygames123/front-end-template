@@ -2,13 +2,13 @@ const path = require('path')
 
 const { dest, src, watch } = require('gulp')
 const gulpChanged = require('gulp-changed')
-const gulpIf = require('gulp-if')
 const gulpImagemin = require('gulp-imagemin')
 const imageminPngquant = require('imagemin-pngquant')
 
 const config = require('../../config')
 const common = require('../common')
 const ignore = require('../utils/ignore')
+const pipeIf = require('../utils/pipe-if')
 
 const srcPaths = path.posix.join(
   config.get('srcDir'),
@@ -22,13 +22,13 @@ function images() {
   })
     .pipe(ignore())
     .pipe(
-      gulpIf(
+      pipeIf(
         isDev,
         gulpChanged(path.join(config.get('distDir'), config.get('publicPath')))
       )
     )
     .pipe(
-      gulpIf(
+      pipeIf(
         !isDev,
         gulpImagemin([
           imageminPngquant(),

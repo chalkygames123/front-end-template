@@ -4,7 +4,6 @@ const { Transform } = require('stream')
 const CleanCSS = require('clean-css')
 const csso = require('csso')
 const { dest, src, watch } = require('gulp')
-const gulpIf = require('gulp-if')
 const gulpPostcss = require('gulp-postcss')
 const gulpSass = require('gulp-sass')
 const gulpSourcemaps = require('gulp-sourcemaps')
@@ -15,6 +14,7 @@ const sass = require('sass')
 const config = require('../../config')
 const common = require('../common')
 const ignore = require('../utils/ignore')
+const pipeIf = require('../utils/pipe-if')
 
 const srcPaths = path.posix.join(
   config.get('srcDir'),
@@ -33,7 +33,7 @@ function styles(cb) {
     base: config.get('srcDir'),
   })
     .pipe(ignore())
-    .pipe(gulpIf(isDev, gulpSourcemaps.init()))
+    .pipe(pipeIf(isDev, gulpSourcemaps.init()))
     .pipe(
       gulpStylelint({
         reporters: [
@@ -51,7 +51,7 @@ function styles(cb) {
     )
     .pipe(gulpPostcss())
     .pipe(
-      gulpIf(
+      pipeIf(
         isDev,
         gulpSourcemaps.write({
           sourceRoot: `/${config.get('srcDir')}`,
@@ -59,7 +59,7 @@ function styles(cb) {
       )
     )
     .pipe(
-      gulpIf(
+      pipeIf(
         !isDev,
         new Transform({
           objectMode: true,

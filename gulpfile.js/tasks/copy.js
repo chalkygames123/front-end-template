@@ -2,10 +2,10 @@ const path = require('path')
 
 const { dest, src, watch } = require('gulp')
 const gulpChanged = require('gulp-changed')
-const gulpIf = require('gulp-if')
 
 const config = require('../../config')
 const common = require('../common')
+const pipeIf = require('../utils/pipe-if')
 
 const srcPaths = path.posix.join(config.get('srcDir'), 'static/**')
 const isDev = config.get('mode') !== 'production'
@@ -16,7 +16,7 @@ function copy() {
     nodir: true,
   })
     .pipe(
-      gulpIf(
+      pipeIf(
         isDev,
         gulpChanged(path.join(config.get('distDir'), config.get('publicPath')))
       )
