@@ -64,14 +64,28 @@ function styles(cb) {
         new Transform({
           objectMode: true,
           transform(file, encoding, cb2) {
-            const cssoResult = csso.minify(file.contents.toString(), {
+            const result = csso.minify(file.contents.toString(), {
               forceMediaMerge: true,
             })
 
-            const cleanCssResult = cleanCss.minify(cssoResult.css)
+            // eslint-disable-next-line no-param-reassign
+            file.contents = Buffer.from(result.css)
+
+            cb2(null, file)
+          },
+        })
+      )
+    )
+    .pipe(
+      pipeIf(
+        !isDev,
+        new Transform({
+          objectMode: true,
+          transform(file, encoding, cb2) {
+            const result = cleanCss.minify(file.contents.toString())
 
             // eslint-disable-next-line no-param-reassign
-            file.contents = Buffer.from(cleanCssResult.styles)
+            file.contents = Buffer.from(result.styles)
 
             cb2(null, file)
           },
