@@ -48,7 +48,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-webpack-plugin": "^2.4.1",
-    "fdir": "^4.1.0",
+    "fdir": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-changed": "^4.0.2",
     "gulp-imagemin": "^7.1.0",
