@@ -1,6 +1,6 @@
 # Front-End Template
 
-> A practical template for building static websites
+> Practical template for building static websites
 
 ## Getting started
 
