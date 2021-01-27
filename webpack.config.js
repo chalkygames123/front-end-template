@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const ESLintPlugin = require('eslint-webpack-plugin')
-const Fdir = require('fdir').fdir
+const { fdir: Fdir } = require('fdir')
 const ignore = require('ignore')
 
 const config = require('./config')
