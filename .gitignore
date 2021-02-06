@@ -343,8 +343,5 @@ $RECYCLE.BIN/
 
 ### Project-specific settings ###
 
-# Override gitignore.io's settings
-.idea
-
 # Build output
 dist
