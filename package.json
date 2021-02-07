@@ -75,5 +75,8 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "volta": {
+    "node": "14.15.4"
+  }
 }
