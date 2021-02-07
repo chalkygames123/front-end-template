@@ -37,7 +37,7 @@
     "autoprefixer": "^10.2.4",
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.26.14",
-    "clean-css": "^4.2.3",
+    "clean-css": "^5.0.1",
     "convict": "^6.0.0",
     "csso": "^4.2.0",
     "del": "^6.0.0",
