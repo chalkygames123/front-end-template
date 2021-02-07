@@ -23,7 +23,6 @@ const srcPaths = path.posix.join(
 const isDev = config.get('mode') !== 'production'
 const cleanCss = new CleanCSS({
   level: 2,
-  rebase: false,
 })
 
 gulpSass.compiler = sass
