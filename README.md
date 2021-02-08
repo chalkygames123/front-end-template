@@ -33,43 +33,41 @@ Right after the initialization, you may want to delete these files and directori
 
 ## Prerequisites
 
-Make sure you have Node.js 14.x installed. By using [Volta](https://volta.sh/), you can automatically switch the version.
-
-Also, make sure you have [Yarn](https://classic.yarnpkg.com) installed.
+Make sure you have Node.js 15.x installed. By using [Volta](https://volta.sh/), you can automatically switch the version.
 
 ## Usage
 
 ```shell
 # install dependencies
-$ yarn
+$ npm
 
 # serve with live/hot reload at localhost:3000
-$ yarn dev
+$ npm run dev
 
 # run all lints
-$ yarn lint
+$ npm run lint
 
 # lint all .js files
-$ yarn lint:scripts
+$ npm run lint:scripts
 
 # lint all .scss files
-$ yarn lint:styles
+$ npm run lint:styles
 
 # run all lints with autofix
-$ yarn fix
+$ npm run fix
 
 # lint all .js files with autofix
-$ yarn fix:scripts
+$ npm run fix:scripts
 
 # lint all .scss files with autofix
-$ yarn fix:styles
+$ npm run fix:styles
 
 # check if all files are formatted
-$ yarn format-check
+$ npm run format-check
 
 # format all files
-$ yarn format
+$ npm run format
 
 # build for production
-$ yarn build
+$ npm run build
 ```
