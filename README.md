@@ -35,7 +35,7 @@ Right after the initialization, you may want to delete these files and directori
 
 Make sure you have Node.js 14.x installed. By using [NVS](https://github.com/jasongin/nvs), you can automatically switch the version.
 
-Also, make sure you have [Yarn](https://yarnpkg.com) installed.
+Also, make sure you have [Yarn](https://classic.yarnpkg.com) installed.
 
 ## Usage
 
