@@ -19,6 +19,11 @@ jobs:
         with:
           node-version: '15.x'
 
+      - if: matrix.os == 'windows-latest'
+        run: |
+          npm config set msvs_version 2017
+          npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
+
       - run: npm ci
 
       - run: npm run lint
