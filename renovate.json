@@ -1,13 +1,3 @@
 {
-  "extends": ["config:base", "group:allNonMajor"],
-  "lockFileMaintenance": {
-    "enabled": true
-  },
-  "packageRules": [
-    {
-      "packageNames": ["node"],
-      "enabled": false
-    }
-  ],
-  "rangeStrategy": "bump"
+  "extends": ["config:base", "group:allNonMajor"]
 }
