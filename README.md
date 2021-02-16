@@ -39,7 +39,7 @@ Make sure you have Node.js 15.x installed. By using [Volta](https://volta.sh/), 
 
 ```shell
 # install dependencies
-$ npm
+$ npm ci
 
 # serve with live/hot reload at localhost:3000
 $ npm run dev
