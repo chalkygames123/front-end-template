@@ -32,7 +32,6 @@ function styles(cb) {
     base: config.get('srcDir'),
   })
     .pipe(ignore())
-    .pipe(pipeIf(isDev, gulpSourcemaps.init()))
     .pipe(
       gulpStylelint({
         reporters: [
@@ -43,20 +42,13 @@ function styles(cb) {
         ],
       })
     )
+    .pipe(pipeIf(isDev, gulpSourcemaps.init()))
     .pipe(
       gulpSass().on('error', (error) => {
         cb(new PluginError('gulp-sass', error.messageFormatted))
       })
     )
     .pipe(gulpPostcss())
-    .pipe(
-      pipeIf(
-        isDev,
-        gulpSourcemaps.write({
-          sourceRoot: `/${config.get('srcDir')}`,
-        })
-      )
-    )
     .pipe(
       pipeIf(
         !isDev,
@@ -88,6 +80,14 @@ function styles(cb) {
 
             cb2(null, file)
           },
+        })
+      )
+    )
+    .pipe(
+      pipeIf(
+        isDev,
+        gulpSourcemaps.write({
+          sourceRoot: `/${config.get('srcDir')}`,
         })
       )
     )
