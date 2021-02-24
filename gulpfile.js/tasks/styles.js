@@ -1,15 +1,13 @@
 const path = require('path')
 const { Transform } = require('stream')
 
+const { sass } = require('@mr-hope/gulp-sass')
 const CleanCSS = require('clean-css')
 const csso = require('csso')
 const { dest, src, watch } = require('gulp')
 const gulpPostcss = require('gulp-postcss')
-const gulpSass = require('gulp-sass')
 const gulpSourcemaps = require('gulp-sourcemaps')
 const gulpStylelint = require('gulp-stylelint')
-const PluginError = require('plugin-error')
-const sass = require('sass')
 
 const config = require('../../config')
 const common = require('../common')
@@ -25,9 +23,7 @@ const cleanCss = new CleanCSS({
   level: 2,
 })
 
-gulpSass.compiler = sass
-
-function styles(cb) {
+function styles() {
   return src(srcPaths, {
     base: config.get('srcDir'),
   })
@@ -43,11 +39,7 @@ function styles(cb) {
       })
     )
     .pipe(pipeIf(isDev, gulpSourcemaps.init()))
-    .pipe(
-      gulpSass().on('error', (error) => {
-        cb(new PluginError('gulp-sass', error.messageFormatted))
-      })
-    )
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulpPostcss())
     .pipe(
       pipeIf(
