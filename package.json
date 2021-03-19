@@ -1,7 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": ">=15"
+    "node": "15"
   },
   "scripts": {
     "build": "gulp build",
