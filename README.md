@@ -1,5 +1,8 @@
 # Front-End Template
 
+[![Renovate: enabled](https://img.shields.io/badge/Renovate-enabled-brightgreen?logo=RenovateBot&logoColor=fff)](https://renovatebot.com/)
+[![CI workflow status](https://github.com/chalkygames123/front-end-template/workflows/CI/badge.svg)](https://github.com/chalkygames123/front-end-template/actions?query=workflow%3ACI)
+
 > Practical template for building static websites
 
 ## Getting started
