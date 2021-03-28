@@ -23,15 +23,15 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap">
-		<link rel="stylesheet" href="/assets/styles/main.css">
+		<link rel="stylesheet" href="{{ pathToRoot }}/assets/styles/main.css">
 		{% endblock %}
 
 		{% block scripts %}
-		<script src="/assets/scripts/runtime.js"></script>
-		<script src="/assets/scripts/viewport.js"></script>
-		<script src="/assets/scripts/vendors.js" defer></script>
-		<script src="/assets/scripts/commons.js" defer></script>
-		<script src="/assets/scripts/main.js" defer></script>
+		<script src="{{ pathToRoot }}/assets/scripts/runtime.js"></script>
+		<script src="{{ pathToRoot }}/assets/scripts/viewport.js"></script>
+		<script src="{{ pathToRoot }}/assets/scripts/vendors.js" defer></script>
+		<script src="{{ pathToRoot }}/assets/scripts/commons.js" defer></script>
+		<script src="{{ pathToRoot }}/assets/scripts/main.js" defer></script>
 		{% endblock %}
 	</head>
 
