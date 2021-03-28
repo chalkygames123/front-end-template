@@ -23,14 +23,14 @@
     {% block styles %}
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <link href="/styles/main.css" rel="stylesheet">
+    <link href="{{ pathToRoot }}/styles/main.css" rel="stylesheet">
     {% endblock %}
 
     {% block scripts %}
-    <script src="/scripts/runtime.js"></script>
-    <script src="/scripts/viewport.js"></script>
-    <script src="/scripts/vendors.js" defer></script>
-    <script src="/scripts/pages/main.js" defer></script>
+    <script src="{{ pathToRoot }}/scripts/runtime.js"></script>
+    <script src="{{ pathToRoot }}/scripts/viewport.js"></script>
+    <script src="{{ pathToRoot }}/scripts/vendors.js" defer></script>
+    <script src="{{ pathToRoot }}/scripts/pages/main.js" defer></script>
     {% endblock %}
   </head>
 
