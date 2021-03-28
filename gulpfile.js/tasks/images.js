@@ -12,7 +12,7 @@ const pipeIf = require('../utils/pipe-if')
 
 const srcPaths = path.posix.join(
   config.get('srcDir'),
-  'assets/images/**/*.+(png|jp?(e)g|gif|svg)'
+  'images/**/*.+(png|jp?(e)g|gif|svg)'
 )
 const isDev = config.get('mode') !== 'production'
 

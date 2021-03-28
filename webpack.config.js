@@ -20,7 +20,7 @@ const crawler = new Fdir()
       basename.endsWith('.js')
     )
   })
-  .crawl(path.posix.join(config.get('srcDir'), 'assets/scripts'))
+  .crawl(path.posix.join(config.get('srcDir'), 'scripts'))
 
 /**
  * @type import('webpack').Configuration
@@ -33,7 +33,7 @@ module.exports = {
     return Object.fromEntries(
       filePaths.map((filePath) => {
         const chunkName = path
-          .relative(path.join(config.get('srcDir'), 'assets/scripts'), filePath)
+          .relative(path.join(config.get('srcDir'), 'scripts'), filePath)
           .replace(/\.[^.]+$/, '')
         const entryPoint = `./${filePath}`
 
@@ -46,14 +46,14 @@ module.exports = {
       __dirname,
       config.get('distDir'),
       config.get('publicPath'),
-      'assets/scripts'
+      'scripts'
     ),
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        include: [path.join(__dirname, config.get('srcDir'), 'assets/scripts')],
+        include: [path.join(__dirname, config.get('srcDir'), 'scripts')],
         use: [
           {
             loader: 'babel-loader',
@@ -74,7 +74,7 @@ module.exports = {
   context: __dirname,
   plugins: [
     new ESLintPlugin({
-      files: [path.join(config.get('srcDir'), 'assets/scripts')],
+      files: [path.join(config.get('srcDir'), 'scripts')],
     }),
   ],
   optimization: {

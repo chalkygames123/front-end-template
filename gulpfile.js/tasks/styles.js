@@ -17,7 +17,7 @@ const pipeIf = require('../utils/pipe-if')
 
 const srcPaths = path.posix.join(
   config.get('srcDir'),
-  'assets/styles/**/*.scss'
+  'styles/**/*.scss'
 )
 const isDev = config.get('mode') !== 'production'
 const cleanCss = new CleanCSS({
