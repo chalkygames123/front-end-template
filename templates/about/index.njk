@@ -1,0 +1,14 @@
+{% extends 'layouts/base.njk' %}
+
+{% block styles %}
+{{ super() }}
+<link href="{{ pathToRoot }}/styles/pages/about/index/style.css" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ pathToRoot }}/scripts/pages/about/index.js" defer></script>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
