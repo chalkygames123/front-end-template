@@ -36,6 +36,13 @@
 	</head>
 
 	<body>
+		<div style="padding: 30px;">
+			<pre>Current <code>pathToRoot</code> value: <code>{{ pathToRoot | dump }}</code></pre>
+			<p><a href="/">Go to <code>/</code></a></p>
+			<p><a href="/subdir">Go to <code>/subdir</code></a></p>
+			<p><a href="/subdir/detail.html">Go to <code>/subdir/detail.html</code></a></p>
+		</div>
+
 		{% include 'gtm-body.njk' %}
 
 		<div class="c-page">
