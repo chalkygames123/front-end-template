@@ -18,6 +18,7 @@
     "lint:scripts": "eslint .",
     "lint:styles": "stylelint \"**/*.scss\"",
     "postinstall": "patch-package",
+    "prepare": "husky install",
     "scripts": "gulp scripts",
     "serve": "gulp serve",
     "start": "gulp start",
