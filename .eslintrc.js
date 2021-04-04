@@ -3,6 +3,7 @@ module.exports = {
   env: {
     browser: true,
   },
+  reportUnusedDisableDirectives: true,
   extends: ['airbnb-base', 'plugin:eslint-comments/recommended', 'prettier'],
   rules: {
     'eslint-comments/disable-enable-pair': [
