@@ -19,6 +19,7 @@
     "lint:scripts": "eslint .",
     "lint:styles": "stylelint \"**/*.scss\"",
     "postinstall": "patch-package",
+    "preinstall": "npm-force-resolutions",
     "prepare": "husky install",
     "scripts": "gulp scripts",
     "serve": "gulp serve",
@@ -40,7 +41,7 @@
     "@mr-hope/gulp-sass": "2.0.0",
     "autoprefixer": "10.2.5",
     "babel-loader": "8.2.2",
-    "browser-sync": "2.26.14",
+    "browser-sync": "2.26.13",
     "clean-css": "5.1.2",
     "convict": "6.0.1",
     "csso": "4.2.0",
@@ -66,6 +67,7 @@
     "ignore": "5.1.8",
     "imagemin-pngquant": "9.0.2",
     "lint-staged": "10.5.4",
+    "npm-force-resolutions": "0.0.10",
     "npm-run-all": "4.1.5",
     "patch-package": "6.4.7",
     "postcss": "8.2.9",
@@ -75,6 +77,11 @@
     "stylelint-config-prettier": "8.0.2",
     "webpack": "5.30.0",
     "webpack-cli": "4.6.0"
+  },
+  "resolutions": {
+    "browser-sync": "2.26.13",
+    "browser-sync-client": "2.26.13",
+    "browser-sync-ui": "2.26.13"
   },
   "browserslist": [
     "defaults"
