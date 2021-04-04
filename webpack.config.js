@@ -78,8 +78,9 @@ module.exports = {
       cacheGroups: {
         defaultVendors: {
           chunks: 'all',
-          minSize: 0,
+          enforce: true,
           name: 'vendors',
+          test: /[\\/]node_modules[\\/]/,
         },
       },
     },
