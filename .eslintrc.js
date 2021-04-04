@@ -4,6 +4,9 @@ module.exports = {
     browser: true,
     es2021: true,
   },
+  parserOptions: {
+    ecmaVersion: 2021,
+  },
   reportUnusedDisableDirectives: true,
   extends: ['airbnb-base', 'plugin:eslint-comments/recommended', 'prettier'],
   rules: {
