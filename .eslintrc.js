@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   env: {
     browser: true,
+    es2021: true,
   },
   reportUnusedDisableDirectives: true,
   extends: ['airbnb-base', 'plugin:eslint-comments/recommended', 'prettier'],
