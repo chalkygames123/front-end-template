@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  extends: ['airbnb-base', 'plugin:eslint-comments/recommended', 'prettier'],
   env: {
     browser: true,
     es2021: true,
@@ -8,7 +9,6 @@ module.exports = {
     ecmaVersion: 2021,
   },
   reportUnusedDisableDirectives: true,
-  extends: ['airbnb-base', 'plugin:eslint-comments/recommended', 'prettier'],
   rules: {
     'eslint-comments/disable-enable-pair': [
       'error',
