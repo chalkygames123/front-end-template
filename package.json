@@ -19,7 +19,7 @@
     "lint:scripts": "eslint .",
     "lint:styles": "stylelint \"**/*.scss\"",
     "postinstall": "patch-package",
-    "preinstall": "npm-force-resolutions && run-s format",
+    "preinstall": "npm-force-resolutions && git checkout package-lock.json",
     "prepare": "husky install",
     "scripts": "gulp scripts",
     "serve": "gulp serve",
