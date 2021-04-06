@@ -88,3 +88,8 @@ textarea {
 button:not(:disabled):not([aria-disabled='true']) {
   cursor: pointer;
 }
+
+[data-whatinput='mouse'] *:focus,
+[data-whatinput='touch'] *:focus {
+  outline: none;
+}
