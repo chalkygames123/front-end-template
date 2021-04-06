@@ -4,7 +4,7 @@ const { Transform } = require('stream')
 const { sass } = require('@mr-hope/gulp-sass')
 const CleanCSS = require('clean-css')
 const csso = require('csso')
-const { dest, src, watch } = require('gulp')
+const { dest, lastRun, src, watch } = require('gulp')
 const gulpPostcss = require('gulp-postcss')
 const gulpSourcemaps = require('gulp-sourcemaps')
 const gulpStylelint = require('gulp-stylelint')
@@ -24,6 +24,10 @@ const cleanCss = new CleanCSS({
 })
 
 function styles() {
+  if (config.get('watch') && !lastRun(styles)) {
+    watch(srcPaths, styles)
+  }
+
   return src(srcPaths, {
     base: config.get('srcDir'),
   })
@@ -85,10 +89,6 @@ function styles() {
     )
     .pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
     .pipe(common.server.stream())
-}
-
-if (config.get('watch')) {
-  watch(srcPaths, styles)
 }
 
 module.exports = styles
