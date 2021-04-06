@@ -65,6 +65,11 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      '~': __dirname,
+    },
+  },
   devtool: isDev ? 'eval-source-map' : false,
   context: __dirname,
   plugins: [

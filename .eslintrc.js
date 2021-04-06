@@ -37,4 +37,7 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
   },
+  settings: {
+    'import/resolver': ['node', 'webpack'],
+  },
 }
