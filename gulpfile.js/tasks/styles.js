@@ -34,6 +34,7 @@ function styles() {
     .pipe(ignore())
     .pipe(
       gulpStylelint({
+        failAfterError: false,
         reporters: [
           {
             formatter: 'string',
