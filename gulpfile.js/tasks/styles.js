@@ -5,6 +5,7 @@ const { sass } = require('@mr-hope/gulp-sass')
 const CleanCSS = require('clean-css')
 const csso = require('csso')
 const { dest, lastRun, src, watch } = require('gulp')
+const gulpDependents = require('gulp-dependents')
 const gulpPostcss = require('gulp-postcss')
 const gulpSourcemaps = require('gulp-sourcemaps')
 const gulpStylelint = require('gulp-stylelint')
@@ -30,8 +31,10 @@ function styles() {
 
   return src(srcPaths, {
     base: config.get('srcDir'),
+    since: lastRun(styles),
   })
     .pipe(ignore())
+    .pipe(gulpDependents())
     .pipe(
       gulpStylelint({
         failAfterError: false,

@@ -1,4 +1,4 @@
-@use '../abstracts' as a;
+@use '../abstracts/index' as a;
 
 .u-visually-hidden-focusable {
   @include a.visually-hidden-focusable();

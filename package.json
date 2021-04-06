@@ -58,6 +58,7 @@
     "fdir": "5.0.0",
     "gulp": "4.0.2",
     "gulp-changed": "4.0.2",
+    "gulp-dependents": "1.2.5",
     "gulp-imagemin": "7.1.0",
     "gulp-postcss": "9.0.0",
     "gulp-sourcemaps": "3.0.0",

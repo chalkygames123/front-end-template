@@ -1,4 +1,4 @@
-@use '../abstracts' as a;
+@use '../abstracts/index' as a;
 
 .u-clearfix {
   @include a.clearfix();
