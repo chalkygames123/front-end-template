@@ -7,7 +7,7 @@ const config = require('../../config')
 const common = require('../common')
 const pipeIf = require('../utils/pipe-if')
 
-const srcPaths = path.posix.join(config.get('srcDir'), 'static/**')
+const srcPaths = path.posix.join(config.get('srcDir'), 'public/**')
 const isDev = config.get('mode') !== 'production'
 
 function copy() {
@@ -16,7 +16,7 @@ function copy() {
   }
 
   return src(srcPaths, {
-    base: path.join(config.get('srcDir'), 'static'),
+    base: path.join(config.get('srcDir'), 'public'),
     nodir: true,
   })
     .pipe(
