@@ -8,8 +8,8 @@ module.exports = (api) => {
       [
         '@babel/preset-env',
         {
-          corejs: pkg.dependencies['core-js'],
           useBuiltIns: 'usage',
+          corejs: pkg.dependencies['core-js'],
         },
       ],
     ],
