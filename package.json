@@ -1,7 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": "15"
+    "node": "16"
   },
   "scripts": {
     "build": "gulp build",
@@ -82,6 +82,6 @@
     "defaults"
   ],
   "volta": {
-    "node": "15.13.0"
+    "node": "16.0.0"
   }
 }
