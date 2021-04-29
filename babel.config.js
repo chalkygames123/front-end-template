@@ -1,4 +1,4 @@
-const pkg = require('./package.json')
+const packageConfig = require('./package.json')
 
 module.exports = (api) => {
   api.cache.forever()
@@ -9,7 +9,7 @@ module.exports = (api) => {
         '@babel/preset-env',
         {
           useBuiltIns: 'usage',
-          corejs: pkg.dependencies['core-js'],
+          corejs: packageConfig.dependencies['core-js'],
         },
       ],
     ],
