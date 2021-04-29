@@ -34,8 +34,8 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "0.12.1",
-    "@babel/core": "7.13.16",
-    "@babel/preset-env": "7.13.15",
+    "@babel/core": "7.14.0",
+    "@babel/preset-env": "7.14.0",
     "@chalkygames123/eslint-config": "2.0.0",
     "@chalkygames123/stylelint-config": "4.0.0",
     "@mr-hope/gulp-sass": "2.0.0",
