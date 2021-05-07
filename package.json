@@ -48,7 +48,7 @@
     "convict": "6.1.0",
     "csso": "4.2.0",
     "del": "6.0.0",
-    "dotenv": "8.6.0",
+    "dotenv": "9.0.0",
     "editorconfig-checker": "4.0.2",
     "eslint": "7.25.0",
     "eslint-config-prettier": "8.3.0",
