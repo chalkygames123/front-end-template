@@ -1,8 +1,8 @@
 @use "sass:map";
 @use '../abstracts/index' as a;
 
-$values: none, inline, inline-block, block, table, table-row, table-cell, flex,
-  inline-flex;
+$values: none, inline, inline-block, block, grid, table, table-row, table-cell,
+  flex, inline-flex;
 
 @each $value in $values {
   .u-d-#{$value} {
