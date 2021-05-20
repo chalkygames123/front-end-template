@@ -1,6 +1,6 @@
 {
   "alt-require": true,
-  "attr-lowercase": ["viewBox"],
+  "attr-lowercase": true,
   "attr-no-duplication": true,
   "attr-no-unnecessary-whitespace": true,
   "attr-sorted": true,
