@@ -15,7 +15,7 @@
     "format-check": "prettier . --check",
     "images": "gulp images",
     "lint": "run-p lint:* --continue-on-error",
-    "lint:editorconfig": "editorconfig-checker --exclude \\.patch$",
+    "lint:editorconfig": "editorconfig-checker",
     "lint:scripts": "eslint .",
     "lint:styles": "stylelint \"**/*.scss\"",
     "postinstall": "patch-package",
