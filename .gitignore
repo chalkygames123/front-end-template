@@ -19,5 +19,11 @@
 
 ### Project-specific settings ###
 
+# build output
 dist
+
+# dependencies
 node_modules
+
+# environment variables
+.env
