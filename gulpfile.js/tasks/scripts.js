@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const WebpackDevServer = require('webpack-dev-server')
 
 const config = require('../../config')
 const webpackConfig = require('../../webpack.config')
@@ -6,21 +7,21 @@ const webpackConfig = require('../../webpack.config')
 const compiler = webpack(webpackConfig)
 
 function scripts(cb) {
-  const handler = (error, stats) => {
-    // eslint-disable-next-line no-console
-    console.log(
-      stats.toString({
-        colors: true,
-      })
-    )
-
-    cb()
-  }
-
   if (config.get('watch')) {
-    compiler.watch({}, handler)
+    const server = new WebpackDevServer(compiler, webpackConfig.devServer)
+
+    server.listen(3000, '127.0.0.1', cb)
   } else {
-    compiler.run(handler)
+    compiler.run((error, stats) => {
+      // eslint-disable-next-line no-console
+      console.log(
+        stats.toString({
+          colors: true,
+        })
+      )
+
+      cb()
+    })
   }
 }
 

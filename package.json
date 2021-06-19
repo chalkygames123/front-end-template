@@ -7,7 +7,7 @@
     "build": "gulp build",
     "clean": "gulp clean",
     "copy": "gulp copy",
-    "dev": "gulp start --mode=development --watch",
+    "dev": "gulp build --mode=development --watch",
     "fix": "run-p fix:* --continue-on-error",
     "fix:scripts": "run-s \"lint:scripts -- --fix\"",
     "fix:styles": "run-s \"lint:styles -- --fix\" \"lint:styles -- --fix\" --continue-on-error",
@@ -21,8 +21,6 @@
     "postinstall": "patch-package",
     "prepare": "husky install",
     "scripts": "gulp scripts",
-    "serve": "gulp serve",
-    "start": "gulp start",
     "styles": "gulp styles",
     "templates": "gulp templates"
   },
@@ -41,7 +39,6 @@
     "@mr-hope/gulp-sass": "2.0.0",
     "autoprefixer": "10.2.6",
     "babel-loader": "8.2.2",
-    "browser-sync": "2.26.13",
     "browser-sync-client": "2.26.13",
     "browser-sync-ui": "2.26.13",
     "clean-css": "5.1.2",
@@ -76,7 +73,8 @@
     "stylelint-config-prettier": "8.0.2",
     "webpack": "5.38.1",
     "webpack-bundle-analyzer": "4.4.2",
-    "webpack-cli": "4.7.0"
+    "webpack-cli": "4.7.0",
+    "webpack-dev-server": "4.0.0-beta.3"
   },
   "browserslist": [
     "defaults"

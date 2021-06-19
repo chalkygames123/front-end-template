@@ -11,7 +11,6 @@ const gulpSourcemaps = require('gulp-sourcemaps')
 const gulpStylelint = require('gulp-stylelint')
 
 const config = require('../../config')
-const common = require('../common')
 const ignore = require('../utils/ignore')
 const pipeIf = require('../utils/pipe-if')
 
@@ -92,7 +91,6 @@ function styles() {
       )
     )
     .pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
-    .pipe(common.server.stream())
 }
 
 module.exports = styles

@@ -6,7 +6,6 @@ const gulpImagemin = require('gulp-imagemin')
 const imageminPngquant = require('imagemin-pngquant')
 
 const config = require('../../config')
-const common = require('../common')
 const ignore = require('../utils/ignore')
 const pipeIf = require('../utils/pipe-if')
 
@@ -54,7 +53,6 @@ function images() {
       )
     )
     .pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
-    .pipe(common.server.stream())
 }
 
 module.exports = images

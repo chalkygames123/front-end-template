@@ -22,6 +22,8 @@ const crawler = new Fdir()
   })
   .crawl(path.posix.join(config.get('srcDir'), 'assets/scripts'))
 
+require('dotenv').config()
+
 /**
  * @type import('webpack').Configuration
  */
@@ -32,9 +34,7 @@ module.exports = {
 
     return Object.fromEntries(
       filePaths.map((filePath) => {
-        const chunkName = path
-          .relative(path.join(config.get('srcDir'), 'assets/scripts'), filePath)
-          .replace(/\.[^.]+$/, '')
+        const chunkName = filePath.replace(/\.[^.]+$/, '')
         const entryPoint = `./${filePath}`
 
         return [chunkName, entryPoint]
@@ -42,12 +42,8 @@ module.exports = {
     )
   },
   output: {
-    path: path.join(
-      __dirname,
-      config.get('distDir'),
-      config.get('publicPath'),
-      'assets/scripts'
-    ),
+    path: path.join(__dirname, config.get('distDir'), config.get('publicPath')),
+    publicPath: config.get('publicPath'),
   },
   module: {
     rules: [
@@ -72,19 +68,44 @@ module.exports = {
   },
   devtool: isDev ? 'eval-source-map' : false,
   context: __dirname,
+  devServer: {
+    static: [
+      {
+        directory: path.join(__dirname, config.get('srcDir'), 'public'),
+        publicPath: config.get('publicPath'),
+      },
+      {
+        directory: path.join(__dirname, config.get('srcDir'), 'assets/images'),
+        publicPath: path.join(config.get('publicPath'), 'assets/images'),
+      },
+      {
+        directory: path.join(__dirname, config.get('distDir')),
+        publicPath: '/',
+      },
+    ],
+    https:
+      process.env.SSL_CERTIFICATE_KEY && process.env.SSL_CERTIFICATE
+        ? {
+            key: fs.readFileSync(process.env.SSL_CERTIFICATE_KEY),
+            cert: fs.readFileSync(process.env.SSL_CERTIFICATE),
+          }
+        : false,
+  },
   plugins: [
     new ESLintPlugin({
       files: [path.join(config.get('srcDir'), 'assets/scripts')],
     }),
   ],
   optimization: {
-    runtimeChunk: 'single',
+    runtimeChunk: {
+      name: 'assets/scripts/runtime',
+    },
     splitChunks: {
       cacheGroups: {
         defaultVendors: {
           chunks: 'all',
           enforce: true,
-          name: 'vendors',
+          name: 'assets/scripts/vendors',
           test: /[\\/]node_modules[\\/]/,
         },
       },

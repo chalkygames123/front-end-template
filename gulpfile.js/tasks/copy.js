@@ -4,7 +4,6 @@ const { dest, lastRun, src, watch } = require('gulp')
 const gulpChanged = require('gulp-changed')
 
 const config = require('../../config')
-const common = require('../common')
 const pipeIf = require('../utils/pipe-if')
 
 const srcPaths = path.posix.join(config.get('srcDir'), 'public/**')
@@ -26,7 +25,6 @@ function copy() {
       )
     )
     .pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
-    .pipe(common.server.stream())
 }
 
 module.exports = copy
