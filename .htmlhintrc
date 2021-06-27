@@ -13,6 +13,7 @@
   "doctype-html5": true,
   "head-script-disabled": false,
   "href-abs-or-rel": false,
+  "html-lang-require": true,
   "id-class-ad-disabled": true,
   "id-class-value": false,
   "id-unique": true,
