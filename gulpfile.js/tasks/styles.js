@@ -1,12 +1,12 @@
 const path = require('path')
 const { Transform } = require('stream')
 
-const { sass } = require('@mr-hope/gulp-sass')
 const CleanCSS = require('clean-css')
 const csso = require('csso')
 const { dest, lastRun, src, watch } = require('gulp')
 const gulpDependents = require('gulp-dependents')
 const gulpPostcss = require('gulp-postcss')
+const gulpSass = require('gulp-sass')(require('sass'))
 const gulpSourcemaps = require('gulp-sourcemaps')
 const gulpStylelint = require('gulp-stylelint')
 
@@ -47,7 +47,7 @@ function styles() {
       })
     )
     .pipe(pipeIf(isDev, gulpSourcemaps.init()))
-    .pipe(sass().on('error', sass.logError))
+    .pipe(gulpSass().on('error', gulpSass.logError))
     .pipe(gulpPostcss())
     .pipe(
       pipeIf(
