@@ -62,7 +62,7 @@
     "gulp-stylelint": "13.0.0",
     "html-minifier": "4.0.0",
     "htmlhint": "0.15.1",
-    "husky": "6.0.0",
+    "husky": "7.0.0",
     "ignore": "5.1.8",
     "imagemin-pngquant": "9.0.2",
     "lint-staged": "11.0.0",
