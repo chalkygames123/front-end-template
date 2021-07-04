@@ -17,8 +17,6 @@
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
 
-### Project-specific settings ###
-
 # build output
 dist
 
