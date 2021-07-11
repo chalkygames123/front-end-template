@@ -1,16 +1,18 @@
 const config = require('../../config')
 const common = require('../common')
 
+const cert = process.env.SSL_CERTIFICATE
+const key = process.env.SSL_CERTIFICATE_KEY
+
 module.exports = function serve(cb) {
   common.server.init(
     {
       ghostMode: false,
       https:
-        process.env.SSL_CERTIFICATE !== undefined &&
-        process.env.SSL_CERTIFICATE_KEY !== undefined
+        cert !== undefined && key !== undefined
           ? {
-              cert: process.env.SSL_CERTIFICATE,
-              key: process.env.SSL_CERTIFICATE_KEY,
+              cert,
+              key,
             }
           : false,
       notify: false,
