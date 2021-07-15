@@ -3,7 +3,7 @@
   "attr-lowercase": true,
   "attr-no-duplication": true,
   "attr-no-unnecessary-whitespace": true,
-  "attr-sorted": true,
+  "attr-sorted": false,
   "attr-unsafe-chars": true,
   "attr-value-double-quotes": true,
   "attr-value-not-empty": false,
