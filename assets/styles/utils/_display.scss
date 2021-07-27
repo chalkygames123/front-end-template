@@ -1,5 +1,5 @@
 @use "sass:map";
-@use '../abstracts/index' as a;
+@use '../abstracts' as a;
 
 $values: none, inline, inline-block, block, grid, table, table-row, table-cell,
   flex, inline-flex;

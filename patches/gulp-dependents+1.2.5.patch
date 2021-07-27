@@ -1,0 +1,13 @@
+diff --git a/node_modules/gulp-dependents/lib/core/dependency-parser/implementation/dependency-parser.js b/node_modules/gulp-dependents/lib/core/dependency-parser/implementation/dependency-parser.js
+index c6a6c87..e58f492 100644
+--- a/node_modules/gulp-dependents/lib/core/dependency-parser/implementation/dependency-parser.js
++++ b/node_modules/gulp-dependents/lib/core/dependency-parser/implementation/dependency-parser.js
+@@ -50,7 +50,7 @@ exports.defaultConfig = {
+             /"([^"]+)"|'([^']+)'|url\((?:"([^"]+)"|'([^']+)'|([^)]+))\)/gm
+         ],
+         prefixes: ["_"],
+-        postfixes: [".scss", ".sass"],
++        postfixes: ["/_index.scss", ".scss", ".sass"],
+         basePaths: []
+     },
+     ".sass": {
