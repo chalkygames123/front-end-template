@@ -3,7 +3,7 @@
 const eleventyPkg = require('@11ty/eleventy/package.json')
 
 module.exports = {
-  name: 'Site Name',
-  origin: 'https://example.com',
-  eleventyVersion: eleventyPkg.version,
+	name: 'Site Name',
+	origin: 'https://example.com',
+	eleventyVersion: eleventyPkg.version,
 }

@@ -1,44 +1,44 @@
 @use 'functions' as f;
 
 @mixin clearfix {
-  &::after {
-    display: block;
-    clear: both;
-    content: '';
-  }
+	&::after {
+		display: block;
+		clear: both;
+		content: '';
+	}
 }
 
 @mixin mq($key, $invert: false) {
-  $breakpoint: f.get-breakpoint-width($key);
+	$breakpoint: f.get-breakpoint-width($key);
 
-  @if $breakpoint {
-    @if $invert {
-      @media not all and (min-width: #{$breakpoint}) {
-        @content;
-      }
-    } @else {
-      @media (min-width: #{$breakpoint}) {
-        @content;
-      }
-    }
-  }
+	@if $breakpoint {
+		@if $invert {
+			@media not all and (min-width: #{$breakpoint}) {
+				@content;
+			}
+		} @else {
+			@media (min-width: #{$breakpoint}) {
+				@content;
+			}
+		}
+	}
 }
 
 @mixin visually-hidden {
-  // stylelint-disable declaration-no-important
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  white-space: nowrap !important;
-  border-width: 0 !important;
-  // stylelint-enable declaration-no-important
+	// stylelint-disable declaration-no-important
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	white-space: nowrap !important;
+	border-width: 0 !important;
+	// stylelint-enable declaration-no-important
 }
 
 @mixin visually-hidden-focusable() {
-  &:not(:focus) {
-    @include visually-hidden();
-  }
+	&:not(:focus) {
+		@include visually-hidden();
+	}
 }

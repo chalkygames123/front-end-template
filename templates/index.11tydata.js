@@ -1,7 +1,7 @@
 module.exports = {
-  title: 'Page Title',
-  description: 'Page Description',
-  og: {
-    type: 'website',
-  },
+	title: 'Page Title',
+	description: 'Page Description',
+	og: {
+		type: 'website',
+	},
 }

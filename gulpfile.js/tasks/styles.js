@@ -16,83 +16,83 @@ const ignore = require('../utils/ignore')
 const pipeIf = require('../utils/pipe-if')
 
 const srcPaths = path.posix.join(
-  config.get('srcDir'),
-  'assets/styles/**/*.scss'
+	config.get('srcDir'),
+	'assets/styles/**/*.scss'
 )
 const isDev = config.get('mode') !== 'production'
 const cleanCss = new CleanCSS({
-  level: 2,
+	level: 2,
 })
 
 function styles() {
-  if (config.get('watch') && !lastRun(styles)) {
-    watch(srcPaths, styles)
-  }
+	if (config.get('watch') && !lastRun(styles)) {
+		watch(srcPaths, styles)
+	}
 
-  return src(srcPaths, {
-    base: config.get('srcDir'),
-    since: lastRun(styles),
-  })
-    .pipe(ignore())
-    .pipe(gulpDependents())
-    .pipe(
-      gulpStylelint({
-        failAfterError: false,
-        reporters: [
-          {
-            formatter: 'string',
-            console: true,
-          },
-        ],
-      })
-    )
-    .pipe(pipeIf(isDev, gulpSourcemaps.init()))
-    .pipe(gulpSass().on('error', gulpSass.logError))
-    .pipe(gulpPostcss())
-    .pipe(
-      pipeIf(
-        !isDev,
-        new Transform({
-          objectMode: true,
-          transform(file, encoding, cb2) {
-            const result = csso.minify(file.contents.toString(), {
-              forceMediaMerge: true,
-            })
+	return src(srcPaths, {
+		base: config.get('srcDir'),
+		since: lastRun(styles),
+	})
+		.pipe(ignore())
+		.pipe(gulpDependents())
+		.pipe(
+			gulpStylelint({
+				failAfterError: false,
+				reporters: [
+					{
+						formatter: 'string',
+						console: true,
+					},
+				],
+			})
+		)
+		.pipe(pipeIf(isDev, gulpSourcemaps.init()))
+		.pipe(gulpSass().on('error', gulpSass.logError))
+		.pipe(gulpPostcss())
+		.pipe(
+			pipeIf(
+				!isDev,
+				new Transform({
+					objectMode: true,
+					transform(file, encoding, cb2) {
+						const result = csso.minify(file.contents.toString(), {
+							forceMediaMerge: true,
+						})
 
-            // eslint-disable-next-line no-param-reassign
-            file.contents = Buffer.from(result.css)
+						// eslint-disable-next-line no-param-reassign
+						file.contents = Buffer.from(result.css)
 
-            cb2(null, file)
-          },
-        })
-      )
-    )
-    .pipe(
-      pipeIf(
-        !isDev,
-        new Transform({
-          objectMode: true,
-          transform(file, encoding, cb2) {
-            const result = cleanCss.minify(file.contents.toString())
+						cb2(null, file)
+					},
+				})
+			)
+		)
+		.pipe(
+			pipeIf(
+				!isDev,
+				new Transform({
+					objectMode: true,
+					transform(file, encoding, cb2) {
+						const result = cleanCss.minify(file.contents.toString())
 
-            // eslint-disable-next-line no-param-reassign
-            file.contents = Buffer.from(result.styles)
+						// eslint-disable-next-line no-param-reassign
+						file.contents = Buffer.from(result.styles)
 
-            cb2(null, file)
-          },
-        })
-      )
-    )
-    .pipe(
-      pipeIf(
-        isDev,
-        gulpSourcemaps.write({
-          sourceRoot: `/${config.get('srcDir')}`,
-        })
-      )
-    )
-    .pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
-    .pipe(common.server.stream())
+						cb2(null, file)
+					},
+				})
+			)
+		)
+		.pipe(
+			pipeIf(
+				isDev,
+				gulpSourcemaps.write({
+					sourceRoot: `/${config.get('srcDir')}`,
+				})
+			)
+		)
+		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
+		.pipe(common.server.stream())
 }
 
 module.exports = styles

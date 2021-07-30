@@ -8,6 +8,6 @@ const styles = require('./styles')
 const templates = require('./templates')
 
 module.exports = series(
-  clean,
-  parallel(copy, images, scripts, styles, templates)
+	clean,
+	parallel(copy, images, scripts, styles, templates)
 )

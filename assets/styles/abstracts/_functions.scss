@@ -3,16 +3,16 @@
 @use 'variables' as v;
 
 @function drop-shadow-offsets($distance, $degree) {
-  $offset-x: $distance * math.cos($degree) * -1;
-  $offset-y: $distance * math.sin($degree);
+	$offset-x: $distance * math.cos($degree) * -1;
+	$offset-y: $distance * math.sin($degree);
 
-  @return $offset-x $offset-y;
+	@return $offset-x $offset-y;
 }
 
 @function get-breakpoint-width($key) {
-  @if not map.has-key(v.$breakpoints, $key) {
-    @warn "Breakpoint #{$key} wasn't found in $breakpoints.";
-  }
+	@if not map.has-key(v.$breakpoints, $key) {
+		@warn "Breakpoint #{$key} wasn't found in $breakpoints.";
+	}
 
-  @return map.get(v.$breakpoints, $key);
+	@return map.get(v.$breakpoints, $key);
 }

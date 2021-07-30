@@ -3,7 +3,7 @@
 // Breakpoints
 
 $breakpoints: (
-  'md': math.div(768, 16) * 1em,
+	'md': math.div(768, 16) * 1em,
 );
 
 // Timing functions

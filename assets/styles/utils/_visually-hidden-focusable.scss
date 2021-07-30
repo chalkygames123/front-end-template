@@ -1,5 +1,5 @@
 @use '../abstracts' as a;
 
 .u-visually-hidden-focusable {
-  @include a.visually-hidden-focusable();
+	@include a.visually-hidden-focusable();
 }

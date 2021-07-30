@@ -2,22 +2,22 @@
 @use '../abstracts' as a;
 
 $values: none, inline, inline-block, block, grid, table, table-row, table-cell,
-  flex, inline-flex;
+	flex, inline-flex;
 
 @each $value in $values {
-  .u-d-#{$value} {
-    // stylelint-disable-next-line declaration-no-important
-    display: $value !important;
-  }
+	.u-d-#{$value} {
+		// stylelint-disable-next-line declaration-no-important
+		display: $value !important;
+	}
 }
 
 @each $breakpoint in map.keys(a.$breakpoints) {
-  @include a.mq($breakpoint) {
-    @each $value in $values {
-      .u-d-#{$breakpoint}-#{$value} {
-        // stylelint-disable-next-line declaration-no-important
-        display: $value !important;
-      }
-    }
-  }
+	@include a.mq($breakpoint) {
+		@each $value in $values {
+			.u-d-#{$breakpoint}-#{$value} {
+				// stylelint-disable-next-line declaration-no-important
+				display: $value !important;
+			}
+		}
+	}
 }

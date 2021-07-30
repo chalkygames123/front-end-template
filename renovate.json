@@ -1,10 +1,10 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>chalkygames123/renovate-config"],
-  "packageRules": [
-    {
-      "matchPackagePatterns": ["^browser-sync"],
-      "enabled": false
-    }
-  ]
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["github>chalkygames123/renovate-config"],
+	"packageRules": [
+		{
+			"matchPackagePatterns": ["^browser-sync"],
+			"enabled": false
+		}
+	]
 }

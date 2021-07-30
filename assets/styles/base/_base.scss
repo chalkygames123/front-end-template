@@ -1,49 +1,49 @@
 @use '../abstracts' as a;
 
 * {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
-  min-width: 375px;
-  font-family: 'YakuHanJP_Noto', 'Noto Sans JP', sans-serif;
-  font-size: 62.5%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  line-break: normal;
+	min-width: 375px;
+	font-family: 'YakuHanJP_Noto', 'Noto Sans JP', sans-serif;
+	font-size: 62.5%;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	line-break: normal;
 
-  @include a.mq(md) {
-    min-width: 1280px;
-  }
+	@include a.mq(md) {
+		min-width: 1280px;
+	}
 }
 
 body {
-  font-size: 1.6rem;
+	font-size: 1.6rem;
 }
 
 li {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 th {
-  font-weight: inherit;
+	font-weight: inherit;
 }
 
 address {
-  font-style: inherit;
+	font-style: inherit;
 }
 
 fieldset {
-  min-width: 0;
-  padding: 0;
-  border: 0;
+	min-width: 0;
+	padding: 0;
+	border: 0;
 }
 
 h1,
@@ -52,12 +52,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: inherit;
+	font-size: inherit;
+	font-weight: inherit;
 }
 
 h1 {
-  margin: 0;
+	margin: 0;
 }
 
 cite,
@@ -65,31 +65,31 @@ dfn,
 em,
 i,
 var {
-  font-style: inherit;
+	font-style: inherit;
 }
 
 small {
-  font-size: inherit;
+	font-size: inherit;
 }
 
 a {
-  color: currentColor;
-  text-decoration: none;
+	color: currentColor;
+	text-decoration: none;
 }
 
 button,
 input,
 select,
 textarea {
-  padding: 0;
-  border: 0;
+	padding: 0;
+	border: 0;
 }
 
 button:not(:disabled):not([aria-disabled='true']) {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 [data-whatinput='mouse'] *:focus,
 [data-whatinput='touch'] *:focus {
-  outline: none;
+	outline: none;
 }
