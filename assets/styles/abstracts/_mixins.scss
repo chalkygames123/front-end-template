@@ -26,14 +26,19 @@
 
 @mixin visually-hidden {
 	// stylelint-disable declaration-no-important
-	position: absolute !important;
-	width: 1px !important;
-	height: 1px !important;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	display: block !important;
+	width: 4px !important;
+	height: 4px !important;
 	padding: 0 !important;
-	margin: -1px !important;
+	margin: 0 !important;
 	overflow: hidden !important;
-	white-space: nowrap !important;
-	border-width: 0 !important;
+	pointer-events: none !important;
+	visibility: visible !important;
+	border: 0 !important;
+	opacity: 0 !important;
 	// stylelint-enable declaration-no-important
 }
 
