@@ -9,7 +9,7 @@ const extensionsToExclude = ['.js', '.scss']
 const pattern = `*.{${extensions
 	.filter((ext) => !extensionsToExclude.includes(ext))
 	.map((ext) => ext.replace('.', ''))
-	.join(',')}}`
+	.join()}}`
 
 module.exports = {
 	'*.js': ['prettier --check --write', 'eslint --fix'],
