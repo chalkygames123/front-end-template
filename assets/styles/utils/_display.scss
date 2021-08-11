@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:meta";
 @use '../abstracts' as a;
 
 $values: none, inline, inline-block, block, grid, table, table-row, table-cell,
@@ -11,12 +12,14 @@ $values: none, inline, inline-block, block, grid, table, table-row, table-cell,
 	}
 }
 
-@each $breakpoint in map.keys(a.$breakpoints) {
-	@include a.mq($breakpoint) {
-		@each $value in $values {
-			.u-d-#{$breakpoint}-#{$value} {
-				// stylelint-disable-next-line declaration-no-important
-				display: $value !important;
+@if meta.global-variable-exists('breakpoints', a) {
+	@each $breakpoint in map.keys(a.$breakpoints) {
+		@include a.mq($breakpoint) {
+			@each $value in $values {
+				.u-d-#{$breakpoint}-#{$value} {
+					// stylelint-disable-next-line declaration-no-important
+					display: $value !important;
+				}
 			}
 		}
 	}
