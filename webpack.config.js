@@ -80,12 +80,19 @@ module.exports = {
 	optimization: {
 		runtimeChunk: 'single',
 		splitChunks: {
+			chunks: 'all',
 			cacheGroups: {
-				defaultVendors: {
-					chunks: 'all',
-					enforce: true,
+				default: false,
+				defaultVendors: false,
+				vendors: {
+					minSize: 0,
 					name: 'vendors',
-					test: /[\\/]node_modules[\\/]/,
+					test: /[\\/]node_modules[\\/]/i,
+				},
+				commons: {
+					minChunks: 2,
+					minSize: 0,
+					name: 'commons',
 				},
 			},
 		},
