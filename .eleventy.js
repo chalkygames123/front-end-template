@@ -13,7 +13,7 @@ const htmlhintRules = JSON.parse(fs.readFileSync('.htmlhintrc', 'utf8'))
 
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addTransform('html-minifier', (content, outputPath) => {
-		if (!/\.(html|php)$/.test(outputPath) || isDev) return content
+		if (!/\.(?:html|php)$/.test(outputPath) || isDev) return content
 
 		const result = htmlMinifier.minify(content, {
 			collapseBooleanAttributes: true,
