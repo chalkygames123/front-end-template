@@ -37,7 +37,7 @@ Right after the initialization, you may want to delete these files and directori
 
 ## Prerequisites
 
-Make sure you have Node.js 16.x installed. By using [Volta](https://volta.sh/), you can automatically switch the version.
+Make sure you have Node.js of the version specified in [package.json#engines.node](package.json) installed. By using [Volta](https://volta.sh/), you can automatically switch the version.
 
 ## Usage
 
