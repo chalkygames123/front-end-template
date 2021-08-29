@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"engines": {
-		"node": "16.7.0"
+		"node": "16.8.0"
 	},
 	"scripts": {
 		"build": "gulp build",
@@ -27,7 +27,7 @@
 		"templates": "gulp templates"
 	},
 	"dependencies": {
-		"core-js": "3.16.2",
+		"core-js": "3.16.4",
 		"sanitize.css": "12.0.1",
 		"what-input": "5.2.10",
 		"yakuhanjp": "3.4.1"
@@ -36,9 +36,9 @@
 		"@11ty/eleventy": "0.12.1",
 		"@babel/core": "7.15.0",
 		"@babel/preset-env": "7.15.0",
-		"@chalkygames123/eslint-config": "2.1.0",
+		"@chalkygames123/eslint-config": "2.1.1",
 		"@chalkygames123/stylelint-config": "5.0.0",
-		"autoprefixer": "10.3.2",
+		"autoprefixer": "10.3.3",
 		"babel-loader": "8.2.2",
 		"browser-sync": "2.26.13",
 		"browser-sync-client": "2.26.13",
@@ -56,13 +56,13 @@
 		"gulp-changed": "4.0.3",
 		"gulp-dependents": "1.2.5",
 		"gulp-imagemin": "7.1.0",
-		"gulp-postcss": "9.0.0",
+		"gulp-postcss": "9.0.1",
 		"gulp-sass": "5.0.0",
 		"gulp-sourcemaps": "3.0.0",
 		"gulp-stylelint": "13.0.0",
 		"html-minifier": "4.0.0",
 		"htmlhint": "0.15.1",
-		"husky": "7.0.1",
+		"husky": "7.0.2",
 		"ignore": "5.1.8",
 		"imagemin-pngquant": "9.0.2",
 		"lint-staged": "11.1.2",
@@ -71,7 +71,7 @@
 		"postcss": "8.3.6",
 		"prettier": "2.3.2",
 		"prettier-plugin-package": "1.3.0",
-		"sass": "1.38.1",
+		"sass": "1.38.2",
 		"stylelint": "13.13.1",
 		"stylelint-config-prettier": "8.0.2",
 		"webpack": "5.51.1",
@@ -83,6 +83,6 @@
 	],
 	"sideEffects": false,
 	"volta": {
-		"node": "16.7.0"
+		"node": "16.8.0"
 	}
 }
