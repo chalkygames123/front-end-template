@@ -5,7 +5,7 @@ const webpackConfig = require('../../webpack.config')
 
 const compiler = webpack(webpackConfig)
 
-function scripts(cb) {
+module.exports = function scripts(cb) {
 	const handler = (error, stats) => {
 		// eslint-disable-next-line no-console
 		console.log(
@@ -23,5 +23,3 @@ function scripts(cb) {
 		compiler.run(handler)
 	}
 }
-
-module.exports = scripts

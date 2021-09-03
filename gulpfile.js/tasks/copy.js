@@ -10,7 +10,7 @@ const pipeIf = require('../utils/pipe-if')
 const srcPaths = path.posix.join(config.get('srcDir'), 'public/**')
 const isDev = config.get('mode') !== 'production'
 
-function copy() {
+module.exports = function copy() {
 	if (config.get('watch') && !lastRun(copy)) {
 		watch(srcPaths, copy)
 	}
@@ -28,5 +28,3 @@ function copy() {
 		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
 		.pipe(common.server.stream())
 }
-
-module.exports = copy

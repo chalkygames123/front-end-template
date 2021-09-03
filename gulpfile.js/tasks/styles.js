@@ -24,7 +24,7 @@ const cleanCss = new CleanCSS({
 	level: 2,
 })
 
-function styles() {
+module.exports = function styles() {
 	if (config.get('watch') && !lastRun(styles)) {
 		watch(srcPaths, styles)
 	}
@@ -94,5 +94,3 @@ function styles() {
 		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
 		.pipe(common.server.stream())
 }
-
-module.exports = styles

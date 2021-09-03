@@ -16,7 +16,7 @@ const srcPaths = path.posix.join(
 )
 const isDev = config.get('mode') !== 'production'
 
-function images() {
+module.exports = function images() {
 	if (config.get('watch') && !lastRun(images)) {
 		watch(srcPaths, images)
 	}
@@ -56,5 +56,3 @@ function images() {
 		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
 		.pipe(common.server.stream())
 }
-
-module.exports = images

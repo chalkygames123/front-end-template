@@ -4,7 +4,7 @@ const config = require('../../config')
 
 const eleventy = new Eleventy()
 
-async function templates() {
+module.exports = async function templates() {
 	await eleventy.init()
 
 	if (config.get('watch')) {
@@ -13,5 +13,3 @@ async function templates() {
 		await eleventy.write()
 	}
 }
-
-module.exports = templates
