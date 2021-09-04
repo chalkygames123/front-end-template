@@ -1,18 +1,18 @@
-const fs = require('fs')
-const { Transform } = require('stream')
+const fs = require('fs');
+const { Transform } = require('stream');
 
-const ignore = require('ignore')
+const ignore = require('ignore');
 
-const ig = ignore().add(fs.readFileSync('.gitignore', 'utf8'))
+const ig = ignore().add(fs.readFileSync('.gitignore', 'utf8'));
 
 module.exports = () =>
 	new Transform({
 		objectMode: true,
 		transform(file, encoding, cb) {
 			if (ig.ignores(file.relative)) {
-				cb()
+				cb();
 			} else {
-				cb(null, file)
+				cb(null, file);
 			}
 		},
-	})
+	});

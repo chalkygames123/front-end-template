@@ -1,7 +1,7 @@
-const packageConfig = require('./package.json')
+const packageConfig = require('./package.json');
 
 module.exports = (api) => {
-	api.cache.forever()
+	api.cache.forever();
 
 	return {
 		presets: [
@@ -13,5 +13,5 @@ module.exports = (api) => {
 				},
 			],
 		],
-	}
-}
+	};
+};

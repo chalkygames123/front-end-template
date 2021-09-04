@@ -1,6 +1,6 @@
 /* eslint 'import/no-extraneous-dependencies': ['error', { optionalDependencies: false }] */
 
-const convict = require('convict')
+const convict = require('convict');
 
 const schema = {
 	srcDir: {
@@ -27,12 +27,12 @@ const schema = {
 		default: false,
 		arg: 'watch',
 	},
-}
+};
 
-const config = convict(schema)
+const config = convict(schema);
 
 config.validate({
 	allowed: 'strict',
-})
+});
 
-module.exports = config
+module.exports = config;

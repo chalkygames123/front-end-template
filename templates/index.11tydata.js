@@ -4,4 +4,4 @@ module.exports = {
 	og: {
 		type: 'website',
 	},
-}
+};

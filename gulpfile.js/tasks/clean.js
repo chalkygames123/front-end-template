@@ -1,6 +1,6 @@
-const fs = require('fs')
+const fs = require('fs');
 
-const config = require('../../config')
+const config = require('../../config');
 
 module.exports = function clean(cb) {
 	fs.rm(
@@ -10,5 +10,5 @@ module.exports = function clean(cb) {
 			recursive: true,
 		},
 		cb
-	)
-}
+	);
+};

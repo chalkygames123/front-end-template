@@ -1,9 +1,9 @@
-const webpack = require('webpack')
+const webpack = require('webpack');
 
-const config = require('../../config')
-const webpackConfig = require('../../webpack.config')
+const config = require('../../config');
+const webpackConfig = require('../../webpack.config');
 
-const compiler = webpack(webpackConfig)
+const compiler = webpack(webpackConfig);
 
 module.exports = function scripts(cb) {
 	const handler = (error, stats) => {
@@ -12,14 +12,14 @@ module.exports = function scripts(cb) {
 			stats.toString({
 				colors: true,
 			})
-		)
+		);
 
-		cb()
-	}
+		cb();
+	};
 
 	if (config.get('watch')) {
-		compiler.watch({}, handler)
+		compiler.watch({}, handler);
 	} else {
-		compiler.run(handler)
+		compiler.run(handler);
 	}
-}
+};

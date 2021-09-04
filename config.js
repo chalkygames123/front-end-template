@@ -1,12 +1,12 @@
-const config = require('./config-schema')
+const config = require('./config-schema');
 
 /**
  * For available configurations, see: config-schema.js
  */
-config.load({})
+config.load({});
 
 config.validate({
 	allowed: 'strict',
-})
+});
 
-module.exports = config
+module.exports = config;

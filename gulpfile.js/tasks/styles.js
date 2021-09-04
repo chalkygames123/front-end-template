@@ -1,32 +1,32 @@
-const path = require('path')
-const { Transform } = require('stream')
+const path = require('path');
+const { Transform } = require('stream');
 
-const CleanCSS = require('clean-css')
-const csso = require('csso')
-const { dest, lastRun, src, watch } = require('gulp')
-const gulpDependents = require('gulp-dependents')
-const gulpPostcss = require('gulp-postcss')
-const gulpSass = require('gulp-sass')(require('sass'))
-const gulpSourcemaps = require('gulp-sourcemaps')
-const gulpStylelint = require('gulp-stylelint')
+const CleanCSS = require('clean-css');
+const csso = require('csso');
+const { dest, lastRun, src, watch } = require('gulp');
+const gulpDependents = require('gulp-dependents');
+const gulpPostcss = require('gulp-postcss');
+const gulpSass = require('gulp-sass')(require('sass'));
+const gulpSourcemaps = require('gulp-sourcemaps');
+const gulpStylelint = require('gulp-stylelint');
 
-const config = require('../../config')
-const common = require('../common')
-const ignore = require('../utils/ignore')
-const pipeIf = require('../utils/pipe-if')
+const config = require('../../config');
+const common = require('../common');
+const ignore = require('../utils/ignore');
+const pipeIf = require('../utils/pipe-if');
 
 const srcPaths = path.posix.join(
 	config.get('srcDir'),
 	'assets/styles/**/*.scss'
-)
-const isDev = config.get('mode') !== 'production'
+);
+const isDev = config.get('mode') !== 'production';
 const cleanCss = new CleanCSS({
 	level: 2,
-})
+});
 
 module.exports = function styles() {
 	if (config.get('watch') && !lastRun(styles)) {
-		watch(srcPaths, styles)
+		watch(srcPaths, styles);
 	}
 
 	return src(srcPaths, {
@@ -57,12 +57,12 @@ module.exports = function styles() {
 					transform(file, encoding, cb2) {
 						const result = csso.minify(file.contents.toString(), {
 							forceMediaMerge: true,
-						})
+						});
 
 						// eslint-disable-next-line no-param-reassign
-						file.contents = Buffer.from(result.css)
+						file.contents = Buffer.from(result.css);
 
-						cb2(null, file)
+						cb2(null, file);
 					},
 				})
 			)
@@ -73,12 +73,12 @@ module.exports = function styles() {
 				new Transform({
 					objectMode: true,
 					transform(file, encoding, cb2) {
-						const result = cleanCss.minify(file.contents.toString())
+						const result = cleanCss.minify(file.contents.toString());
 
 						// eslint-disable-next-line no-param-reassign
-						file.contents = Buffer.from(result.styles)
+						file.contents = Buffer.from(result.styles);
 
-						cb2(null, file)
+						cb2(null, file);
 					},
 				})
 			)
@@ -92,5 +92,5 @@ module.exports = function styles() {
 			)
 		)
 		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
-		.pipe(common.server.stream())
-}
+		.pipe(common.server.stream());
+};

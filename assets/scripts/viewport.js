@@ -1,13 +1,13 @@
-const minWidth = 375
-const el = document.querySelector('meta[name="viewport"]')
+const minWidth = 375;
+const el = document.querySelector('meta[name="viewport"]');
 const updateContent = () => {
 	if (window.screen.width < minWidth) {
-		el.setAttribute('content', `width=${minWidth}`)
+		el.setAttribute('content', `width=${minWidth}`);
 	} else {
-		el.setAttribute('content', 'width=device-width')
+		el.setAttribute('content', 'width=device-width');
 	}
-}
+};
 
-updateContent()
+updateContent();
 
-window.addEventListener('orientationchange', updateContent)
+window.addEventListener('orientationchange', updateContent);

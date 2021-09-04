@@ -4,4 +4,4 @@ module.exports = {
 		'stylelint-config-prettier',
 		'@chalkygames123/stylelint-config/prettier',
 	],
-}
+};

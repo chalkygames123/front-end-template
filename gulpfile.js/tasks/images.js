@@ -1,24 +1,24 @@
-const path = require('path')
+const path = require('path');
 
-const { dest, lastRun, src, watch } = require('gulp')
-const gulpChanged = require('gulp-changed')
-const gulpImagemin = require('gulp-imagemin')
-const imageminPngquant = require('imagemin-pngquant')
+const { dest, lastRun, src, watch } = require('gulp');
+const gulpChanged = require('gulp-changed');
+const gulpImagemin = require('gulp-imagemin');
+const imageminPngquant = require('imagemin-pngquant');
 
-const config = require('../../config')
-const common = require('../common')
-const ignore = require('../utils/ignore')
-const pipeIf = require('../utils/pipe-if')
+const config = require('../../config');
+const common = require('../common');
+const ignore = require('../utils/ignore');
+const pipeIf = require('../utils/pipe-if');
 
 const srcPaths = path.posix.join(
 	config.get('srcDir'),
 	'assets/images/**/*.+(png|jp?(e)g|gif|svg)'
-)
-const isDev = config.get('mode') !== 'production'
+);
+const isDev = config.get('mode') !== 'production';
 
 module.exports = function images() {
 	if (config.get('watch') && !lastRun(images)) {
-		watch(srcPaths, images)
+		watch(srcPaths, images);
 	}
 
 	return src(srcPaths, {
@@ -54,5 +54,5 @@ module.exports = function images() {
 			)
 		)
 		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
-		.pipe(common.server.stream())
-}
+		.pipe(common.server.stream());
+};

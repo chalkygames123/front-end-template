@@ -1,18 +1,18 @@
-const path = require('path')
+const path = require('path');
 
-const { dest, lastRun, src, watch } = require('gulp')
-const gulpChanged = require('gulp-changed')
+const { dest, lastRun, src, watch } = require('gulp');
+const gulpChanged = require('gulp-changed');
 
-const config = require('../../config')
-const common = require('../common')
-const pipeIf = require('../utils/pipe-if')
+const config = require('../../config');
+const common = require('../common');
+const pipeIf = require('../utils/pipe-if');
 
-const srcPaths = path.posix.join(config.get('srcDir'), 'public/**')
-const isDev = config.get('mode') !== 'production'
+const srcPaths = path.posix.join(config.get('srcDir'), 'public/**');
+const isDev = config.get('mode') !== 'production';
 
 module.exports = function copy() {
 	if (config.get('watch') && !lastRun(copy)) {
-		watch(srcPaths, copy)
+		watch(srcPaths, copy);
 	}
 
 	return src(srcPaths, {
@@ -26,5 +26,5 @@ module.exports = function copy() {
 			)
 		)
 		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
-		.pipe(common.server.stream())
-}
+		.pipe(common.server.stream());
+};
