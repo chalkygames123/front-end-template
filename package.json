@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"engines": {
-		"node": "16.8.0"
+		"node": "16.9.0"
 	},
 	"scripts": {
 		"build": "gulp build",
@@ -27,18 +27,18 @@
 		"templates": "gulp templates"
 	},
 	"dependencies": {
-		"core-js": "3.17.1",
+		"core-js": "3.17.2",
 		"sanitize.css": "12.0.1",
 		"what-input": "5.2.10",
 		"yakuhanjp": "3.4.1"
 	},
 	"devDependencies": {
 		"@11ty/eleventy": "0.12.1",
-		"@babel/core": "7.15.0",
-		"@babel/preset-env": "7.15.0",
+		"@babel/core": "7.15.5",
+		"@babel/preset-env": "7.15.4",
 		"@chalkygames123/eslint-config": "2.1.1",
 		"@chalkygames123/stylelint-config": "5.0.0",
-		"autoprefixer": "10.3.3",
+		"autoprefixer": "10.3.4",
 		"babel-loader": "8.2.2",
 		"browser-sync": "2.26.13",
 		"browser-sync-client": "2.26.13",
@@ -74,7 +74,7 @@
 		"sass": "1.39.0",
 		"stylelint": "13.13.1",
 		"stylelint-config-prettier": "8.0.2",
-		"webpack": "5.51.1",
+		"webpack": "5.52.0",
 		"webpack-bundle-analyzer": "4.4.2",
 		"webpack-cli": "4.8.0"
 	},
@@ -83,6 +83,6 @@
 	],
 	"sideEffects": false,
 	"volta": {
-		"node": "16.8.0"
+		"node": "16.9.0"
 	}
 }
