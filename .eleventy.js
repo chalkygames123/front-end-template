@@ -1,13 +1,13 @@
 const { join } = require('node:path');
 
 const { lintHtml } = require('./11ty/linters');
-const { minifyHtml } = require('./11ty/transforms');
+const { formatHtml } = require('./11ty/transforms');
 const config = require('./config');
 
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addLinter('lint-html', lintHtml);
 
-	eleventyConfig.addTransform('minify-html', minifyHtml);
+	eleventyConfig.addTransform('format-html', formatHtml);
 
 	return {
 		dir: {
