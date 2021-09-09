@@ -22,6 +22,12 @@ Right after the initialization, you may want to delete these files and directori
 - `LICENSE`
 - `renovate.json`
 
+### Examples
+
+- To format HTML output, see: [`example/format-html` branch](https://github.com/chalkygames123/front-end-template/compare/example/format-html)
+- To format CSS output, see: [`example/format-css` branch](https://github.com/chalkygames123/front-end-template/compare/example/format-css)
+- To use relative paths in HTML templates, see: [`example/relative-paths` branch](https://github.com/chalkygames123/front-end-template/compare/example/relative-paths)
+
 ---
 
 **Remove everything from here and above**
