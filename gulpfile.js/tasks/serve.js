@@ -9,7 +9,7 @@ module.exports = function serve(cb) {
 		{
 			ghostMode: false,
 			https:
-				cert !== undefined && key !== undefined
+				cert && key
 					? {
 							cert,
 							key,
