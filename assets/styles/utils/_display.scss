@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "sass:meta";
+@use 'sass:map';
+@use 'sass:meta';
 @use '../abstracts' as a;
 
 $values: none, inline, inline-block, block, grid, table, table-row, table-cell,
