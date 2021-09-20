@@ -6,9 +6,10 @@ const csso = require('csso');
 const { dest, lastRun, src, watch } = require('gulp');
 const gulpDependents = require('gulp-dependents');
 const gulpPostcss = require('gulp-postcss');
-const gulpSass = require('gulp-sass')(require('sass'));
+const gulpSass = require('gulp-sass');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpStylelint = require('gulp-stylelint');
+const sass = require('sass');
 
 const config = require('../../config');
 const common = require('../common');
@@ -20,6 +21,7 @@ const srcPaths = path.posix.join(
 	'assets/styles/**/*.scss'
 );
 const isDev = config.get('mode') !== 'production';
+const boundSass = gulpSass(sass);
 const cleanCss = new CleanCSS({
 	level: 2,
 });
@@ -47,7 +49,7 @@ module.exports = function styles() {
 			})
 		)
 		.pipe(pipeIf(isDev, gulpSourcemaps.init()))
-		.pipe(gulpSass().on('error', gulpSass.logError))
+		.pipe(boundSass().on('error', boundSass.logError))
 		.pipe(gulpPostcss())
 		.pipe(
 			pipeIf(
