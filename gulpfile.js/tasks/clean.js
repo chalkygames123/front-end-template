@@ -1,14 +1,10 @@
-const fs = require('fs');
+const { rm } = require('fs/promises');
 
 const config = require('../../config');
 
-module.exports = function clean(cb) {
-	fs.rm(
-		config.get('distDir'),
-		{
-			force: true,
-			recursive: true,
-		},
-		cb
-	);
+module.exports = function clean() {
+	return rm(config.get('distDir'), {
+		force: true,
+		recursive: true,
+	});
 };
