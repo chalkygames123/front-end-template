@@ -7,7 +7,7 @@ module.exports = function clean(cb) {
 	if (
 		dirname(process.cwd()).startsWith(dirname(resolve(config.get('distDir'))))
 	) {
-		cb(new Error('distDir cannot be a parent of or same as process.cwd()'));
+		cb(new Error('distDir cannot be outside of or same as process.cwd()'));
 	}
 
 	return rm(config.get('distDir'), {
