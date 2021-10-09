@@ -26,10 +26,7 @@ module.exports = function images() {
 	})
 		.pipe(ignore())
 		.pipe(
-			pipeIf(
-				isDev,
-				gulpChanged(path.join(config.get('distDir'), config.get('publicPath')))
-			)
+			gulpChanged(path.join(config.get('distDir'), config.get('publicPath')))
 		)
 		.pipe(
 			pipeIf(
