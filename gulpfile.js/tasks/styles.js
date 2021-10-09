@@ -57,12 +57,12 @@ module.exports = function styles() {
 				new Transform({
 					objectMode: true,
 					transform(file, encoding, cb) {
-						const result = csso.minify(file.contents.toString(), {
+						const { css: result } = csso.minify(file.contents, {
 							forceMediaMerge: true,
 						});
 
 						// eslint-disable-next-line no-param-reassign
-						file.contents = Buffer.from(result.css);
+						file.contents = Buffer.from(result);
 
 						cb(null, file);
 					},
@@ -75,10 +75,10 @@ module.exports = function styles() {
 				new Transform({
 					objectMode: true,
 					transform(file, encoding, cb) {
-						const result = cleanCss.minify(file.contents.toString());
+						const { styles: result } = cleanCss.minify(file.contents);
 
 						// eslint-disable-next-line no-param-reassign
-						file.contents = Buffer.from(result.styles);
+						file.contents = Buffer.from(result);
 
 						cb(null, file);
 					},
