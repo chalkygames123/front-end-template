@@ -56,28 +56,16 @@ $ npm ci
 # serve with live/hot reload at localhost:3000
 $ npm run dev
 
-# run all lints
+# run all linters
 $ npm run lint
 
-# lint all .js files
-$ npm run lint:scripts
-
-# lint all .scss files
-$ npm run lint:styles
-
-# run all lints with autofix
+# run all linters with autofix
 $ npm run fix
 
-# lint all .js files with autofix
-$ npm run fix:scripts
+# run all formatters only for checking
+$ npm run check
 
-# lint all .scss files with autofix
-$ npm run fix:styles
-
-# check if all files are formatted
-$ npm run format-check
-
-# format all files
+# run all formatters
 $ npm run format
 
 # build for production
