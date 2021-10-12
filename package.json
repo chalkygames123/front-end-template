@@ -38,7 +38,7 @@
 		"@11ty/eleventy": "0.12.1",
 		"@babel/core": "7.15.8",
 		"@babel/preset-env": "7.15.8",
-		"@chalkygames123/eslint-config": "2.2.0",
+		"@chalkygames123/eslint-config": "3.0.1",
 		"@chalkygames123/stylelint-config": "5.0.0",
 		"autoprefixer": "10.3.7",
 		"babel-loader": "8.2.2",
