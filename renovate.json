@@ -1,6 +1,9 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["github>chalkygames123/renovate-config"],
+	"extends": [
+		"github>chalkygames123/renovate-config",
+		":followTag(@11ty/eleventy, beta)"
+	],
 	"packageRules": [
 		{
 			"matchPackagePatterns": ["^browser-sync"],
