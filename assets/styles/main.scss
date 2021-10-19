@@ -3,6 +3,5 @@
 @use '../../node_modules/yakuhanjp/dist/scss/yakuhanjp-noto' with
 	($yakuhanjp-noto-eot-use: false, $yakuhanjp-noto-cdn-use: true);
 @use 'base';
-@use 'layouts';
 @use 'components';
 @use 'utils';
