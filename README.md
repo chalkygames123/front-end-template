@@ -62,7 +62,7 @@ $ npm run lint
 # run all linters with autofix
 $ npm run fix
 
-# run all formatters only for checking
+# run all formatters only for check
 $ npm run check
 
 # run all formatters
