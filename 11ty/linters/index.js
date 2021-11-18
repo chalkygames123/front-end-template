@@ -1,1 +1,1 @@
-module.exports.htmlhint = require('./htmlhint');
+module.exports.lintHtml = require('./lint-html');

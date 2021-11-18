@@ -2,12 +2,12 @@
 
 const path = require('path');
 
-const { htmlhint } = require('./11ty/linters');
+const { lintHtml } = require('./11ty/linters');
 const { minifyHtml } = require('./11ty/transforms');
 const config = require('./config');
 
 module.exports = (eleventyConfig) => {
-	eleventyConfig.addLinter('htmlhint', htmlhint);
+	eleventyConfig.addLinter('lint-html', lintHtml);
 
 	eleventyConfig.addTransform('minify-html', minifyHtml);
 
