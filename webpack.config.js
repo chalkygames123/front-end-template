@@ -53,7 +53,10 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
-				include: [path.join(__dirname, config.get('srcDir'), 'assets/scripts')],
+				include: [
+					path.join(__dirname, config.get('srcDir'), 'assets/scripts'),
+					path.join(__dirname, config.get('srcDir'), 'modules'),
+				],
 				use: [
 					{
 						loader: 'babel-loader',
@@ -74,7 +77,10 @@ module.exports = {
 	context: __dirname,
 	plugins: [
 		new ESLintPlugin({
-			files: [path.join(config.get('srcDir'), 'assets/scripts')],
+			files: [
+				path.join(config.get('srcDir'), 'assets/scripts'),
+				path.join(config.get('srcDir'), 'modules'),
+			],
 		}),
 	],
 	optimization: {
