@@ -8,8 +8,8 @@ const gulpDependents = require('gulp-dependents');
 const gulpPostcss = require('gulp-postcss');
 const gulpSass = require('gulp-sass');
 const gulpSourcemaps = require('gulp-sourcemaps');
-const gulpStylelint = require('gulp-stylelint');
 const sass = require('sass');
+const stylelint = require('stylelint');
 
 const config = require('../../config');
 const common = require('../common');
@@ -38,14 +38,22 @@ module.exports = function styles() {
 		.pipe(ignore())
 		.pipe(gulpDependents())
 		.pipe(
-			gulpStylelint({
-				failAfterError: false,
-				reporters: [
-					{
+			new Transform({
+				objectMode: true,
+				async transform(file, encoding, cb) {
+					const result = await stylelint.lint({
+						code: file.contents.toString(),
+						codeFilename: file.path,
 						formatter: 'string',
-						console: true,
-					},
-				],
+					});
+
+					if (result.errored) {
+						// eslint-disable-next-line no-console
+						console.error(result.output.replace(/\n$/, ''));
+					}
+
+					cb(null, file);
+				},
 			})
 		)
 		.pipe(pipeIf(isDev, gulpSourcemaps.init()))

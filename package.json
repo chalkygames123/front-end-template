@@ -61,7 +61,6 @@
 		"gulp-postcss": "9.0.1",
 		"gulp-sass": "5.0.0",
 		"gulp-sourcemaps": "3.0.0",
-		"gulp-stylelint": "13.0.0",
 		"html-minifier": "4.0.0",
 		"htmlhint": "1.0.0",
 		"husky": "7.0.4",
