@@ -11,7 +11,7 @@
 
 @function get-breakpoint-width($key) {
 	@if not map.has-key(v.$breakpoints, $key) {
-		@warn "Breakpoint #{$key} wasn't found in $breakpoints.";
+		@warn "#{$key} is not defined";
 	}
 
 	@return map.get(v.$breakpoints, $key);
