@@ -8,13 +8,17 @@
 
 ## Getting started
 
-Create a new directory and then run:
+Create a new repository on GitHub from this template at https://github.com/chalkygames123/front-end-template/generate or with [GitHub CLI](https://cli.github.com/):
+
+```shell
+$ gh repo create my-project --public --clone --template chalkygames123/front-end-template
+```
+
+Alternatively, create a new directory and then run:
 
 ```shell
 $ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/master.tar.gz | tar -xz --strip-components=1
 ```
-
-Alternatively, [create a new repository from this template on GitHub](https://github.com/chalkygames123/front-end-template/generate).
 
 Right after the initialization, you may want to delete these files and directories or modify their content as you see fit:
 
