@@ -2,7 +2,7 @@ const path = require('path');
 const { Transform } = require('stream');
 
 const CleanCSS = require('clean-css');
-const csso = require('csso');
+const { minify } = require('csso');
 const { dest, lastRun, src, watch } = require('gulp');
 const gulpDependents = require('gulp-dependents');
 const gulpPostcss = require('gulp-postcss');
@@ -65,7 +65,7 @@ module.exports = function styles() {
 				new Transform({
 					objectMode: true,
 					transform(file, encoding, cb) {
-						const { css: result } = csso.minify(file.contents, {
+						const { css: result } = minify(file.contents.toString(), {
 							forceMediaMerge: true,
 						});
 
@@ -83,7 +83,9 @@ module.exports = function styles() {
 				new Transform({
 					objectMode: true,
 					transform(file, encoding, cb) {
-						const { styles: result } = cleanCss.minify(file.contents);
+						const { styles: result } = cleanCss.minify(
+							file.contents.toString()
+						);
 
 						// eslint-disable-next-line no-param-reassign
 						file.contents = Buffer.from(result);
