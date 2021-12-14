@@ -1,5 +1,3 @@
-/* eslint 'import/no-extraneous-dependencies': ['error', { optionalDependencies: false }] */
-
 const path = require('path');
 
 const { lintHtml } = require('./11ty/linters');
