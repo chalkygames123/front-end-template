@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"engines": {
-		"node": "16.13.2"
+		"node": "16.14.0"
 	},
 	"scripts": {
 		"build": "gulp build",
@@ -84,6 +84,6 @@
 	],
 	"sideEffects": false,
 	"volta": {
-		"node": "16.13.2"
+		"node": "16.14.0"
 	}
 }
