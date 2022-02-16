@@ -11,7 +11,7 @@ module.exports = function lintHtml(content) {
 
 	const result = htmlhint.verify(content, htmlhintRules);
 
-	if (!result.length) return;
+	if (result.length === 0) return;
 
 	const report = htmlhint
 		.format(result, {
