@@ -12,10 +12,7 @@ const ig = ignore().add(fs.readFileSync('.gitignore', 'utf8'));
 const crawler = new Fdir()
 	.withRelativePaths()
 	.filter(
-		(filePath) =>
-			!ig.ignores(filePath) &&
-			!path.basename(filePath).startsWith('.') &&
-			path.extname(filePath) === '.js'
+		(filePath) => !ig.ignores(filePath) && path.extname(filePath) === '.js'
 	)
 	.crawl(path.posix.join(config.get('srcDir'), 'assets/scripts'));
 
