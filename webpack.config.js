@@ -10,7 +10,7 @@ const config = require('./config');
 const isDev = config.get('mode') !== 'production';
 const ig = ignore().add(fs.readFileSync('.gitignore', 'utf8'));
 const crawler = new Fdir()
-	.withRelativePaths()
+	.withBasePath()
 	.filter(
 		(filePath) => !ig.ignores(filePath) && path.extname(filePath) === '.js'
 	)
@@ -26,12 +26,10 @@ module.exports = {
 
 		return Object.fromEntries(
 			filePaths.map((filePath) => {
-				const chunkName = filePath.replace(path.extname(filePath), '');
-				const entryPoint = `./${path.join(
-					config.get('srcDir'),
-					'assets/scripts',
-					filePath
-				)}`;
+				const chunkName = path
+					.relative(path.join(config.get('srcDir'), 'assets/scripts'), filePath)
+					.replace(path.extname(filePath), '');
+				const entryPoint = `./${filePath}`;
 
 				return [chunkName, entryPoint];
 			})
