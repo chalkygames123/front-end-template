@@ -18,7 +18,7 @@ module.exports = function copy() {
 		nodir: true,
 	})
 		.pipe(
-			gulpChanged(path.join(config.get('distDir'), config.get('publicPath')))
+			gulpChanged(path.join(config.get('distDir'), config.get('publicPath'))),
 		)
 		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
 		.pipe(common.server.stream());

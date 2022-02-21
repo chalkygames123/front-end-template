@@ -18,7 +18,7 @@ const pipeIf = require('../utils/pipe-if');
 
 const srcPaths = path.posix.join(
 	config.get('srcDir'),
-	'assets/styles/**/*.scss'
+	'assets/styles/**/*.scss',
 );
 const isDev = config.get('mode') !== 'production';
 const boundSass = gulpSass(sass);
@@ -54,7 +54,7 @@ module.exports = function styles() {
 
 					cb(null, file);
 				},
-			})
+			}),
 		)
 		.pipe(pipeIf(isDev, gulpSourcemaps.init()))
 		.pipe(boundSass().on('error', boundSass.logError))
@@ -74,8 +74,8 @@ module.exports = function styles() {
 
 						cb(null, file);
 					},
-				})
-			)
+				}),
+			),
 		)
 		.pipe(
 			pipeIf(
@@ -84,7 +84,7 @@ module.exports = function styles() {
 					objectMode: true,
 					transform(file, encoding, cb) {
 						const { styles: result } = cleanCss.minify(
-							file.contents.toString()
+							file.contents.toString(),
 						);
 
 						// eslint-disable-next-line no-param-reassign
@@ -92,16 +92,16 @@ module.exports = function styles() {
 
 						cb(null, file);
 					},
-				})
-			)
+				}),
+			),
 		)
 		.pipe(
 			pipeIf(
 				isDev,
 				gulpSourcemaps.write({
 					sourceRoot: `/${config.get('srcDir')}`,
-				})
-			)
+				}),
+			),
 		)
 		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
 		.pipe(common.server.stream());

@@ -22,6 +22,6 @@ module.exports = function serve(cb) {
 			ui: false,
 			watch: true,
 		},
-		cb
+		cb,
 	);
 };

@@ -12,7 +12,7 @@ const ig = ignore().add(fs.readFileSync('.gitignore', 'utf8'));
 const crawler = new Fdir()
 	.withBasePath()
 	.filter(
-		(filePath) => !ig.ignores(filePath) && path.extname(filePath) === '.js'
+		(filePath) => !ig.ignores(filePath) && path.extname(filePath) === '.js',
 	)
 	.crawl(path.posix.join(config.get('srcDir'), 'assets/scripts'));
 
@@ -32,7 +32,7 @@ module.exports = {
 				const entryPoint = `./${filePath}`;
 
 				return [chunkName, entryPoint];
-			})
+			}),
 		);
 	},
 	output: {
@@ -40,7 +40,7 @@ module.exports = {
 			__dirname,
 			config.get('distDir'),
 			config.get('publicPath'),
-			'assets/scripts'
+			'assets/scripts',
 		),
 	},
 	module: {

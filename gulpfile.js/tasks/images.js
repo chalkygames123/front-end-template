@@ -12,7 +12,7 @@ const pipeIf = require('../utils/pipe-if');
 
 const srcPaths = path.posix.join(
 	config.get('srcDir'),
-	'assets/images/**/*.+(png|jp?(e)g|gif|svg)'
+	'assets/images/**/*.+(png|jp?(e)g|gif|svg)',
 );
 const isDev = config.get('mode') !== 'production';
 
@@ -26,7 +26,7 @@ module.exports = function images() {
 	})
 		.pipe(ignore())
 		.pipe(
-			gulpChanged(path.join(config.get('distDir'), config.get('publicPath')))
+			gulpChanged(path.join(config.get('distDir'), config.get('publicPath'))),
 		)
 		.pipe(
 			pipeIf(
@@ -47,8 +47,8 @@ module.exports = function images() {
 							{ removeViewBox: false },
 						],
 					}),
-				])
-			)
+				]),
+			),
 		)
 		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
 		.pipe(common.server.stream());

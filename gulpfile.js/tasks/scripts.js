@@ -11,7 +11,7 @@ module.exports = function scripts(cb) {
 		console.log(
 			stats.toString({
 				colors: true,
-			})
+			}),
 		);
 
 		cb();

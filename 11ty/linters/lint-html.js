@@ -22,6 +22,6 @@ module.exports = function lintHtml(content) {
 
 	// eslint-disable-next-line no-console
 	console.error(
-		`HTMLHint: ${result.length} error(s) found in ${this.outputPath}${report}\n`
+		`HTMLHint: ${result.length} error(s) found in ${this.outputPath}${report}\n`,
 	);
 };
