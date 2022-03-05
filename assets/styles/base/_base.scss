@@ -79,8 +79,12 @@ textarea {
 	border: 0;
 }
 
-button:not(:disabled):not([aria-disabled='true']) {
-	cursor: pointer;
+button {
+	touch-action: manipulation;
+
+	&:not(:disabled):not([aria-disabled='true']) {
+		cursor: pointer;
+	}
 }
 
 [hidden][hidden] {
