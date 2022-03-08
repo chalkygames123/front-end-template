@@ -1,4 +1,5 @@
 @use '../../node_modules/sanitize.css/sanitize';
+@use '../../node_modules/sanitize.css/assets';
 @use '../../node_modules/sanitize.css/forms';
 @use '../../node_modules/yakuhanjp/dist/scss/yakuhanjp-noto' with (
 	$yakuhanjp-noto-eot-use: false,
