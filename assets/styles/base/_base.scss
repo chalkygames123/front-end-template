@@ -77,6 +77,10 @@ select,
 textarea {
 	padding: 0;
 	border: 0;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
 }
 
 button {
