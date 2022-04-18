@@ -35,7 +35,7 @@
 		"yakuhanjp": "3.4.1"
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "1.0.0",
+		"@11ty/eleventy": "1.0.1",
 		"@babel/core": "7.17.9",
 		"@babel/preset-env": "7.16.11",
 		"@chalkygames123/eslint-config": "4.0.4",
