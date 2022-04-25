@@ -2,7 +2,7 @@
 
 [![Renovate: enabled](https://img.shields.io/badge/Renovate-enabled-brightgreen?logo=RenovateBot&logoColor=fff)](https://renovatebot.com/)
 [![CI](https://github.com/chalkygames123/front-end-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/chalkygames123/front-end-template/actions/workflows/ci.yaml)
-[![Open in Visual Studio Code](https://img.shields.io/badge/-Open%20in%20Visual%20Studio%20Code-007acc?labelColor=2c2c32&logo=visualstudiocode&logoColor=007acc)](https://open.vscode.dev/chalkygames123/front-end-template)
+[![Open in Visual Studio Code](https://img.shields.io/badge/-Open%20in%20Visual%20Studio%20Code-007acc?labelColor=2c2c32&logo=visualstudiocode&logoColor=007acc)](https://vscode.dev/github/chalkygames123/front-end-template)
 
 > Practical template for building static websites
 
