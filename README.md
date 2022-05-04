@@ -17,7 +17,7 @@ $ gh repo create my-project --public --clone --template chalkygames123/front-end
 Alternatively, create a new directory and then run:
 
 ```shell
-$ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/master.tar.gz | tar -xz --strip-components=1
+$ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/main.tar.gz | tar -xz --strip-components=1
 ```
 
 Right after the initialization, you may want to delete these files and directories or modify their content as you see fit:
