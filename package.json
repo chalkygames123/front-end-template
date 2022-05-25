@@ -29,9 +29,9 @@
 		"templates": "gulp templates"
 	},
 	"dependencies": {
-		"core-js": "3.22.5",
+		"core-js": "3.22.7",
 		"sanitize.css": "12.0.1",
-		"what-input": "5.2.11",
+		"what-input": "5.2.12",
 		"yakuhanjp": "3.4.1"
 	},
 	"devDependencies": {
