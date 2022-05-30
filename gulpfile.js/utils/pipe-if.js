@@ -1,4 +1,4 @@
-const { Transform } = require('stream');
+const { Transform } = require('node:stream');
 
 module.exports = (condition, stream) => {
 	if (condition) {

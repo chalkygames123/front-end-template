@@ -1,5 +1,5 @@
-const { readFileSync } = require('fs');
-const { extname, join, posix, relative } = require('path');
+const { readFileSync } = require('node:fs');
+const { extname, join, posix, relative } = require('node:path');
 
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { fdir: Fdir } = require('fdir');

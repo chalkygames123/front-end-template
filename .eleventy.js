@@ -1,4 +1,4 @@
-const { join } = require('path');
+const { join } = require('node:path');
 
 const { lintHtml } = require('./11ty/linters');
 const { minifyHtml } = require('./11ty/transforms');

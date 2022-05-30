@@ -1,5 +1,5 @@
-const { rm } = require('fs/promises');
-const { dirname, resolve } = require('path');
+const { rm } = require('node:fs/promises');
+const { dirname, resolve } = require('node:path');
 
 const config = require('../../config');
 

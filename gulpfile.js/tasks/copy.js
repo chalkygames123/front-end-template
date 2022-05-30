@@ -1,4 +1,4 @@
-const { join, posix } = require('path');
+const { join, posix } = require('node:path');
 
 const { dest, lastRun, src, watch } = require('gulp');
 const gulpChanged = require('gulp-changed');

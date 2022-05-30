@@ -1,5 +1,5 @@
-const { readFileSync } = require('fs');
-const { Transform } = require('stream');
+const { readFileSync } = require('node:fs');
+const { Transform } = require('node:stream');
 
 const ignore = require('ignore');
 

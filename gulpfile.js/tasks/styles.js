@@ -1,5 +1,5 @@
-const { join, posix } = require('path');
-const { Transform } = require('stream');
+const { join, posix } = require('node:path');
+const { Transform } = require('node:stream');
 
 const CleanCSS = require('clean-css');
 const { minify } = require('csso');
