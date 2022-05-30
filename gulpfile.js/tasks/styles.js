@@ -1,4 +1,4 @@
-const path = require('path');
+const { join, posix } = require('path');
 const { Transform } = require('stream');
 
 const CleanCSS = require('clean-css');
@@ -7,19 +7,16 @@ const { dest, lastRun, src, watch } = require('gulp');
 const gulpDependents = require('gulp-dependents');
 const gulpPostcss = require('gulp-postcss');
 const gulpSass = require('gulp-sass');
-const gulpSourcemaps = require('gulp-sourcemaps');
+const { init, write } = require('gulp-sourcemaps');
 const sass = require('sass');
-const stylelint = require('stylelint');
+const { lint } = require('stylelint');
 
 const config = require('../../config');
-const common = require('../common');
+const { server } = require('../common');
 const ignore = require('../utils/ignore');
 const pipeIf = require('../utils/pipe-if');
 
-const srcPaths = path.posix.join(
-	config.get('srcDir'),
-	'assets/styles/**/*.scss',
-);
+const srcPaths = posix.join(config.get('srcDir'), 'assets/styles/**/*.scss');
 const isDev = config.get('mode') !== 'production';
 const boundSass = gulpSass(sass);
 const cleanCss = new CleanCSS({
@@ -41,7 +38,7 @@ module.exports = function styles() {
 			new Transform({
 				objectMode: true,
 				async transform(file, encoding, cb) {
-					const result = await stylelint.lint({
+					const result = await lint({
 						code: file.contents.toString(),
 						codeFilename: file.path,
 						formatter: 'string',
@@ -56,7 +53,7 @@ module.exports = function styles() {
 				},
 			}),
 		)
-		.pipe(pipeIf(isDev, gulpSourcemaps.init()))
+		.pipe(pipeIf(isDev, init()))
 		.pipe(boundSass().on('error', boundSass.logError))
 		.pipe(gulpPostcss())
 		.pipe(
@@ -98,11 +95,11 @@ module.exports = function styles() {
 		.pipe(
 			pipeIf(
 				isDev,
-				gulpSourcemaps.write({
+				write({
 					sourceRoot: `/${config.get('srcDir')}`,
 				}),
 			),
 		)
-		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
-		.pipe(common.server.stream());
+		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))))
+		.pipe(server.stream());
 };

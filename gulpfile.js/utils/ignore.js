@@ -1,9 +1,9 @@
-const fs = require('fs');
+const { readFileSync } = require('fs');
 const { Transform } = require('stream');
 
 const ignore = require('ignore');
 
-const ig = ignore().add(fs.readFileSync('.gitignore', 'utf8'));
+const ig = ignore().add(readFileSync('.gitignore', 'utf8'));
 
 module.exports = () =>
 	new Transform({

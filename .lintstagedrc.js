@@ -1,10 +1,10 @@
 /* eslint 'import/no-extraneous-dependencies': ['error', { optionalDependencies: false }] */
 
-const prettier = require('prettier');
+const { getSupportInfo } = require('prettier');
 
-const extensions = prettier
-	.getSupportInfo()
-	.languages.flatMap((info) => info.extensions);
+const extensions = getSupportInfo().languages.flatMap(
+	(info) => info.extensions,
+);
 const extensionsToExclude = ['.js', '.scss'];
 const pattern = `*.{${extensions
 	.filter((ext) => !extensionsToExclude.includes(ext))

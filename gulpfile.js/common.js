@@ -1,5 +1,5 @@
-const browserSync = require('browser-sync');
+const { create } = require('browser-sync');
 
 module.exports = {
-	server: browserSync.create(),
+	server: create(),
 };

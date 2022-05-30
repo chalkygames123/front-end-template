@@ -1,4 +1,4 @@
-const path = require('path');
+const { join, posix } = require('path');
 
 const { dest, lastRun, src, watch } = require('gulp');
 const gulpChanged = require('gulp-changed');
@@ -6,11 +6,11 @@ const gulpImagemin = require('gulp-imagemin');
 const imageminPngquant = require('imagemin-pngquant');
 
 const config = require('../../config');
-const common = require('../common');
+const { server } = require('../common');
 const ignore = require('../utils/ignore');
 const pipeIf = require('../utils/pipe-if');
 
-const srcPaths = path.posix.join(
+const srcPaths = posix.join(
 	config.get('srcDir'),
 	'assets/images/**/*.+(png|jp?(e)g|gif|svg)',
 );
@@ -25,9 +25,7 @@ module.exports = function images() {
 		base: config.get('srcDir'),
 	})
 		.pipe(ignore())
-		.pipe(
-			gulpChanged(path.join(config.get('distDir'), config.get('publicPath'))),
-		)
+		.pipe(gulpChanged(join(config.get('distDir'), config.get('publicPath'))))
 		.pipe(
 			pipeIf(
 				!isDev,
@@ -50,6 +48,6 @@ module.exports = function images() {
 				]),
 			),
 		)
-		.pipe(dest(path.join(config.get('distDir'), config.get('publicPath'))))
-		.pipe(common.server.stream());
+		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))))
+		.pipe(server.stream());
 };

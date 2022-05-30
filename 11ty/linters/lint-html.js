@@ -1,10 +1,10 @@
 /* eslint 'import/no-extraneous-dependencies': ['error', { optionalDependencies: false }] */
 
-const fs = require('fs');
+const { readFileSync } = require('fs');
 
 const { HTMLHint: htmlhint } = require('htmlhint');
 
-const htmlhintRules = JSON.parse(fs.readFileSync('.htmlhintrc', 'utf8'));
+const htmlhintRules = JSON.parse(readFileSync('.htmlhintrc', 'utf8'));
 
 module.exports = function lintHtml(content) {
 	if (!this.outputPath.endsWith('.html')) return;

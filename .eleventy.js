@@ -1,4 +1,4 @@
-const path = require('path');
+const { join } = require('path');
 
 const { lintHtml } = require('./11ty/linters');
 const { minifyHtml } = require('./11ty/transforms');
@@ -11,8 +11,8 @@ module.exports = (eleventyConfig) => {
 
 	return {
 		dir: {
-			input: path.join(config.get('srcDir'), 'templates'),
-			output: path.join(config.get('distDir'), config.get('publicPath')),
+			input: join(config.get('srcDir'), 'templates'),
+			output: join(config.get('distDir'), config.get('publicPath')),
 		},
 		pathPrefix: config.get('publicPath'),
 	};
