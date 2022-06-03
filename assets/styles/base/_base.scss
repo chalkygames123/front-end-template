@@ -10,7 +10,7 @@ html {
 	cursor: revert;
 	min-width: 375px;
 	font-size: 62.5%;
-	font-family: 'Noto Sans JP', sans-serif;
+	font-family: 'YakuHanJP_Noto', 'Noto Sans JP', sans-serif;
 	line-break: normal;
 
 	@include a.mq(md) {
