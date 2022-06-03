@@ -31,8 +31,7 @@
 	"dependencies": {
 		"core-js": "3.22.8",
 		"sanitize.css": "12.0.1",
-		"what-input": "5.2.12",
-		"yakuhanjp": "3.4.1"
+		"what-input": "5.2.12"
 	},
 	"devDependencies": {
 		"@11ty/eleventy": "1.0.1",
