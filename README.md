@@ -33,6 +33,7 @@ There are several branches that illustrate how to customize this template.
 - [`example/format-html`](https://github.com/chalkygames123/front-end-template/compare/example/format-html) - format HTML output
 - [`example/format-css`](https://github.com/chalkygames123/front-end-template/compare/example/format-css) - format CSS output
 - [`example/relative-paths`](https://github.com/chalkygames123/front-end-template/compare/example/relative-paths) - use relative paths in HTML templates
+- [`example/yakuhanjp`](https://github.com/chalkygames123/front-end-template/compare/example/yakuhanjp) - use Yaku Han JP with SCSS
 
 ---
 
