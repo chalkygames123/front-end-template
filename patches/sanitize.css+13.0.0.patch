@@ -1,0 +1,17 @@
+diff --git a/node_modules/sanitize.css/sanitize.css b/node_modules/sanitize.css/sanitize.css
+index 58cf3c1..4447c37 100644
+--- a/node_modules/sanitize.css/sanitize.css
++++ b/node_modules/sanitize.css/sanitize.css
+@@ -34,12 +34,10 @@
+  */
+ 
+ :where(:root) {
+-  cursor: default; /* 1 */
+   line-height: 1.5; /* 2 */
+   overflow-wrap: break-word; /* 3 */
+   -moz-tab-size: 4; /* 4 */
+   tab-size: 4; /* 4 */
+-  -webkit-tap-highlight-color: transparent; /* 5 */
+   -webkit-text-size-adjust: 100%; /* 6 */
+ }
+ 
