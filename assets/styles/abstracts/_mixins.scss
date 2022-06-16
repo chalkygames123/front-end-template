@@ -17,8 +17,8 @@
 }
 
 @mixin visually-hidden {
-	display: block !important;
 	// stylelint-disable declaration-no-important
+	display: block !important;
 	position: fixed !important;
 	top: 0 !important;
 	left: 0 !important;
