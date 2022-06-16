@@ -92,8 +92,3 @@ button {
 	// stylelint-disable-next-line declaration-no-important
 	display: none !important;
 }
-
-[data-whatinput='mouse'] *:focus,
-[data-whatinput='touch'] *:focus {
-	outline: none;
-}
