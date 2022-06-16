@@ -17,20 +17,20 @@
 }
 
 @mixin visually-hidden {
+	display: block !important;
 	// stylelint-disable declaration-no-important
 	position: fixed !important;
 	top: 0 !important;
 	left: 0 !important;
-	display: block !important;
+	visibility: visible !important;
+	opacity: 0 !important;
+	margin: 0 !important;
+	border: 0 !important;
+	padding: 0 !important;
 	width: 4px !important;
 	height: 4px !important;
-	padding: 0 !important;
-	margin: 0 !important;
 	overflow: hidden !important;
 	pointer-events: none !important;
-	visibility: visible !important;
-	border: 0 !important;
-	opacity: 0 !important;
 	// stylelint-enable declaration-no-important
 }
 

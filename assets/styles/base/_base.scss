@@ -1,14 +1,14 @@
 @use '../abstracts' as a;
 
 * {
-	padding: 0;
 	margin: 0;
+	padding: 0;
 }
 
 html {
 	min-width: 375px;
-	font-family: 'Noto Sans JP', sans-serif;
 	font-size: 62.5%;
+	font-family: 'Noto Sans JP', sans-serif;
 	line-break: normal;
 
 	@include a.mq(md) {
@@ -33,8 +33,8 @@ address {
 }
 
 fieldset {
-	min-width: 0;
 	border: 0;
+	min-width: 0;
 }
 
 h1,
@@ -43,8 +43,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-size: inherit;
 	font-weight: inherit;
+	font-size: inherit;
 }
 
 h1 {
@@ -72,8 +72,8 @@ button,
 input,
 select,
 textarea {
-	padding: 0;
 	border: 0;
+	padding: 0;
 
 	&:disabled {
 		cursor: not-allowed;
