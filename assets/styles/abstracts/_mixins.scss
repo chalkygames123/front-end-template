@@ -1,13 +1,5 @@
 @use 'functions' as f;
 
-@mixin clearfix {
-	&::after {
-		display: block;
-		clear: both;
-		content: '';
-	}
-}
-
 @mixin mq($key, $invert: false) {
 	$breakpoint: f.get-breakpoint-width($key);
 

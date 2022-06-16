@@ -1,5 +1,0 @@
-@use '../abstracts' as a;
-
-.u-clearfix {
-	@include a.clearfix();
-}
