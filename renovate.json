@@ -3,11 +3,5 @@
 	"extends": [
 		"github>chalkygames123/renovate-config",
 		"github>chalkygames123/renovate-config:groupAllNonMajorDependenciesExceptNodeJs"
-	],
-	"packageRules": [
-		{
-			"matchPackagePatterns": ["^browser-sync"],
-			"enabled": false
-		}
 	]
 }
