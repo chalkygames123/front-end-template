@@ -85,7 +85,7 @@ textarea {
 button {
 	touch-action: manipulation;
 
-	&:not(:disabled):not([aria-disabled='true']) {
+	&:not(:disabled, [aria-disabled='true']) {
 		cursor: pointer;
 	}
 }
