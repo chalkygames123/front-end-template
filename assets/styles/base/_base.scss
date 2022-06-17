@@ -6,6 +6,8 @@
 }
 
 html {
+	-webkit-tap-highlight-color: revert;
+	cursor: revert;
 	min-width: 375px;
 	font-size: 62.5%;
 	font-family: 'Noto Sans JP', sans-serif;
