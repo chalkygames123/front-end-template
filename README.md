@@ -46,7 +46,7 @@ There are several branches that illustrate how to customize this template.
 [![code style: airbnb](https://img.shields.io/badge/code_style-airbnb-ff5a5f?logo=airbnb&logoColor=fff)](https://github.com/airbnb/javascript)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4?logo=prettier&logoColor=fff)](https://github.com/prettier/prettier)
 
-> Project description
+Project description
 
 ## Prerequisites
 
