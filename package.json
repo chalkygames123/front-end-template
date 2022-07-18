@@ -37,7 +37,7 @@
 		"@babel/core": "7.18.9",
 		"@babel/preset-env": "7.18.9",
 		"@chalkygames123/eslint-config": "4.0.6",
-		"@chalkygames123/stylelint-config": "17.0.2",
+		"@chalkygames123/stylelint-config": "18.1.0",
 		"autoprefixer": "10.4.7",
 		"babel-loader": "8.2.5",
 		"browser-sync": "2.27.10",
