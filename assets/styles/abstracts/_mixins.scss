@@ -35,7 +35,7 @@
 }
 
 @mixin visually-hidden-focusable() {
-	&:not(:focus) {
+	&:not(:focus, :focus-within) {
 		@include visually-hidden();
 	}
 }
