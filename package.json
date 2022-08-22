@@ -74,7 +74,7 @@
 		"stylelint": "14.11.0",
 		"stylelint-config-prettier": "9.0.3",
 		"webpack": "5.74.0",
-		"webpack-bundle-analyzer": "4.6.0",
+		"webpack-bundle-analyzer": "4.6.1",
 		"webpack-cli": "4.10.0"
 	},
 	"browserslist": "defaults, not ff esr",
