@@ -1,5 +1,3 @@
-/* eslint 'import/no-extraneous-dependencies': ['error', { optionalDependencies: false }] */
-
 const { format, resolveConfig } = require('prettier');
 
 const config = require('../../config');

@@ -1,5 +1,3 @@
-/* eslint 'import/no-extraneous-dependencies': ['error', { optionalDependencies: false }] */
-
 const { readFileSync } = require('node:fs');
 
 const { HTMLHint: htmlhint } = require('htmlhint');

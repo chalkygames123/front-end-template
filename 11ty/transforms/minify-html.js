@@ -1,5 +1,3 @@
-/* eslint 'import/no-extraneous-dependencies': ['error', { optionalDependencies: false }] */
-
 const { minify } = require('html-minifier');
 
 const config = require('../../config');
