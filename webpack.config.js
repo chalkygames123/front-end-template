@@ -15,7 +15,7 @@ const crawler = new Fdir()
 	.crawl(posix.join(config.get('srcDir'), 'assets/scripts'));
 
 /**
- * @type import('webpack').Configuration
+ * @type { import('webpack').Configuration }
  */
 module.exports = {
 	mode: config.get('mode'),
