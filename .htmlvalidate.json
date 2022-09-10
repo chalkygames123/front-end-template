@@ -1,0 +1,8 @@
+{
+	"root": true,
+	"extends": ["html-validate:recommended", "html-validate:document"],
+	"rules": {
+		"no-trailing-whitespace": "off",
+		"require-sri": "off"
+	}
+}

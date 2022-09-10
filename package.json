@@ -58,7 +58,7 @@
 		"gulp-sass": "5.1.0",
 		"gulp-sourcemaps": "3.0.0",
 		"html-minifier": "4.0.0",
-		"htmlhint": "1.1.4",
+		"html-validate": "7.3.3",
 		"husky": "8.0.1",
 		"ignore": "5.2.0",
 		"imagemin-pngquant": "9.0.2",

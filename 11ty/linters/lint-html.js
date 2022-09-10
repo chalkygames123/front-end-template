@@ -1,25 +1,20 @@
-const { readFileSync } = require('node:fs');
+const {
+	FileSystemConfigLoader,
+	formatterFactory,
+	HtmlValidate,
+} = require('html-validate');
 
-const { HTMLHint: htmlhint } = require('htmlhint');
-
-const htmlhintRules = JSON.parse(readFileSync('.htmlhintrc', 'utf8'));
+const loader = new FileSystemConfigLoader();
+const htmlvalidate = new HtmlValidate(loader);
+const formatter = formatterFactory('stylish');
 
 module.exports = function lintHtml(content) {
 	if (!this.outputPath.endsWith('.html')) return;
 
-	const result = htmlhint.verify(content, htmlhintRules);
+	const report = htmlvalidate.validateString(content, this.outputPath);
 
-	if (result.length === 0) return;
-
-	const report = htmlhint
-		.format(result, {
-			colors: true,
-			indent: 4,
-		})
-		.reduce((acc, line) => `${acc}\n${line}`, '');
+	if (report.valid) return;
 
 	// eslint-disable-next-line no-console
-	console.error(
-		`HTMLHint: ${result.length} error(s) found in ${this.outputPath}${report}\n`,
-	);
+	console.error(formatter(report.results));
 };
