@@ -28,7 +28,7 @@ Right after the initialization, you may want to delete these files and directori
 
 ### Examples
 
-There are several branches that illustrate how to customize this template.
+Several branches illustrate how to customize this template:
 
 - [`example/format-html`](https://github.com/chalkygames123/front-end-template/compare/example/format-html) - format HTML output
 - [`example/format-css`](https://github.com/chalkygames123/front-end-template/compare/example/format-css) - format CSS output
