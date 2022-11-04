@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"engines": {
-		"node": "18.10.0"
+		"node": "18.12.1"
 	},
 	"scripts": {
 		"build": "gulp build",
@@ -80,6 +80,6 @@
 	"browserslist": "defaults, not ff esr",
 	"sideEffects": false,
 	"volta": {
-		"node": "18.10.0"
+		"node": "18.12.1"
 	}
 }
