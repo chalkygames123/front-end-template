@@ -1,5 +1,7 @@
 # dotfiles
 !.*.js
+!.*.mjs
+!.*.cjs
 
 # build output
 /dist/
