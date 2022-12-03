@@ -4,26 +4,27 @@ const schema = {
 	srcDir: {
 		format: String,
 		default: '.',
-		arg: 'src-dir',
+		env: 'SRC_DIR',
 	},
 	distDir: {
 		format: String,
 		default: 'dist',
-		arg: 'dist-dir',
+		env: 'DIST_DIR',
 	},
 	publicPath: {
 		format: String,
 		default: '/',
+		env: 'PUBLIC_PATH',
 	},
 	mode: {
 		format: ['production', 'development'],
 		default: 'production',
-		arg: 'mode',
+		env: 'MODE',
 	},
 	watch: {
 		format: Boolean,
 		default: false,
-		arg: 'watch',
+		env: 'WATCH',
 	},
 };
 
