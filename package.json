@@ -10,7 +10,7 @@
 		"check:prettier": "prettier . --check",
 		"clean": "gulp clean",
 		"copy": "gulp copy",
-		"dev": "gulp start --mode=development --watch",
+		"dev": "MODE=development WATCH=true gulp start",
 		"fix": "conc --raw \"npm:fix:*\"",
 		"fix:eslint": "npm run lint:eslint -- --fix",
 		"fix:stylelint": "npm run lint:stylelint -- --fix; npm run lint:stylelint -- --fix",
