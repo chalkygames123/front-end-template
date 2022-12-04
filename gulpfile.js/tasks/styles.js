@@ -5,11 +5,13 @@ const CleanCSS = require('clean-css');
 const { minify } = require('csso');
 const { dest, lastRun, src, watch } = require('gulp');
 const gulpDependents = require('gulp-dependents');
-const gulpPostcss = require('gulp-postcss');
 const gulpSass = require('gulp-sass');
 const { init, write } = require('gulp-sourcemaps');
+const postcss = require('postcss');
+const postcssLoadConfig = require('postcss-load-config');
 const sass = require('sass');
 const { lint } = require('stylelint');
+const applySourceMap = require('vinyl-sourcemaps-apply');
 
 const config = require('../../config');
 const { server } = require('../common');
@@ -55,19 +57,50 @@ module.exports = function styles() {
 		)
 		.pipe(pipeIf(isDev, init()))
 		.pipe(boundSass().on('error', boundSass.logError))
-		.pipe(gulpPostcss())
+		.pipe(
+			new Transform({
+				objectMode: true,
+				async transform(file, encoding, cb) {
+					const postcssConfig = await postcssLoadConfig();
+					const processor = postcss(postcssConfig.plugins);
+					const { css, map } = await processor
+						.process(file.contents.toString(), {
+							...postcssConfig.options,
+							from: file.path,
+							to: file.path,
+							map: {
+								annotation: false,
+							},
+						})
+						.then((result) => result);
+
+					// eslint-disable-next-line no-param-reassign
+					file.contents = Buffer.from(css);
+
+					if (file.sourceMap) {
+						const m = map.toJSON();
+
+						m.sources = [file.relative];
+
+						applySourceMap(file, m);
+					}
+
+					cb(null, file);
+				},
+			}),
+		)
 		.pipe(
 			pipeIf(
 				!isDev,
 				new Transform({
 					objectMode: true,
 					transform(file, encoding, cb) {
-						const { css: result } = minify(file.contents.toString(), {
+						const { css } = minify(file.contents.toString(), {
 							forceMediaMerge: true,
 						});
 
 						// eslint-disable-next-line no-param-reassign
-						file.contents = Buffer.from(result);
+						file.contents = Buffer.from(css);
 
 						cb(null, file);
 					},
@@ -80,12 +113,10 @@ module.exports = function styles() {
 				new Transform({
 					objectMode: true,
 					transform(file, encoding, cb) {
-						const { styles: result } = cleanCss.minify(
-							file.contents.toString(),
-						);
+						const { styles: css } = cleanCss.minify(file.contents.toString());
 
 						// eslint-disable-next-line no-param-reassign
-						file.contents = Buffer.from(result);
+						file.contents = Buffer.from(css);
 
 						cb(null, file);
 					},
