@@ -67,7 +67,12 @@ module.exports = function styles() {
 						.process(file.contents.toString(), {
 							...postcssConfig.options,
 							from: file.path,
-							to: file.path,
+							to: join(
+								file.cwd,
+								config.get('distDir'),
+								config.get('publicPath'),
+								file.relative,
+							),
 							map: {
 								annotation: false,
 							},
