@@ -9,9 +9,9 @@ const htmlvalidate = new HtmlValidate(loader);
 const formatter = formatterFactory('stylish');
 
 module.exports = function lintHtml(content) {
-	if (!this.outputPath.endsWith('.html')) return;
+	if (!this.page.outputPath.endsWith('.html')) return;
 
-	const report = htmlvalidate.validateString(content, this.outputPath);
+	const report = htmlvalidate.validateString(content, this.page.outputPath);
 
 	if (report.valid) return;
 

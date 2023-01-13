@@ -5,7 +5,7 @@ const config = require('../../config');
 const isDev = config.get('mode') !== 'production';
 
 module.exports = function minifyHtml(content) {
-	if (!/\.(?:html|php)$/.test(this.outputPath) || isDev) return content;
+	if (!/\.(?:html|php)$/.test(this.page.outputPath) || isDev) return content;
 
 	const result = minify(content, {
 		collapseBooleanAttributes: true,
