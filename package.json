@@ -33,7 +33,7 @@
 		"sanitize.css": "13.0.0"
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "1.0.2",
+		"@11ty/eleventy": "2.0.0-canary.29",
 		"@babel/core": "7.20.7",
 		"@babel/preset-env": "7.20.2",
 		"@chalkygames123/eslint-config": "5.2.0",
