@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const config = require('../../config');
 const webpackConfig = require('../../webpack.config');
 
-const compiler = webpack(webpackConfig);
-
 module.exports = function scripts(cb) {
+	const compiler = webpack(webpackConfig);
+
 	const handler = (error, stats) => {
 		// eslint-disable-next-line no-console
 		console.log(
