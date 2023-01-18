@@ -4,7 +4,6 @@ const { dest, lastRun, src, watch } = require('gulp');
 const gulpChanged = require('gulp-changed');
 
 const config = require('../../config');
-const { server } = require('../common');
 
 const srcPaths = posix.join(config.get('srcDir'), 'public/**');
 
@@ -18,6 +17,5 @@ module.exports = function copy() {
 		nodir: true,
 	})
 		.pipe(gulpChanged(join(config.get('distDir'), config.get('publicPath'))))
-		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))))
-		.pipe(server.stream());
+		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))));
 };

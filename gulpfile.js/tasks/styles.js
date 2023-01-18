@@ -14,7 +14,6 @@ const { lint } = require('stylelint');
 const applySourceMap = require('vinyl-sourcemaps-apply');
 
 const config = require('../../config');
-const { server } = require('../common');
 const ignore = require('../utils/ignore');
 const pipeIf = require('../utils/pipe-if');
 
@@ -136,6 +135,5 @@ module.exports = function styles() {
 				}),
 			),
 		)
-		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))))
-		.pipe(server.stream());
+		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))));
 };
