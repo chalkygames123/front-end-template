@@ -7,12 +7,12 @@ const { minifyHtml, setImageDimensions } = require('./11ty/transforms');
 const config = require('./config');
 
 module.exports = (eleventyConfig) => {
-	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
-
 	eleventyConfig.addLinter('lint-html', lintHtml);
 
 	eleventyConfig.addTransform('set-image-dimensions', setImageDimensions);
 	eleventyConfig.addTransform('minify-html', minifyHtml);
+
+	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
 	return {
 		dir: {
