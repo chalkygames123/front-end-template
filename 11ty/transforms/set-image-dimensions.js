@@ -1,5 +1,5 @@
 const { Buffer } = require('node:buffer');
-const { isAbsolute, join } = require('node:path');
+const { dirname, isAbsolute, join, relative } = require('node:path');
 
 const { JSDOM } = require('jsdom');
 const sharp = require('sharp');
@@ -7,22 +7,45 @@ const { parse: parseSrcset } = require('srcset');
 
 const config = require('../../config');
 
-const getMetadata = (src) =>
-	(isAbsolute(src)
-		? Promise.resolve(join(config.get('srcDir'), src))
-		: fetch(src)
-				.then((response) => {
-					if (!response.ok) {
-						throw new Error(`Unexpected response status ${response.status}`);
-					}
+const isValidSourceUrl = (sourceUrl) => {
+	try {
+		return ['http:', 'https:'].includes(new URL(sourceUrl).protocol);
+	} catch (error) {
+		return true;
+	}
+};
+const isUrl = (string) => {
+	try {
+		return Boolean(new URL(string));
+	} catch (error) {
+		return false;
+	}
+};
+const getMetadata = async (sourceUrl) => {
+	if (isUrl(sourceUrl)) {
+		const response = await fetch(sourceUrl);
 
-					return response.arrayBuffer();
-				})
-				.then((arrayBuffer) => Buffer.from(arrayBuffer))
-	).then((input) => sharp(input).metadata());
-const setDimensions = (image, width, height) => {
-	image.setAttribute('width', width);
-	image.setAttribute('height', height);
+		if (!response.ok) {
+			throw new Error(
+				`Failed to load resource: the server responded with a status of ${response.status}`,
+			);
+		}
+
+		const arrayBuffer = await response.arrayBuffer();
+
+		return sharp(Buffer.from(arrayBuffer)).metadata();
+	}
+
+	return sharp(sourceUrl).metadata();
+};
+const setDimensions = (element, width, height) => {
+	if (!element.hasAttribute('width')) {
+		element.setAttribute('width', width);
+	}
+
+	if (!element.hasAttribute('height')) {
+		element.setAttribute('height', height);
+	}
 };
 
 module.exports = async function setImageDimensions(content) {
@@ -32,18 +55,41 @@ module.exports = async function setImageDimensions(content) {
 	const {
 		window: { document },
 	} = dom;
+	const normalizeSourceUrl = (sourceUrl) => {
+		if (isUrl(sourceUrl)) {
+			return sourceUrl;
+		}
+
+		if (isAbsolute(sourceUrl)) {
+			return join(config.get('srcDir'), sourceUrl);
+		}
+
+		return join(
+			config.get('srcDir'),
+			relative(
+				join(config.get('distDir'), config.get('publicPath')),
+				join(dirname(this.page.outputPath), sourceUrl),
+			),
+		);
+	};
 
 	await Promise.all([
-		...Array.from(document.images).map((item) =>
-			getMetadata(item.src).then((metadata) =>
-				setDimensions(item, metadata.width, metadata.height),
-			),
-		),
-		...Array.from(document.querySelectorAll('picture > source')).map((item) =>
-			getMetadata(parseSrcset(item.srcset)[0].url).then((metadata) =>
-				setDimensions(item, metadata.width, metadata.height),
-			),
-		),
+		...Array.from(document.images)
+			.filter((item) => isValidSourceUrl(item.src))
+			.map(async (item) => {
+				const metadata = await getMetadata(normalizeSourceUrl(item.src));
+
+				setDimensions(item, metadata.width, metadata.height);
+			}),
+		...Array.from(document.querySelectorAll('picture > source'))
+			.filter((item) => isValidSourceUrl(parseSrcset(item.srcset)[0].url))
+			.map(async (item) => {
+				const metadata = await getMetadata(
+					normalizeSourceUrl(parseSrcset(item.srcset)[0].url),
+				);
+
+				setDimensions(item, metadata.width, metadata.height);
+			}),
 	]);
 
 	const result = dom.serialize();
