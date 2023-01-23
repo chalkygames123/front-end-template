@@ -3,7 +3,7 @@ module.exports = {
 	extends: ['@chalkygames123', 'prettier'],
 	overrides: [
 		{
-			files: ['**'],
+			files: '*',
 			excludedFiles: ['assets/scripts/**', 'modules/**'],
 			rules: {
 				'import/no-extraneous-dependencies': [
