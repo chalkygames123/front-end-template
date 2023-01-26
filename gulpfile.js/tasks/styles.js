@@ -1,12 +1,12 @@
 const { join, posix } = require('node:path');
 const { Transform } = require('node:stream');
 
-const CleanCSS = require('clean-css');
-const { minify } = require('csso');
+const browserslist = require('browserslist');
 const { dest, lastRun, src, watch } = require('gulp');
 const gulpDependents = require('gulp-dependents');
 const gulpSass = require('gulp-sass');
 const { init, write } = require('gulp-sourcemaps');
+const lightningcss = require('lightningcss');
 const postcss = require('postcss');
 const postcssLoadConfig = require('postcss-load-config');
 const sass = require('sass');
@@ -14,15 +14,16 @@ const { lint } = require('stylelint');
 const applySourceMap = require('vinyl-sourcemaps-apply');
 
 const config = require('../../config');
+const packageConfig = require('../../package.json');
 const ignore = require('../utils/ignore');
 const pipeIf = require('../utils/pipe-if');
 
 const srcPaths = posix.join(config.get('srcDir'), 'assets/styles/**/*.scss');
 const isDev = config.get('mode') !== 'production';
 const boundSass = gulpSass(sass);
-const cleanCss = new CleanCSS({
-	level: 2,
-});
+const targets = lightningcss.browserslistToTargets(
+	browserslist(packageConfig.browserslist),
+);
 
 module.exports = function styles() {
 	if (config.get('watch') && !lastRun(styles)) {
@@ -99,25 +100,12 @@ module.exports = function styles() {
 				new Transform({
 					objectMode: true,
 					transform(file, encoding, cb) {
-						const { css } = minify(file.contents.toString(), {
-							forceMediaMerge: true,
+						const { code: css } = lightningcss.transform({
+							filename: file.relative,
+							code: file.contents,
+							minify: true,
+							targets,
 						});
-
-						// eslint-disable-next-line no-param-reassign
-						file.contents = Buffer.from(css);
-
-						cb(null, file);
-					},
-				}),
-			),
-		)
-		.pipe(
-			pipeIf(
-				!isDev,
-				new Transform({
-					objectMode: true,
-					transform(file, encoding, cb) {
-						const { styles: css } = cleanCss.minify(file.contents.toString());
 
 						// eslint-disable-next-line no-param-reassign
 						file.contents = Buffer.from(css);
