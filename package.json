@@ -47,7 +47,7 @@
 		"cross-env": "7.0.3",
 		"csso": "5.0.5",
 		"dotenv": "16.0.3",
-		"editorconfig-checker": "4.0.2",
+		"editorconfig-checker": "5.0.1",
 		"eslint": "8.31.0",
 		"eslint-config-prettier": "8.5.0",
 		"eslint-webpack-plugin": "3.2.0",
