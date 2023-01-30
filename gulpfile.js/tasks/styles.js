@@ -5,11 +5,10 @@ const CleanCSS = require('clean-css');
 const { minify } = require('csso');
 const { dest, lastRun, src, watch } = require('gulp');
 const gulpDependents = require('gulp-dependents');
-const gulpSass = require('gulp-sass');
+const { sass } = require('@mr-hope/gulp-sass');
 const { init, write } = require('gulp-sourcemaps');
 const postcss = require('postcss');
 const postcssLoadConfig = require('postcss-load-config');
-const sass = require('sass');
 const { lint } = require('stylelint');
 const applySourceMap = require('vinyl-sourcemaps-apply');
 
@@ -19,7 +18,6 @@ const pipeIf = require('../utils/pipe-if');
 
 const srcPaths = posix.join(config.get('srcDir'), 'assets/styles/**/*.scss');
 const isDev = config.get('mode') !== 'production';
-const boundSass = gulpSass(sass);
 const cleanCss = new CleanCSS({
 	level: 2,
 });
@@ -55,7 +53,7 @@ module.exports = function styles() {
 			}),
 		)
 		.pipe(pipeIf(isDev, init()))
-		.pipe(boundSass().on('error', boundSass.logError))
+		.pipe(sass().on('error', sass.logError))
 		.pipe(
 			new Transform({
 				objectMode: true,
