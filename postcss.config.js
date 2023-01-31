@@ -6,7 +6,7 @@ module.exports = {
 	plugins: {
 		autoprefixer: {},
 		'postcss-url': {
-			url: (asset) => {
+			url(asset) {
 				if (isAbsolute(asset.url)) {
 					return join(config.get('publicPath'), asset.url);
 				}
