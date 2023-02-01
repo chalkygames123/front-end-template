@@ -53,7 +53,11 @@ module.exports = function styles() {
 			}),
 		)
 		.pipe(pipeIf(isDev, init()))
-		.pipe(sass().on('error', sass.logError))
+		.pipe(
+			sass({
+				sourceMapIncludeSources: true,
+			}).on('error', sass.logError),
+		)
 		.pipe(
 			new Transform({
 				objectMode: true,
