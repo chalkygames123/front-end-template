@@ -13,8 +13,7 @@ const { lint } = require('stylelint');
 const applySourceMap = require('vinyl-sourcemaps-apply');
 
 const config = require('../../config');
-const ignore = require('../utils/ignore');
-const pipeIf = require('../utils/pipe-if');
+const { ignore, pipeIf } = require('../utils');
 
 const srcPaths = posix.join(config.get('srcDir'), 'assets/styles/**/*.scss');
 const isDev = config.get('mode') !== 'production';

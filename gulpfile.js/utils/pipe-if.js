@@ -1,6 +1,6 @@
 const { Transform } = require('node:stream');
 
-module.exports = (condition, stream) => {
+module.exports = function pipeIf(condition, stream) {
 	if (condition) {
 		return stream;
 	}

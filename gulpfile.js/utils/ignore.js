@@ -1,12 +1,12 @@
 const { readFileSync } = require('node:fs');
 const { Transform } = require('node:stream');
 
-const ignore = require('ignore');
+const nodeIgnore = require('ignore');
 
-const ig = ignore().add(readFileSync('.gitignore', 'utf8'));
+const ig = nodeIgnore().add(readFileSync('.gitignore', 'utf8'));
 
-module.exports = () =>
-	new Transform({
+module.exports = function ignore() {
+	return new Transform({
 		objectMode: true,
 		transform(file, encoding, cb) {
 			if (ig.ignores(file.relative)) {
@@ -16,3 +16,4 @@ module.exports = () =>
 			}
 		},
 	});
+};
