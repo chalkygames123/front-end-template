@@ -132,7 +132,7 @@ module.exports = function styles() {
 			pipeIf(
 				isDev,
 				write({
-					sourceRoot: `/${config.get('srcDir')}`,
+					sourceRoot: join('/', config.get('srcDir')),
 				}),
 			),
 		)
