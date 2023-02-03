@@ -4,6 +4,7 @@ const { extname, join, posix, relative } = require('node:path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { fdir: Fdir } = require('fdir');
 const ignore = require('ignore');
+const webpack = require('webpack');
 
 const config = require('./config');
 
@@ -74,6 +75,10 @@ module.exports = {
 				join(config.get('srcDir'), 'assets/scripts'),
 				join(config.get('srcDir'), 'modules'),
 			],
+		}),
+		new webpack.DefinePlugin({
+			'import.meta.env.MODE': JSON.stringify(config.get('mode')),
+			'import.meta.env.PUBLIC_PATH': JSON.stringify(config.get('publicPath')),
 		}),
 	],
 	optimization: {
