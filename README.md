@@ -58,7 +58,7 @@ Make sure you have the version of Node.js specified in [package.json#engines.nod
 # install dependencies
 $ npm ci
 
-# serve with live/hot reload at localhost:3000
+# serve with live/hot reload at localhost:8080
 $ npm run dev
 
 # run all linters
