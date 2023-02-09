@@ -8,6 +8,8 @@ const { parse: parseSrcset } = require('srcset');
 const config = require('../../config');
 
 const isValidSourceUrl = (sourceUrl) => {
+	if (!sourceUrl) return false;
+
 	try {
 		return ['http:', 'https:'].includes(new URL(sourceUrl).protocol);
 	} catch (error) {
