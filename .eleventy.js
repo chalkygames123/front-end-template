@@ -12,7 +12,9 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addTransform('set-image-dimensions', setImageDimensions);
 	eleventyConfig.addTransform('minify-html', minifyHtml);
 
-	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+	eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
+		extensions: 'html,php',
+	});
 
 	return {
 		dir: {
