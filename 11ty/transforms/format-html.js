@@ -7,7 +7,7 @@ const config = require('../../config');
 const isDev = config.get('mode') !== 'production';
 
 module.exports = async function formatHtml(content) {
-	if (!['.html'].includes(extname(this.page.outputPath)) || isDev)
+	if (!['.html', '.php'].includes(extname(this.page.outputPath)) || isDev)
 		return content;
 
 	const options = await resolveConfig(this.page.outputPath, {
@@ -17,6 +17,7 @@ module.exports = async function formatHtml(content) {
 	const result = format(content, {
 		...options,
 		filepath: this.page.outputPath,
+		parser: 'html',
 	});
 
 	return result;
