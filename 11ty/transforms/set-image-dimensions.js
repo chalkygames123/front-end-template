@@ -1,5 +1,5 @@
 const { Buffer } = require('node:buffer');
-const { dirname, isAbsolute, join, relative } = require('node:path');
+const { extname, dirname, isAbsolute, join, relative } = require('node:path');
 
 const { JSDOM } = require('jsdom');
 const sharp = require('sharp');
@@ -51,7 +51,7 @@ const setDimensions = (element, width, height) => {
 };
 
 module.exports = async function setImageDimensions(content) {
-	if (!/\.html$/.test(this.page.outputPath)) return content;
+	if (!['.html'].includes(extname(this.page.outputPath))) return content;
 
 	const dom = new JSDOM(content);
 	const {

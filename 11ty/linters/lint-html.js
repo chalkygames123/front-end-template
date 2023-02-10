@@ -1,3 +1,5 @@
+const { extname } = require('node:path');
+
 const {
 	FileSystemConfigLoader,
 	formatterFactory,
@@ -9,7 +11,7 @@ const htmlvalidate = new HtmlValidate(loader);
 const formatter = formatterFactory('stylish');
 
 module.exports = function lintHtml(content) {
-	if (!this.page.outputPath.endsWith('.html')) return;
+	if (!['.html'].includes(extname(this.page.outputPath))) return;
 
 	const report = htmlvalidate.validateString(content, this.page.outputPath);
 
