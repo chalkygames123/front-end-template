@@ -11,7 +11,7 @@ const htmlvalidate = new HtmlValidate(loader);
 const formatter = formatterFactory('stylish');
 
 module.exports = function lintHtml(content) {
-	if (!['.html'].includes(extname(this.page.outputPath))) return;
+	if (!['.html', '.php'].includes(extname(this.page.outputPath))) return;
 
 	const report = htmlvalidate.validateString(content, this.page.outputPath);
 
