@@ -12,8 +12,8 @@ const postcssLoadConfig = require('postcss-load-config');
 const { lint } = require('stylelint');
 const applySourceMap = require('vinyl-sourcemaps-apply');
 
-const config = require('../../config');
-const { ignore, pipeIf } = require('../utils');
+const config = require('../../config.cjs');
+const { ignore, pipeIf } = require('../utils/index.cjs');
 
 const srcPaths = posix.join(config.get('srcDir'), 'assets/styles/**/*.scss');
 const isDev = config.get('mode') !== 'production';

@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
-const config = require('../../config');
-const webpackConfig = require('../../webpack.config');
+const config = require('../../config.cjs');
+const webpackConfig = require('../../webpack.config.cjs');
 
 module.exports = function scripts(cb) {
 	const compiler = webpack(webpackConfig);

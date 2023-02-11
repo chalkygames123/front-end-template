@@ -3,7 +3,7 @@ const { join, posix } = require('node:path');
 const { dest, lastRun, src, watch } = require('gulp');
 const gulpChanged = require('gulp-changed');
 
-const config = require('../../config');
+const config = require('../../config.cjs');
 
 const srcPaths = posix.join(config.get('srcDir'), 'public/**');
 

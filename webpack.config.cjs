@@ -6,7 +6,7 @@ const { fdir: Fdir } = require('fdir');
 const ignore = require('ignore');
 const webpack = require('webpack');
 
-const config = require('./config');
+const config = require('./config.cjs');
 
 const isDev = config.get('mode') !== 'production';
 const ig = ignore().add(readFileSync('.gitignore', 'utf8'));

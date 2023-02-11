@@ -2,7 +2,7 @@ const { extname } = require('node:path');
 
 const { format, resolveConfig } = require('prettier');
 
-const config = require('../../config');
+const config = require('../../config.cjs');
 
 const isDev = config.get('mode') !== 'production';
 

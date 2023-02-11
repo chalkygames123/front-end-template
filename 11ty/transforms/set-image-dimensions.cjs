@@ -5,7 +5,7 @@ const { JSDOM } = require('jsdom');
 const sharp = require('sharp');
 const { parse: parseSrcset } = require('srcset');
 
-const config = require('../../config');
+const config = require('../../config.cjs');
 
 const isValidSourceUrl = (sourceUrl) => {
 	if (!sourceUrl) return false;

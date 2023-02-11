@@ -1,4 +1,4 @@
-const config = require('./config-schema');
+const config = require('./config-schema.cjs');
 
 /**
  * For available configurations, see: config-schema.js

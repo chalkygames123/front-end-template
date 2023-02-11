@@ -1,6 +1,6 @@
 const Eleventy = require('@11ty/eleventy');
 
-const config = require('../../config');
+const config = require('../../config.cjs');
 
 module.exports = async function templates() {
 	const eleventy = new Eleventy();

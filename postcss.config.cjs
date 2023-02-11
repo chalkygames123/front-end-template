@@ -1,6 +1,6 @@
 const { isAbsolute, join } = require('node:path');
 
-const config = require('./config');
+const config = require('./config.cjs');
 
 module.exports = {
 	plugins: {

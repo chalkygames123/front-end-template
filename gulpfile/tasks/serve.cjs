@@ -1,6 +1,6 @@
 const { getServer } = require('@11ty/eleventy-dev-server');
 
-const config = require('../../config');
+const config = require('../../config.cjs');
 
 const cert = process.env.SSL_CERTIFICATE;
 const key = process.env.SSL_CERTIFICATE_KEY;

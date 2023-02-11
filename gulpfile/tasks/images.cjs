@@ -5,8 +5,8 @@ const gulpChanged = require('gulp-changed');
 const gulpImagemin = require('gulp-imagemin');
 const imageminPngquant = require('imagemin-pngquant');
 
-const config = require('../../config');
-const { ignore, pipeIf } = require('../utils');
+const config = require('../../config.cjs');
+const { ignore, pipeIf } = require('../utils/index.cjs');
 
 const srcPaths = posix.join(
 	config.get('srcDir'),
