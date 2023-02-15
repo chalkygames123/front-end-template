@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports.build = require('./build.cjs');
 module.exports.clean = require('./clean.cjs');
 module.exports.copy = require('./copy.cjs');

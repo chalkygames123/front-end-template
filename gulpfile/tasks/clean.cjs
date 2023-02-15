@@ -1,13 +1,17 @@
+'use strict';
+
 const { rm } = require('node:fs/promises');
 const { dirname, resolve } = require('node:path');
 
 const config = require('../../config.cjs');
 
-module.exports = function clean(cb) {
+const clean = (callback) => {
 	if (
 		dirname(process.cwd()).startsWith(dirname(resolve(config.get('distDir'))))
 	) {
-		cb(new Error("'distDir' cannot be outside of or same as process.cwd()"));
+		callback(
+			new Error("'distDir' cannot be outside of or same as process.cwd()"),
+		);
 	}
 
 	return rm(config.get('distDir'), {
@@ -15,3 +19,5 @@ module.exports = function clean(cb) {
 		recursive: true,
 	});
 };
+
+module.exports = clean;

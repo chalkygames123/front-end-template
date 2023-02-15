@@ -1,3 +1,5 @@
+'use strict';
+
 const { series } = require('gulp');
 
 const build = require('./build.cjs');

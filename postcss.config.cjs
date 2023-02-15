@@ -1,3 +1,5 @@
+'use strict';
+
 const { isAbsolute, join } = require('node:path');
 
 const config = require('./config.cjs');

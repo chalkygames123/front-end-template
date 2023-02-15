@@ -1,3 +1,5 @@
+'use strict';
+
 const packageConfig = require('./package.json');
 
 module.exports = {

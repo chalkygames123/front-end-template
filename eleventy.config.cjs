@@ -1,3 +1,5 @@
+'use strict';
+
 const { join } = require('node:path');
 
 const { EleventyHtmlBasePlugin } = require('@11ty/eleventy');

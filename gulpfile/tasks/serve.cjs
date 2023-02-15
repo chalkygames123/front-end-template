@@ -1,3 +1,5 @@
+'use strict';
+
 const { getServer } = require('@11ty/eleventy-dev-server');
 
 const config = require('../../config.cjs');
@@ -5,7 +7,7 @@ const config = require('../../config.cjs');
 const cert = process.env.SSL_CERTIFICATE;
 const key = process.env.SSL_CERTIFICATE_KEY;
 
-module.exports = function serve(cb) {
+const serve = (callback) => {
 	const server = getServer('server', config.get('distDir'), {
 		https:
 			cert && key
@@ -19,5 +21,7 @@ module.exports = function serve(cb) {
 
 	server.serve(server.options.port);
 
-	cb();
+	callback();
 };
+
+module.exports = serve;

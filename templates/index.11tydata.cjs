@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
 	title: 'Page Title',
 	description: 'Page Description',

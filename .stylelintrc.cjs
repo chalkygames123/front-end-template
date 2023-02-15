@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
 	extends: [
 		'@chalkygames123/stylelint-config',

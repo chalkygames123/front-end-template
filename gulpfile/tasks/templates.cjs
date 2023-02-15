@@ -1,15 +1,15 @@
+'use strict';
+
 const Eleventy = require('@11ty/eleventy');
 
 const config = require('../../config.cjs');
 
-module.exports = async function templates() {
+const templates = async () => {
 	const eleventy = new Eleventy();
 
 	await eleventy.init();
 
-	if (config.get('watch')) {
-		await eleventy.watch();
-	} else {
-		await eleventy.write();
-	}
+	await (config.get('watch') ? eleventy.watch() : eleventy.write());
 };
+
+module.exports = templates;

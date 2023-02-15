@@ -1,3 +1,5 @@
+'use strict';
+
 const { parallel, series } = require('gulp');
 
 const clean = require('./clean.cjs');

@@ -1,14 +1,18 @@
+'use strict';
+
 const { Transform } = require('node:stream');
 
-module.exports = function pipeIf(condition, stream) {
+const pipeIf = (condition, stream) => {
 	if (condition) {
 		return stream;
 	}
 
 	return new Transform({
 		objectMode: true,
-		transform(file, encoding, cb) {
-			cb(null, file);
+		transform(file, encoding, callback) {
+			callback(undefined, file);
 		},
 	});
 };
+
+module.exports = pipeIf;

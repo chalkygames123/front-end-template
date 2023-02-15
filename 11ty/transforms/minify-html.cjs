@@ -1,13 +1,18 @@
+'use strict';
+
 const { extname } = require('node:path');
 
 const { minify } = require('html-minifier');
 
 const config = require('../../config.cjs');
 
-const isDev = config.get('mode') !== 'production';
+const isDevelopment = config.get('mode') !== 'production';
 
-module.exports = function minifyHtml(content) {
-	if (!['.html', '.php'].includes(extname(this.page.outputPath)) || isDev)
+const minifyHtml = function (content) {
+	if (
+		!['.html', '.php'].includes(extname(this.page.outputPath)) ||
+		isDevelopment
+	)
 		return content;
 
 	const result = minify(content, {
@@ -28,3 +33,5 @@ module.exports = function minifyHtml(content) {
 
 	return result;
 };
+
+module.exports = minifyHtml;

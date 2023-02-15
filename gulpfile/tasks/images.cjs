@@ -1,3 +1,5 @@
+'use strict';
+
 const { join, posix } = require('node:path');
 
 const { dest, lastRun, src, watch } = require('gulp');
@@ -8,25 +10,25 @@ const imageminPngquant = require('imagemin-pngquant');
 const config = require('../../config.cjs');
 const { ignore, pipeIf } = require('../utils/index.cjs');
 
-const srcPaths = posix.join(
+const sourcePaths = posix.join(
 	config.get('srcDir'),
 	'assets/images/**/*.+(png|jp?(e)g|gif|svg)',
 );
-const isDev = config.get('mode') !== 'production';
+const isDevelopment = config.get('mode') !== 'production';
 
-module.exports = function images() {
+const images = () => {
 	if (config.get('watch') && !lastRun(images)) {
-		watch(srcPaths, images);
+		watch(sourcePaths, images);
 	}
 
-	return src(srcPaths, {
+	return src(sourcePaths, {
 		base: config.get('srcDir'),
 	})
 		.pipe(ignore())
 		.pipe(gulpChanged(join(config.get('distDir'), config.get('publicPath'))))
 		.pipe(
 			pipeIf(
-				!isDev,
+				!isDevelopment,
 				gulpImagemin([
 					imageminPngquant(),
 					gulpImagemin.mozjpeg({
@@ -48,3 +50,5 @@ module.exports = function images() {
 		)
 		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))));
 };
+
+module.exports = images;

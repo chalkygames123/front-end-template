@@ -1,3 +1,5 @@
+'use strict';
+
 const { Buffer } = require('node:buffer');
 const { extname, dirname, isAbsolute, join, relative } = require('node:path');
 
@@ -12,17 +14,19 @@ const isValidSourceUrl = (sourceUrl) => {
 
 	try {
 		return ['http:', 'https:'].includes(new URL(sourceUrl).protocol);
-	} catch (error) {
+	} catch {
 		return true;
 	}
 };
+
 const isUrl = (string) => {
 	try {
 		return Boolean(new URL(string));
-	} catch (error) {
+	} catch {
 		return false;
 	}
 };
+
 const getMetadata = async (sourceUrl) => {
 	if (isUrl(sourceUrl)) {
 		const response = await fetch(sourceUrl);
@@ -40,6 +44,7 @@ const getMetadata = async (sourceUrl) => {
 
 	return sharp(sourceUrl).metadata();
 };
+
 const setDimensions = (element, width, height) => {
 	if (!element.hasAttribute('width')) {
 		element.setAttribute('width', width);
@@ -50,7 +55,7 @@ const setDimensions = (element, width, height) => {
 	}
 };
 
-module.exports = async function setImageDimensions(content) {
+const setImageDimensions = async function (content) {
 	if (!['.html', '.php'].includes(extname(this.page.outputPath)))
 		return content;
 
@@ -77,14 +82,14 @@ module.exports = async function setImageDimensions(content) {
 	};
 
 	await Promise.all([
-		...Array.from(document.images)
+		...[...document.images]
 			.filter((item) => isValidSourceUrl(item.src))
 			.map(async (item) => {
 				const metadata = await getMetadata(normalizeSourceUrl(item.src));
 
 				setDimensions(item, metadata.width, metadata.height);
 			}),
-		...Array.from(document.querySelectorAll('picture > source'))
+		...[...document.querySelectorAll('picture > source')]
 			.filter((item) => isValidSourceUrl(parseSrcset(item.srcset)[0].url))
 			.map(async (item) => {
 				const metadata = await getMetadata(
@@ -99,3 +104,5 @@ module.exports = async function setImageDimensions(content) {
 
 	return result;
 };
+
+module.exports = setImageDimensions;

@@ -1,3 +1,5 @@
+'use strict';
+
 const { readFileSync } = require('node:fs');
 const { extname, join, posix, relative } = require('node:path');
 
@@ -8,7 +10,7 @@ const webpack = require('webpack');
 
 const config = require('./config.cjs');
 
-const isDev = config.get('mode') !== 'production';
+const isDevelopment = config.get('mode') !== 'production';
 const ig = ignore().add(readFileSync('.gitignore', 'utf8'));
 const crawler = new Fdir()
 	.withBasePath()
@@ -67,7 +69,7 @@ module.exports = {
 			'~': __dirname,
 		},
 	},
-	devtool: isDev ? 'eval-source-map' : false,
+	devtool: isDevelopment ? 'eval-source-map' : false,
 	context: __dirname,
 	plugins: [
 		new ESLintPlugin({
@@ -91,7 +93,7 @@ module.exports = {
 				vendors: {
 					minSize: 0,
 					name: 'vendors',
-					test: /[\\/]node_modules[\\/]/i,
+					test: /[/\\]node_modules[/\\]/i,
 				},
 				commons: {
 					minChunks: 2,

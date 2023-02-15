@@ -1,13 +1,18 @@
+'use strict';
+
 const { extname } = require('node:path');
 
 const { format, resolveConfig } = require('prettier');
 
 const config = require('../../config.cjs');
 
-const isDev = config.get('mode') !== 'production';
+const isDevelopment = config.get('mode') !== 'production';
 
-module.exports = async function formatHtml(content) {
-	if (!['.html', '.php'].includes(extname(this.page.outputPath)) || isDev)
+const formatHtml = async function (content) {
+	if (
+		!['.html', '.php'].includes(extname(this.page.outputPath)) ||
+		isDevelopment
+	)
 		return content;
 
 	const options = await resolveConfig(this.page.outputPath, {
@@ -22,3 +27,5 @@ module.exports = async function formatHtml(content) {
 
 	return result;
 };
+
+module.exports = formatHtml;

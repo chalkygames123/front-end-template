@@ -1,3 +1,5 @@
+'use strict';
+
 const { join, posix } = require('node:path');
 const { Transform } = require('node:stream');
 
@@ -15,18 +17,18 @@ const applySourceMap = require('vinyl-sourcemaps-apply');
 const config = require('../../config.cjs');
 const { ignore, pipeIf } = require('../utils/index.cjs');
 
-const srcPaths = posix.join(config.get('srcDir'), 'assets/styles/**/*.scss');
-const isDev = config.get('mode') !== 'production';
+const sourcePaths = posix.join(config.get('srcDir'), 'assets/styles/**/*.scss');
+const isDevelopment = config.get('mode') !== 'production';
 const cleanCss = new CleanCSS({
 	level: 2,
 });
 
-module.exports = function styles() {
+const styles = () => {
 	if (config.get('watch') && !lastRun(styles)) {
-		watch(srcPaths, styles);
+		watch(sourcePaths, styles);
 	}
 
-	return src(srcPaths, {
+	return src(sourcePaths, {
 		base: config.get('srcDir'),
 		since: lastRun(styles),
 	})
@@ -35,7 +37,7 @@ module.exports = function styles() {
 		.pipe(
 			new Transform({
 				objectMode: true,
-				async transform(file, encoding, cb) {
+				async transform(file, encoding, callback) {
 					const result = await lint({
 						code: file.contents.toString(),
 						codeFilename: file.path,
@@ -43,15 +45,14 @@ module.exports = function styles() {
 					});
 
 					if (result.errored) {
-						// eslint-disable-next-line no-console
 						console.error(result.output.replace(/\n$/, ''));
 					}
 
-					cb(null, file);
+					callback(undefined, file);
 				},
 			}),
 		)
-		.pipe(pipeIf(isDev, init()))
+		.pipe(pipeIf(isDevelopment, init()))
 		.pipe(
 			sass({
 				sourceMapIncludeSources: true,
@@ -60,7 +61,7 @@ module.exports = function styles() {
 		.pipe(
 			new Transform({
 				objectMode: true,
-				async transform(file, encoding, cb) {
+				async transform(file, encoding, callback) {
 					const postcssConfig = await postcssLoadConfig();
 					const processor = postcss(postcssConfig.plugins);
 					const { css, map } = await processor
@@ -79,7 +80,6 @@ module.exports = function styles() {
 						})
 						.then((result) => result);
 
-					// eslint-disable-next-line no-param-reassign
 					file.contents = Buffer.from(css);
 
 					if (file.sourceMap) {
@@ -90,47 +90,45 @@ module.exports = function styles() {
 						applySourceMap(file, m);
 					}
 
-					cb(null, file);
+					callback(undefined, file);
 				},
 			}),
 		)
 		.pipe(
 			pipeIf(
-				!isDev,
+				!isDevelopment,
 				new Transform({
 					objectMode: true,
-					transform(file, encoding, cb) {
+					transform(file, encoding, callback) {
 						const { css } = minify(file.contents.toString(), {
 							forceMediaMerge: true,
 						});
 
-						// eslint-disable-next-line no-param-reassign
 						file.contents = Buffer.from(css);
 
-						cb(null, file);
+						callback(undefined, file);
 					},
 				}),
 			),
 		)
 		.pipe(
 			pipeIf(
-				!isDev,
+				!isDevelopment,
 				new Transform({
 					objectMode: true,
-					transform(file, encoding, cb) {
+					transform(file, encoding, callback) {
 						const { styles: css } = cleanCss.minify(file.contents.toString());
 
-						// eslint-disable-next-line no-param-reassign
 						file.contents = Buffer.from(css);
 
-						cb(null, file);
+						callback(undefined, file);
 					},
 				}),
 			),
 		)
 		.pipe(
 			pipeIf(
-				isDev,
+				isDevelopment,
 				write({
 					sourceRoot: join('/', config.get('srcDir')),
 				}),
@@ -138,3 +136,5 @@ module.exports = function styles() {
 		)
 		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))));
 };
+
+module.exports = styles;
