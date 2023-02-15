@@ -11,13 +11,13 @@
 Create a new repository on GitHub from this template at https://github.com/chalkygames123/front-end-template/generate or with [GitHub CLI](https://cli.github.com/):
 
 ```shell
-$ gh repo create my-project --public --clone --template chalkygames123/front-end-template
+gh repo create my-project --public --clone --template chalkygames123/front-end-template
 ```
 
 Alternatively, create a new directory and then run:
 
 ```shell
-$ curl -fsSL https://github.com/chalkygames123/front-end-template/archive/main.tar.gz | tar -xz --strip-components=1
+curl -fsSL https://github.com/chalkygames123/front-end-template/archive/main.tar.gz | tar -xz --strip-components=1
 ```
 
 Right after the initialization, you may want to delete these files and directories or modify their content as you see fit:
@@ -54,25 +54,44 @@ Make sure you have the version of Node.js specified in [package.json#engines.nod
 
 ## Usage
 
+Install dependencies:
+
 ```shell
-# install dependencies
-$ npm ci
+npm ci
+```
 
-# serve with live/hot reload at localhost:8080
-$ npm run dev
+Serve with live/hot reload at localhost:8080:
 
-# run all linters
-$ npm run lint
+```shell
+npm run dev
+```
 
-# run all linters with autofix
-$ npm run fix
+Run all linters:
 
-# run all format checking
-$ npm run check
+```shell
+npm run lint
+```
 
-# run all formatters
-$ npm run format
+Run all linters with autofix:
 
-# build for production
-$ npm run build
+```shell
+npm run fix
+```
+
+Run all format checking:
+
+```shell
+npm run check
+```
+
+Run all formatters:
+
+```shell
+npm run format
+```
+
+Build for production:
+
+```shell
+npm run build
 ```
