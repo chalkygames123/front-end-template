@@ -60,7 +60,7 @@ Install dependencies:
 npm ci
 ```
 
-Serve with live/hot reload at localhost:8080:
+Serve with live/hot reload at `localhost:8080`:
 
 ```shell
 npm run dev
