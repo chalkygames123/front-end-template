@@ -27,6 +27,24 @@ const isUrl = (string) => {
 	}
 };
 
+const normalizeSourceUrl = (sourceUrl, outputPath) => {
+	if (isUrl(sourceUrl)) {
+		return sourceUrl;
+	}
+
+	if (isAbsolute(sourceUrl)) {
+		return join(config.get('srcDir'), sourceUrl);
+	}
+
+	return join(
+		config.get('srcDir'),
+		relative(
+			join(config.get('distDir'), config.get('publicPath')),
+			join(dirname(outputPath), sourceUrl),
+		),
+	);
+};
+
 const getMetadata = async (sourceUrl) => {
 	if (isUrl(sourceUrl)) {
 		const response = await fetch(sourceUrl);
@@ -63,29 +81,14 @@ const setImageDimensions = async function (content) {
 	const {
 		window: { document },
 	} = dom;
-	const normalizeSourceUrl = (sourceUrl) => {
-		if (isUrl(sourceUrl)) {
-			return sourceUrl;
-		}
-
-		if (isAbsolute(sourceUrl)) {
-			return join(config.get('srcDir'), sourceUrl);
-		}
-
-		return join(
-			config.get('srcDir'),
-			relative(
-				join(config.get('distDir'), config.get('publicPath')),
-				join(dirname(this.page.outputPath), sourceUrl),
-			),
-		);
-	};
 
 	await Promise.all([
 		...[...document.images]
 			.filter((item) => isValidSourceUrl(item.src))
 			.map(async (item) => {
-				const metadata = await getMetadata(normalizeSourceUrl(item.src));
+				const metadata = await getMetadata(
+					normalizeSourceUrl(item.src, this.page.outputPath),
+				);
 
 				setDimensions(item, metadata.width, metadata.height);
 			}),
@@ -93,7 +96,10 @@ const setImageDimensions = async function (content) {
 			.filter((item) => isValidSourceUrl(parseSrcset(item.srcset)[0].url))
 			.map(async (item) => {
 				const metadata = await getMetadata(
-					normalizeSourceUrl(parseSrcset(item.srcset)[0].url),
+					normalizeSourceUrl(
+						parseSrcset(item.srcset)[0].url,
+						this.page.outputPath,
+					),
 				);
 
 				setDimensions(item, metadata.width, metadata.height);
