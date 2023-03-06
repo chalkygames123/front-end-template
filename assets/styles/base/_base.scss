@@ -12,6 +12,7 @@ html {
 	font-size: 62.5%;
 	font-family: 'Noto Sans JP', sans-serif;
 	line-break: normal;
+	overflow-wrap: anywhere;
 
 	@include a.mq(md) {
 		min-width: 1280px;
