@@ -56,7 +56,7 @@
 		"gulp": "4.0.2",
 		"gulp-changed": "4.0.3",
 		"gulp-dependents": "1.2.5",
-		"gulp-imagemin": "7.1.0",
+		"gulp-imagemin": "8.0.0",
 		"gulp-sourcemaps": "3.0.0",
 		"html-minifier": "4.0.0",
 		"html-validate": "7.13.2",
