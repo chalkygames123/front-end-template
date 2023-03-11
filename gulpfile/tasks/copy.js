@@ -1,15 +1,15 @@
-'use strict';
+import { join, posix } from 'node:path';
 
-const { join, posix } = require('node:path');
+import gulp from 'gulp';
+import gulpChanged from 'gulp-changed';
 
-const { dest, lastRun, src, watch } = require('gulp');
-const gulpChanged = require('gulp-changed');
+import config from '../../config.cjs';
 
-const config = require('../../config.cjs');
+const { dest, lastRun, src, watch } = gulp;
 
 const sourcePaths = posix.join(config.get('srcDir'), 'public/**');
 
-const copy = () => {
+export const copy = () => {
 	if (config.get('watch') && !lastRun(copy)) {
 		watch(sourcePaths, copy);
 	}
@@ -21,5 +21,3 @@ const copy = () => {
 		.pipe(gulpChanged(join(config.get('distDir'), config.get('publicPath'))))
 		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))));
 };
-
-module.exports = copy;

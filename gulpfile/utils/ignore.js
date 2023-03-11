@@ -1,13 +1,11 @@
-'use strict';
+import { readFileSync } from 'node:fs';
+import { Transform } from 'node:stream';
 
-const { readFileSync } = require('node:fs');
-const { Transform } = require('node:stream');
-
-const nodeIgnore = require('ignore');
+import nodeIgnore from 'ignore';
 
 const ig = nodeIgnore().add(readFileSync('.gitignore', 'utf8'));
 
-const ignore = () =>
+export const ignore = () =>
 	new Transform({
 		objectMode: true,
 		transform(file, encoding, callback) {
@@ -18,5 +16,3 @@ const ignore = () =>
 			}
 		},
 	});
-
-module.exports = ignore;

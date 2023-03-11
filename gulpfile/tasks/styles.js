@@ -1,21 +1,24 @@
-'use strict';
+import { join, posix } from 'node:path';
+import { Transform } from 'node:stream';
 
-const { join, posix } = require('node:path');
-const { Transform } = require('node:stream');
+import { sass } from '@mr-hope/gulp-sass';
+import CleanCSS from 'clean-css';
+import { minify } from 'csso';
+import gulp from 'gulp';
+import gulpDependents from 'gulp-dependents';
+import gulpSourcemaps from 'gulp-sourcemaps';
+import postcss from 'postcss';
+// eslint-disable-next-line import/default
+import postcssLoadConfig from 'postcss-load-config';
+import stylelint from 'stylelint';
+import applySourceMap from 'vinyl-sourcemaps-apply';
 
-const CleanCSS = require('clean-css');
-const { minify } = require('csso');
-const { dest, lastRun, src, watch } = require('gulp');
-const gulpDependents = require('gulp-dependents');
-const { sass } = require('@mr-hope/gulp-sass');
-const { init, write } = require('gulp-sourcemaps');
-const postcss = require('postcss');
-const postcssLoadConfig = require('postcss-load-config');
-const { lint } = require('stylelint');
-const applySourceMap = require('vinyl-sourcemaps-apply');
+import config from '../../config.cjs';
+import { ignore, pipeIf } from '../utils/index.js';
 
-const config = require('../../config.cjs');
-const { ignore, pipeIf } = require('../utils/index.cjs');
+const { dest, lastRun, src, watch } = gulp;
+const { init, write } = gulpSourcemaps;
+const { lint } = stylelint;
 
 const sourcePaths = posix.join(config.get('srcDir'), 'assets/styles/**/*.scss');
 const isDevelopment = config.get('mode') !== 'production';
@@ -23,7 +26,7 @@ const cleanCss = new CleanCSS({
 	level: 2,
 });
 
-const styles = () => {
+export const styles = () => {
 	if (config.get('watch') && !lastRun(styles)) {
 		watch(sourcePaths, styles);
 	}
@@ -136,5 +139,3 @@ const styles = () => {
 		)
 		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))));
 };
-
-module.exports = styles;

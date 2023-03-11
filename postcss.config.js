@@ -1,10 +1,8 @@
-'use strict';
+import { isAbsolute, join } from 'node:path';
 
-const { isAbsolute, join } = require('node:path');
+import config from './config.cjs';
 
-const config = require('./config.cjs');
-
-module.exports = {
+export default {
 	plugins: {
 		autoprefixer: {},
 		'postcss-url': {

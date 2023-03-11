@@ -1,13 +1,13 @@
-'use strict';
+import EleventyDevServer from '@11ty/eleventy-dev-server';
 
-const { getServer } = require('@11ty/eleventy-dev-server');
+import config from '../../config.cjs';
 
-const config = require('../../config.cjs');
+const { getServer } = EleventyDevServer;
 
 const cert = process.env.SSL_CERTIFICATE;
 const key = process.env.SSL_CERTIFICATE_KEY;
 
-const serve = (callback) => {
+export const serve = (callback) => {
 	const server = getServer('server', config.get('distDir'), {
 		https:
 			cert && key
@@ -23,5 +23,3 @@ const serve = (callback) => {
 
 	callback();
 };
-
-module.exports = serve;

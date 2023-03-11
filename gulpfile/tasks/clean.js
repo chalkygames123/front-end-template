@@ -1,11 +1,9 @@
-'use strict';
+import { rm } from 'node:fs/promises';
+import { dirname, resolve } from 'node:path';
 
-const { rm } = require('node:fs/promises');
-const { dirname, resolve } = require('node:path');
+import config from '../../config.cjs';
 
-const config = require('../../config.cjs');
-
-const clean = (callback) => {
+export const clean = (callback) => {
 	if (
 		dirname(process.cwd()).startsWith(dirname(resolve(config.get('distDir'))))
 	) {
@@ -19,5 +17,3 @@ const clean = (callback) => {
 		recursive: true,
 	});
 };
-
-module.exports = clean;

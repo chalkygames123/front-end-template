@@ -1,8 +1,6 @@
-'use strict';
+import { Transform } from 'node:stream';
 
-const { Transform } = require('node:stream');
-
-const pipeIf = (condition, stream) => {
+export const pipeIf = (condition, stream) => {
 	if (condition) {
 		return stream;
 	}
@@ -14,5 +12,3 @@ const pipeIf = (condition, stream) => {
 		},
 	});
 };
-
-module.exports = pipeIf;

@@ -1,11 +1,9 @@
-'use strict';
+import webpack from 'webpack';
 
-const webpack = require('webpack');
+import config from '../../config.cjs';
+import webpackConfig from '../../webpack.config.js';
 
-const config = require('../../config.cjs');
-const webpackConfig = require('../../webpack.config.cjs');
-
-const scripts = (callback) => {
+export const scripts = (callback) => {
 	const compiler = webpack(webpackConfig);
 
 	const handler = (error, stats) => {
@@ -24,5 +22,3 @@ const scripts = (callback) => {
 		compiler.run(handler);
 	}
 };
-
-module.exports = scripts;

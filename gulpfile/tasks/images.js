@@ -1,14 +1,14 @@
-'use strict';
+import { join, posix } from 'node:path';
 
-const { join, posix } = require('node:path');
+import gulp from 'gulp';
+import gulpChanged from 'gulp-changed';
+import gulpImagemin from 'gulp-imagemin';
+import imageminPngquant from 'imagemin-pngquant';
 
-const { dest, lastRun, src, watch } = require('gulp');
-const gulpChanged = require('gulp-changed');
-const gulpImagemin = require('gulp-imagemin');
-const imageminPngquant = require('imagemin-pngquant');
+import config from '../../config.cjs';
+import { ignore, pipeIf } from '../utils/index.js';
 
-const config = require('../../config.cjs');
-const { ignore, pipeIf } = require('../utils/index.cjs');
+const { dest, lastRun, src, watch } = gulp;
 
 const sourcePaths = posix.join(
 	config.get('srcDir'),
@@ -16,7 +16,7 @@ const sourcePaths = posix.join(
 );
 const isDevelopment = config.get('mode') !== 'production';
 
-const images = () => {
+export const images = () => {
 	if (config.get('watch') && !lastRun(images)) {
 		watch(sourcePaths, images);
 	}
@@ -50,5 +50,3 @@ const images = () => {
 		)
 		.pipe(dest(join(config.get('distDir'), config.get('publicPath'))));
 };
-
-module.exports = images;

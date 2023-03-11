@@ -1,8 +1,8 @@
-'use strict';
+import { readFile } from 'node:fs/promises';
 
-const packageConfig = require('./package.json');
+const packageConfig = JSON.parse(await readFile('package.json'));
 
-module.exports = {
+export default {
 	presets: [
 		[
 			'@babel/preset-env',
