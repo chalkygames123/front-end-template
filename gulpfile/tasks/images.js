@@ -2,7 +2,7 @@ import { join, posix } from 'node:path';
 
 import gulp from 'gulp';
 import gulpChanged from 'gulp-changed';
-import gulpImagemin from 'gulp-imagemin';
+import gulpImagemin, { gifsicle, mozjpeg, svgo } from 'gulp-imagemin';
 import imageminPngquant from 'imagemin-pngquant';
 
 import config from '../../config.cjs';
@@ -31,13 +31,13 @@ export const images = () => {
 				!isDevelopment,
 				gulpImagemin([
 					imageminPngquant(),
-					gulpImagemin.mozjpeg({
+					mozjpeg({
 						quality: 85,
 					}),
-					gulpImagemin.gifsicle({
+					gifsicle({
 						optimizationLevel: 3,
 					}),
-					gulpImagemin.svgo({
+					svgo({
 						plugins: [
 							{ cleanupIDs: false },
 							{ removeUnknownsAndDefaults: false },
