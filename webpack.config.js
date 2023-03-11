@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { dirname, extname, join, posix, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { config as dotenvConfig } from 'dotenv';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import { fdir as Fdir } from 'fdir';
 import ignore from 'ignore';
@@ -16,6 +17,10 @@ const crawler = new Fdir()
 	.withBasePath()
 	.filter((filePath) => !ig.ignores(filePath) && extname(filePath) === '.js')
 	.crawl(posix.join(config.get('srcDir'), 'assets/scripts'));
+const cert = process.env.SSL_CERTIFICATE;
+const key = process.env.SSL_CERTIFICATE_KEY;
+
+dotenvConfig();
 
 /**
  * @type { import('webpack').Configuration }
@@ -44,6 +49,9 @@ export default {
 			config.get('publicPath'),
 			'assets/scripts',
 		),
+		publicPath: isDevelopment
+			? join(config.get('publicPath'), 'assets/scripts/')
+			: undefined,
 	},
 	module: {
 		rules: [
@@ -71,6 +79,27 @@ export default {
 	},
 	devtool: isDevelopment ? 'eval-source-map' : false,
 	context: __dirname,
+	devServer: {
+		https:
+			cert && key
+				? {
+						cert,
+						key,
+				  }
+				: false,
+		static: [
+			{
+				directory: join(__dirname, config.get('distDir')),
+			},
+			{
+				directory: join(__dirname, config.get('srcDir'), 'public'),
+			},
+			{
+				directory: join(__dirname, config.get('srcDir'), 'assets/images'),
+				publicPath: '/assets/images/',
+			},
+		],
+	},
 	plugins: [
 		new ESLintPlugin({
 			files: [

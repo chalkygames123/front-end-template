@@ -81,7 +81,8 @@
 		"vinyl-sourcemaps-apply": "0.2.1",
 		"webpack": "5.75.0",
 		"webpack-bundle-analyzer": "4.8.0",
-		"webpack-cli": "5.0.1"
+		"webpack-cli": "5.0.1",
+		"webpack-dev-server": "4.11.1"
 	},
 	"browserslist": "defaults",
 	"sideEffects": false,
