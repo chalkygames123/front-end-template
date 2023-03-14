@@ -9,13 +9,13 @@ const {
 } = require('html-validate');
 
 const loader = new FileSystemConfigLoader();
-const htmlvalidate = new HtmlValidate(loader);
+const validator = new HtmlValidate(loader);
 const formatter = formatterFactory('stylish');
 
 const lintHtml = function (content) {
 	if (!['.html', '.php'].includes(extname(this.page.outputPath))) return;
 
-	const report = htmlvalidate.validateString(content, this.page.outputPath);
+	const report = validator.validateString(content, this.page.outputPath);
 
 	if (report.valid) return;
 
