@@ -38,11 +38,21 @@ export const images = () => {
 						optimizationLevel: 3,
 					}),
 					svgo({
+						multipass: true,
 						plugins: [
-							{ cleanupIDs: false },
-							{ removeUnknownsAndDefaults: false },
-							{ removeUselessDefs: false },
-							{ removeViewBox: false },
+							{
+								name: 'preset-default',
+								params: {
+									overrides: {
+										removeUnknownsAndDefaults: {
+											keepDataAttrs: false,
+										},
+										removeViewBox: false,
+									},
+								},
+							},
+							'convertStyleToAttrs',
+							'reusePaths',
 						],
 					}),
 				]),
