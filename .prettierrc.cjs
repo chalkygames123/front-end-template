@@ -7,6 +7,7 @@ module.exports = {
 	singleQuote: true,
 	trailingComma: 'all',
 	useTabs: true,
+	keepOverrides: false,
 	overrides: [
 		{
 			files: '*.html',
