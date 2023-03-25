@@ -10,10 +10,12 @@ const isDevelopment = config.get('mode') !== 'production';
 
 const formatHtml = async function (content) {
 	if (
+		!this.page.outputPath ||
 		!['.html', '.php'].includes(extname(this.page.outputPath)) ||
 		isDevelopment
-	)
+	) {
 		return content;
+	}
 
 	const options = await resolveConfig(this.page.outputPath, {
 		editorconfig: true,

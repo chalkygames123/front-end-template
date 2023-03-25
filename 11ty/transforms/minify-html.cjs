@@ -10,10 +10,12 @@ const isDevelopment = config.get('mode') !== 'production';
 
 const minifyHtml = function (content) {
 	if (
+		!this.page.outputPath ||
 		!['.html', '.php'].includes(extname(this.page.outputPath)) ||
 		isDevelopment
-	)
+	) {
 		return content;
+	}
 
 	const result = minify(content, {
 		collapseBooleanAttributes: true,

@@ -74,8 +74,12 @@ const setDimensions = (element, width, height) => {
 };
 
 const setImageDimensions = async function (content) {
-	if (!['.html', '.php'].includes(extname(this.page.outputPath)))
+	if (
+		!this.page.outputPath ||
+		!['.html', '.php'].includes(extname(this.page.outputPath))
+	) {
 		return content;
+	}
 
 	const dom = new JSDOM(content);
 	const {

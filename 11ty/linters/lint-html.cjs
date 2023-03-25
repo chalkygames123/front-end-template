@@ -13,7 +13,12 @@ const validator = new HtmlValidate(loader);
 const formatter = formatterFactory('stylish');
 
 const lintHtml = function (content) {
-	if (!['.html', '.php'].includes(extname(this.page.outputPath))) return;
+	if (
+		!this.page.outputPath ||
+		!['.html', '.php'].includes(extname(this.page.outputPath))
+	) {
+		return;
+	}
 
 	const report = validator.validateString(content, this.page.outputPath);
 
