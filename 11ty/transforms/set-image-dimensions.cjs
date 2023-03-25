@@ -27,7 +27,7 @@ const isUrl = (string) => {
 	}
 };
 
-const normalizeSourceUrl = (sourceUrl, outputPath) => {
+const rebaseSourceUrl = (sourceUrl, outputPath) => {
 	if (isUrl(sourceUrl)) {
 		return sourceUrl;
 	}
@@ -87,7 +87,7 @@ const setImageDimensions = async function (content) {
 			.filter((item) => isValidSourceUrl(item.src))
 			.map(async (item) => {
 				const metadata = await getMetadata(
-					normalizeSourceUrl(item.src, this.page.outputPath),
+					rebaseSourceUrl(item.src, this.page.outputPath),
 				);
 
 				setDimensions(item, metadata.width, metadata.height);
@@ -96,7 +96,7 @@ const setImageDimensions = async function (content) {
 			.filter((item) => isValidSourceUrl(parseSrcset(item.srcset)[0].url))
 			.map(async (item) => {
 				const metadata = await getMetadata(
-					normalizeSourceUrl(
+					rebaseSourceUrl(
 						parseSrcset(item.srcset)[0].url,
 						this.page.outputPath,
 					),
