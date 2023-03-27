@@ -88,25 +88,25 @@ const setImageDimensions = async function (content) {
 
 	await Promise.all([
 		...[...document.images]
-			.filter((item) => isValidSourceUrl(item.src))
-			.map(async (item) => {
+			.filter((element) => isValidSourceUrl(element.src))
+			.map(async (element) => {
 				const metadata = await getMetadata(
-					rebaseSourceUrl(item.src, this.page.outputPath),
+					rebaseSourceUrl(element.src, this.page.outputPath),
 				);
 
-				setDimensions(item, metadata.width, metadata.height);
+				setDimensions(element, metadata.width, metadata.height);
 			}),
 		...[...document.querySelectorAll('picture > source')]
-			.filter((item) => isValidSourceUrl(parseSrcset(item.srcset)[0].url))
-			.map(async (item) => {
+			.filter((element) => isValidSourceUrl(parseSrcset(element.srcset)[0].url))
+			.map(async (element) => {
 				const metadata = await getMetadata(
 					rebaseSourceUrl(
-						parseSrcset(item.srcset)[0].url,
+						parseSrcset(element.srcset)[0].url,
 						this.page.outputPath,
 					),
 				);
 
-				setDimensions(item, metadata.width, metadata.height);
+				setDimensions(element, metadata.width, metadata.height);
 			}),
 	]);
 
