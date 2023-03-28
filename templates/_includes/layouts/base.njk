@@ -17,7 +17,7 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="generator" content="{{ eleventy.generator }}">
 
-		{% include 'gtm-head.njk' %}
+		{% include 'pages/common/gtm-head.njk' %}
 
 		{% block styles %}
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@
 	</head>
 
 	<body>
-		{% include 'gtm-body.njk' %}
+		{% include 'pages/common/gtm-body.njk' %}
 
 		<div class="c-page">
 			{% include 'components/header.njk' %}
