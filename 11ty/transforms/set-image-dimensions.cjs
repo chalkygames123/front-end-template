@@ -9,6 +9,13 @@ const { parse: parseSrcset } = require('srcset');
 
 const config = require('../../config.cjs');
 
+const templateQuerySelectorAll = (selector, document) => [
+	...document.querySelectorAll(selector),
+	...[...document.querySelectorAll('template')].flatMap((element) => [
+		...element.content.querySelectorAll(selector),
+	]),
+];
+
 const isValidSourceUrl = (sourceUrl) => {
 	if (!sourceUrl) return false;
 
@@ -87,7 +94,7 @@ const setImageDimensions = async function (content) {
 	} = dom;
 
 	await Promise.all([
-		...[...document.images]
+		...templateQuerySelectorAll('img', document)
 			.filter((element) => isValidSourceUrl(element.src))
 			.map(async (element) => {
 				const metadata = await getMetadata(
@@ -96,7 +103,7 @@ const setImageDimensions = async function (content) {
 
 				setDimensions(element, metadata.width, metadata.height);
 			}),
-		...[...document.querySelectorAll('picture > source')]
+		...templateQuerySelectorAll('picture > source', document)
 			.filter((element) => isValidSourceUrl(parseSrcset(element.srcset)[0].url))
 			.map(async (element) => {
 				const metadata = await getMetadata(
