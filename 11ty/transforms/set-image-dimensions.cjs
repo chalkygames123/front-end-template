@@ -27,24 +27,6 @@ const isUrl = (string) => {
 	}
 };
 
-const rebaseSourceUrl = (sourceUrl, outputPath) => {
-	if (isUrl(sourceUrl)) {
-		return sourceUrl;
-	}
-
-	if (isAbsolute(sourceUrl)) {
-		return join(config.get('srcDir'), sourceUrl);
-	}
-
-	return join(
-		config.get('srcDir'),
-		relative(
-			join(config.get('distDir'), config.get('publicPath')),
-			join(dirname(outputPath), sourceUrl),
-		),
-	);
-};
-
 const getMetadata = async (sourceUrl) => {
 	if (isUrl(sourceUrl)) {
 		const response = await fetch(sourceUrl);
@@ -61,6 +43,24 @@ const getMetadata = async (sourceUrl) => {
 	}
 
 	return sharp(sourceUrl).metadata();
+};
+
+const rebaseSourceUrl = (sourceUrl, outputPath) => {
+	if (isUrl(sourceUrl)) {
+		return sourceUrl;
+	}
+
+	if (isAbsolute(sourceUrl)) {
+		return join(config.get('srcDir'), sourceUrl);
+	}
+
+	return join(
+		config.get('srcDir'),
+		relative(
+			join(config.get('distDir'), config.get('publicPath')),
+			join(dirname(outputPath), sourceUrl),
+		),
+	);
 };
 
 const setDimensions = (element, width, height) => {
