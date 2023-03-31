@@ -14,7 +14,11 @@ const isDevelopment = config.get('mode') !== 'production';
 const ig = ignore().add(readFileSync('.gitignore', 'utf8'));
 const crawler = new Fdir()
 	.withBasePath()
-	.filter((filePath) => !ig.ignores(filePath) && extname(filePath) === '.js')
+	.filter(
+		(filePath) =>
+			!ig.ignores(filePath) &&
+			['.js', '.mjs', '.cjs'].includes(extname(filePath)),
+	)
 	.crawl(posix.join(config.get('srcDir'), 'assets/scripts'));
 
 /**
@@ -48,7 +52,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
+				test: /\.(?:js|mjs|cjs)$/,
 				include: [
 					join(__dirname, config.get('srcDir'), 'assets/scripts'),
 					join(__dirname, config.get('srcDir'), 'modules'),
