@@ -16,6 +16,9 @@ const templateQuerySelectorAll = (selector, document) => [
 	]),
 ];
 
+const hasDimensions = (element) =>
+	element.hasAttribute('width') || element.hasAttribute('height');
+
 const isValidSourceUrl = (sourceUrl) => {
 	if (!sourceUrl) return false;
 
@@ -71,13 +74,8 @@ const rebaseSourceUrl = (sourceUrl, outputPath) => {
 };
 
 const setDimensions = (element, width, height) => {
-	if (!element.hasAttribute('width')) {
-		element.setAttribute('width', width);
-	}
-
-	if (!element.hasAttribute('height')) {
-		element.setAttribute('height', height);
-	}
+	element.setAttribute('width', width);
+	element.setAttribute('height', height);
 };
 
 const setImageDimensions = async function (content) {
@@ -95,7 +93,9 @@ const setImageDimensions = async function (content) {
 
 	await Promise.all([
 		...templateQuerySelectorAll('img', document)
-			.filter((element) => isValidSourceUrl(element.src))
+			.filter(
+				(element) => !hasDimensions(element) || isValidSourceUrl(element.src),
+			)
 			.map(async (element) => {
 				const metadata = await getMetadata(
 					rebaseSourceUrl(element.src, this.page.outputPath),
@@ -104,7 +104,11 @@ const setImageDimensions = async function (content) {
 				setDimensions(element, metadata.width, metadata.height);
 			}),
 		...templateQuerySelectorAll('picture > source', document)
-			.filter((element) => isValidSourceUrl(parseSrcset(element.srcset)[0].url))
+			.filter(
+				(element) =>
+					!hasDimensions(element) ||
+					isValidSourceUrl(parseSrcset(element.srcset)[0].url),
+			)
 			.map(async (element) => {
 				const metadata = await getMetadata(
 					rebaseSourceUrl(
