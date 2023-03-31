@@ -1,15 +1,15 @@
-import { readFileSync } from 'node:fs';
-import { dirname, extname, join, posix, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+'use strict';
 
-import ESLintPlugin from 'eslint-webpack-plugin';
-import { fdir as Fdir } from 'fdir';
-import ignore from 'ignore';
-import webpack from 'webpack';
+const { readFileSync } = require('node:fs');
+const { extname, join, posix, relative } = require('node:path');
 
-import config from './config.cjs';
+const ESLintPlugin = require('eslint-webpack-plugin');
+const { fdir: Fdir } = require('fdir');
+const ignore = require('ignore');
+const webpack = require('webpack');
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const config = require('./config.cjs');
+
 const isDevelopment = config.get('mode') !== 'production';
 const ig = ignore().add(readFileSync('.gitignore', 'utf8'));
 const crawler = new Fdir()
@@ -20,7 +20,7 @@ const crawler = new Fdir()
 /**
  * @type { import('webpack').Configuration }
  */
-export default {
+module.exports = {
 	mode: config.get('mode'),
 	async entry() {
 		const filePaths = await crawler.withPromise();
