@@ -66,18 +66,6 @@ Serve with live/hot reload at `localhost:8080`:
 npm run dev
 ```
 
-Run all linters:
-
-```shell
-npm run lint
-```
-
-Run all linters with autofix:
-
-```shell
-npm run fix
-```
-
 Run all format checking:
 
 ```shell
@@ -88,6 +76,18 @@ Run all formatters:
 
 ```shell
 npm run format
+```
+
+Run all linters:
+
+```shell
+npm run lint
+```
+
+Run all linters with autofix:
+
+```shell
+npm run fix
 ```
 
 Build for production:
