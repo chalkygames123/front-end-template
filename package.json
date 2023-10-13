@@ -2,7 +2,7 @@
 	"private": true,
 	"type": "module",
 	"engines": {
-		"node": "19.7.0"
+		"node": "20.8.1"
 	},
 	"scripts": {
 		"build": "gulp build",
@@ -86,6 +86,6 @@
 	"browserslist": "defaults",
 	"sideEffects": false,
 	"volta": {
-		"node": "19.7.0"
+		"node": "20.8.1"
 	}
 }
