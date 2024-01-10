@@ -60,7 +60,7 @@
 		"gulp-imagemin": "8.0.0",
 		"gulp-sourcemaps": "3.0.0",
 		"html-minifier": "4.0.0",
-		"html-validate": "7.13.2",
+		"html-validate": "8.9.1",
 		"husky": "8.0.3",
 		"ignore": "5.2.4",
 		"imagemin-pngquant": "9.0.2",
