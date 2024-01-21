@@ -30,7 +30,7 @@
 		"templates": "gulp templates"
 	},
 	"dependencies": {
-		"core-js": "3.29.0",
+		"core-js": "3.35.1",
 		"sanitize.css": "13.0.0"
 	},
 	"devDependencies": {
